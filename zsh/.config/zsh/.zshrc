@@ -135,6 +135,7 @@ alias tmux="tmux -f ~/.config/tmux/tmux.conf"
 alias weechat="weechat -d $XDG_CONFIG_HOME/weechat"
 alias watch="watch -c"
 alias pacman="pacaur"
+alias gs="git status"
 
 zmodload zsh/terminfo
 
