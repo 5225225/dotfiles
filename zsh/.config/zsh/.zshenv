@@ -1,0 +1,11 @@
+export PATH=$PATH:~/scripts
+[[ -z $XDG_CONFIG_HOME ]] && export XDG_CONFIG_HOME="$HOME/.config"
+[[ -z $XDG_CACHE_HOME ]] && export XDG_CACHE_HOME="$HOME/.cache"
+export PENTADACTYL_RUNTIME="$XDG_CONFIG_HOME/pentadactyl"
+export PENTADACTYL_INIT=":source $PENTADACTYL_RUNTIME/pentadactylrc"
+export MPLAYER_HOME=$XDG_CONFIG_HOME/mplayer
+export GIMP2_DIRECTORY="$HOME/.config/gimp"
+export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc"
+export XAUTHORITY="$HOME/.config/X/xauthority"
+export LANG=en_GB.utf8
+export GNUPGHOME="~/.config/gpg"
