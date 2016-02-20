@@ -1,0 +1,81 @@
+source ~/.config/mutt/private.rc
+
+set markers = no
+set sort = 'threads'
+set sort_aux = 'last-date-received'
+bind editor <space> noop
+
+set mbox_type = Maildir
+
+set folder = ~/mail
+set spoolfile = "+INBOX"
+set mbox = "+[Gmail].All Mail"
+set postponed = "+[Gmail].Drafts"
+unset record
+set delete
+unset confirmappend
+set quit=ask-no
+
+set pipe_decode
+
+set thorough_search
+
+set sort = threads
+set sort_aux = reverse-last-date-received
+set sort_re
+
+mailboxes +INBOX
+
+source ~/.config/mutt/gpg.rc
+
+set pgp_use_gpg_agent = yes
+set pgp_timeout = 3600
+set crypt_autosign = yes
+set crypt_replyencrypt = yes
+set crypt_autoencrypt = yes
+set crypt_verify_sig=yes
+
+color hdrdefault blue default
+color indicator blue default
+color normal white default
+color status cyan default
+color attachment brightred default
+
+color quoted cyan default
+color quoted1 yellow default
+color quoted2 red default
+color quoted3 green default
+color quoted4 cyan default
+color quoted5 yellow default
+color quoted6 red default
+color quoted7 green default
+
+set timeout=5
+
+bind editor <Tab> complete-query
+
+set editor="vim +"
+
+set alias_file=~/.config/mutt/aliases
+
+source $alias_file
+
+set edit_headers = yes
+
+set pager_stop
+set menu_scroll
+set smart_wrap
+bind pager k previous-line
+bind pager j next-line
+
+set pager_index_lines=10
+set pager_context
+
+set tilde
+unset markers
+
+set fcc_attach
+unset mime_forward
+set forward_format = "Fwd: %s"
+set include
+set forward_quote
