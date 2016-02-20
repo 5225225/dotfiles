@@ -1,0 +1,18 @@
+loadplugins '\.(js|penta)$'
+group! -locations=reddit.com reddit
+group! -locations=voat.co voat
+group user
+map -count -group=reddit -modes=n,v r -builtin <count>owww.reddit.com/r/
+map -count -group=reddit -modes=n,v u -builtin <count>owww.reddit.com/user/
+
+map -count -group=voat -modes=n,v r -builtin <count>ohttps://voat.co/v/
+map -count -group=voat -modes=n,v u -builtin <count>ohttps://voat.co/user/
+
+set complete=bookmark,location,search
+set defsearch=duckduckgo
+set editor='urxvt -e vim'
+set guioptions=Cs
+set maxitems=30
+set showtabline=never
+
+colorscheme zenburn
