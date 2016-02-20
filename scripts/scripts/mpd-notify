@@ -1,0 +1,15 @@
+#!/bin/sh
+
+form="\n[<b>Artist:</b>\t<span color='##a1b56c'>%artist%</span>\n\n][<b>Album:</b>\t<span color='##6a9fb5'>%album%</span>\n\n][<b>Title:</b>\t<span color='##ac4142'>%title%</span>]"
+
+while true
+do
+    mpc idle player
+    toprint="`mpc current -f \"$form\" | sed \"s:&:&amp;:g\"`"
+    
+    echo $toprint
+    artpath=~/media/music/$(dirname "$(mpc status -f '%file%' | head -n1)")/cover.*
+    rm /tmp/cover.png
+    convert -resize 128x128 "$artpath" /tmp/cover.png
+    dunstify -a MPD -r 1337 -i "/tmp/cover.png" "                          MPD" "$toprint"
+done

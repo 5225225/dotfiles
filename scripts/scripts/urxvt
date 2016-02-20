@@ -1,0 +1,10 @@
+#!/bin/bash
+
+x=$(xdotool getwindowfocus | xargs -I@ xprop -id @ -f WM_NAME "8s" ":\$0" | grep "WM_NAME(STRING)" | cut -d : -f 2 | sed s:\"::g)
+if [ -d "$x" ]
+    then
+        cd "$x"
+        urxvt
+    else
+        urxvt
+fi

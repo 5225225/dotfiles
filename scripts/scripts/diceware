@@ -1,0 +1,1 @@
+shuf -n $1 --random-source /dev/random ~/scripts/data/diceware8k.txt | tr \\n " " ; echo ""

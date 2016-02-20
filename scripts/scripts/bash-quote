@@ -1,0 +1,37 @@
+#!/bin/python
+
+import random
+import urllib.request
+
+from bs4 import BeautifulSoup
+
+def get_quote_text(quoteid):
+    post = urllib.request.urlopen("http://bash.org/?{}".format(int(quoteid))).read()
+    
+    soup = BeautifulSoup(post, "html.parser")
+
+    text = soup.find(class_="qt").text
+
+    return text
+
+def get_random_quoteid():
+    posts = urllib.request.urlopen("http://bash.org/?random")
+
+    soup = BeautifulSoup(posts, "html.parser")
+
+    itemids = soup.find_all("a")
+
+    validids = []
+    for item in itemids:
+        x = item.get("href").strip("?")
+        try:
+            validids.append(int(x))
+        except:
+            pass
+
+    return random.choice(validids)
+
+
+postid = get_random_quoteid()
+
+print(get_quote_text(postid))

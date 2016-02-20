@@ -1,0 +1,63 @@
+#!/bin/bash
+
+# Modified from https://github.com/ifschleife/dmenu-mpd/blob/master/dmenu-mpd
+
+if [ -f $HOME/.dmenurc ]; then
+    . $HOME/.dmenurc
+else
+    DMENU='dmenu -f -i -l 15 -fn ohsnap:size=15 -nb #151515 -nf #f5f5f5 -sb #6a9fb5 -w 750'
+fi
+
+PLAYING=false
+while ! $PLAYING; do
+    ARTIST="==Playlists==\n==Clear==\n==Play==\n$(mpc list albumartist | sort -f)";
+    ARTIST=$(echo -e "$ARTIST" | $DMENU -p select:);
+    if [ "$ARTIST" = "" ]; then break; fi
+    while true; do
+        if [ "$ARTIST" = "==Playlists==" ]; then
+            PROMPT="playlists:";
+            ALBUMS=$(mpc lsplaylists | sort -f);
+        else
+            if [ "$ARTIST" = "==Clear==" ]; then
+                mpc clear
+                break;
+            else
+                if [ "$ARTIST" = "==Play==" ]; then
+                    if [ $(mpc playlist | wc -l) = "0" ]; then
+                        notify-send "MPD" "There doesn't seem to be anything here."
+                        break
+                    else
+                        TOPLAY="$(mpc playlist | cat -n | sed "s:^ *::g" | $DMENU)"
+                        mpc play $(echo $TOPLAY | cut -d " " -f 1)
+                        break
+                    fi
+                else
+                PROMPT="albums:";
+                ALBUMS=$(mpc list album albumartist "$ARTIST" | sort -f);
+                ALBUMS="=ALL=\n$ALBUMS"
+                fi
+            fi
+        fi
+
+        ALBUM=$(echo -e "$ALBUMS" | $DMENU -p "$PROMPT");
+
+        if [ "$ALBUM" = "" ]; then break; fi
+
+        if [ "$ARTIST" = "==Playlists==" ]; then
+            mpc clear
+            mpc load "$ALBUM"
+            mpc shuffle
+            mpc random on
+        else
+            if [ "$ALBUM" = "=ALL=" ]; then
+                mpc find albumartist "$ARTIST" | mpc add
+            else
+                mpc find albumartist "$ARTIST" album "$ALBUM" | mpc add
+            fi
+            mpc random off
+        fi
+        CUR_SONG=$(mpc current)
+        if [ -z "$CUR_SONG" ]; then mpc play; fi
+        break;
+    done
+done
