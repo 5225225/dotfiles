@@ -113,6 +113,13 @@ shot() {
     teknik /tmp/screenshot.png
 }
 
+adb() {
+    OLDHOME="$HOME"
+    HOME="$OLDHOME/.config/android"
+    /bin/adb $*
+    HOME="$OLDHOME"
+}
+
 alias scratch='mkdir -p ~/downloads/scratch; cd $(mktemp -d -p ~/downloads/scratch)'
 alias 0="false"
 alias 1="true"
