@@ -12,8 +12,6 @@ setopt INTERACTIVE_COMMENTS
 
 unsetopt autocd beep extendedglob
 
-bindkey -v
-
 autoload -U colors
 colors
 
