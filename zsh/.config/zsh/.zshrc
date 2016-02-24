@@ -15,6 +15,11 @@ unsetopt autocd beep extendedglob
 autoload -U colors
 colors
 
+bindkey -v
+
+bindkey "^R" history-incremental-search-backward
+bindkey "^S" history-incremental-search-forward
+
 # The following lines were added by compinstall
 
 zstyle ':completion:*' auto-description 'specify: %d'
