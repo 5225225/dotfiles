@@ -11,6 +11,7 @@ set autoindent
 set smarttab
 
 set number
+set relativenumber
 
 colorscheme base16-default
 set background=dark
