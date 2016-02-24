@@ -1,0 +1,82 @@
+#!/bin/python
+
+BASE_URL = "http://stats.xonotic.org/player/{}.json"
+
+def fuzzy_playtime(seconds):
+    seconds = int(seconds)
+
+    days = 0
+    hours = 0
+    minutes = 0
+
+    while seconds >= 60:
+        seconds -= 60
+        minutes += 1
+
+    while minutes >= 60:
+        minutes -= 60
+        hours += 1
+
+    while hours >= 24:
+        hours -= 24
+        days += 1
+
+    return "{} days, {:02d}:{:02d}:{:02d}".format(days, hours, minutes, seconds)
+
+FORMATSTR = """
+{name}
+
+{bold}Last Played:{reset} {lastplayed}
+{bold}Games Played:{reset} {gamesplayed}
+{bold}Playing Time:{reset} {playtime}
+{bold}Favorite Map:{reset} {fave_map}
+
+{bold}Win Percentage:{reset} {winpct:.2f}% ({wins} wins, {losses} losses)
+{bold}Kill Ratio:{reset} {kdratio:.2f} ({kills} kills, {deaths} deaths)
+{bold}Best Elo:{reset} {best_elo:.2f} ({best_elo_type}, {best_elo_games} games)
+{bold}Best Rank:{reset} {best_rank} of {best_rank_max} ({best_rank_type}, percentile {best_rank_pct:.2f})
+""".strip()
+
+import sys
+import json
+import urllib.request
+
+
+data = urllib.request.urlopen(BASE_URL.format(sys.argv[1])).read().decode("UTF-8")
+blob = json.loads(data)[0]
+var = {}
+
+var["name"] = blob["player"]["nick"]
+
+var["lastplayed"] = blob["overall_stats"]["overall"]["last_played_fuzzy"]
+var["gamesplayed"] = blob["games_played"]["overall"]["games"]
+var["playtime"] = fuzzy_playtime(blob["overall_stats"]["overall"]["total_playing_time"])
+
+var["wins"] = blob["games_played"]["overall"]["wins"]
+var["losses"] = blob["games_played"]["overall"]["losses"]
+
+var["fave_map"] = blob["fav_maps"]["overall"]["map_name"]
+
+var["winpct"] = blob["games_played"]["overall"]["win_pct"]
+var["wins"] = blob["games_played"]["overall"]["wins"]
+var["losses"] = blob["games_played"]["overall"]["losses"]
+
+var["kills"] = blob["overall_stats"]["overall"]["total_kills"]
+var["deaths"] = blob["overall_stats"]["overall"]["total_deaths"]
+var["kdratio"] = blob["overall_stats"]["overall"]["k_d_ratio"]
+
+var["best_elo"] = blob["elos"]["overall"]["elo"]
+var["best_elo_type"] = blob["elos"]["overall"]["game_type_cd"]
+var["best_elo_games"] = blob["elos"]["overall"]["games"]
+
+var["best_rank"] = blob["ranks"]["overall"]["rank"]
+var["best_rank_max"] = blob["ranks"]["overall"]["max_rank"]
+var["best_rank_type"] = blob["ranks"]["overall"]["game_type_cd"]
+var["best_rank_pct"] = blob["ranks"]["overall"]["percentile"]
+
+var["bold"] = "\x1b[1m"
+var["reset"] = "\x1b[m"
+
+
+print(FORMATSTR.format(**var))
+
