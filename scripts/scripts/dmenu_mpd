@@ -10,11 +10,11 @@ fi
 
 PLAYING=false
 while ! $PLAYING; do
-    ARTIST="==Playlists==\n==Clear==\n==Play==\n$(mpc list albumartist | sort -f)";
+    ARTIST="==Play==\n==Plists==\n==Clear==\n$(mpc list albumartist | sort -f)";
     ARTIST=$(echo -e "$ARTIST" | $DMENU -p select:);
     if [ "$ARTIST" = "" ]; then break; fi
     while true; do
-        if [ "$ARTIST" = "==Playlists==" ]; then
+        if [ "$ARTIST" = "==Plists==" ]; then
             PROMPT="playlists:";
             ALBUMS=$(mpc lsplaylists | sort -f);
         else
@@ -43,7 +43,7 @@ while ! $PLAYING; do
 
         if [ "$ALBUM" = "" ]; then break; fi
 
-        if [ "$ARTIST" = "==Playlists==" ]; then
+        if [ "$ARTIST" = "==Plists==" ]; then
             mpc clear
             mpc load "$ALBUM"
             mpc shuffle
