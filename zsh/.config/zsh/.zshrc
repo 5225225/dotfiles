@@ -60,7 +60,7 @@ export PATH=$PATH:~/.local/bin
 
 
 export PROMPT="
-(%6F%n%7F@%1F%m%7F) %{%F{yellow}%}%~%f %(?..%{%F{red}%}[%?]%f)
+%6F%n%7F@%1F%m%7F %{%F{yellow}%}%~%f %(?..%{%F{red}%}[%?]%f)
 %{%F{blue}%}#%f "
 
 export RPROMPT=""
