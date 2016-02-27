@@ -60,7 +60,7 @@ export PATH=$PATH:~/.local/bin
 
 
 export PROMPT="
-%{%F{yellow}%}%~%f
+(%6F%n%7F@%1F%m%7F) %{%F{yellow}%}%~%f %(?..%{%F{red}%}[%?]%f)
 %{%F{blue}%}#%f "
 
 export RPROMPT=""
@@ -97,11 +97,9 @@ chpwd() {
 
 fbatch() {
     find -type f -name "*.$1" -print0 | while read -d $'\0' a; do
-    < /dev/null ffmpeg -v 8 -i "$a" -qscale:a 0 "${a[@]/%$1/$2}"
+    < /dev/null ffmpeg -v 8 -i "$a" -ab 320k -qscale:a 0 "${a[@]/%$1/$2}"
     echo $a
     done
-
-    rm -i *.$1
 }
 
 vorbedit() {
