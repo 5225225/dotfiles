@@ -7,26 +7,48 @@ reset="\x1b[m"
 ON="$green ON $reset"
 OFF="$red OFF $reset"
 
+echo "--- Connectivity ---"
+
 if (ping -W 2 -c 1 192.168.0.1 &>/dev/null) then
-    echo -e "LAN:\t$ON"
+    echo -e "Router:  $ON"
 else 
-    echo -e "LAN:\t$OFF"
+    echo -e "Router:  $OFF"
 fi
 
 if (ping -W 2 -c 1 192.168.0.101 &>/dev/null) then
-    echo -e "  NAS:\t$ON"
+    echo -e "NAS:     $ON"
 else 
-    echo -e "  NAS:\t$OFF"
+    echo -e "NAS:     $OFF"
 fi
 
 if (ping -W 2 -c 1 8.8.8.8 &>/dev/null) then
-    echo -e "WAN:\t$ON"
+    echo -e "WAN:     $ON"
 else 
-    echo -e "WAN:\t$OFF"
+    echo -e "WAN:     $OFF"
 fi
 
 if (timeout 2 ping -W 2 -c 1 www.example.com &>/dev/null) then
-    echo -e "DNS:\t$ON"
+    echo -e "DNS:     $ON"
 else
-    echo -e "DNS:\t$OFF"
+    echo -e "DNS:     $OFF"
+fi
+
+echo "--- Services ---"
+
+if (timeout 2 ping -W 2 -c 1 $CHKNET_SERVER_IP &>/dev/null) then
+    echo -e "radonix: $ON"
+else
+    echo -e "radonix: $OFF"
+fi
+
+if (timeout 2 curl $CHKNET_SERVER_IP:80 &>/dev/null) then
+    echo -e "* httpd: $ON"
+else
+    echo -e "* httpd: $OFF"
+fi
+
+if (timeout 2 curl -k "https://$CHKNET_SERVER_IP:1337" &>/dev/null) then
+    echo -e "* ZNC:   $ON"
+else
+    echo -e "* ZNC:   $OFF"
 fi
