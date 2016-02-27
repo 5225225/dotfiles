@@ -8,7 +8,8 @@ map -count -group=reddit -modes=n,v u -builtin <count>owww.reddit.com/user/
 map -count -group=voat -modes=n,v r -builtin <count>ohttps://voat.co/v/
 map -count -group=voat -modes=n,v u -builtin <count>ohttps://voat.co/user/
 
-set complete=bookmark,location,search
+set complete=location
+set suggestengines=duckduckgo
 set defsearch=duckduckgo
 set editor='urxvt -e vim'
 set guioptions=Cs
