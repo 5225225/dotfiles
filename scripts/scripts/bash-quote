@@ -5,14 +5,16 @@ import urllib.request
 
 from bs4 import BeautifulSoup
 
+
 def get_quote_text(quoteid):
     post = urllib.request.urlopen("http://bash.org/?{}".format(int(quoteid))).read()
-    
+
     soup = BeautifulSoup(post, "html.parser")
 
     text = soup.find(class_="qt").text
 
     return text
+
 
 def get_random_quoteid():
     posts = urllib.request.urlopen("http://bash.org/?random")
