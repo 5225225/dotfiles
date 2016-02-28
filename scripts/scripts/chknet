@@ -6,6 +6,7 @@ import subprocess
 import shlex
 import sys
 
+
 class host:
     def __init__(self, hostname, checks, name=None):
         self.hostname = hostname
@@ -16,9 +17,9 @@ class host:
         else:
             self.name = name
 
-
     def __repr__(self):
         return "{} (): {}".format(self.hostname, self.name, self.checks)
+
 
 class check:
     def __init__(self, command, returncode=None, output=None, name=None):
@@ -42,6 +43,7 @@ class check:
     def __repr__(self):
         return str(self)
 
+
 def readhosts(path):
     try:
         blob = json.load(open(dpath, "r"))
@@ -60,7 +62,6 @@ def readhosts(path):
         except KeyError:
             pass
 
-
         checks = []
         for chk in hostdict["checks"]:
             command = chk["command"]
@@ -68,14 +69,20 @@ def readhosts(path):
             output = None
             chkname = None
 
-            try: returncode = chk["returncode"]
-            except KeyError: pass
+            try:
+                returncode = chk["returncode"]
+            except KeyError:
+                pass
 
-            try: output = chk["output"]
-            except KeyError: pass
+            try:
+                output = chk["output"]
+            except KeyError:
+                pass
 
-            try: chkname = chk["name"]
-            except KeyError: pass
+            try:
+                chkname = chk["name"]
+            except KeyError:
+                pass
 
             checks.append(check(command, returncode, output, chkname))
 
@@ -92,9 +99,9 @@ for host in hosts:
     passedchecks = 0
 
     print("{}: {} check{}".format(host.name,
-        numchecks, 
-        "s" if numchecks > 1 else ""
-    ))
+                                  numchecks,
+                                  "s" if numchecks > 1 else ""
+                                  ))
 
     for check in host.checks:
         passed = True
@@ -109,11 +116,11 @@ for host in hosts:
         except subprocess.CalledProcessError as e:
             output = e.output
             returncode = e.returncode
-            
+
         if check.output is not None:
             if check.output != output:
                 passed = False
-        
+
         if check.returncode is not None:
             if check.returncode != returncode:
                 passed = False
