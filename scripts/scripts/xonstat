@@ -1,6 +1,11 @@
 #!/bin/python
 
+import sys
+import json
+import urllib.request
+
 BASE_URL = "http://stats.xonotic.org/player/{}.json"
+
 
 def fuzzy_playtime(seconds):
     seconds = int(seconds)
@@ -21,7 +26,10 @@ def fuzzy_playtime(seconds):
         hours -= 24
         days += 1
 
-    return "{} days, {:02d}:{:02d}:{:02d}".format(days, hours, minutes, seconds)
+    return "{} days, {:02d}:{:02d}:{:02d}".format(days,
+                                                  hours,
+                                                  minutes,
+                                                  seconds)
 
 FORMATSTR = """
 {name}
@@ -36,11 +44,6 @@ FORMATSTR = """
 {bold}Best Elo:{reset} {best_elo:.2f} ({best_elo_type}, {best_elo_games} games)
 {bold}Best Rank:{reset} {best_rank} of {best_rank_max} ({best_rank_type}, percentile {best_rank_pct:.2f})
 """.strip()
-
-import sys
-import json
-import urllib.request
-
 
 data = urllib.request.urlopen(BASE_URL.format(sys.argv[1])).read().decode("UTF-8")
 blob = json.loads(data)[0]
@@ -79,4 +82,3 @@ var["reset"] = "\x1b[m"
 
 
 print(FORMATSTR.format(**var))
-
