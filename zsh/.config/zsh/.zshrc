@@ -63,8 +63,6 @@ export PROMPT="
 %6F%n%7F@%1F%m%7F %{%F{yellow}%}%~%f %(?..%{%F{red}%}[%?]%f)
 %{%F{blue}%}#%f "
 
-export RPROMPT=""
-
 export XDG_CONFIG_HOME="$HOME/.config"
 
 export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
