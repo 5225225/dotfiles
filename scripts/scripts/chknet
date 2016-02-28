@@ -5,6 +5,7 @@ import json
 import subprocess
 import shlex
 import sys
+import re
 
 
 class host:
@@ -43,6 +44,28 @@ class check:
     def __repr__(self):
         return str(self)
 
+def runcommand(cmd, host):
+
+    if cmd.startswith("$"):
+        cmd = cmd[1:].strip()
+        try:
+            cmd = cmd.replace("<hostname>", host.hostname)
+            cmd = shlex.split(cmd)
+            out = subprocess.check_output(cmd, stderr=subprocess.STDOUT)
+            output = out
+            returncode = 0
+        except subprocess.CalledProcessError as e:
+            output = e.output
+            returncode = e.returncode
+
+        output = output.decode("UTF8").strip()
+        return (output, returncode)
+    elif cmd.startswith("%"):
+        cmd = cmd[1:].strip()
+        
+    else:
+        sys.stderr.write("\nINVALID COMMAND TYPE\n")
+        sys.exit(1)
 
 def readhosts(path):
     try:
@@ -106,20 +129,13 @@ for host in hosts:
     for check in host.checks:
         passed = True
 
-        try:
-            cmd = check.command
-            cmd = cmd.replace("<hostname>", host.hostname)
-            cmd = shlex.split(cmd)
-            out = subprocess.check_output(cmd, stderr=subprocess.STDOUT)
-            output = out
-            returncode = 0
-        except subprocess.CalledProcessError as e:
-            output = e.output
-            returncode = e.returncode
+        output, returncode = runcommand(check.command, host)
 
         if check.output is not None:
             if check.output != output:
-                passed = False
+                if not re.fullmatch(check.output, output, re.MULTILINE):
+                    passed = False
+                    print("{} did not match {}".format(check.output, output))
 
         if check.returncode is not None:
             if check.returncode != returncode:
