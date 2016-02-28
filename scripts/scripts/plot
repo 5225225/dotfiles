@@ -24,8 +24,8 @@ parser.add_argument("--tickx", "-t")
 parser.add_argument("--func", "-f", required=True, action="append")
 parser.add_argument("--format")
 
-
 args = parser.parse_args()
+
 
 def safe_eval(func, x):
     # Doesn't actually provide protections against code execution.
@@ -48,8 +48,10 @@ def list_replace(l, x, y):
             out.append(item)
     return out
 
+
 def sign(a):
-    return not(a<0)
+    return not(a < 0)
+
 
 def asym_pos(func):
     x = 2**16
@@ -60,6 +62,7 @@ def asym_pos(func):
         return eval(func)
     return None
 
+
 def asym_neg(func):
     x = -2**16
     y1 = safe_eval(func, x)
@@ -69,11 +72,13 @@ def asym_neg(func):
         return eval(func)
     return None
 
+
 def mostly_max(x):
     x = list_replace(x, np.inf, None)
     x = sorted(x)
     x = x[:int(len(x)*PERCENT_PLOTTED)]
     return max(x)
+
 
 def mostly_min(x):
     x = list_replace(x, np.inf, None)
@@ -82,12 +87,13 @@ def mostly_min(x):
     return min(x)
 
 
-
 def sin(x):
     return math.sin(math.radians(x))
 
+
 def cos(x):
     return math.cos(math.radians(x))
+
 
 def tan(x):
     return math.tan(math.radians(x))
@@ -130,7 +136,7 @@ if not(sys.stdout.isatty()):
 
 STEPS = 10000
 PERCENT_PLOTTED = .95
-ASYM_GRAD_CUTOFF = 500
+ASYM_GRAD = 500
 MIN = eval(args.min)
 MAX = eval(args.max)
 WIDTH = 8
@@ -179,7 +185,7 @@ for cfunc in funcs:
             oldy = y
             y = eval(func)
 
-            if (abs(y - oldy) / delta > ASYM_GRAD_CUTOFF) and (sign(y) != sign(oldy)):
+            if (abs(y - oldy) / delta > ASYM_GRAD) and (sign(y) != sign(oldy)):
                 plt.axvline(x, linewidth=1, linestyle="dotted")
                 xasyms.append(x)
                 yvals.append(np.inf)
@@ -214,8 +220,7 @@ for cfunc in funcs:
             for text in leg.get_texts():
                 text.set_color("#ffffff")
             frame.set_facecolor("#333333")
-            frame.set_linewidth=(0)
-
+            frame.set_linewidth = (0)
 
     if asym_pos(func):
         plt.axhline(asym_pos(func), linewidth=1, linestyle="dotted")
@@ -226,8 +231,6 @@ for cfunc in funcs:
         yasyms.append(asym_pos(func))
 
     global_yvals += yvals
-
-        
 
 plt.axhline(0, linewidth=1, linestyle="dashed")
 
