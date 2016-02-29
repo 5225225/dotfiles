@@ -6,16 +6,10 @@ while true
 do
     mpc idle player
     toprint="`mpc current -f \"$form\" | sed \"s:&:&amp;:g\"`"
-    oldartpath="$artpath"
+    
+    echo $toprint
     artpath=~/media/music/$(dirname "$(mpc status -f '%file%' | head -n1)")/cover.*
-
-    if [[ "$oldartpath" != "$artpath" ]]; then
-        if [[ -e "$artpath" ]]; then
-            convert -resize 128x128 "$artpath" /tmp/cover.png
-        else
-            rm /tmp/cover.png
-        fi
-    fi
-
+    rm /tmp/cover.png
+    convert -resize 128x128 "$artpath" /tmp/cover.png
     dunstify -a MPD -r 1337 -i "/tmp/cover.png" "                          MPD" "$toprint"
 done
