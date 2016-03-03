@@ -1,0 +1,7 @@
+rofi -show run \
+      -fuzzy \
+      -font "ohsnap 12" \
+      -hide-scrollbar \
+      -location 1 \
+      -fuzzy \
+      -levenshtein-sort \
