@@ -142,6 +142,7 @@ alias weechat="weechat -d $XDG_CONFIG_HOME/weechat"
 alias watch="watch -c"
 alias pacman="pacaur"
 alias gs="git status"
+alias cget="curl -C - -L -O --retry 10"
 
 zmodload zsh/terminfo
 
