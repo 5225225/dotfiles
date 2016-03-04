@@ -46,7 +46,7 @@ URxvt.scrollBar: false
 URxvt.perl-ext-common: default,matcher
 URxvt.url-launcher: /usr/bin/firefox
 URxvt.matcher.button: 1
-URxvt.colorUL: colour_lblue
+URxvt.colorUL: colour_blue
 
 URxvt.iso14755: False
 
