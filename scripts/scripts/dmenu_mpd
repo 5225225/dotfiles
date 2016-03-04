@@ -5,7 +5,7 @@
 if [ -f $HOME/.dmenurc ]; then
     . $HOME/.dmenurc
 else
-    DMENU='dmenu -f -i -l 15 -fn ohsnap:size=15 -nb #151515 -nf #f5f5f5 -sb #6a9fb5 -w 750'
+    DMENU='rofi -dmenu -f -i -l 15 -fuzzy -lefenshtien-sort -location 1 -hide-scrollbar'
 fi
 
 PLAYING=false
