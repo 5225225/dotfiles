@@ -1,63 +1,110 @@
-#!/bin/bash
+#!/bin/python
 
-# Modified from https://github.com/ifschleife/dmenu-mpd/blob/master/dmenu-mpd
+import sys
+import shlex
+import subprocess
 
-if [ -f $HOME/.dmenurc ]; then
-    . $HOME/.dmenurc
-else
-    DMENU='rofi -dmenu -f -i -l 15 -fuzzy -lefenshtien-sort -location 1 -hide-scrollbar'
-fi
+top_commands = [
+"== Play ==",
+"== Playlists ==",
+"== Clear ==",
+]
 
-PLAYING=false
-while ! $PLAYING; do
-    ARTIST="==Play==\n==Plists==\n==Clear==\n$(mpc list albumartist | sort -f)";
-    ARTIST=$(echo -e "$ARTIST" | $DMENU -p select:);
-    if [ "$ARTIST" = "" ]; then break; fi
-    while true; do
-        if [ "$ARTIST" = "==Plists==" ]; then
-            PROMPT="playlists:";
-            ALBUMS=$(mpc lsplaylists | sort -f);
-        else
-            if [ "$ARTIST" = "==Clear==" ]; then
-                mpc clear
-                break;
-            else
-                if [ "$ARTIST" = "==Play==" ]; then
-                    if [ $(mpc playlist | wc -l) = "0" ]; then
-                        notify-send "MPD" "There doesn't seem to be anything here."
-                        break
-                    else
-                        TOPLAY="$(mpc playlist | cat -n | sed "s:^ *::g" | $DMENU)"
-                        mpc play $(echo $TOPLAY | cut -d " " -f 1)
-                        break
-                    fi
-                else
-                PROMPT="albums:";
-                ALBUMS=$(mpc list album albumartist "$ARTIST" | sort -f);
-                ALBUMS="=ALL=\n$ALBUMS"
-                fi
-            fi
-        fi
+def getartists():
+    return subprocess.check_output(["mpc", "list", "albumartist"]).decode("UTF8").strip().split("\n")
 
-        ALBUM=$(echo -e "$ALBUMS" | $DMENU -p "$PROMPT");
+def getalbums(x):
+    return subprocess.check_output(["mpc", "find", "albumartist", x]).decode("UTF8").strip().split("\n")
 
-        if [ "$ALBUM" = "" ]; then break; fi
+def getalbums(x):
+    return subprocess.check_output(["mpc", "list", "album", "albumartist", x]).decode("UTF8").strip().split("\n")
 
-        if [ "$ARTIST" = "==Plists==" ]; then
-            mpc clear
-            mpc load "$ALBUM"
-            mpc shuffle
-            mpc random on
-        else
-            if [ "$ALBUM" = "=ALL=" ]; then
-                mpc find albumartist "$ARTIST" | mpc add
-            else
-                mpc find albumartist "$ARTIST" album "$ALBUM" | mpc add
-            fi
-            mpc random off
-        fi
-        CUR_SONG=$(mpc current)
-        if [ -z "$CUR_SONG" ]; then mpc play; fi
-        break;
-    done
-done
+def getsongs(artist, album=None):
+    if album is None:
+        return subprocess.check_output(["mpc", "find", "albumartist", artist]).decode("UTF8").strip().split("\n")
+    else:
+        return subprocess.check_output(["mpc", "find", "albumartist", artist, "album", album]).decode("UTF8").strip().split("\n")
+
+def addsong(path):
+    subprocess.call(["mpc", "add", path])
+
+def getplaylists():
+    return subprocess.check_output(["mpc", "lsplaylists"]).decode("UTF8").strip().split("\n")
+
+def playplaylist(plistname):
+    subprocess.call(["mpc", "clear"])
+    subprocess.call(["mpc", "load", plistname])
+    subprocess.call(["mpc", "play"])
+
+def getplist():
+    x = subprocess.check_output(["mpc", "playlist"]).decode("UTF8").strip().split("\n")
+    if x == [""]:
+        subprocess.call(["notify-send", "MPD", "There doesn't seem to be anything here."])
+    else:
+        return x
+
+def playindex(x):
+    subprocess.call(["mpc", "play", str(x)])
+
+def dmenu(choices, prompt=": "):
+    cmd = DMENU
+
+    cmd += " -p '{}'".format(prompt)
+
+    cmd = shlex.split(cmd)
+
+
+    proc = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+
+    choice = proc.communicate("\n".join(choices).encode("UTF8"))[0].strip().decode("UTF8")
+
+    if choice == "!kill":
+        sys.exit(0)
+
+
+    return choice
+
+    
+
+DMENU="rofi -dmenu -i -l 15 -fuzzy -lefenshtien-sort -location 1 -hide-scrollbar -font 'ohsnap 12'"
+
+
+while True:
+
+    artist = dmenu(top_commands + getartists())
+
+    if artist == "== Play ==":
+        currplist = getplist()
+        if currplist is not None:
+            toplay = dmenu(currplist)
+            for index, item in enumerate(currplist, 1):
+                if toplay == item:
+                    playindex(index)
+                    break
+
+    elif artist == "== Playlists ==":
+        playlists = getplaylists()
+        toplay = dmenu(playlists)
+        for item in playlists:
+            if toplay == item:
+                playplaylist(item)
+                break
+
+    elif artist == "== Clear ==":
+        subprocess.call(["mpc", "clear"])
+
+    elif artist == "":
+        sys.exit(0)
+
+    else:
+        albums = getalbums(artist)
+        albums.insert(0, "== All ==")
+        album = dmenu(albums)
+        if album == "== All ==":
+            for song in getsongs(artist):
+                addsong(song)
+        else:
+            for song in getsongs(artist):
+                addsong(song)
+
+        subprocess.call(["mpc", "play"])
