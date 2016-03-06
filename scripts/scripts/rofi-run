@@ -7,3 +7,6 @@ rofi  -show run \
       -location 1 \
       -levenshtein-sort \
       -ssh-command "rofi-ssh -e {ssh-client} {host}" \
+      -bg argb:99000000 \
+      -bc argb:00000000 \
+      -line-margin 0
