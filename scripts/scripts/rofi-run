@@ -1,7 +1,9 @@
-rofi -show run \
+rofi  -show run \
+      -sidebar-mode \
+      -modi "run,window,ssh" \
       -fuzzy \
       -font "ohsnap 12" \
       -hide-scrollbar \
       -location 1 \
-      -fuzzy \
       -levenshtein-sort \
+      -ssh-command "rofi-ssh -e {ssh-client} {host}" \

@@ -1,0 +1,3 @@
+#!/usr/bin/sh
+
+urxvt -geometry 150x60 -bg "[90]#000000" -title rofi-ssh $@

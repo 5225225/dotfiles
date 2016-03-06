@@ -212,7 +212,7 @@ assign [class="^Steam$"] → $10
 
 for_window [class="^Steam$" title=" - Chat$"] floating enable
 for_window [title="^mutt-mailto$"] floating enable
-for_window [title="^mutt-mailto$"] floating enable
+for_window [title="^rofi-ssh$"] floating enable
 for_window [title="^feh-qrcode$"] floating enable
 for_window [class = "soffice" title="^Text Import - "] floating enable
 for_window [class = "feh" title="^ALBUM-ART$"] floating enable border none sticky enable
