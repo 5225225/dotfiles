@@ -1,6 +1,6 @@
 rofi  -show run \
       -sidebar-mode \
-      -modi "run,window,ssh" \
+      -modi "run,ssh,window" \
       -fuzzy \
       -font "ohsnap 12" \
       -hide-scrollbar \
