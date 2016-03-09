@@ -10,6 +10,7 @@ setopt HIST_IGNORE_DUPS
 setopt SHARE_HISTORY
 setopt INTERACTIVE_COMMENTS
 
+
 unsetopt autocd beep extendedglob
 
 autoload -U colors
@@ -59,9 +60,18 @@ export PATH=$PATH:~/.gem/ruby/2.2.0/bin
 export PATH=$PATH:~/.local/bin
 
 
-export PROMPT="
-%6F%n%7F@%1F%m%7F %{%F{yellow}%}%~%f %(?..%{%F{red}%}[%?]%f)
-%{%F{blue}%}#%f "
+. ~/.config/zsh/git-prompt.sh
+
+setopt PROMPT_SUBST
+
+export GIT_PS1_SHOWDIRTYSTATE="yes"
+export GIT_PS1_SHOWSTASHSTATE="yes"
+export GIT_PS1_SHOWUNTRACKEDFILES="yes"
+export GIT_PS1_SHOWCOLORHINTS="yes"
+
+export PROMPT='
+%6F%n%7F@%1F%m%7F %{%F{yellow}%}%~%f %(?..%{%F{red}%}[%?]%f) $(__git_ps1 "[%s]")
+%{%F{blue}%}#%f '
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
