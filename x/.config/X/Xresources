@@ -1,3 +1,26 @@
+/*
+
+  __  __                                            
+  \ \/ /_ __ ___  ___  ___  _   _ _ __ ___ ___  ___ 
+   \  /| '__/ _ \/ __|/ _ \| | | | '__/ __/ _ \/ __|
+ _ /  \| | |  __/\__ \ (_) | |_| | | | (_|  __/\__ \
+(_)_/\_\_|  \___||___/\___/ \__,_|_|  \___\___||___/
+                                                    
+github.com/5225225/dotfiles
+
+( If this breaks and everything is purple, try installing something that provides /bin/cc )
+
+*/
+
+/*
+     _       __ _                 
+  __| | ___ / _(_)_ __   ___  ___ 
+ / _` |/ _ \ |_| | '_ \ / _ \/ __|
+| (_| |  __/  _| | | | |  __/\__ \
+ \__,_|\___|_| |_|_| |_|\___||___/
+                                  
+*/
+
 #define colour_black  #151515
 #define colour_grey   #505050
 #define colour_lgrey  #e0e0e0
@@ -12,6 +35,16 @@
 #define colour_blue   #6a9fb5
 #define colour_purple #aa759f
 #define colour_brown  #8f5536
+
+/*
+       _       _           _     
+  __ _| | ___ | |__   __ _| |___ 
+ / _` | |/ _ \| '_ \ / _` | / __|
+| (_| | | (_) | |_) | (_| | \__ \
+ \__, |_|\___/|_.__/ \__,_|_|___/
+ |___/                           
+
+*/
 
 *.foreground:   colour_white
 *.background:   colour_black
@@ -37,9 +70,17 @@
 *.color13:      colour_lgrey
 *.color15:      colour_lwhite
 
+/*
+ _   _ ____               _   
+| | | |  _ \ __  ____   _| |_ 
+| | | | |_) |\ \/ /\ \ / / __|
+| |_| |  _ <  >  <  \ V /| |_ 
+ \___/|_| \_\/_/\_\  \_/  \__|
+
+ */
+
 URxvt.depth: 32
 URxvt.background: [70]#000000
-!URxvt.background: #151515
 URxvt.font: xft:tamsyn:size=16
 URxvt.scrollBar: false
 
@@ -50,7 +91,77 @@ URxvt.colorUL: colour_blue
 
 URxvt.iso14755: False
 
+/*
+__  __           _        _            _    
+\ \/ /__ _ _   _| |_ ___ | | ___   ___| | __
+ \  // _` | | | | __/ _ \| |/ _ \ / __| |/ /
+ /  \ (_| | |_| | || (_) | | (_) | (__|   < 
+/_/\_\__,_|\__,_|\__\___/|_|\___/ \___|_|\_\
+
+*/
 Xautolock.time: 10
 Xautolock.locker: /bin/i3lock --dpms --inactivity-timeout 10 --image ~/scripts/data/lockscreen.png --ignore-empty-password --show-failed-attempts --nofork
 Xautolock.notifier: notify-send 'XAUTOLOCK' 'Locking machine in 10 seconds'
 Xautolock.notify: 10
+
+/*
+            __ _ 
+ _ __ ___  / _(_)
+| '__/ _ \| |_| |
+| | | (_) |  _| |
+|_|  \___/|_| |_|
+                 
+*/
+
+rofi.kb-primary-paste:               Control+Shift+v,Shift+Insert
+rofi.kb-secondary-paste:             Control+v,Insert
+rofi.kb-clear-line:                  Control+u
+rofi.kb-move-front:                  Control+a
+rofi.kb-move-end:                    Control+e
+rofi.kb-move-word-back:              Alt+b
+rofi.kb-move-word-forward:           Alt+f
+rofi.kb-move-char-back:              Left,Control+b
+rofi.kb-move-char-forward:           Right,Control+f
+rofi.kb-remove-word-back:            Control+Alt+h
+rofi.kb-remove-word-forward:         Control+Alt+d
+rofi.kb-remove-char-forward:         Delete,Control+d
+rofi.kb-remove-char-back:            BackSpace,Control+h
+rofi.kb-accept-entry:                Control+j,Control+m,Return,KP_Enter
+rofi.kb-accept-custom:               Control+Return
+rofi.kb-accept-entry-continue:       Shift+Return
+rofi.kb-mode-next:                   Shift+Right,Control+Tab
+rofi.kb-mode-previous:               Shift+Left,Control+Shift+Tab
+rofi.kb-toggle-case-sensitivity:     grave,dead_grave
+rofi.kb-delete-entry:                Shift+Delete
+rofi.kb-row-left:                    Control+Page_Up
+rofi.kb-row-right:                   Control+Page_Down
+rofi.kb-row-up:                      Up,Control+p,Shift+Tab
+rofi.kb-row-down:                    Down,Control+n
+rofi.kb-row-tab:                     Tab
+rofi.kb-page-prev:                   Page_Up
+rofi.kb-page-next:                   Page_Down
+rofi.kb-row-first:                   Home,KP_Home
+rofi.kb-row-last:                    End,KP_End
+rofi.kb-row-select:                  Control+space
+rofi.kb-cancel:                      Escape,Control+bracketleft
+rofi.kb-custom-1:                    Alt+1
+rofi.kb-custom-2:                    Alt+2
+rofi.kb-custom-3:                    Alt+3
+rofi.kb-custom-4:                    Alt+4
+rofi.kb-custom-5:                    Alt+5
+rofi.kb-custom-6:                    Alt+6
+rofi.kb-custom-7:                    Alt+7
+rofi.kb-custom-8:                    Alt+8
+rofi.kb-custom-9:                    Alt+9
+rofi.kb-custom-10:                   Alt+0
+rofi.kb-custom-11:                   Alt+Shift+1
+rofi.kb-custom-12:                   Alt+Shift+2
+rofi.kb-custom-13:                   Alt+Shift+3
+rofi.kb-custom-14:                   Alt+Shift+4
+rofi.kb-custom-15:                   Alt+Shift+5
+rofi.kb-custom-16:                   Alt+Shift+6
+rofi.kb-custom-18:                   Alt+Shift+8
+rofi.kb-custom-17:                   Alt+Shift+7
+rofi.kb-custom-19:                   Alt+Shift+9
+rofi.kb-screenshot:                  Alt+Shift+S
+rofi.kb-toggle-sort:                 Alt+grave
