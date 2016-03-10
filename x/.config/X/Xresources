@@ -129,7 +129,7 @@ rofi.kb-remove-char-back:            BackSpace,Control+h
 rofi.kb-accept-entry:                Control+j,Control+m,Return,KP_Enter
 rofi.kb-accept-custom:               Control+Return
 rofi.kb-accept-entry-continue:       Shift+Return
-rofi.kb-mode-next:                   Shift+Right,Control+Tab
+rofi.kb-mode-next:                   Shift+Right,Control+Tab,Alt+Tab
 rofi.kb-mode-previous:               Shift+Left,Control+Shift+Tab
 rofi.kb-toggle-case-sensitivity:     grave,dead_grave
 rofi.kb-delete-entry:                Shift+Delete
