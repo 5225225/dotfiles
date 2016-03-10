@@ -160,11 +160,7 @@ bar {
     i3bar_command i3bar
     Modifier Mod4
     position          top
-    workspace_buttons yes
-    tray_output       primary
     font    pango:ohsnap 15
-    wheel_up_cmd nop
-    wheel_down_cmd nop
     colors {
         background #00000055
         statusline #dddddd
