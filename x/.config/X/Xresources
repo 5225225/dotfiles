@@ -113,6 +113,8 @@ Xautolock.notify: 10
                  
 */
 
+
+
 rofi.kb-primary-paste:               Control+Shift+v,Shift+Insert
 rofi.kb-secondary-paste:             Control+v,Insert
 rofi.kb-clear-line:                  Control+u
@@ -165,3 +167,192 @@ rofi.kb-custom-17:                   Alt+Shift+7
 rofi.kb-custom-19:                   Alt+Shift+9
 rofi.kb-screenshot:                  Alt+Shift+S
 rofi.kb-toggle-sort:                 Alt+grave
+
+! Enabled modi
+rofi.modi:                           run,ssh,window
+
+! Window opacity
+rofi.opacity:                        100
+
+! Window width
+rofi.width:                          50
+
+! Number of lines
+rofi.lines:                          15
+
+! Number of columns
+rofi.columns:                        1
+
+! Font to use
+rofi.font:                           ohsnap 12
+
+! Foreground color
+rofi.fg:                             #d0d0d0
+
+! Background color
+rofi.bg:                             argb:99000000
+
+! Foreground color for active row
+rofi.fg-active:                      #268BD2
+
+! Foreground color for urgent row
+rofi.fg-urgent:                      #DC322F
+
+! Foreground color for highlighted active row
+rofi.hlfg-active:                    #FDF6E3
+
+! Foreground color for highlighted urgent row
+rofi.hlfg-urgent:                    #FDF6E3
+
+! Background color for active row
+rofi.bg-active:                      #FDF6E3
+
+! Background color for urgent row
+rofi.bg-urgent:                      #FDF6E3
+
+! Background color for highlighted active row
+rofi.hlbg-active:                    #268BD2
+
+! Background color for highlighted urgent row
+rofi.hlbg-urgent:                    #DC322F
+
+! Background color for alternating row
+rofi.bgalt:                          argb:99000000
+
+! Foreground color for highlighted row
+rofi.hlfg:                           #EEE8D5
+
+! Background color for highlighted row
+rofi.hlbg:                           #586E75
+
+! Border color
+rofi.bc:                             argb:00000000
+
+! Use extended color scheme
+rofi.color-enabled:                  false
+
+! Color scheme for normal row
+rofi.color-normal:                   #fdf6e3,#002b36,#eee8d5,#586e75,#eee8d5
+
+! Color scheme for urgent row
+rofi.color-urgent:                   #fdf6e3,#dc322f,#eee8d5,#dc322f,#fdf6e3
+
+! Color scheme for active row
+rofi.color-active:                   #fdf6e3,#268bd2,#eee8d5,#268bd2,#fdf6e3
+
+! Color scheme window
+rofi.color-window:                   #fdf6e3,#002b36
+
+! Border width
+rofi.bw:                             1
+
+! Location on screen
+rofi.location:                       1
+
+! Padding
+rofi.padding:                        5
+
+! Y-offset relative to location
+rofi.yoffset:                        0
+
+! X-offset relative to location
+rofi.xoffset:                        0
+
+! Always show number of lines
+rofi.fixed-num-lines:                false
+
+! Terminal to use
+rofi.terminal:                       rofi-sensible-terminal
+
+! Ssh client to use
+rofi.ssh-client:                     ssh
+
+! Ssh command to execute
+rofi.ssh-command:                    rofi-ssh -e {ssh-client} {host}
+
+! Run command to execute
+rofi.run-command:                    {cmd}
+
+! Command to get extra run targets
+rofi.run-list-command:
+
+! Run command to execute that runs in shell
+rofi.run-shell-command:              {terminal} -e {cmd}
+
+! Disable history in run/ssh
+rofi.disable-history:                false
+
+! Use levenshtein sorting
+rofi.levenshtein-sort:               true
+
+! Set case-sensitivity
+rofi.case-sensitive:                 false
+
+! Enable sidebar-mode
+rofi.sidebar-mode:                   true
+
+! Set lazy filter limit
+rofi.lazy-filter-limit:              15000
+
+! Row height (in chars)
+rofi.eh:                             1
+
+! Enable auto select mode
+rofi.auto-select:                    false
+
+! Parse hosts file for ssh mode
+rofi.parse-hosts:                    false
+
+! Parse known_hosts file for ssh mode
+rofi.parse-known-hosts:              true
+
+! Set the modi to combine in combi mode
+rofi.combi-modi:                     window,run
+
+! Do a more fuzzy matching
+rofi.fuzzy:                          true
+
+! Use glob matching
+rofi.glob:                           false
+
+! Use regex matching
+rofi.regex:                          false
+
+! Tokenize input string
+rofi.tokenize:                       true
+
+! Monitor id to show on
+rofi.m:                              -1
+
+! Margin between rows
+rofi.line-margin:                    0
+
+! Pre-set filter
+rofi.filter:
+
+! Separator style (none, dash, solid)
+rofi.separator-style:                dash
+
+! Hide scroll-bar
+rofi.hide-scrollbar:                 true
+
+! Show markup
+rofi.markup-rows:                    false
+
+! Fullscreen
+rofi.fullscreen:                     false
+
+! Fake transparency
+rofi.fake-transparency:              false
+
+! DPI
+rofi.dpi:                            -1
+
+! Threads to use for string matching
+rofi.threads:                        1
+
+! Scrollbar width
+rofi.scrollbar-width:                8
+
+! Pidfile location
+rofi.pid:                            /run/user/1000/rofi.pid

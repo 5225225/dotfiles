@@ -69,22 +69,6 @@ def dmenu(choices, prompt=": "):
 
 DMENU  = "rofi "
 DMENU += "-dmenu "
-DMENU += "-separator-style dash "
-DMENU += "-i "
-DMENU += "-l 15 "
-DMENU += "-location 1 "
-DMENU += "-hide-scrollbar "
-DMENU += "-font 'ohsnap 12' "
-DMENU += "-fg argb:ffdddddd "
-DMENU += "-bg argb:99000000 "
-DMENU += "-bc argb:00000000 "
-
-DMENU += "-bg-active argb:00000000 "
-DMENU += "-line-margin 0"
-
-
-
-
 
 while True:
 
