@@ -69,6 +69,7 @@ def dmenu(choices, prompt=": "):
 
 DMENU  = "rofi "
 DMENU += "-dmenu "
+DMENU += "-i "
 
 while True:
 
