@@ -1,0 +1,34 @@
+#!/bin/bash
+
+oldcd="`pwd`"
+cd ~/scripts/data/notes || exit
+
+case $1 in
+
+    "edit")
+        $EDITOR $2
+        ;;
+
+    "rm")
+        rm $2
+        ;;
+
+    "cat")
+        cat $2
+        ;;
+
+    "ls")
+        if ppipe -h 2>/dev/null; then
+            stat --printf="%n\t%s\t%Z\n" * |\
+                ppipe -j "|" "[L[0]], H(L[1]), Ago(L[2])"|\
+                column -t -s "|" -o "    "
+        else
+            ls --sort=time
+        fi
+        ;;
+
+    *)
+        echo "Unknown command $1"
+        ;;
+
+esac
