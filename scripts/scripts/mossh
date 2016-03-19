@@ -1,0 +1,5 @@
+if grep -F "${@: -1}" ~/scripts/data/mosh-hosts >/dev/null; then
+    mosh $@
+else
+    ssh $@
+fi

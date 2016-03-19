@@ -265,7 +265,7 @@ rofi.fixed-num-lines:                false
 rofi.terminal:                       rofi-sensible-terminal
 
 ! Ssh client to use
-rofi.ssh-client:                     ssh
+rofi.ssh-client:                     mossh
 
 ! Ssh command to execute
 rofi.ssh-command:                    rofi-ssh -e {ssh-client} {host}
