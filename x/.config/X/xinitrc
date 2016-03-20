@@ -24,6 +24,8 @@ exec setxkbmap gb &
 exec compton &
 exec xautolock &
 
+urxvtd -q -f -o
+
 envfile="$HOME/.config/gpg/gpg-agent.env"
 if [[ -e "$envfile" ]] && kill -0 $(grep GPG_AGENT_INFO "$envfile" | cut -d: -f 2) 2>/dev/null; then
     eval "$(cat "$envfile")"
