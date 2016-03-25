@@ -156,7 +156,7 @@ bindsym $mod+c mode "builtin"
 # finds out, if available)
 
 bar {
-    status_command    python ~/scripts/i3statusline.py
+    status_command    python ~/scripts/i3statusline.py | grep -v "Version"
     Modifier Mod4
     position          top
     font    pango:ohsnap 15
