@@ -1,13 +1,21 @@
-source ~/.config/mutt/private.rc
+set mbox_type = Maildir
+
+macro index,pager <f2> '<change-folder>~/mail/home/INBOX<enter>'
+macro index,pager <f3> '<change-folder>~/mail/school/INBOX<enter>'
+
+folder-hook '~/mail/school' 'source ~/.config/mutt/school.rc'
+folder-hook '~/mail/home' 'source ~/.config/mutt/home.rc'
+
+source ~/.config/mutt/home.rc
+
+macro index 'c' '<change-folder>?<change-dir><home>^K=<enter>'
 
 set markers = no
 set sort = 'threads'
 set sort_aux = 'last-date-received'
 bind editor <space> noop
 
-set mbox_type = Maildir
 
-set folder = ~/mail
 set spoolfile = "+INBOX"
 set mbox = "+[Gmail].All Mail"
 set postponed = "+[Gmail].Drafts"
