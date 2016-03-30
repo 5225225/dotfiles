@@ -24,13 +24,17 @@ status.register("mpd",
 status.register("mail",
     backends = [
         maildir.MaildirMail(
-            directory = os.path.expanduser("~/mail/home/INBOX")
+            directory = os.path.expanduser("~/mail/home/INBOX"),
+            account = "Home",
         ),
         maildir.MaildirMail(
-            directory = os.path.expanduser("~/mail/school/INBOX")
+            directory = os.path.expanduser("~/mail/school/INBOX"),
+            account = "School",
         ),
     ],
-    interval = 1
+    interval = 1,
+    format = "{account} : {unread} new email",
+    format_plural = "{account} : {current_unread}/{unread} new emails",
 )
 
 
