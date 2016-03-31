@@ -10,7 +10,7 @@ def loadcfg(path):
 status = Status(standalone=True)
 
 status.register("clock",
-    format=["%H:%M"],
+    format=[("%A %d %B %Y %H:%M", "Europe/London")],
 )
 
 status.register("mpd",
