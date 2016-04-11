@@ -100,7 +100,7 @@ bindsym $mod+c mode "builtin"
 
 
 bar {
-    status_command python ~/scripts/i3statusline.py | grep -v "Version"
+    status_command python ~/scripts/i3statusline.py
     Modifier Mod4
     position top
 
