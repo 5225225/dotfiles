@@ -81,7 +81,14 @@ github.com/5225225/dotfiles
 
 URxvt.depth: 32
 URxvt.background: [70]#000000
-URxvt.font: xft:tamsyn:size=16
+
+#if WIDTH <= 1280
+    URxvt.font: xft:tamsyn:size=12
+#else
+    URxvt.font: xft:tamsyn:size=16
+#endif
+
+
 URxvt.scrollBar: false
 
 URxvt.perl-ext-common: default,matcher
