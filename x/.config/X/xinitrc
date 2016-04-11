@@ -25,7 +25,12 @@ exec compton &
 exec xautolock &
 
 exec unclutter &
-exec dunst &
+
+WIDTH="$(xrandr | grep '\*\+' | sed 's:.*x\([0-9]*\).*:\1:')"
+
+ADJUSTED="$(( (WIDTH-400) / 2 ))"
+
+exec dunst -geometry "400x5+$ADJUSTED-120" &
 
 urxvtd -q -f -o
 
