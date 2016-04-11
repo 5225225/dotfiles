@@ -17,6 +17,12 @@ status.register("battery",
     format="{status} {percentage:.0f}% {remaining}"
 )
 
+status.register("network",
+    interface = "wlp3s0",
+    format_up = "({quality}% at {essid}) {v4}",
+    format_down = "",
+)
+
 status.register("mpd",
     format="[<span foreground='#a1b56c'>{artist}</span>] - [<span foreground='#ac4142'>{title}</span>] - [<span foreground='#6a9fb5'>{album}</span>]",
     max_field_len=0,
