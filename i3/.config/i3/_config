@@ -172,4 +172,3 @@ exec owncloud
 exec --no-startup-id unclutter
 exec --no-startup-id urxvt -e mutt -F ~/.config/mutt/muttrc
 exec --no-startup-id hsetroot -fill scripts/data/wallpaper.png
-exec --no-startup-id xautolock
