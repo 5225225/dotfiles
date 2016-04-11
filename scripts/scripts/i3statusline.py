@@ -21,36 +21,42 @@ status.register("mpd",
     interval=1
 )
 
-status.register("mail",
-    backends = [
-        maildir.MaildirMail(
-            directory = os.path.expanduser("~/mail/home/INBOX"),
-            account = "Home",
-        ),
-        maildir.MaildirMail(
-            directory = os.path.expanduser("~/mail/school/INBOX"),
-            account = "School",
-        ),
-    ],
-    interval = 1,
-    format = "{account} : {unread} new email",
-    format_plural = "{account} : {current_unread}/{unread} new emails",
-)
+if os.path.isdir(os.path.expanduser("~/mail/")):
+    status.register("mail",
+        backends = [
+            maildir.MaildirMail(
+                directory = os.path.expanduser("~/mail/home/INBOX"),
+                account = "Home",
+            ),
+            maildir.MaildirMail(
+                directory = os.path.expanduser("~/mail/school/INBOX"),
+                account = "School",
+            ),
+        ],
+        interval = 1,
+        format = "{account} : {unread} new email",
+        format_plural = "{account} : {current_unread}/{unread} new emails",
+    )
 
+try:
+    status.register("weather",
+        location_code=loadcfg("location"),
+        colorize="True",
+        format="{current_temp}"
+    )
+except FileNotFoundError:
+    pass
 
-status.register("weather",
-    location_code=loadcfg("location"),
-    colorize="True",
-    format="{current_temp}"
-)
-
-status.register("reddit",
-    username="5225225",
-    password=loadcfg("reddit-password"),
-    mail_brackets=True,
-    interval=60,
-    format="{message_unread}"
-)
+try:
+    status.register("reddit",
+        username="5225225",
+        password=loadcfg("reddit-password"),
+        mail_brackets=True,
+        interval=60,
+        format="{message_unread}"
+    )
+except FileNotFoundError:
+    pass
 
 status.register("updates",
     backends = [pacman.Pacman(),
@@ -59,12 +65,15 @@ status.register("updates",
     interval=3600,
 )
 
-status.register("github",
-    username="5225225",
-    password=loadcfg("github-password"),
-    interval=300,
-    color="#dddddd"
-)
+try:
+    status.register("github",
+        username="5225225",
+        password=loadcfg("github-password"),
+        interval=300,
+        color="#dddddd"
+    )
+except FileNotFoundError:
+    pass
 
 
 status.run()
