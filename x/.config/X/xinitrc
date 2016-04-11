@@ -24,6 +24,9 @@ exec setxkbmap gb &
 exec compton &
 exec xautolock &
 
+exec unclutter &
+exec dunst &
+
 urxvtd -q -f -o
 
 envfile="$HOME/.config/gpg/gpg-agent.env"
