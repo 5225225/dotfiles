@@ -26,7 +26,7 @@ exec xautolock &
 
 exec unclutter &
 
-WIDTH="$(xrandr | grep '\*\+' | sed 's:.*x\([0-9]*\).*:\1:')"
+WIDTH="$(xrandr | grep '\*\+' | sed 's:x.*\([0-9]*\):\1:' | tr -d ' ')"
 
 ADJUSTED="$(( (WIDTH-400) / 2 ))"
 
