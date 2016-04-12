@@ -14,7 +14,8 @@ status.register("clock",
 )
 
 status.register("battery",
-    format="{status} {percentage:.0f}% {remaining}"
+    format="{status} {percentage:.0f}% {remaining}",
+    not_present_text = "",
 )
 
 status.register("network",
