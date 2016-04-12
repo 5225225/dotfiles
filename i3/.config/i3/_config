@@ -142,8 +142,8 @@ bindsym XF86AudioPrev exec mpc --no-startup-id prev
 bindsym XF86AudioNext exec mpc --no-startup-id next
 
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
-bindsym XF86AudioLowerVolume exec --no-startup-id mpc volume -10
-bindsym XF86AudioRaiseVolume exec --no-startup-id mpc volume +10
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-mute 0 false ; exec pactl -- set-sink-volume 0 -5%
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-mute 0 false ; exec pactl -- set-sink-volume 0 +5%
 
 bindsym $mod+Shift+numbersign exec --no-startup-id python ~/scripts/dmenu_mpd
 
