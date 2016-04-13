@@ -13,6 +13,8 @@ status.register("clock",
     format=[("%A %d %B %Y %H:%M", "Europe/London")],
 )
 
+status.register("timer")
+
 status.register("battery",
     format="{status} {percentage:.0f}% {remaining}",
     not_present_text = "",
