@@ -76,6 +76,9 @@ status.register("updates",
                 cower.Cower(),
     ],
     interval=3600,
+    on_rightclick="~/scripts/popup-updates",
+    on_doubleleftclick="urxvt -title 'REQUEST_FLOATING_WINDOW' -e ~/scripts/do-updates",
+    multi_click_timeout = 1
 )
 
 try:
