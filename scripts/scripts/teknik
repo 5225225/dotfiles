@@ -14,9 +14,9 @@ notify=true
 # Open URL in browser
 browser=false
 # Log URLs
-log=false
+log=true
 # Log file location
-logfile="$HOME/.teknik"
+logfile="$HOME/.config/tekniklog"
 
 ## FUNCTIONS
 
