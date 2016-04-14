@@ -39,4 +39,4 @@ rsync \
 echo "=== End rsync ==="
 
 cp ~/media/backup/homedir/rdiff-backup-data/backup.log \
-   ~/scripts/data/logs/homedir/$(date -Iminutes)
+   ~/scripts/data/logs/homedir/$(date --utc -Iseconds)

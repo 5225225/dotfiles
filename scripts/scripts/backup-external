@@ -2,7 +2,7 @@
 
 upper_user="$(echo "$USER" | sed 's:.:\u&:')"
 
-logpath="$(date -Iminutes)"
+logpath="$(date --utc -Iseconds)"
 
 echo "     === Running mirror on external ==="
 echo ""

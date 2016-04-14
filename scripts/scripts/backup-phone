@@ -30,4 +30,4 @@ rdiff-backup \
 echo "=== End rdiff-backup ==="
 
 cp ~/media/backup/phone/rdiff-backup/rdiff-backup-data/backup.log \
-   ~/scripts/data/logs/phone/$(date -Iminutes)
+   ~/scripts/data/logs/phone/$(date --utc -Iseconds)
