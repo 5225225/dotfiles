@@ -1,0 +1,23 @@
+#!/bin/bash
+
+upper_user="$(echo "$USER" | sed 's:.:\u&:')"
+
+logpath="$(date -Iminutes)"
+
+echo "     === Running mirror on external ==="
+echo ""
+echo "Current date is $(date)"
+echo "Full mirror log can be found at"
+echo "  ~/scripts/data/logs/external/$logpath"
+
+rsync \
+    -b \
+    -a \
+    -z \
+    --rsync-path=/bin/rsync \
+    --exclude freenet \
+    --exclude bitcoin \
+    --exclude backup \
+    --stats \
+    --log-file ~/scripts/data/logs/external/$logpath \
+    ~/media nas:/volume1/homes/$upper_user/backup

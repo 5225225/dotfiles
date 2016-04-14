@@ -1,0 +1,42 @@
+#!/bin/bash
+upper_user="$(echo "$USER" | sed 's:.:\u&:')"
+
+echo "     === Running backup on HOMEDIR ==="
+echo ""
+echo "Current date is $(date)"
+echo "Full backup log can be found at"
+echo "  ~/media/backup/homedir/rdiff-backup-data/backup.log"
+echo "Historical backup logs can be found under ~/scripts/data/logs/"
+echo "=== Begin rdiff-backup ==="
+echo ""
+
+rm -f ~/media/backup/homedir/rdiff-backup-data/backup.log
+
+rdiff-backup \
+    --terminal-verbosity 3 \
+    --verbosity 5 \
+    --exclude ~/.local \
+    --exclude ~/media \
+    --exclude ~/.cache \
+    --exclude ~/mount/NAS \
+    --exclude ~/mount/usbstick \
+    --exclude ~/dl \
+    ~ ~/media/backup/homedir/
+
+echo "=== End rdiff-backup ==="
+
+echo ""
+
+echo "=== Begin rsync ==="
+
+rsync \
+    --rsync-path=/bin/rsync \
+    -a \
+    --stats \
+    --delete \
+    ~/media/backup/ nas:/volume1/homes/$upper_user/backup
+
+echo "=== End rsync ==="
+
+cp ~/media/backup/homedir/rdiff-backup-data/backup.log \
+   ~/scripts/data/logs/homedir/$(date -Iminutes)
