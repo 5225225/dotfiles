@@ -136,6 +136,10 @@ alias headers="curl --dump-header /dev/stdout --output /dev/null --silent"
 alias pubip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias restartpa="pulseaudio -k ; pulseaudio --start"
 
+alias timetable="cat ~/scripts/data/timetable"
+# Not a UUOC, just doing `< file` will run it through a pager, which I don't
+# want.
+
 alias pdb="python -m pdb"
 
 alias ag="ag -A 3 -B 3"
