@@ -18,7 +18,7 @@ set background=dark
 filetype plugin on
 syntax on
 
-set tw=79
+set tw=99
 
 set modeline
 set modelines=5
