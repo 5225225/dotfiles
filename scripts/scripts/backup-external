@@ -11,13 +11,9 @@ echo "Full mirror log can be found at"
 echo "  ~/scripts/data/logs/external/$logpath"
 
 rsync \
-    -b \
-    -a \
-    -z \
     --rsync-path=/bin/rsync \
-    --exclude freenet \
-    --exclude bitcoin \
-    --exclude backup \
+    -a \
     --stats \
+    --exclude backup \
     --log-file ~/scripts/data/logs/external/$logpath \
     ~/media nas:/volume1/homes/$upper_user/backup
