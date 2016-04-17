@@ -13,6 +13,7 @@ echo "  ~/scripts/data/logs/external/$logpath"
 rsync \
     --rsync-path=/bin/rsync \
     -a \
+    -z \
     --stats \
     --exclude backup \
     --log-file ~/scripts/data/logs/external/$logpath \
