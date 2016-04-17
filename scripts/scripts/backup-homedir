@@ -1,12 +1,16 @@
 #!/bin/bash
 upper_user="$(echo "$USER" | sed 's:.:\u&:')"
+logpath="$(date --utc -Iseconds)"
 
 echo "     === Running backup on HOMEDIR ==="
 echo ""
 echo "Current date is $(date)"
-echo "Full backup log can be found at"
-echo "  ~/media/backup/homedir/rdiff-backup-data/backup.log"
-echo "Historical backup logs can be found under ~/scripts/data/logs/"
+echo "Full rdiff-backup log can be found at"
+echo "~/scripts/data/logs/homedir/$logpath-rdiff"
+echo ""
+echo "Full rsync mirror log can be found at"
+echo "~/scripts/data/logs/homedir/$logpath-rsync"
+echo ""
 echo "=== Begin rdiff-backup ==="
 echo ""
 
@@ -34,9 +38,11 @@ rsync \
     -a \
     --stats \
     --delete \
+    --exclude media \
+    --log-file ~/scripts/data/logs/homedir/$logpath-rsync \
     ~/media/backup/ nas:/volume1/homes/$upper_user/backup
 
 echo "=== End rsync ==="
 
 cp ~/media/backup/homedir/rdiff-backup-data/backup.log \
-   ~/scripts/data/logs/homedir/$(date --utc -Iseconds)
+   ~/scripts/data/logs/homedir/$logpath-rdiff
