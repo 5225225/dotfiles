@@ -34,22 +34,30 @@ status.register("mpd",
     interval=1
 )
 
-if os.path.isdir(os.path.expanduser("~/mail/")):
+if os.path.isdir(os.path.expanduser("~/mail/school")):
+    status.register("mail",
+        backends = [
+            maildir.MaildirMail(
+                directory = os.path.expanduser("~/mail/school/INBOX"),
+                account = "School",
+            )],
+        interval = 1,
+        format = "{account} : {unread} new email",
+        color_unread="#ab4642",
+    )
+
+if os.path.isdir(os.path.expanduser("~/mail/home")):
     status.register("mail",
         backends = [
             maildir.MaildirMail(
                 directory = os.path.expanduser("~/mail/home/INBOX"),
                 account = "Home",
-            ),
-            maildir.MaildirMail(
-                directory = os.path.expanduser("~/mail/school/INBOX"),
-                account = "School",
-            ),
-        ],
+            )],
         interval = 1,
         format = "{account} : {unread} new email",
-        format_plural = "{account} : {current_unread}/{unread} new emails",
+        color_unread="#7cafc2",
     )
+
 
 try:
     status.register("weather",
