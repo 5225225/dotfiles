@@ -193,62 +193,16 @@ rofi.columns:                        1
 ! Font to use
 rofi.font:                           ohsnap 12
 
-! Foreground color
-rofi.fg:                             #d0d0d0
-
-! Background color
-rofi.bg:                             argb:99000000
-
-! Foreground color for active row
-rofi.fg-active:                      #268BD2
-
-! Foreground color for urgent row
-rofi.fg-urgent:                      #DC322F
-
-! Foreground color for highlighted active row
-rofi.hlfg-active:                    #FDF6E3
-
-! Foreground color for highlighted urgent row
-rofi.hlfg-urgent:                    #FDF6E3
-
-! Background color for active row
-rofi.bg-active:                      #FDF6E3
-
-! Background color for urgent row
-rofi.bg-urgent:                      #FDF6E3
-
-! Background color for highlighted active row
-rofi.hlbg-active:                    #268BD2
-
-! Background color for highlighted urgent row
-rofi.hlbg-urgent:                    #DC322F
-
-! Background color for alternating row
-rofi.bgalt:                          argb:99000000
-
-! Foreground color for highlighted row
-rofi.hlfg:                           #EEE8D5
-
-! Background color for highlighted row
-rofi.hlbg:                           #586E75
-
-! Border color
-rofi.bc:                             argb:00000000
-
 ! Use extended color scheme
-rofi.color-enabled:                  false
+rofi.color-enabled:                  true
 
 ! Color scheme for normal row
-rofi.color-normal:                   #fdf6e3,#002b36,#eee8d5,#586e75,#eee8d5
-
-! Color scheme for urgent row
-rofi.color-urgent:                   #fdf6e3,#dc322f,#eee8d5,#dc322f,#fdf6e3
-
-! Color scheme for active row
-rofi.color-active:                   #fdf6e3,#268bd2,#eee8d5,#268bd2,#fdf6e3
+rofi.color-normal:                   argb:99000000, #D0D0D0, argb:bb000000, #586E75, #EEE8D5
+rofi.color-urgent:                   #FDF6E3,       #DC322F, #DC322F, #DC322F, #FDF6E3
+rofi.color-active:                   #FDF6E3,       #268BD2, #FDF6E3, #268BD2, #FDF6E3
 
 ! Color scheme window
-rofi.color-window:                   #fdf6e3,#002b36
+rofi.color-window:                   argb:99000000,argb:00000000
 
 ! Border width
 rofi.bw:                             1
