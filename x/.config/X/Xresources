@@ -21,20 +21,29 @@ github.com/5225225/dotfiles
                                   
 */
 
-#define colour_black  #151515
-#define colour_grey   #505050
-#define colour_lgrey  #e0e0e0
-#define colour_white  #d0d0d0
-#define colour_lwhite #f5f5f5
+#define colour_black    #181818
+#define colour_lblack   #383838
 
-#define colour_red    #ac4142
-#define colour_orange #d28445
-#define colour_yellow #f4bf75
-#define colour_green  #90a959
-#define colour_lblue  #75b5aa
-#define colour_blue   #6a9fb5
-#define colour_purple #aa759f
-#define colour_brown  #8f5536
+#define colour_red      #ab4642
+#define colour_lred     #ab4642
+
+#define colour_green    #a1b56c
+#define colour_lgreen   #a1b56c
+
+#define colour_yellow   #f7ca88
+#define colour_lyellow  #f7ca88
+
+#define colour_blue     #7cafc2
+#define colour_lblue    #7cafc2
+
+#define colour_magenta  #ba8baf
+#define colour_lmagenta #ba8baf
+
+#define colour_cyan     #86c1b9
+#define colour_lcyan    #86c1b9
+
+#define colour_white    #d8d8d8
+#define colour_lwhite  #f8f8f8
 
 /*
        _       _           _     
@@ -52,22 +61,27 @@ github.com/5225225/dotfiles
 *.cursorColor:  colour_white
 
 *.color0:       colour_black
+*.color8:       colour_lblack
+
 *.color1:       colour_red
+*.color9:       colour_lred
+
 *.color2:       colour_green
+*.color10:      colour_lgreen
+
 *.color3:       colour_yellow
+*.color11:      colour_lyellow
+
 *.color4:       colour_blue
-*.color5:       colour_purple
-*.color6:       colour_lblue
+*.color12:      colour_lblue
+
+*.color5:       colour_magenta
+*.color13:      colour_lmagenta
+
+*.color6:       colour_cyan
+*.color14:      colour_lcyan
+
 *.color7:       colour_white
-
-*.color14:      colour_brown
-*.color9:       colour_orange
-
-*.color8:       colour_grey
-*.color10:      colour_grey
-*.color11:      colour_grey
-*.color12:      colour_grey
-*.color13:      colour_lgrey
 *.color15:      colour_lwhite
 
 /*
