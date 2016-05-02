@@ -22,7 +22,7 @@ github.com/5225225/dotfiles
 */
 
 #define colour_black    #181818
-#define colour_lblack   #383838
+#define colour_lblack   #585858
 
 #define colour_red      #ab4642
 #define colour_lred     #ab4642
@@ -42,8 +42,8 @@ github.com/5225225/dotfiles
 #define colour_cyan     #86c1b9
 #define colour_lcyan    #86c1b9
 
-#define colour_white    #d8d8d8
-#define colour_lwhite  #f8f8f8
+#define colour_white    #e8e8e8
+#define colour_lwhite   #ffffff
 
 /*
        _       _           _     
