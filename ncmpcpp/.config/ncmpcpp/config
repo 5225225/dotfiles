@@ -320,7 +320,7 @@ centered_cursor = yes
 ## Note: You can specify third character which will
 ## be used to build 'empty' part of progressbar.
 ##
-progressbar_look = "─╼ "
+progressbar_look = "-> "
 #
 progressbar_boldness = yes
 #
@@ -414,7 +414,7 @@ fetch_lyrics_for_current_song_in_background = no
 #
 jump_to_now_playing_song_at_start = yes
 #
-ask_before_clearing_playlists = no
+ask_before_clearing_playlists = yes
 #
 clock_display_seconds = no
 #
@@ -445,7 +445,7 @@ mouse_support = yes
 #
 tags_separator = " | "
 #
-tag_editor_extended_numeration = no
+tag_editor_extended_numeration = yes
 #
 #media_library_sort_by_mtime = no
 #
@@ -475,14 +475,14 @@ use_console_editor = yes
 #
 colors_enabled = yes
 empty_tag_color = cyan
-header_window_color = default
+header_window_color = white
 volume_color = default
 state_line_color = default
 state_flags_color = default
-main_window_color = yellow
+main_window_color = blue
 color1 = white
 color2 = green
-main_window_highlight_color = yellow
+main_window_highlight_color = default
 progressbar_color = black
 progressbar_elapsed_color = green
 statusbar_color = default
