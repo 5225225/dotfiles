@@ -8,6 +8,7 @@ top_commands = [
 "== Play ==",
 "== Playlists ==",
 "== Clear ==",
+"== Search ==",
 ]
 
 def getartists():
@@ -32,6 +33,9 @@ def addsongs(paths):
 def getplaylists():
     return subprocess.check_output(["mpc", "lsplaylists"]).decode("UTF8").strip().split("\n")
 
+def play():
+    subprocess.call(["mpc", "play"])
+
 def playplaylist(plistname):
     subprocess.call(["mpc", "clear"])
     subprocess.call(["mpc", "load", plistname])
@@ -46,6 +50,9 @@ def getplist():
 
 def playindex(x):
     subprocess.call(["mpc", "play", str(x)])
+
+def search(searchstr):
+    return subprocess.check_output(["mpc", "search", "any", searchstr]).decode("UTF8").strip().split("\n")
 
 def dmenu(choices, prompt=": "):
     cmd = DMENU
@@ -95,6 +102,17 @@ while True:
     elif artist == "== Clear ==":
         subprocess.call(["mpc", "clear"])
 
+    elif artist == "== Search ==":
+        searchstr = dmenu([], "search: ")
+
+        song = dmenu(["== All =="] + search(searchstr))
+
+        if song == "== All ==":
+            addsongs(search(searchstr))
+        else:
+            addsongs([song])
+
+        play()
     elif artist == "":
         sys.exit(0)
 
@@ -107,4 +125,4 @@ while True:
         else:
             addsongs(getsongs(artist, album))
 
-        subprocess.call(["mpc", "play"])
+        play()
