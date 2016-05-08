@@ -1,0 +1,18 @@
+image/jpeg; feh %s;
+image/jpg; feh %s;
+image/png; feh %s;
+image/gif; feh %s;
+image/bmp; feh %s;
+image/tiff; feh %s;
+
+audio/amr; mpv --force-window --title="REQUEST_FLOATING_WINDOW" %s;
+video/mpeg; mpv --force-window --title="REQUEST_FLOATING_WINDOW" %s;
+
+application/zip; archive-extract %s;
+application/rar; archive-extract %s;
+
+application/msword; pandoc-view %s;
+
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; pandoc-view %s;
+
+application/pdf; zathura %s;

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cd ~/dl
+
+dtrx -n --one=here $1
+
+notify-send "Extracted $(basename $1) to downloads folder"

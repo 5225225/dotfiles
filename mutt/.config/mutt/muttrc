@@ -87,3 +87,5 @@ unset mime_forward
 set forward_format = "Fwd: %s"
 set include
 set forward_quote
+
+set mailcap_path="~/.config/mutt/mailcap"
