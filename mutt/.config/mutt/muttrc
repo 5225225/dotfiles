@@ -89,3 +89,7 @@ set include
 set forward_quote
 
 set mailcap_path="~/.config/mutt/mailcap"
+
+auto_view text/html
+
+alternative_order text/plain text/enriched text/html
