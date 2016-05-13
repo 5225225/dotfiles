@@ -1,4 +1,8 @@
 #!/bin/bash
+
+logpath="$(date --utc -Iseconds)"
+upper_user="$(echo "$USER" | sed 's:.:\u&:')"
+
 echo "     === Running backup on PHONE ==="
 echo ""
 echo "Current date is $(date)"
@@ -15,6 +19,7 @@ rsync \
      --no-motd \
      --stats \
      --exclude DCIM/.thumbnails/ \
+     --log-file ~/scripts/data/logs/phone/$logpath-rsync-mirror \
      phone:/sdcard/ ~/media/backup/phone/current
 
 echo "=== Begin rdiff-backup ==="
@@ -30,4 +35,16 @@ rdiff-backup \
 echo "=== End rdiff-backup ==="
 
 cp ~/media/backup/phone/rdiff-backup/rdiff-backup-data/backup.log \
-   ~/scripts/data/logs/phone/$(date --utc -Iseconds)
+   ~/scripts/data/logs/phone/$logpath
+
+echo "=== Begin rsync ==="
+
+rsync \
+    --rsync-path=/bin/rsync \
+    -a \
+    --stats \
+    --delete \
+    --log-file ~/scripts/data/logs/phone/$logpath-rsync \
+    ~/media/backup/phone/ nas:/volume1/homes/$upper_user/backup/phone
+
+echo "=== End rsync ==="

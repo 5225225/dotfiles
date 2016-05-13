@@ -40,7 +40,7 @@ rsync \
     --delete \
     --exclude media \
     --log-file ~/scripts/data/logs/homedir/$logpath-rsync \
-    ~/media/backup/ nas:/volume1/homes/$upper_user/backup
+    ~/media/backup/homedir/ nas:/volume1/homes/$upper_user/backup/homedir
 
 echo "=== End rsync ==="
 
