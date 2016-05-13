@@ -30,11 +30,18 @@ def addsongs(paths):
     proc = subprocess.Popen(["mpc", "add"], stdin=subprocess.PIPE)
     proc.communicate("\n".join(paths).encode("UTF8"))
 
+def insertsongs(paths):
+    proc = subprocess.Popen(["mpc", "add"], stdin=subprocess.PIPE)
+    proc.communicate("\n".join(paths).encode("UTF8"))
+
 def getplaylists():
     return subprocess.check_output(["mpc", "lsplaylists"]).decode("UTF8").strip().split("\n")
 
-def play():
+def mpc_play():
     subprocess.call(["mpc", "play"])
+
+def mpc_next():
+    subprocess.call(["mpc", "next"])
 
 def playplaylist(plistname):
     subprocess.call(["mpc", "clear"])
@@ -108,11 +115,11 @@ while True:
         song = dmenu(["== All =="] + search(searchstr))
 
         if song == "== All ==":
-            addsongs(search(searchstr))
+            insertsongs(search(searchstr))
         else:
-            addsongs([song])
+            insertsongs([song])
 
-        play()
+        mpc_play()
     elif artist == "":
         sys.exit(0)
 
@@ -125,4 +132,4 @@ while True:
         else:
             addsongs(getsongs(artist, album))
 
-        play()
+        mpc_play()
