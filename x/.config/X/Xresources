@@ -285,13 +285,13 @@ rofi.parse-known-hosts:              true
 rofi.combi-modi:                     window,run
 
 ! Do a more fuzzy matching
-rofi.fuzzy:                          true
+rofi.fuzzy:                          false
 
 ! Use glob matching
-rofi.glob:                           false
+rofi.glob:                           true
 
 ! Use regex matching
-rofi.regex:                          false
+rofi.regex:                          true
 
 ! Tokenize input string
 rofi.tokenize:                       true
