@@ -1,2 +1,2 @@
 #!/bin/sh
-shuf -n "${1:-6}" --random-source /dev/random ~/scripts/data/diceware8k.txt | tr \\n " " ; echo ""
+shuf -r -n "${1:-6}" --random-source /dev/random ~/scripts/data/diceware8k.txt | tr \\n " " ; echo ""
