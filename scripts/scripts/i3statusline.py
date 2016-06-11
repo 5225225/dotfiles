@@ -26,6 +26,16 @@ status.register("network",
     format_down = "",
 )
 
+status.register("network",
+    interface = "eth0",
+    format_up = "{kbs}KB/s",
+    format_down = "",
+    interval = 10,
+    upper_limit = 1000,
+    divisor=1024*10,
+    round_size=1,
+)
+
 status.register("mpd",
     format="[<span foreground='#a1b56c'>{artist}</span>] - [<span foreground='#ac4142'>{title}</span>] - [<span foreground='#6a9fb5'>{album}</span>]",
     max_field_len=0,
