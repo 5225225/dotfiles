@@ -39,10 +39,10 @@ rsync \
     --stats \
     --delete \
     --exclude media \
-    --log-file ~/scripts/data/logs/homedir/$logpath-rsync \
-    ~/media/backup/homedir/ nas:/volume1/homes/$upper_user/backup/homedir
+    --log-file "$HOME/scripts/data/logs/homedir/$logpath-rsync" \
+    ~/media/backup/homedir/ "nas:/volume1/homes/$upper_user/backup/homedir"
 
 echo "=== End rsync ==="
 
 cp ~/media/backup/homedir/rdiff-backup-data/backup.log \
-   ~/scripts/data/logs/homedir/$logpath-rdiff
+   "$HOME/scripts/data/logs/homedir/$logpath-rdiff"

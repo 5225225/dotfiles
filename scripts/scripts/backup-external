@@ -16,5 +16,5 @@ rsync \
     -z \
     --stats \
     --exclude backup \
-    --log-file ~/scripts/data/logs/external/$logpath \
-    ~/media nas:/volume1/homes/$upper_user/backup
+    --log-file "$HOME/scripts/data/logs/external/$logpath" \
+    ~/media "nas:/volume1/homes/$upper_user/backup"

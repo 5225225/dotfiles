@@ -19,7 +19,7 @@ rsync \
      --no-motd \
      --stats \
      --exclude DCIM/.thumbnails/ \
-     --log-file ~/scripts/data/logs/phone/$logpath-rsync-mirror \
+     --log-file "$HOME/scripts/data/logs/phone/$logpath-rsync-mirror" \
      phone:/sdcard/ ~/media/backup/phone/current
 
 echo "=== Begin rdiff-backup ==="
@@ -35,7 +35,7 @@ rdiff-backup \
 echo "=== End rdiff-backup ==="
 
 cp ~/media/backup/phone/rdiff-backup/rdiff-backup-data/backup.log \
-   ~/scripts/data/logs/phone/$logpath
+   "$HOME/scripts/data/logs/phone/$logpath"
 
 echo "=== Begin rsync ==="
 
@@ -44,7 +44,7 @@ rsync \
     -a \
     --stats \
     --delete \
-    --log-file ~/scripts/data/logs/phone/$logpath-rsync \
-    ~/media/backup/phone/ nas:/volume1/homes/$upper_user/backup/phone
+    --log-file "$HOME/scripts/data/logs/phone/$logpath-rsync" \
+    ~/media/backup/phone/ "nas:/volume1/homes/$upper_user/backup/phone"
 
 echo "=== End rsync ==="
