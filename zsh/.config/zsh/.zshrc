@@ -129,6 +129,11 @@ adb() {
     HOME="$OLDHOME"
 }
 
+priv() {
+    RPROMPT="[priv]"
+    export HISTFILE="/dev/null"
+}
+
 alias scratch='mkdir -p ~/downloads/scratch; cd $(mktemp -d -p ~/downloads/scratch)'
 alias 0="false"
 alias 1="true"
