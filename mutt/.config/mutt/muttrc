@@ -58,7 +58,8 @@ color quoted5 yellow default
 color quoted6 red default
 color quoted7 green default
 
-set timeout=5
+set timeout = 5
+set mail_check = 10
 
 bind editor <Tab> complete-query
 
