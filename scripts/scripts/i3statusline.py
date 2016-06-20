@@ -28,12 +28,13 @@ status.register("network",
 
 status.register("network",
     interface = "eth0",
-    format_up = "{kbs}KB/s",
+    format_up = "{bytes_recv}/{bytes_sent} KB/s",
     format_down = "",
-    interval = 10,
+    interval = 30,
     upper_limit = 1000,
-    divisor=1024*10,
+    divisor=1000 * 30,
     round_size=1,
+    dynamic_color=True
 )
 
 status.register("mpd",
