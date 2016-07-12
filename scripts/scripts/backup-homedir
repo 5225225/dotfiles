@@ -39,7 +39,6 @@ rsync \
     --stats \
     --delete \
     --backup \
-    --backup-dir=deleted \
     --exclude media \
     --log-file "$HOME/scripts/data/logs/homedir/$logpath-rsync" \
     ~/media/backup/homedir/ "nas:/volume1/homes/$upper_user/backup/homedir"
