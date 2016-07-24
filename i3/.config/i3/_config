@@ -136,6 +136,8 @@ bindsym $mod+Shift+plus exec --no-startup-id mpc volume +10 ; exec dunstify -a "
 bindsym $mod+Shift+semicolon exec xautolock -locknow
 bindsym $mod+grave workspace back_and_forth
 
+bindsym $mod+p exec rofipassmenu
+
 bindsym XF86AudioPlay exec mpc --no-startup-id toggle
 bindsym XF86AudioStop exec mpc --no-startup-id stop
 bindsym XF86AudioPrev exec mpc --no-startup-id prev
