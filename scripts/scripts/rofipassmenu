@@ -5,34 +5,30 @@ export PASSWORD_STORE_X_SELECTION="primary"
 shopt -s nullglob globstar
 
 enter_user_pass() {
-    xdotool type --clearmodifiers $1
+    xdotool type --clearmodifiers "$1"
     xdotool key --clearmodifiers "Tab"
-    xdotool type --clearmodifiers $2
+    xdotool type --clearmodifiers "$2"
     xdotool key --clearmodifiers "Return"
 }
 
-typeit=1
-if [[ $1 == "--type" ]]; then
-    typeit=1
-    shift
-fi
 
 prefix=${PASSWORD_STORE_DIR-~/.password-store}
 password_files=( "$prefix"/**/*.gpg )
 password_files=( "${password_files[@]#"$prefix"/}" )
 password_files=( "${password_files[@]%.gpg}" )
 
-password_name=$(printf '%s\n' "${password_files[@]}" | rofi -dmenu "$@")
+password_name=$(printf '%s\n' "${password_files[@]}" | rofi -dmenu -p ": " -fuzzy "$@")
 [[ -n $password_name ]] || exit
 
 password=$(pass show "$password_name" | head -n1)
 username=$(basename "$password_name")
 
+todo=$(printf 'type\nclipboard' | rofi -dmenu -p ": ")
 
 
-if [[ $typeit -eq 0 ]]; then
+if [[ "$todo" = type ]]; then
+    enter_user_pass "$username" "$password"
+elif [[ "$todo" = clipboard ]]; then
     pass show -c "$password_name"
     notify-send "passwordstore" "Added $password_name to clipboard"
-else
-    enter_user_pass "$username" "$password"
 fi
