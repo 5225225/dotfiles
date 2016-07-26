@@ -97,7 +97,7 @@ chpwd() {
     print -Pn "\e]0;`pwd`\a";
 
     if ( [[ $silentcd != 1 ]] ) {
-        ls --group-directories-first --color=auto;
+        timeout 0.1 ls --group-directories-first --color=auto;
     }
 
     silentcd=0
