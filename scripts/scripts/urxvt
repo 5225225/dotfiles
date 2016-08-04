@@ -4,7 +4,7 @@ x=$(xdotool getwindowfocus | xargs -I@ xprop -id @ -f WM_NAME "8s" ":\$0" | grep
 if [ -d "$x" ]
     then
         cd "$x"
-        urxvtc
+        urxvt
     else
-        urxvtc
+        urxvt
 fi
