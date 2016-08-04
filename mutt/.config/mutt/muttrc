@@ -40,8 +40,8 @@ set pgp_use_gpg_agent = yes
 set pgp_timeout = 3600
 set crypt_autosign = yes
 set crypt_replyencrypt = yes
-set crypt_autoencrypt = yes
 set crypt_verify_sig=yes
+set crypt_opportunistic_encrypt=yes
 
 color hdrdefault blue default
 color indicator blue default
