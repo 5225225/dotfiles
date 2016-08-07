@@ -5,6 +5,7 @@ export PASSWORD_STORE_X_SELECTION="primary"
 shopt -s nullglob globstar
 
 enter_user_pass() {
+    sleep 0.1
     xdotool type --clearmodifiers "$1"
     xdotool key --clearmodifiers "Tab"
     xdotool type --clearmodifiers "$2"
