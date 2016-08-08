@@ -104,7 +104,7 @@ URxvt.background: [70]#000000
 URxvt.scrollBar: false
 
 URxvt.perl-ext-common: default,matcher
-URxvt.url-launcher: /usr/bin/firefox
+URxvt.url-launcher: /usr/bin/qutebrowser
 URxvt.matcher.button: 1
 URxvt.colorUL: colour_blue
 
