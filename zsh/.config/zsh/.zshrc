@@ -16,7 +16,7 @@ unsetopt autocd beep extendedglob
 autoload -U colors
 colors
 
-bindkey -v
+bindkey -e
 
 bindkey "^R" history-incremental-search-backward
 bindkey "^S" history-incremental-search-forward
