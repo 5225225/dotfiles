@@ -150,7 +150,7 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-mute 0 false ; 
 bindsym $mod+Shift+numbersign exec --no-startup-id python ~/scripts/dmenu_mpd
 
 
-assign [class="^Firefox$"] → $1
+assign [class="^qutebrowser$"] → $1
 assign [title="^Weechat$"] → $2
 assign [title="^mutt$"] → $3
 assign [title="^Deluge$"] → $8
