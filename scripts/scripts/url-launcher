@@ -1,0 +1,10 @@
+#!/bin/bash
+
+notify-send "url-launcher" "Opening URL $1"
+
+if youtube-dl --get-url "$1"; then
+    mpv --fullscreen "$1"
+else
+    qutebrowser "$1" ; i3-msg workspace number 1
+fi
+
