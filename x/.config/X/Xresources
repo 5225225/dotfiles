@@ -103,10 +103,14 @@ URxvt.background: [70]#000000
 
 URxvt.scrollBar: false
 
-URxvt.perl-ext-common: default,matcher
-URxvt.url-launcher: /usr/bin/qutebrowser
-URxvt.matcher.button: 1
+URxvt.perl-ext-common: default,url-select
+URxvt.url-select.launcher: /home/jack/scripts/url-launcher
+URxvt.url-select.underline: true
+URxvt.url-select.button: 1
 URxvt.colorUL: colour_blue
+
+URxvt.keysym.M-u: perl:url-select:select_next
+
 
 URxvt.iso14755: False
 
