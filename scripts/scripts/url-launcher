@@ -5,6 +5,6 @@ notify-send "url-launcher" "Opening URL $1"
 if youtube-dl --get-url "$1"; then
     mpv --fullscreen "$1"
 else
-    qutebrowser "$1" ; i3-msg workspace --no-auto-back-and-forth number 1
+    qutebrowser "$1" ; i3-msg workspace -- --no-auto-back-and-forth number 1
 fi
 
