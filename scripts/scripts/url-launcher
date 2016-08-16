@@ -1,10 +1,18 @@
 #!/bin/bash
 
+detect_regex="youtu|vimeo"
+
 notify-send "url-launcher" "Opening URL $1"
 
-if youtube-dl --get-url "$1"; then
-    mpv --fullscreen "$1"
+if echo "$1" | grep -e "$detect_regex"; then
+    if youtube-dl --get-url "$1"; then
+        mpv --fullscreen "$1"
+    else
+        qutebrowser "$1"&
+        i3-msg workspace -- --no-auto-back-and-forth number 1
+    fi
 else
-    qutebrowser "$1" ; i3-msg workspace -- --no-auto-back-and-forth number 1
+    qutebrowser "$1"&
+    i3-msg workspace -- --no-auto-back-and-forth number 1
 fi
 
