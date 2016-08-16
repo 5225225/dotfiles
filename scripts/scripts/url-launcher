@@ -4,7 +4,7 @@ detect_regex="youtu|vimeo"
 
 notify-send "url-launcher" "Opening URL $1"
 
-if echo "$1" | grep -e "$detect_regex"; then
+if echo "$1" | grep -E "$detect_regex"; then
     if youtube-dl --get-url "$1"; then
         mpv --fullscreen "$1"
     else
