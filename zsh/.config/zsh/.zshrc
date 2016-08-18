@@ -140,6 +140,7 @@ alias 1="true"
 alias headers="curl --dump-header /dev/stdout --output /dev/null --silent"
 alias pubip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias restartpa="pulseaudio -k ; pulseaudio --start"
+alias rcal='remind -w120,3,0 -cum ~/.config/remind | sed "s:$(date +%d):\x1b[7m\0\x1b[m:"'
 
 alias timetable="cat ~/scripts/data/timetable"
 # Not a UUOC, just doing `< file` will run it through a pager, which I don't
