@@ -102,6 +102,7 @@ URxvt.background: [70]#000000
 
 
 URxvt.scrollBar: false
+URxvt.urgentOnBell: true
 
 URxvt.perl-ext-common: default,url-select
 URxvt.url-select.launcher: /home/jack/scripts/url-launcher
