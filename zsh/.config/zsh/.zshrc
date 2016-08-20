@@ -163,6 +163,7 @@ alias watch="watch -c"
 alias pacman="pacaur"
 alias gs="git status"
 alias cget="curl -C - -L -O --retry 10"
+alias abook="abook -C ~/.config/abook/abookrc --datafile ~/.config/abook/addressbook"
 
 zmodload zsh/terminfo
 
