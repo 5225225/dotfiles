@@ -167,10 +167,11 @@ for_window [class = "soffice" title="^Text Import - "] floating enable
 
 for_window [title="REQUEST_FLOATING_WINDOW"] floating enable
 
-exec firefox
+exec qutebrowser
 exec steam
 exec deluge
-exec owncloud
 
+
+exec --no-startup-id urxvt -title Weechat -e tmux weechat
 exec --no-startup-id urxvt -e mutt -F ~/.config/mutt/muttrc
 exec --no-startup-id hsetroot -fill scripts/data/wallpaper.png
