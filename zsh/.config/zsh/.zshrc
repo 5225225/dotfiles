@@ -130,11 +130,24 @@ adb() {
 }
 
 priv() {
-    RPROMPT="[priv]"
+    RPROMPT="[priv] $RPROMPT"
     export HISTFILE="/dev/null"
 }
 
-alias scratch='mkdir -p ~/downloads/scratch; cd $(mktemp -d -p ~/downloads/scratch)'
+scratch() {
+    mkdir -p ~/dl/scratch
+    tmpdir="$(mktemp -d -p ~/dl/scratch)"
+    echo "You are now in a scratch directory"
+    echo "This directory will be removed when this shell exits."
+    (
+        export RPROMPT="[scratch] $RPROMPT"
+        cd $tmpdir
+        /usr/bin/zsh
+        rm -r $tmpdir
+    )
+}
+
+#alias scratch='mkdir -p ~/dl/scratch; cd $(mktemp -d -p ~/dl/scratch)'
 alias 0="false"
 alias 1="true"
 alias headers="curl --dump-header /dev/stdout --output /dev/null --silent"
