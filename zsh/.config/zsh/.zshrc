@@ -143,7 +143,7 @@ scratch() {
         export RPROMPT="[scratch] $RPROMPT"
         cd $tmpdir
         /usr/bin/zsh
-        rm -r $tmpdir
+        rm -rfI $tmpdir
     )
 }
 
