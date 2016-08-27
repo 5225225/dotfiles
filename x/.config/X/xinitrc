@@ -23,7 +23,7 @@ exec xrdb "$HOME/.config/X/Xresources" &
 exec setxkbmap gb &
 exec compton &
 exec xautolock &
-exec remind -z -k'notify-send -u critical "remind" %s' ~/.config/remind &
+exec remind -z -k"$HOME/scripts/remind-notify  %s" ~/.config/remind &
 
 exec unclutter &
 
