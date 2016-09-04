@@ -1,0 +1,9 @@
+#!/bin/bash
+
+mail_count="$(find ~/mail/"$BLOCK_INSTANCE"/INBOX/new -type f | wc -l)"
+
+if [[ "$mail_count" -gt 0 ]]; then
+    echo "$BLOCK_INSTANCE: $mail_count"
+else
+    echo ""
+fi

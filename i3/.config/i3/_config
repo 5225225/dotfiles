@@ -100,7 +100,7 @@ bindsym $mod+c mode "builtin"
 
 
 bar {
-    status_command python ~/scripts/i3statusline.py
+    status_command i3blocks
     Modifier Mod4
     position top
 

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+
+status_str='[<span foreground="##a1b56c">%artist%</span>] - [<span foreground="##ac4142">%title%</span>] - [<span foreground="##6a9fb5">%album%</span>]'
+
+mpc status -f "$status_str" | head -n1 | sed "s/&/&amp;/"
+case $BLOCK_BUTTON in
+    1) mpc -q toggle ;;
+esac

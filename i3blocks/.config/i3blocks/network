@@ -1,0 +1,23 @@
+#!/bin/bash
+
+readonly INTERVAL=30
+
+echo "${BLOCK_INSTANCE:=eth0}" >/dev/null
+
+
+read -r old_tx < /sys/class/net/"$BLOCK_INSTANCE"/statistics/tx_bytes
+read -r old_rx < /sys/class/net/"$BLOCK_INSTANCE"/statistics/rx_bytes
+
+sleep "$INTERVAL"
+
+read -r new_tx < /sys/class/net/"$BLOCK_INSTANCE"/statistics/tx_bytes
+read -r new_rx < /sys/class/net/"$BLOCK_INSTANCE"/statistics/rx_bytes
+
+tx_rate=$(( ( new_tx - old_tx ) / 1024 / INTERVAL ))
+rx_rate=$(( ( new_rx - old_rx ) / 1024 / INTERVAL ))
+
+if [[ $rx_rate -gt 500 || $tx_rate -gt 200 ]]; then
+    echo "$rx_rate/$tx_rate KB/s"
+else
+    echo ""
+fi
