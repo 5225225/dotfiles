@@ -24,7 +24,7 @@ password_name=$(printf '%s\n' "${password_files[@]}" | rofi -dmenu -p ": " -fuzz
 password=$(pass show "$password_name" | head -n1)
 username=$(basename "$password_name")
 
-todo=$(printf 'type\nclipboard' | rofi -dmenu -p ": ")
+todo=$(printf 'type\nclipboard\nshow' | rofi -dmenu -p ": ")
 
 
 if [[ "$todo" = type ]]; then
@@ -32,4 +32,6 @@ if [[ "$todo" = type ]]; then
 elif [[ "$todo" = clipboard ]]; then
     pass show -c "$password_name"
     notify-send "passwordstore" "Added $password_name to clipboard"
+elif [[ "$todo" = show ]]; then
+    notify-send -t 25000 "passwordstore" "Password: \"$password\""
 fi
