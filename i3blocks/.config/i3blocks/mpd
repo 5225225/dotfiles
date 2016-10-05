@@ -1,9 +1,18 @@
 #!/bin/bash
 
 
-status_str='[<span foreground="##a1b56c">%artist%</span>] - [<span foreground="##ac4142">%title%</span>] - [<span foreground="##6a9fb5">%album%</span>]'
+status_str_playing='[<span foreground="##a1b56c">%artist%</span>] - [<span foreground="##ac4142">%title%</span>] - [<span foreground="##6a9fb5">%album%</span>]'
+status_str_paused='[<span foreground="##4f5935">%artist%</span>] <span foreground="##666666">-</span> [<span foreground="##542020">%title%</span>] <span foreground="##666666">-</span> [<span foreground="##344e59">%album%</span>]'
 
-mpc status -f "$status_str" | head -n1 | sed "s/&/&amp;/"
 case $BLOCK_BUTTON in
     1) mpc -q toggle ;;
 esac
+
+if mpc status | tail -n2 | grep "\[playing\]" >/dev/null; then
+    status_str="$status_str_playing"
+else
+    status_str="$status_str_paused"
+fi
+
+
+mpc status -f "$status_str" | head -n1 | sed "s/&/&amp;/" | grep "span foreground="
