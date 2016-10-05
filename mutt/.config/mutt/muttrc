@@ -113,5 +113,3 @@ macro index <F6> \
 set query_command= "abook -C ~/.config/abook/abookrc --datafile ~/.config/abook/addressbook --mutt-query '%s'"
 macro index,pager  a "<pipe-message>abook -C ~/.config/abook/abookrc --datafile ~/.config/abook/addressbook --add-email-quiet<return>" "Add this sender to Abook"
 bind editor        <Tab> complete-query
-
-
