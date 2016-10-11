@@ -4,6 +4,9 @@ set dir=~/.cache/vim
 set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
 set backupdir=$XDG_CACHE_HOME/vim,~/,/t
 
+unlet! skip_defaults_vim
+source $VIMRUNTIME/defaults.vim
+
 set expandtab
 set shiftwidth=4
 set softtabstop=4
