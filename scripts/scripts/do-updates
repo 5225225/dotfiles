@@ -1,4 +1,0 @@
-#!/bin/bash
-
-pacaur -Syu
-sleep 10
