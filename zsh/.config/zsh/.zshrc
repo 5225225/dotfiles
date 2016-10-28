@@ -193,6 +193,5 @@ source /usr/share/doc/pkgfile/command-not-found.zsh
 . ~/.config/zsh/.zshenv
 . ~/.config/zsh/agent.sh
 . ~/.config/zsh/plugins/safe-paste.plugin.zsh
-. ~/.config/zsh/private.sh
 
 print -Pn "\e]0;`pwd`\a"
