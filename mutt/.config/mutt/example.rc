@@ -1,0 +1,9 @@
+color status cyan default
+
+set realname = "<REAL NAME>"
+set from="<EMAIL ADDRESS>"
+
+set sendmail = "/bin/msmtp -a <ACCOUNT>"
+set pgp_sign_as = <PGP KEY>
+
+set folder = ~/mail/<ACCOUNT NAME>
