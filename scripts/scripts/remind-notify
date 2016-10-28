@@ -1,0 +1,10 @@
+#!/bin/bash
+
+
+notify-send -u critical "remind" "$1"
+
+if [[ "$1" =~ "from now" ]]; then
+    echo "Reminder" | mutt -s "$1" "$(cat ~/scripts/data/priv/email)"
+fi
+
+rm -f /home/jack/sent

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+remind_output=$(/usr/bin/remind -g -qh ~/.config/remind)
+
+subject=$(echo "$remind_output" | head -n1)
+
+body=$(echo "$remind_output" | tail -n +3)
+
+if [ -n "$body" ]; then
+    echo "$body" | mutt -s "$subject" "$(cat ~/scripts/data/priv/email)" 
+fi
+
+rm -f /home/jack/sent
