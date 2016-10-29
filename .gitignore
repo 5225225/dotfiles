@@ -19,6 +19,14 @@ mutt/.config/mutt/school.rc
 scripts/scripts/data/priv/
 # }}}
 
+#qutebrowser{{{
+
+qutebrowser/.config/qutebrowser/qsettings/*
+qutebrowser/.config/qutebrowser/bookmarks/*
+qutebrowser/.config/qutebrowser/quickmarks
+
+#}}}
+
 #vim{{{
 vim/.config/vim/spell/
 
