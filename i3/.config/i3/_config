@@ -133,7 +133,7 @@ bindsym $mod+Shift+bracketleft exec --no-startup-id mpc prev
 bindsym $mod+Shift+bracketright exec --no-startup-id mpc next
 bindsym $mod+Shift+minus exec --no-startup-id mpc volume -10 ; exec dunstify -a "MPD" -r 500 "                          MPD" "$(mpc volume)"
 bindsym $mod+Shift+plus exec --no-startup-id mpc volume +10 ; exec dunstify -a "MPD" -r 500 "                          MPD" "$(mpc volume)"
-bindsym $mod+Shift+semicolon exec xautolock -locknow
+bindsym $mod+Shift+semicolon exec touch "/tmp/${DISPLAY}_lockmachine"
 bindsym $mod+grave workspace back_and_forth
 
 bindsym $mod+p exec rofipassmenu
@@ -148,6 +148,7 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-mute 0 false ; 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-mute 0 false ; exec pactl -- set-sink-volume 0 +5%
 
 bindsym $mod+Shift+numbersign exec --no-startup-id python ~/scripts/dmenu_mpd
+
 
 
 assign [class="^qutebrowser$"] → $1
