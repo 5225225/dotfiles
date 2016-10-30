@@ -1,11 +1,17 @@
 #!/bin/bash
 
 updates() {
-    checkupdates
-    cower -u
+    checkupdates | cut -d " " -f 1
+    cower -u | cut -d " " -f 2
 }
 
-update_count="$(updates | wc -l)"
+
+update_list="$(updates)"
+update_count="$(echo -n "$update_list" | wc -l)"
+
+case $BLOCK_BUTTON in
+    3) notify-send "updates" "$update_list" ;;
+esac
 
 if [[ "$update_count" -gt 0 ]]; then
     echo "updates: $update_count"
