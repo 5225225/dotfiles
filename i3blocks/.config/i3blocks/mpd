@@ -6,6 +6,7 @@ status_str_paused='[<span foreground="##4f5935">%artist%</span>] <span foregroun
 
 case $BLOCK_BUTTON in
     1) mpc -q toggle ;;
+    3) notify-send "MPD" "$(mpc | head -n1 | htmlescape)" ;;
 esac
 
 if mpc status | tail -n2 | grep "\[playing\]" >/dev/null; then
