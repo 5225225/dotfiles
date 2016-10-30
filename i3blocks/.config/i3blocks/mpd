@@ -16,4 +16,4 @@ else
 fi
 
 
-mpc status -f "$status_str" | head -n1 | sed "s/&/&amp;/" | grep "span foreground="
+mpc status -f "$status_str" | head -n1 | sed "s/&/&amp;/g" | grep "span foreground="
