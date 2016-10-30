@@ -33,6 +33,8 @@ ADJUSTED="$(( (WIDTH-400) / 2 ))"
 
 exec dunst -geometry "400x5+$ADJUSTED-120" &
 
+exec ~/scripts/idlelock &
+
 urxvtd -q -f -o
 
 envfile="$HOME/.config/gpg/gpg-agent.env"
