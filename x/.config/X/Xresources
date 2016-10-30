@@ -218,7 +218,7 @@ rofi.font:                           ohsnap 12
 rofi.color-enabled:                  true
 
 ! Color scheme for normal row
-rofi.color-normal:                   argb:99000000, #D0D0D0, argb:bb000000, #586E75, #EEE8D5
+rofi.color-normal:                   argb:99000000, #D0D0D0, argb:99000000, argb:dd444444, #EEE8D5
 rofi.color-urgent:                   #FDF6E3,       #DC322F, #DC322F, #DC322F, #FDF6E3
 rofi.color-active:                   #FDF6E3,       #268BD2, #FDF6E3, #268BD2, #FDF6E3
 
@@ -226,13 +226,13 @@ rofi.color-active:                   #FDF6E3,       #268BD2, #FDF6E3, #268BD2, #
 rofi.color-window:                   argb:99000000,argb:00000000
 
 ! Border width
-rofi.bw:                             1
+rofi.bw:                             0
 
 ! Location on screen
 rofi.location:                       1
 
 ! Padding
-rofi.padding:                        5
+rofi.padding:                        0
 
 ! Y-offset relative to location
 rofi.yoffset:                        0
