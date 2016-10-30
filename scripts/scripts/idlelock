@@ -1,0 +1,55 @@
+#!/bin/bash
+
+IDLELOCK_TIME=600000
+IDLELOCK_NOTIFY=15000
+
+while :; do
+
+read -r x y <<< "$(xcursorpos)"
+idletime="$(xssstate -i)"
+
+canlock="true"
+forcelock="false"
+
+# Checks for never lock situations
+
+[[ $x -lt 5 && $y -lt 5 ]] && canlock="false"
+
+[ -e "/tmp/${DISPLAY}_neverlock" ] && canlock="false"
+
+# Check for always lock situations
+
+if [ -e "/tmp/${DISPLAY}_lockmachine" ]; then
+    rm "/tmp/${DISPLAY}_lockmachine"
+    forcelock="true"
+fi
+
+
+# Warn if close to being locked
+if [[ $idletime -gt $(( IDLELOCK_TIME - IDLELOCK_NOTIFY )) ]] && \
+   [[ "$notified" != true ]] && \
+   [[ "$canlock" == "true" ]]; then
+
+       notify-send "idlelock" "Locking machine in $(( IDLELOCK_NOTIFY / 1000)) seconds"
+       notified=true
+fi
+
+
+# Actually lock the machine
+
+if [[ $idletime -gt $IDLELOCK_TIME ]] || [[ "$forcelock" == "true" ]] ; then
+    if [[ "$canlock" == "true" ]]; then
+
+        notify-send "DUNST_COMMAND_PAUSE"
+        /bin/i3lock \
+            --image ~/scripts/data/lockscreen.png \
+            --show-failed-attempts \
+            --nofork
+        notified=false
+        notify-send "DUNST_COMMAND_RESUME"
+    fi
+fi
+
+sleep 1
+
+done

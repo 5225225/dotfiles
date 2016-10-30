@@ -51,4 +51,7 @@ color="ab4642"
 [mpd]
 markup=pango
 
+[idlelock]
+
 [time]
+
