@@ -1,2 +1,8 @@
 #!/bin/bash
+
+case $BLOCK_BUTTON in
+3)
+    notify-send "time" "$(date '+%Y-%m-%d %H:%M:%S  %Z (%:::z)')"
+;;
+esac
 date "+%a %d %b %Y %H:%M"
