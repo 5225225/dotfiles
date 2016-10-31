@@ -101,3 +101,5 @@ cmap <f28> <nop>
 cmap <f29> <nop>
 
 set foldmethod=marker
+
+let g:netrw_dirhistmax=0
