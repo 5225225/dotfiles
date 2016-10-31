@@ -71,3 +71,7 @@ x/.config/X/xauthority
 zsh/.config/zsh/.zcompdump
 zsh/.config/zsh/histfile
 #}}}
+
+#mpv{{{
+mpv/.config/mpv/watch_later/
+#}}}
