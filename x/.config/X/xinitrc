@@ -22,7 +22,6 @@ exec xrdb "$HOME/.config/X/Xresources" &
 
 exec setxkbmap gb &
 exec compton &
-exec xautolock &
 exec remind -z -k"$HOME/scripts/remind-notify  %s" ~/.config/remind &
 
 exec unclutter &
@@ -34,8 +33,6 @@ ADJUSTED="$(( (WIDTH-400) / 2 ))"
 exec dunst -geometry "400x5+$ADJUSTED-120" &
 
 exec ~/scripts/idlelock &
-
-urxvtd -q -f -o
 
 envfile="$HOME/.config/gpg/gpg-agent.env"
 if [[ -e "$envfile" ]] && kill -0 $(grep GPG_AGENT_INFO "$envfile" | cut -d: -f 2) 2>/dev/null; then
