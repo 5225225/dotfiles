@@ -51,6 +51,8 @@ color="ab4642"
 [mpd]
 markup=pango
 
+[battery]
+
 [idlelock]
 
 [time]
