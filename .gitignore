@@ -75,3 +75,8 @@ zsh/.config/zsh/histfile
 #mpv{{{
 mpv/.config/mpv/watch_later/
 #}}}
+
+
+#ncmpcpp{{{
+ncmpcpp/.config/ncmpcpp/lyrics/
+#}}}
