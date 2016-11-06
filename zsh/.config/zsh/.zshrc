@@ -9,6 +9,8 @@ setopt completealiases
 setopt HIST_IGNORE_DUPS
 setopt SHARE_HISTORY
 setopt INTERACTIVE_COMMENTS
+setopt hist_verify
+
 
 
 unsetopt autocd beep extendedglob
