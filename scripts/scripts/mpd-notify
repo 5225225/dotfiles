@@ -6,12 +6,13 @@ while true
 do
     mpc idle player >/dev/null
     toprint="$(mpc current -f "$form" | sed "s:&:&amp;:g")"
-    if mpc status -f '%file%' | grep "^https?://"; then
-    artpath="$HOME/media/music/$(dirname "$(mpc status -f '%file%' | head -n1)")/cover.*"
+    if (mpc status -f '%file%' | grep -E "^https?://")
+    then
+        artpath="$HOME/media/music/radio-covers/$(basename "$(mpc status -f '%file%' | head -n1)").png"
     else
-    artpath="$HOME/media/music/radio-covers/$(basename "$(mpc status -f '%file%' | head -n1)").png"
+        artpath="$HOME/media/music/$(dirname "$(mpc status -f '%file%' | head -n1)")/cover.*"
     fi
-    echo $artpath
+    echo "$artpath"
     rm /tmp/cover.png
     convert -resize 128x128 "$artpath" /tmp/cover.png
     dunstify -a MPD -r 1337 -i "/tmp/cover.png" "                          MPD" "$toprint"
