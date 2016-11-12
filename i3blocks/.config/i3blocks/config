@@ -33,6 +33,10 @@ interval=1
 interval=repeat
 color="ab4642"
 
+[pgrep]
+instance=backup.sh
+color="7cafc2"
+
 [updates]
 interval=3600
 color="a1b56c"
