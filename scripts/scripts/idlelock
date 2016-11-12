@@ -44,7 +44,11 @@ if [[ $idletime -gt $IDLELOCK_TIME ]] || [[ "$forcelock" == "true" ]] ; then
         /bin/i3lock \
             --image ~/scripts/data/lockscreen.png \
             --show-failed-attempts \
-            --nofork
+            --nofork &
+        echo $! > /tmp/${DISPLAY}_idlelock_pid
+        wait $!
+        rm /tmp/${DISPLAY}_idlelock_pid
+
         notified=false
         notify-send "DUNST_COMMAND_RESUME"
     fi
