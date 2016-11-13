@@ -1,4 +1,5 @@
-// vim: ft=c
+# vim:filetype=i3
+
 set $mod Mod1
 
 font pango:ohsnap 12
@@ -97,20 +98,14 @@ mode "builtin" {
 bindsym $mod+r mode "resize"
 bindsym $mod+c mode "builtin"
 
-
+set_from_resource $bar_font i3bar.font pango:ohsnap 15
 
 bar {
     status_command i3blocks
     Modifier Mod4
     position top
 
-#if HOST_hydrogen
-    font pango:ohsnap 15
-#elif HOST_phosphorus
-    font pango:ohsnap 12
-#endif
-
-// It's not the *right* way to do it, but it works.
+    font $bar_font
 
     colors {
         background #000000

@@ -96,7 +96,9 @@ URxvt.background: [70]#000000
 
 #if WIDTH <= 1280
     URxvt.font: xft:tamsyn:size=12
+    i3bar.font: pango:ohsnap 12
 #else
+    i3bar.font: pango:ohsnap 15
     URxvt.font: xft:tamsyn:size=16
 #endif
 
