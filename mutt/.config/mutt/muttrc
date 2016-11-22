@@ -88,6 +88,8 @@ set forward_quote
 
 set mailcap_path="~/.config/mutt/mailcap"
 
+set index_format="%4C %Z %{%b %d} %-45.f (%<l?%4l&%4c>) %s"
+
 auto_view text/html
 
 alternative_order text/plain text/enriched text/html
