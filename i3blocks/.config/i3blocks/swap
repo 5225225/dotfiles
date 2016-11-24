@@ -1,0 +1,11 @@
+#!/bin/bash
+
+totalswap="$(grep SwapTotal < /proc/meminfo | sed -r 's:SwapTotal\: +([0-9]+) .*:\1:')"
+freeswap="$(grep SwapFree < /proc/meminfo | sed -r 's:SwapFree\: +([0-9]+) .*:\1:')"
+usedswap=$(( totalswap - freeswap ))
+
+mbusedswap=$( bc <<< "scale=1;$usedswap / 1024" )
+
+if [[ "$mbusedswap" != 0 ]]; then
+    echo SWAP: "$mbusedswap" MB
+fi
