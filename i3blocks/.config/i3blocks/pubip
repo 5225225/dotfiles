@@ -1,0 +1,3 @@
+#!/bin/bash
+echo -n "#.#."
+dig +short myip.opendns.com @resolver1.opendns.com | cut -d. -f 3-
