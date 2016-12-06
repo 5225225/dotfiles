@@ -118,23 +118,6 @@ URxvt.keysym.M-u: perl:url-select:select_next
 URxvt.iso14755: False
 
 /*
-__  __           _        _            _    
-\ \/ /__ _ _   _| |_ ___ | | ___   ___| | __
- \  // _` | | | | __/ _ \| |/ _ \ / __| |/ /
- /  \ (_| | |_| | || (_) | | (_) | (__|   < 
-/_/\_\__,_|\__,_|\__\___/|_|\___/ \___|_|\_\
-
-*/
-Xautolock.time: 10
-Xautolock.locker: /bin/i3lock --inactivity-timeout 10 --image ~/scripts/data/lockscreen.png --ignore-empty-password --show-failed-attempts --nofork
-Xautolock.notifier: notify-send 'XAUTOLOCK' 'Locking machine in 10 seconds'
-Xautolock.notify: 10
-Xautolock.corners: -00+
-Xautolock.cornerdelay: 5
-Xautolock.cornerredelay: 20
-Xautolock.cornersize: 3
-
-/*
             __ _ 
  _ __ ___  / _(_)
 | '__/ _ \| |_| |
