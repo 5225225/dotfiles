@@ -1,0 +1,14 @@
+#!/bin/bash
+
+totalmem="$(grep MemTotal < /proc/meminfo | sed -r 's:MemTotal\: +([0-9]+) .*:\1:')"
+freemem="$(grep MemFree < /proc/meminfo | sed -r 's:MemFree\: +([0-9]+) .*:\1:')"
+
+usedmem=$(( totalmem - freemem ))
+mbusedmem=$(( usedmem / 1024 ))
+warnmemlimit=$(( totalmem * 7 / 10 / 1024 ))
+# Get 70% of the total memory available, then convert it into MB.
+
+
+if [[ $mbusedmem -gt $warnmemlimit ]]; then
+    echo MEM: "$mbusedmem" MB
+fi
