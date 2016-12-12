@@ -118,6 +118,27 @@ URxvt.keysym.M-u: perl:url-select:select_next
 URxvt.iso14755: False
 
 /*
+     _   
+ ___| |_ 
+/ __| __|
+\__ \ |_ 
+|___/\__|
+
+*/
+
+st.opacity: 178
+st.background: #000000
+
+#if WIDTH <= 1280
+    st.font: xft:tamsyn:size=12
+#else
+    st.font: tamsyn:pixelsize=16:antialias=false
+#endif
+
+
+         
+
+/*
             __ _ 
  _ __ ___  / _(_)
 | '__/ _ \| |_| |
