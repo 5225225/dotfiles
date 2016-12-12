@@ -3,6 +3,7 @@
 import sys
 import shlex
 import subprocess
+import html
 
 top_commands = [
 "== Play ==",
@@ -55,16 +56,45 @@ def getplist():
     else:
         return x
 
+def getpangoplist():
+    x = subprocess.check_output(
+        ["mpc", "-f", "%artist%\\t%title%\\t%album%", "playlist"]
+        ).decode("UTF8").strip().split("\n")
+    if x == [""]:
+        subprocess.call(["notify-send", "MPD", "There doesn't seem to be anything here."])
+    else:
+        newx = []
+        status_str='<span foreground="#a1b56c">{artist}</span> - '\
+                   '<span foreground="#ac4142">{title}</span> - '\
+                   '<span foreground="#6a9fb5">{album}</span>'
+
+        for line in x:
+            artist, title, album = line.split("\t")
+            artist = html.escape(artist)
+            title = html.escape(title)
+            album = html.escape(album)
+            newx.append(status_str.format(
+                artist=artist,
+                title=title,
+                album=album,
+            ))
+
+        return newx
+    
+
 def playindex(x):
     subprocess.call(["mpc", "play", str(x)])
 
 def search(searchstr):
     return subprocess.check_output(["mpc", "search", "any", searchstr]).decode("UTF8").strip().split("\n")
 
-def dmenu(choices, prompt=": "):
+def dmenu(choices, prompt=": ", args=[]):
     cmd = DMENU
 
     cmd += " -p '{}'".format(prompt)
+    for arg in args:
+        cmd += " {} ".format(arg)
+    
 
     cmd = shlex.split(cmd)
 
@@ -90,13 +120,11 @@ while True:
     artist = dmenu(top_commands + getartists())
 
     if artist == "== Play ==":
-        currplist = getplist()
+        currplist = getpangoplist()
         if currplist is not None:
-            toplay = dmenu(currplist)
-            for index, item in enumerate(currplist, 1):
-                if toplay == item:
-                    playindex(index)
-                    break
+            toplay = dmenu(currplist, args=["-format d", "-markup-rows"])
+            playindex(toplay)
+        break
 
     elif artist == "== Playlists ==":
         playlists = getplaylists()
