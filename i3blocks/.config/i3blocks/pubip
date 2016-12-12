@@ -1,3 +1,21 @@
 #!/bin/bash
-echo -n "#.#."
-dig +short myip.opendns.com @resolver1.opendns.com | cut -d. -f 3-
+
+pubip="$(dig +short myip.opendns.com @resolver1.opendns.com)"
+censored_pubip="$(echo $pubip | cut -d . -f 3-)"
+
+ipaddr() {
+    echo $pubip
+    ip addr show |\
+    grep -v "valid_lft" |\
+    sed -r "s:  +:   :g" |\
+    sed -r "s|[0-9]+: ([a-z0-9]+):.*|\1|g" |\
+    htmlescape
+}
+
+case $BLOCK_BUTTON in
+    3)
+        notify-send "PUBIP" "$(ipaddr)"
+    ;;
+esac
+
+echo "#.#.$censored_pubip"
