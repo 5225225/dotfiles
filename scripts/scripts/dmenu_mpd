@@ -88,16 +88,20 @@ def playindex(x):
 def search(searchstr):
     return subprocess.check_output(["mpc", "search", "any", searchstr]).decode("UTF8").strip().split("\n")
 
-def dmenu(choices, prompt=": ", args=[]):
+def dmenu(choices, prompt=": ", multi=False, args=[]):
     cmd = DMENU
 
     cmd += " -p '{}'".format(prompt)
+
+    if multi:
+        args += ["-multi-select"]
+
     for arg in args:
         cmd += " {} ".format(arg)
-    
 
     cmd = shlex.split(cmd)
 
+    print(cmd)
 
     proc = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
 
@@ -105,6 +109,11 @@ def dmenu(choices, prompt=": ", args=[]):
 
     if choice == "!kill":
         sys.exit(0)
+
+
+    if multi:
+        choices = choice.split("\n")
+        return choices
 
 
     return choice
@@ -138,15 +147,9 @@ while True:
         subprocess.call(["mpc", "clear"])
 
     elif artist == "== Search ==":
-        searchstr = dmenu([], "search: ")
-
-        song = dmenu(["== All =="] + search(searchstr))
-
-        if song == "== All ==":
-            insertsongs(search(searchstr))
-        else:
-            insertsongs([song])
-
+        songs = dmenu(search(""), multi=True)
+        print(songs)
+        insertsongs(songs)
         mpc_play()
     elif artist == "":
         sys.exit(0)
