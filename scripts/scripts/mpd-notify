@@ -4,8 +4,8 @@ form="\n[<b>Artist:</b>\t<span color='##a1b56c'>%artist%</span>\n\n][<b>Album:</
 
 while true
 do
-    mpc idle player >/dev/null
-    toprint="$(mpc current -f "$form" | sed "s:&:&amp;:g")"
+    mpc idle player mixer >/dev/null
+    toprint="$(mpc current -f "$form" | sed "s/&/&amp;/g" ; echo -ne "\n " ; mpc volume)"
     if (mpc status -f '%file%' | grep -E "^https?://")
     then
         artpath="$HOME/media/music/radio-covers/$(basename "$(mpc status -f '%file%' | head -n1)").png"
@@ -15,5 +15,5 @@ do
     echo "$artpath"
     rm /tmp/cover.png
     convert -resize 128x128 "$artpath" /tmp/cover.png
-    dunstify -a MPD -r 1337 -i "/tmp/cover.png" "                          MPD" "$toprint"
+    dunstify -a MPDnotify -r 1337 -i "/tmp/cover.png" "                          MPD" "$toprint"
 done
