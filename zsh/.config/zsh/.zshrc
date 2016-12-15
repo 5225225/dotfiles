@@ -113,6 +113,10 @@ vorbedit() {
     vorbiscomment -l $1 | vipe | vorbiscomment -w $1
 }
 
+try_source() {
+    [ -f "$1" ] && source "$1"
+}
+
 shot() {
     scrot /tmp/screenshot.png
     i3-msg workspace "edit"
@@ -180,13 +184,14 @@ alias abook="abook -C ~/.config/abook/abookrc --datafile ~/.config/abook/address
 
 zmodload zsh/terminfo
 
-source /usr/share/zsh/plugins/zsh-syntax-highlighting\
+
+try_source /usr/share/zsh/plugins/zsh-syntax-highlighting\
 /zsh-syntax-highlighting.zsh
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main pattern brackets root)
 ZSH_HIGHLIGHT_PATTERNS+=("sudo*" "bg=red")
 
-source /usr/share/doc/pkgfile/command-not-found.zsh
+try_source /usr/share/doc/pkgfile/command-not-found.zsh
 
 . =(dircolors ~/.config/zsh/dircolors-database)
 . ~/.config/zsh/.zshenv
