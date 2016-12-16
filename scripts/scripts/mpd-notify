@@ -1,11 +1,13 @@
-#!/bin/sh
+#!/bin/bash
 
 form="\n[<b>Artist:</b>\t<span color='##a1b56c'>%artist%</span>\n\n][<b>Album:</b>\t<span color='##6a9fb5'>%album%</span>\n\n][<b>Title:</b>\t<span color='##ac4142'>%title%</span>]"
 
 while true
 do
     mpc idle player mixer >/dev/null
-    toprint="$(mpc current -f "$form" | sed "s/&/&amp;/g" ; echo -ne "\n " ; mpc volume)"
+    volume="$(( $(mpc volume | sed -r "s/volume: {0,2}([0-9]+)%/\1/") / 5 ))"
+    volbar="$(python -c "print('['+'X'*$volume+' '*(20-$volume)+']')")"
+    toprint="$(mpc current -f "$form" | sed "s/&/&amp;/g" ; echo -e "\nVolume:\t$volbar")"
     if (mpc status -f '%file%' | grep -E "^https?://")
     then
         artpath="$HOME/media/music/radio-covers/$(basename "$(mpc status -f '%file%' | head -n1)").png"
