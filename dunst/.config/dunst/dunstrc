@@ -77,7 +77,7 @@
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing windowmanager is
     # present (e.g. xcompmgr, compiz, etc.).
-#    transparency = 25
+    transparency = 5
     
     # Don't remove messages, if the user is idle (no mouse or keyboard input)
     # for longer than idle_threshold seconds.
@@ -166,7 +166,7 @@
     close = ctrl+space
     
     # Close all notifications.
-    close_all = ctrl+shift+space
+#    close_all = ctrl+shift+space
     
     # Redisplay last message(s).
     # On the US keyboard layout "grave" is normally above TAB and left
@@ -174,7 +174,7 @@
     history = ctrl+grave
     
     # Context menu.
-    context = ctrl+shift+period
+#    context = ctrl+shift+period
 
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
