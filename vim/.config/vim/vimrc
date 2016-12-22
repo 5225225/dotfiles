@@ -4,6 +4,8 @@ set dir=~/.cache/vim
 set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
 set backupdir=$XDG_CACHE_HOME/vim,~/,/t
 
+execute pathogen#infect()
+
 unlet! skip_defaults_vim
 source $VIMRUNTIME/defaults.vim
 
