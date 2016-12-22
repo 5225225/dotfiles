@@ -43,6 +43,7 @@ set crypt_autosign = yes
 set crypt_replyencrypt = yes
 set crypt_verify_sig=yes
 set crypt_opportunistic_encrypt=yes
+set pgp_auto_decode = yes
 
 color hdrdefault blue default
 color indicator blue default
