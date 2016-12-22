@@ -46,6 +46,6 @@ export SSH_AUTH_SOCK   # enable gpg-agent for ssh
 
 xset b off
 
-exec hsetroot -fill "$HOME/scripts/data/wallpaper.png"
+exec hsetroot -fill "$HOME/scripts/data/wallpaper.png" &
 
 exec i3
