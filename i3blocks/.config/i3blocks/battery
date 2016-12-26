@@ -1,1 +1,10 @@
-upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep time | sed -r "s/  +/\t/g"  | cut -f 3
+#!/bin/bash
+upowerinfo=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0)
+time=$(echo "$upowerinfo" | grep time | sed -r "s/  +/\t/g"  | cut -f 3)
+if echo "$upowerinfo" | grep "state: *charging" >/dev/null; then
+    symbol="+"
+else
+    symbol="-"
+fi
+
+echo "$time $symbol"
