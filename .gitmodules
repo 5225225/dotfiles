@@ -1,0 +1,3 @@
+[submodule "vim/.config/vim/bundle/i3-vim-syntax"]
+	path = vim/.config/vim/bundle/i3-vim-syntax
+	url = git@github.com:PotatoesMaster/i3-vim-syntax.git
