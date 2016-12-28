@@ -1,0 +1,5 @@
+#!/bin/bash
+
+script=$(ls ~/scripts/autotype-scripts | rofi -dmenu -prompt ": ")
+
+~/scripts/autotype-scripts/$script

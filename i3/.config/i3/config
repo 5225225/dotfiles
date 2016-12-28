@@ -84,6 +84,7 @@ bindsym $mod+Shift+plus exec --no-startup-id mpc volume +10
 bindsym $mod+Shift+semicolon exec touch "/tmp/${DISPLAY}_lockmachine"
 
 bindsym $mod+p exec rofipassmenu
+bindsym $mod+apostrophe exec autotype
 
 bindsym $mod+Shift+numbersign exec --no-startup-id python ~/scripts/dmenu_mpd
 bindsym $mod+numbersign exec --no-startup-id ~/scripts/rofi_i3ws
