@@ -1,0 +1,7 @@
+#!/bin/bash
+gpg \
+    --encrypt \
+    --armour \
+    --batch \
+    --recipient $(<~/scripts/data/priv/email) \
+    --homedir ~/.config/gpg
