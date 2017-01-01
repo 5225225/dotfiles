@@ -1,3 +1,6 @@
 [submodule "vim/.config/vim/bundle/i3-vim-syntax"]
 	path = vim/.config/vim/bundle/i3-vim-syntax
 	url = git@github.com:PotatoesMaster/i3-vim-syntax.git
+[submodule "vim/.config/vim/bundle/vim-characterize"]
+	path = vim/.config/vim/bundle/vim-characterize
+	url = git@github.com:tpope/vim-characterize.git
