@@ -2,7 +2,10 @@
 set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME
 set dir=~/.cache/vim
 set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
-set backupdir=$XDG_CACHE_HOME/vim,~/,/t
+
+set nobackup
+set noswapfile
+
 
 execute pathogen#infect()
 
