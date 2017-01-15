@@ -42,6 +42,9 @@ color="ab4642"
 [swap]
 color="ab4642"
 
+[load]
+color="ab4642"
+
 [pgrep]
 instance=backup.sh
 color="7cafc2"
