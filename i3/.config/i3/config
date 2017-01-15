@@ -2,7 +2,7 @@
 
 set $mod Mod1
 
-font pango:ohsnap 12
+font pango:Misc Ohsnap 12
 floating_modifier $mod
 
 
@@ -121,7 +121,7 @@ bindsym $mod+c mode "builtin"
 # |____/ \__,_|_|   
 #                   
 
-set_from_resource $bar_font i3bar.font pango:ohsnap 15
+set_from_resource $bar_font i3bar.font pango:Misc Ohsnap 15
 
 bar {
     status_command i3blocks
