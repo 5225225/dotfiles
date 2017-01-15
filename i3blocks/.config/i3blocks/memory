@@ -1,7 +1,7 @@
 #!/bin/bash
 
 totalmem="$(grep MemTotal < /proc/meminfo | sed -r 's:MemTotal\: +([0-9]+) .*:\1:')"
-freemem="$(grep MemFree < /proc/meminfo | sed -r 's:MemFree\: +([0-9]+) .*:\1:')"
+freemem="$(grep MemAvailable < /proc/meminfo | sed -r 's:MemAvailable\: +([0-9]+) .*:\1:')"
 
 usedmem=$(( totalmem - freemem ))
 mbusedmem=$(( usedmem / 1024 ))
