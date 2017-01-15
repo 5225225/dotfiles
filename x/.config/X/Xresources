@@ -96,10 +96,10 @@ URxvt.background: [70]#000000
 
 #if WIDTH <= 1280
     URxvt.font: xft:tamsyn:size=12
-    i3bar.font: pango:ohsnap 12
+    i3bar.font: pango:tamsyn 12
 #else
-    i3bar.font: pango:ohsnap 15
     URxvt.font: xft:tamsyn:size=16
+    i3bar.font: pango:tamsyn 15
 #endif
 
 
@@ -117,26 +117,6 @@ URxvt.keysym.M-u: perl:url-select:select_next
 
 URxvt.iso14755: False
 
-/*
-     _   
- ___| |_ 
-/ __| __|
-\__ \ |_ 
-|___/\__|
-
-*/
-
-st.opacity: 178
-st.background: #000000
-
-#if WIDTH <= 1280
-    st.font: xft:tamsyn:size=12
-#else
-    st.font: tamsyn:pixelsize=16:antialias=false
-#endif
-
-
-         
 
 /*
             __ _ 
@@ -218,7 +198,7 @@ rofi.lines:                          15
 rofi.columns:                        1
 
 ! Font to use
-rofi.font:                           ohsnap 12
+rofi.font:                           tamsyn 12
 
 ! Use extended color scheme
 rofi.color-enabled:                  true
