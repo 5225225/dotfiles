@@ -6,6 +6,6 @@ usedswap=$(( totalswap - freeswap ))
 
 mbusedswap=$( bc <<< "$usedswap / 1024" )
 
-if [[ "$mbusedswap" -gt 1024 ]]; then
+if [[ "$mbusedswap" -gt 4096 ]]; then
     echo SWAP: "$mbusedswap" MB
 fi
