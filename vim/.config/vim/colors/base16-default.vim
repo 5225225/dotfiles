@@ -1,200 +1,148 @@
 " Base16 Default (https://github.com/chriskempson/base16)
 " Scheme: Chris Kempson (http://chriskempson.com)
 
-" Terminal color definitions
-
-let s:black     = "00"
-let s:lblack    = "08"
-
-let s:red       = "01"
-let s:lred      = "09"
-
-let s:green     = "02"
-let s:lgreen    = "10"
-
-let s:yellow    = "03"
-let s:lyellow   = "11"
-
-let s:blue      = "04"
-let s:lblue     = "12"
-
-let s:magenta   = "05"
-let s:lmagenta  = "13"
-
-let s:cyan      = "06"
-let s:lcyan     = "14"
-
-let s:white     = "07"
-let s:lwhite    = "15"
-
-" Theme setup
 hi clear
 syntax reset
 let g:colors_name = "base16-default"
 
 " Highlighting function
 fun <sid>hi(group, ctermfg, ctermbg, attr)
-  if a:ctermfg != ""
-      exec "hi " . a:group . " ctermfg=" . a:ctermfg
-  endif
-  if a:ctermbg != ""
-    exec "hi " . a:group . " ctermbg=" . a:ctermbg
-  endif
-  if a:attr != ""
-    exec "hi " . a:group . " gui=" . a:attr . " cterm=" . a:attr
-  endif
+    if a:ctermfg != ""
+        exec "hi " . a:group . " ctermfg=" . a:ctermfg
+    endif
+
+    if a:ctermbg != ""
+        exec "hi " . a:group . " ctermbg=" . a:ctermbg
+    endif
+
+    if a:attr != ""
+        exec "hi " . a:group . " gui=" . a:attr . " cterm=" . a:attr
+    endif
 endfun
 
-" Vim editor colors
-call <sid>hi("Bold",          "", "", "bold")
-call <sid>hi("Debug",         s:red, "", "")
-call <sid>hi("Directory",     s:blue, "", "")
-call <sid>hi("ErrorMsg",      s:red, s:black, "")
-call <sid>hi("Exception",     s:red, "", "")
-call <sid>hi("FoldColumn",    "", s:lgreen, "")
-call <sid>hi("Folded",        s:green, "none", "bold")
-call <sid>hi("IncSearch",     s:lgreen, s:lred, "none")
-call <sid>hi("Italic",        "", "", "none")
-call <sid>hi("Macro",         s:red, "", "")
-call <sid>hi("MatchParen",    s:black, s:lblack,  "")
-call <sid>hi("ModeMsg",       s:green, "", "")
-call <sid>hi("MoreMsg",       s:green, "", "")
-call <sid>hi("Question",      s:yellow, "", "")
-call <sid>hi("Search",        s:lblack, s:yellow,  "")
-call <sid>hi("SpecialKey",    s:lblack, "", "")
-call <sid>hi("TooLong",       s:red, "", "")
-call <sid>hi("Underlined",    s:red, "", "")
-call <sid>hi("Visual",        "", s:lblack, "")
-call <sid>hi("VisualNOS",     s:red, "", "")
-call <sid>hi("WarningMsg",    s:red, "", "")
-call <sid>hi("WildMenu",      s:red, "", "")
-call <sid>hi("Title",         s:blue, "", "none")
-call <sid>hi("Conceal",       s:blue, s:black, "")
-call <sid>hi("Cursor",        s:black, s:white, "")
-call <sid>hi("NonText",       s:lblack, "", "")
-call <sid>hi("Normal",        s:white, "", "")
-call <sid>hi("LineNr",        s:lblack, "", "bold")
-call <sid>hi("SignColumn",    s:lblack, s:lgreen, "")
-call <sid>hi("SpecialKey",    s:lblack, "", "")
-call <sid>hi("StatusLine",    s:black, "", "bold")
-call <sid>hi("StatusLineNC",  s:lblack, s:lgreen, "none")
-call <sid>hi("VertSplit",     s:lyellow, "", "none")
-call <sid>hi("ColorColumn",   "", s:lgreen, "none")
-call <sid>hi("CursorColumn",  "", s:lgreen, "none")
-call <sid>hi("CursorLine",    "", s:lgreen, "none")
-call <sid>hi("CursorLineNr",  s:lblack, "none", "bold")
-call <sid>hi("PMenu",         s:lblue, s:lgreen, "none")
-call <sid>hi("PMenuSel",      s:lgreen, s:lblue, "")
-call <sid>hi("TabLine",       s:lblack, s:lgreen, "none")
-call <sid>hi("TabLineFill",   s:lblack, s:lgreen, "none")
-call <sid>hi("TabLineSel",    s:green, s:lgreen, "none")
+call <sid>hi("Bold", "", "", "bold")
+call <sid>hi("Debug", "01", "", "")
+call <sid>hi("Directory", "04", "", "")
+call <sid>hi("ErrorMsg", "01", "00", "")
+call <sid>hi("Exception", "01", "", "")
+call <sid>hi("FoldColumn", "", "10", "")
+call <sid>hi("Folded", "02", "none", "bold")
+call <sid>hi("IncSearch", "10", "09", "none")
+call <sid>hi("Italic", "", "", "none")
+call <sid>hi("Macro", "01", "", "")
+call <sid>hi("MatchParen", "00", "08", "")
+call <sid>hi("ModeMsg", "02", "", "")
+call <sid>hi("MoreMsg", "02", "", "")
+call <sid>hi("Question", "03", "", "")
+call <sid>hi("Search", "08", "03", "")
+call <sid>hi("SpecialKey", "08", "", "")
+call <sid>hi("TooLong", "01", "", "")
+call <sid>hi("Underlined", "01", "", "")
+call <sid>hi("Visual", "", "00", "")
+call <sid>hi("VisualNOS", "01", "", "")
+call <sid>hi("WarningMsg", "01", "", "")
+call <sid>hi("WildMenu", "01", "", "")
+call <sid>hi("Title", "04", "", "none")
+call <sid>hi("Conceal", "04", "00", "")
+call <sid>hi("Cursor", "00", "07", "")
+call <sid>hi("NonText", "08", "", "")
+call <sid>hi("Normal", "07", "", "")
+call <sid>hi("LineNr", "08", "", "bold")
+call <sid>hi("SignColumn", "08", "10", "")
+call <sid>hi("SpecialKey", "08", "", "")
+call <sid>hi("StatusLine", "00", "", "bold")
+call <sid>hi("StatusLineNC", "08", "10", "none")
+call <sid>hi("VertSplit", "11", "", "none")
+call <sid>hi("ColorColumn", "", "10", "none")
+call <sid>hi("CursorColumn", "", "10", "none")
+call <sid>hi("CursorLine", "", "10", "none")
+call <sid>hi("CursorLineNr", "08", "none", "bold")
+call <sid>hi("Pmenu", "07", "none", "")
+call <sid>hi("PmenuSel", "07", "00", "bold")
+call <sid>hi("TabLine", "08", "10", "none")
+call <sid>hi("TabLineFill", "08", "10", "none")
+call <sid>hi("TabLineSel", "02", "10", "none")
+call <sid>hi("Boolean", "09", "", "")
+call <sid>hi("Character", "01", "", "")
+call <sid>hi("Comment", "08", "", "")
+call <sid>hi("Conditional", "05", "", "")
+call <sid>hi("Constant", "09", "", "")
+call <sid>hi("Define", "05", "", "none")
+call <sid>hi("Delimiter", "14", "", "")
+call <sid>hi("Float", "09", "", "")
+call <sid>hi("Function", "04", "", "")
+call <sid>hi("Identifier", "01", "", "none")
+call <sid>hi("Include", "04", "", "")
+call <sid>hi("Keyword", "05", "", "")
+call <sid>hi("Label", "03", "", "")
+call <sid>hi("Number", "09", "", "")
+call <sid>hi("Operator", "07", "", "none")
+call <sid>hi("PreProc", "03", "", "")
+call <sid>hi("Repeat", "03", "", "")
+call <sid>hi("Special", "06", "", "")
+call <sid>hi("SpecialChar", "14", "", "")
+call <sid>hi("Statement", "01", "", "")
+call <sid>hi("StorageClass", "03", "", "")
+call <sid>hi("String", "02", "", "")
+call <sid>hi("Structure", "05", "", "")
+call <sid>hi("Tag", "03", "", "")
+call <sid>hi("Todo", "03", "10", "")
+call <sid>hi("Type", "09", "", "none")
+call <sid>hi("Typedef", "03", "", "")
+call <sid>hi("SpellBad", "", "00", "undercurl")
+call <sid>hi("SpellLocal", "", "00", "undercurl")
+call <sid>hi("SpellCap", "", "00", "undercurl")
+call <sid>hi("SpellRare", "", "00", "undercurl")
+call <sid>hi("DiffAdd", "02", "00", "")
+call <sid>hi("DiffChange", "04", "00", "")
+call <sid>hi("DiffDelete", "01", "00", "")
+call <sid>hi("DiffText", "04", "00", "")
+call <sid>hi("DiffAdded", "02", "00", "")
+call <sid>hi("DiffFile", "01", "00", "")
+call <sid>hi("DiffNewFile", "02", "00", "")
+call <sid>hi("DiffLine", "04", "00", "")
+call <sid>hi("DiffRemoved", "01", "00", "")
+call <sid>hi("rubyAttribute", "04", "", "")
+call <sid>hi("rubyConstant", "03", "", "")
+call <sid>hi("rubyInterpolation", "02", "", "")
+call <sid>hi("rubyInterpolationDelimiter", "14", "", "")
+call <sid>hi("rubyRegexp", "06", "", "")
+call <sid>hi("rubySymbol", "02", "", "")
+call <sid>hi("rubyStringDelimiter", "02", "", "")
+call <sid>hi("phpMemberSelector", "07", "", "")
+call <sid>hi("phpComparison", "07", "", "")
+call <sid>hi("phpParent", "07", "", "")
+call <sid>hi("htmlBold", "03", "", "")
+call <sid>hi("htmlItalic", "05", "", "")
+call <sid>hi("htmlEndTag", "07", "", "")
+call <sid>hi("htmlTag", "07", "", "")
+call <sid>hi("cssBraces", "07", "", "")
+call <sid>hi("cssClassName", "05", "", "")
+call <sid>hi("cssColor", "06", "", "")
+call <sid>hi("sassidChar", "01", "", "")
+call <sid>hi("sassClassChar", "09", "", "")
+call <sid>hi("sassInclude", "05", "", "")
+call <sid>hi("sassMixing", "05", "", "")
+call <sid>hi("sassMixinName", "04", "", "")
+call <sid>hi("javaScript", "07", "", "")
+call <sid>hi("javaScriptBraces", "07", "", "")
+call <sid>hi("javaScriptNumber", "09", "", "")
+call <sid>hi("markdownCode", "02", "", "")
+call <sid>hi("markdownCodeBlock", "02", "", "")
+call <sid>hi("markdownHeadingDelimiter", "04", "", "")
+call <sid>hi("gitCommitOverflow", "01", "", "")
+call <sid>hi("gitCommitSummary", "02", "", "")
+call <sid>hi("GitGutterAdd", "02", "10", "")
+call <sid>hi("GitGutterChange", "04", "10", "")
+call <sid>hi("GitGutterDelete", "01", "10", "")
+call <sid>hi("GitGutterChangeDelete", "05", "10", "")
+call <sid>hi("SignifySignAdd", "02", "10", "")
+call <sid>hi("SignifySignChange", "04", "10", "")
+call <sid>hi("SignifySignDelete", "01", "10", "")
+call <sid>hi("NERDTreeDirSlash", "04", "", "")
+call <sid>hi("NERDTreeExecFile", "07", "", "")
 
-" Standard syntax highlighting
-call <sid>hi("Boolean",      s:lred, "", "")
-call <sid>hi("Character",    s:red, "", "")
-call <sid>hi("Comment",      s:lblack, "", "")
-call <sid>hi("Conditional",  s:magenta, "", "")
-call <sid>hi("Constant",     s:lred, "", "")
-call <sid>hi("Define",       s:magenta, "", "none")
-call <sid>hi("Delimiter",    s:lcyan, "", "")
-call <sid>hi("Float",        s:lred, "", "")
-call <sid>hi("Function",     s:blue, "", "")
-call <sid>hi("Identifier",   s:red, "", "none")
-call <sid>hi("Include",      s:blue, "", "")
-call <sid>hi("Keyword",      s:magenta, "", "")
-call <sid>hi("Label",        s:yellow, "", "")
-call <sid>hi("Number",       s:lred, "", "")
-call <sid>hi("Operator",     s:white, "", "none")
-call <sid>hi("PreProc",      s:yellow, "", "")
-call <sid>hi("Repeat",       s:yellow, "", "")
-call <sid>hi("Special",      s:cyan, "", "")
-call <sid>hi("SpecialChar",  s:lcyan, "", "")
-call <sid>hi("Statement",    s:red, "", "")
-call <sid>hi("StorageClass", s:yellow, "", "")
-call <sid>hi("String",       s:green, "", "")
-call <sid>hi("Structure",    s:magenta, "", "")
-call <sid>hi("Tag",          s:yellow, "", "")
-call <sid>hi("Todo",         s:yellow, s:lgreen, "")
-call <sid>hi("Type",         s:lred, "", "none")
-call <sid>hi("Typedef",      s:yellow, "", "")
 
-" Spelling highlighting
-call <sid>hi("SpellBad",     "", s:black, "undercurl")
-call <sid>hi("SpellLocal",   "", s:black, "undercurl")
-call <sid>hi("SpellCap",     "", s:black, "undercurl")
-call <sid>hi("SpellRare",    "", s:black, "undercurl")
-
-" Additional diff highlighting
-call <sid>hi("DiffAdd",      s:green, s:black, "")
-call <sid>hi("DiffChange",   s:blue, s:black, "")
-call <sid>hi("DiffDelete",   s:red, s:black, "")
-call <sid>hi("DiffText",     s:blue, s:black, "")
-call <sid>hi("DiffAdded",    s:green, s:black, "")
-call <sid>hi("DiffFile",     s:red, s:black, "")
-call <sid>hi("DiffNewFile",  s:green, s:black, "")
-call <sid>hi("DiffLine",     s:blue, s:black, "")
-call <sid>hi("DiffRemoved",  s:red, s:black, "")
-
-" Ruby highlighting
-call <sid>hi("rubyAttribute",               s:blue, "", "")
-call <sid>hi("rubyConstant",                s:yellow, "", "")
-call <sid>hi("rubyInterpolation",           s:green, "", "")
-call <sid>hi("rubyInterpolationDelimiter",  s:lcyan, "", "")
-call <sid>hi("rubyRegexp",                  s:cyan, "", "")
-call <sid>hi("rubySymbol",                  s:green, "", "")
-call <sid>hi("rubyStringDelimiter",         s:green, "", "")
-
-" PHP highlighting
-call <sid>hi("phpMemberSelector",  s:white, "", "")
-call <sid>hi("phpComparison",      s:white, "", "")
-call <sid>hi("phpParent",          s:white, "", "")
-
-" HTML highlighting
-call <sid>hi("htmlBold",    s:yellow, "", "")
-call <sid>hi("htmlItalic",  s:magenta, "", "")
-call <sid>hi("htmlEndTag",  s:white, "", "")
-call <sid>hi("htmlTag",     s:white, "", "")
-
-" CSS highlighting
-call <sid>hi("cssBraces",      s:white, "", "")
-call <sid>hi("cssClassName",   s:magenta, "", "")
-call <sid>hi("cssColor",       s:cyan, "", "")
-
-" SASS highlighting
-call <sid>hi("sassidChar",     s:red, "", "")
-call <sid>hi("sassClassChar",  s:lred, "", "")
-call <sid>hi("sassInclude",    s:magenta, "", "")
-call <sid>hi("sassMixing",     s:magenta, "", "")
-call <sid>hi("sassMixinName",  s:blue, "", "")
-
-" JavaScript highlighting
-call <sid>hi("javaScript",        s:white, "", "")
-call <sid>hi("javaScriptBraces",  s:white, "", "")
-call <sid>hi("javaScriptNumber",  s:lred, "", "")
-
-" Markdown highlighting
-call <sid>hi("markdownCode",              s:green, "", "")
-call <sid>hi("markdownCodeBlock",         s:green, "", "")
-call <sid>hi("markdownHeadingDelimiter",  s:blue, "", "")
-
-" Git highlighting
-call <sid>hi("gitCommitOverflow",  s:red, "", "")
-call <sid>hi("gitCommitSummary",   s:green, "", "")
-  
-" GitGutter highlighting
-call <sid>hi("GitGutterAdd",     s:green, s:lgreen, "")
-call <sid>hi("GitGutterChange",  s:blue, s:lgreen, "")
-call <sid>hi("GitGutterDelete",  s:red, s:lgreen, "")
-call <sid>hi("GitGutterChangeDelete",  s:magenta, s:lgreen, "")
-
-" Signify highlighting
-call <sid>hi("SignifySignAdd",     s:green, s:lgreen, "")
-call <sid>hi("SignifySignChange",  s:blue, s:lgreen, "")
-call <sid>hi("SignifySignDelete",  s:red, s:lgreen, "")
-
-" NERDTree highlighting
-call <sid>hi("NERDTreeDirSlash",  s:blue, "", "")
-call <sid>hi("NERDTreeExecFile",  s:white, "", "")
 
 " Remove functions
 delf <sid>hi
