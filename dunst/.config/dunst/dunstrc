@@ -1,5 +1,5 @@
 [global]
-    font = Terminus 8
+    font = Misc ohsnap 12
     
     # Allow a small subset of html markup:
     #   <b>bold</b>
@@ -24,7 +24,7 @@
     #   %p  progress value if set ([  0%] to [100%]) or nothing
     # Markup is allowed
     
-    format = "<span font='Misc ohsnap 12'><b>%s</b></span>\n<span font='Misc ohsnap 12'>%b</span>"
+    format = "<b>%s</b>\n%b"
 
     
     # Sort messages by urgency.
@@ -42,6 +42,8 @@
     # This option conflicts with "word_wrap".
     # Set to 0 to disable.
     bounce_freq = 0
+
+    max_icon_size = 0
     
     # Show age of message if message is older than show_age_threshold
     # seconds.
