@@ -7,4 +7,9 @@ else
     symbol="-"
 fi
 
-echo "$time $symbol"
+if echo "$upowerinfo" | grep "."; then
+    echo "$time $symbol"
+else
+    echo ""
+    exit 0
+fi
