@@ -4,3 +4,6 @@
 [submodule "vim/.config/vim/bundle/vim-characterize"]
 	path = vim/.config/vim/bundle/vim-characterize
 	url = git@github.com:tpope/vim-characterize.git
+[submodule "vim/.config/vim/bundle/vim-ledger"]
+	path = vim/.config/vim/bundle/vim-ledger
+	url = https://www.github.com/ledger/vim-ledger
