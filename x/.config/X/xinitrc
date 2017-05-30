@@ -18,7 +18,7 @@ fi
 
 export LANG="en_GB.utf8"
 
-exec xrdb "$HOME/.config/X/Xresources" &
+xrdb "$HOME/.config/X/Xresources"
 
 exec setxkbmap gb &
 exec compton &
@@ -34,6 +34,7 @@ exec dunst -geometry "400x5+$ADJUSTED-120" &
 
 exec ~/scripts/idlelock &
 
+
 envfile="$HOME/.config/gpg/gpg-agent.env"
 if [[ -e "$envfile" ]] && kill -0 $(grep GPG_AGENT_INFO "$envfile" | cut -d: -f 2) 2>/dev/null; then
     eval "$(cat "$envfile")"
@@ -45,6 +46,7 @@ export GPG_AGENT_INFO  # the env file does not contain the export statement
 export SSH_AUTH_SOCK   # enable gpg-agent for ssh
 
 xset b off
+xinput set-prop 8 287 -1
 
 exec hsetroot -fill "$HOME/scripts/data/wallpaper.png" &
 
