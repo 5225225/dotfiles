@@ -43,6 +43,8 @@ github.com/5225225/dotfiles
 #define colour_white    #e8e8e8
 #define colour_lwhite   #ffffff
 
+#define FONT tamsyn
+
 /*
        _       _           _     
   __ _| | ___ | |__   __ _| |___ 
@@ -95,11 +97,11 @@ URxvt.depth: 32
 URxvt.background: [70]#000000
 
 #if WIDTH <= 1280
-    URxvt.font: xft:tamsyn:size=12
-    i3bar.font: pango:tamsyn 12
+    URxvt.font: xft:FONT:size=13
+    i3bar.font: pango:FONT 12
 #else
-    URxvt.font: xft:tamsyn:size=16
-    i3bar.font: pango:tamsyn 15
+    URxvt.font: xft:FONT:size=13
+    i3bar.font: pango:FONT 15
 #endif
 
 
@@ -198,7 +200,7 @@ rofi.lines:                          15
 rofi.columns:                        1
 
 ! Font to use
-rofi.font:                           tamsyn 12
+rofi.font:                           FONT 12
 
 ! Use extended color scheme
 rofi.color-enabled:                  true
