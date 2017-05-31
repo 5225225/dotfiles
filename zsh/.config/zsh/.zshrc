@@ -102,27 +102,12 @@ chpwd() {
     silentcd=0
 }
 
-fbatch() {
-    find -type f -name "*.$1" -print0 | while read -d $'\0' a; do
-    < /dev/null ffmpeg -n -v 8 -i "$a" -ab 320k -qscale:a 0 "${a[@]/%$1/$2}"
-    echo $a
-    done
-}
-
 vorbedit() {
     vorbiscomment -l $1 | vipe | vorbiscomment -w $1
 }
 
 try_source() {
     [ -f "$1" ] && source "$1"
-}
-
-shot() {
-    scrot /tmp/screenshot.png
-    i3-msg workspace "edit"
-    gimp /tmp/screenshot.png >/dev/null
-    i3-msg workspace back_and_forth
-    teknik /tmp/screenshot.png
 }
 
 adb() {
@@ -150,20 +135,10 @@ scratch() {
     )
 }
 
-#alias scratch='mkdir -p ~/dl/scratch; cd $(mktemp -d -p ~/dl/scratch)'
-alias 0="false"
-alias 1="true"
 alias headers="curl --dump-header /dev/stdout --output /dev/null --silent"
 alias pubip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias restartpa="pulseaudio -k ; pulseaudio --start"
 alias rcal='remind -w120,3,0 -cum -b1 ~/.config/remind | sed "s:\($(date +%d)\) :\x1b[7m\1\x1b[m :"'
 alias rem='remind -q ~/.config/remind'
-
-alias timetable="cat ~/scripts/data/timetable"
-# Not a UUOC, just doing `< file` will run it through a pager, which I don't
-# want.
-
-alias pdb="python -m pdb"
 
 alias ag="ag -A 3 -B 3"
 alias df="dfc -t -devtmpfs,tmpfs,autofs -T -d -q type -W -w 2>/dev/null"
@@ -176,8 +151,7 @@ alias ncmpcpp="ncmpcpp --config ~/.config/ncmpcpp/config --bindings ~/.config/nc
 alias startx="startx ~/.config/X/xinitrc"
 alias tmux="tmux -f ~/.config/tmux/tmux.conf"
 alias weechat="weechat -d $XDG_CONFIG_HOME/weechat"
-alias watch="watch -c"
-alias pacman="pacaur"
+alias pacman="sudo pacman"
 alias gs="git status"
 alias cget="curl -C - -L -O --retry 10"
 alias abook="abook -C ~/.config/abook/abookrc --datafile ~/.config/abook/addressbook"
