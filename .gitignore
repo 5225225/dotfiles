@@ -1,31 +1,15 @@
-# mutt{{{
-
 mutt/.config/mutt/home.rc
 mutt/.config/mutt/school.rc
-
 # Stores full real names, and this won't apply to anyone cloning this.
 # The example.rc provided is the same thing, just sanitised.
 
-# }}}
-
-# scripts {{{
 scripts/scripts/data/priv/
-# }}}
-
-#qutebrowser{{{
 
 qutebrowser/.config/qutebrowser/qsettings/*
 qutebrowser/.config/qutebrowser/bookmarks/*
 qutebrowser/.config/qutebrowser/quickmarks
 
-#}}}
-
-#vim{{{
 vim/.config/vim/spell/
-
-#}}}
-
-# weechat{{{
 
 weechat/.config/weechat/sec.conf
 # Stores passwords unencrypted
@@ -45,31 +29,17 @@ weechat/.config/weechat/*.log
 
 weechat/.config/weechat/chanstat/peak_data.csv
 # Stores number of users in all channels. Not very useful, may have privacy implications.
-#
 
 weechat/.config/weechat/script/plugins.xml.gz
 # Stores plugin data. Probably not needed that much.
 
-# }}}
-
-#x{{{
 
 x/.config/X/xauthority
-
 # Would change on every log in, and it's useless on new machines.
 
-#}}}
-
-#zsh{{{
 zsh/.config/zsh/.zcompdump
 zsh/.config/zsh/histfile
-#}}}
 
-#mpv{{{
 mpv/.config/mpv/watch_later/
-#}}}
 
-
-#ncmpcpp{{{
 ncmpcpp/.config/ncmpcpp/lyrics/
-#}}}
