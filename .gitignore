@@ -1,3 +1,5 @@
+
+
 mutt/.config/mutt/home.rc
 mutt/.config/mutt/school.rc
 # Stores full real names, and this won't apply to anyone cloning this.
@@ -43,3 +45,7 @@ zsh/.config/zsh/histfile
 mpv/.config/mpv/watch_later/
 
 ncmpcpp/.config/ncmpcpp/lyrics/
+ncmpcpp/.config/ncmpcpp/error.log
+
+beets/.config/beets/plugins/__pycache__/
+beets/.config/beets/state.pickle
