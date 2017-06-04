@@ -1,0 +1,78 @@
+directory: ~/media/music
+library: ~/media/music/library.blb
+
+import:
+    write: yes
+    copy: yes
+
+plugins: 
+    acousticbrainz
+    alternatives
+    badfiles
+    chroma
+    convert
+    edit
+    fetchart
+    fromfilename
+    ftintitle
+    info
+    lastgenre
+    missing
+    permissions
+    replaygain
+    scrub
+    types
+
+alternatives:
+    phone:
+        directory: ~/media/transcode
+        formats: ogg
+        query: "on_phone:True"
+
+replaygain:
+    auto: yes
+    backend: gstreamer
+    overwrite: yes
+
+replace:
+    '[\\/]': _
+    '^\.': _
+    '[\x00-\x1f]': _
+    '\s+$': ''
+    '^\s+': ''
+
+pluginpath:
+    ~/.config/beets/plugins
+
+ui:
+    color: yes
+    colors:
+        text_success: green
+        text_warning: yellow
+        text_error: red
+        text_highlight: red
+        text_highlight_minor: lightgray
+        action_default: turquoise
+        action: blue
+
+original_date: true
+
+ftintitle:
+    auto: no
+    drop: no
+    format: "(Ft. {0})"
+
+convert:
+    never_convert_lossy_files: no
+    format: ogg
+    dest: ~/media/transcode
+    threads: 8
+    quiet: true
+
+types:
+    on_phone: bool
+
+paths:
+    default: $albumartist/%if{$year,$year - }$album%aunique{}/%if{$track,$track - }$title
+    singleton: $albumartist/Singles/$title
+    comp: Various Artists/$album/%if{$track,$track - }$title
