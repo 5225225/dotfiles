@@ -106,5 +106,6 @@ cmap <f28> <nop>
 cmap <f29> <nop>
 
 set foldmethod=syntax
+set foldnestmax=1
 
 let g:netrw_dirhistmax=0
