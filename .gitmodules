@@ -7,3 +7,6 @@
 [submodule "vim/.config/vim/bundle/vim-ledger"]
 	path = vim/.config/vim/bundle/vim-ledger
 	url = https://www.github.com/ledger/vim-ledger
+[submodule "vim/.config/vim/bundle/todo.txt-vim"]
+	path = vim/.config/vim/bundle/todo.txt-vim
+	url = git@github.com:freitass/todo.txt-vim.git
