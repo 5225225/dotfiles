@@ -26,6 +26,8 @@ exec remind -z -k"$HOME/scripts/remind-notify  %s" ~/.config/remind &
 
 exec unclutter &
 
+exec redshift &
+
 WIDTH="$(xrandr | grep '\*\+' | sed 's:x.*\([0-9]*\):\1:' | tr -d ' ')"
 
 ADJUSTED="$(( (WIDTH-400) / 2 ))"
