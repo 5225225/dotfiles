@@ -1,17 +1,18 @@
 #!/bin/bash
-
-updates() {
-    checkupdates | cut -d " " -f 1
-    cower -u | cut -d " " -f 2
-}
-
-
-update_list="$(updates)"
-update_count="$(echo -n "$update_list" | wc -l)"
+set -x
 
 case $BLOCK_BUTTON in
-    3) notify-send "updates" "$update_list" ;;
+    3)
+        aur_update_list="$(cower -u)"
+        repo_update_list="$(checkupdates)"
+        notify-send "updates" "$repo_update_list\n$aur_update_list"
+        return
+        ;;
 esac
+
+aur_update_count="$(cower -u | wc -l)"
+repo_update_count="$(checkupdates | wc -l)"
+update_count="$((aur_update_count + repo_update_count))"
 
 if [[ "$update_count" -gt 0 ]]; then
     echo "updates: $update_count"
