@@ -1,0 +1,17 @@
+#!/bin/sh
+
+cd ~/media/pkg
+
+for var in "$@"
+do
+    (
+        if [ -d "$var" ]; then
+            cd "$var" || exit
+            git pull
+        else
+            git clone "https://aur.archlinux.org/${1}.git"
+            cd "$var" || exit
+        fi
+        makepkg -rsi
+    )
+done
