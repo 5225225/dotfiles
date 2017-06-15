@@ -196,9 +196,9 @@ current_item_prefix = $(cyan)$r
 #
 current_item_suffix = $/r$(end)
 #
-current_item_inactive_column_prefix = $(white)$r
+current_item_inactive_column_prefix = $b
 #
-current_item_inactive_column_suffix = $/r$(end)
+current_item_inactive_column_suffix = $/b$(end)
 #
 #now_playing_prefix = $b
 #
@@ -282,11 +282,11 @@ song_columns_list_format = (20)[green]{a} (50)[red]{t|f:Title} (20)[cyan]{b} (7f
 #
 #playlist_show_mpd_host = no
 #
-#playlist_show_remaining_time = no
+playlist_show_remaining_time = yes
 #
 #playlist_shorten_total_times = no
 #
-#playlist_separate_albums = no
+playlist_separate_albums = yes
 #
 ##
 ## Note: Possible display modes: classic, columns.
@@ -317,7 +317,7 @@ show_duplicate_tags = no
 ## Note: You can specify third character which will be used to build 'empty'
 ## part of progressbar.
 ##
-progressbar_look = "=> "
+progressbar_look = "-* "
 #
 ## Available values: database, playlist.
 ##
@@ -332,8 +332,6 @@ user_interface = alternative
 ## Available values: artist, album_artist, date, genre, composer, performer.
 ##
 media_library_primary_tag = album_artist
-#
-#media_library_albums_split_by_date = yes
 #
 ## Available values: wrapped, normal.
 ##
