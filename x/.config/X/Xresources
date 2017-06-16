@@ -10,79 +10,18 @@ github.com/5225225/dotfiles
 
 */
 
-/*
-     _       __ _                 
-  __| | ___ / _(_)_ __   ___  ___ 
- / _` |/ _ \ |_| | '_ \ / _ \/ __|
-| (_| |  __/  _| | | | |  __/\__ \
- \__,_|\___|_| |_|_| |_|\___||___/
-                                  
-*/
-
-#define colour_black    #181818
-#define colour_lblack   #585858
-
-#define colour_red      #ab4642
-#define colour_lred     #ab4642
-
-#define colour_green    #a1b56c
-#define colour_lgreen   #a1b56c
-
-#define colour_yellow   #f7ca88
-#define colour_lyellow  #f7ca88
-
-#define colour_blue     #7cafc2
-#define colour_lblue    #7cafc2
-
-#define colour_magenta  #ba8baf
-#define colour_lmagenta #ba8baf
-
-#define colour_cyan     #86c1b9
-#define colour_lcyan    #86c1b9
-
-#define colour_white    #e8e8e8
-#define colour_lwhite   #ffffff
-
 #define FONT tamsyn
 
 /*
-       _       _           _     
-  __ _| | ___ | |__   __ _| |___ 
- / _` | |/ _ \| '_ \ / _` | / __|
-| (_| | | (_) | |_) | (_| | \__ \
- \__, |_|\___/|_.__/ \__,_|_|___/
- |___/                           
+  ____      _                      
+ / ___|___ | | ___  _   _ _ __ ___ 
+| |   / _ \| |/ _ \| | | | '__/ __|
+| |__| (_) | | (_) | |_| | |  \__ \
+ \____\___/|_|\___/ \__,_|_|  |___/
 
-*/
+ */
 
-*.foreground:   colour_white
-*.background:   colour_black
-
-*.cursorColor:  colour_white
-
-*.color0:       colour_black
-*.color8:       colour_lblack
-
-*.color1:       colour_red
-*.color9:       colour_lred
-
-*.color2:       colour_green
-*.color10:      colour_lgreen
-
-*.color3:       colour_yellow
-*.color11:      colour_lyellow
-
-*.color4:       colour_blue
-*.color12:      colour_lblue
-
-*.color5:       colour_magenta
-*.color13:      colour_lmagenta
-
-*.color6:       colour_cyan
-*.color14:      colour_lcyan
-
-*.color7:       colour_white
-*.color15:      colour_lwhite
+#include "res/colours/londontube.dark"
 
 /*
  _   _ ____               _   
@@ -112,7 +51,7 @@ URxvt.perl-ext-common: default,url-select
 URxvt.url-select.launcher: /home/jack/scripts/url-launcher
 URxvt.url-select.underline: true
 URxvt.url-select.button: 1
-URxvt.colorUL: colour_blue
+URxvt.colorUL: 4
 
 URxvt.keysym.M-u: perl:url-select:select_next
 
@@ -120,209 +59,4 @@ URxvt.keysym.M-u: perl:url-select:select_next
 URxvt.iso14755: False
 
 
-/*
-            __ _ 
- _ __ ___  / _(_)
-| '__/ _ \| |_| |
-| | | (_) |  _| |
-|_|  \___/|_| |_|
-                 
-*/
-
-
-
-rofi.kb-primary-paste:               Control+Shift+v,Shift+Insert
-rofi.kb-secondary-paste:             Control+v,Insert
-rofi.kb-clear-line:                  Control+u
-rofi.kb-move-front:                  Control+a
-rofi.kb-move-end:                    Control+e
-rofi.kb-move-word-back:              Alt+b
-rofi.kb-move-word-forward:           Alt+f
-rofi.kb-move-char-back:              Left,Control+b
-rofi.kb-move-char-forward:           Right,Control+f
-rofi.kb-remove-word-back:            Control+Alt+h
-rofi.kb-remove-word-forward:         Control+Alt+d
-rofi.kb-remove-char-forward:         Delete,Control+d
-rofi.kb-remove-char-back:            BackSpace,Control+h
-rofi.kb-accept-entry:                Control+j,Control+m,Return,KP_Enter
-rofi.kb-accept-custom:               Control+Return
-rofi.kb-accept-entry-continue:       Shift+Return
-rofi.kb-mode-next:                   Shift+Right,Control+Tab,Alt+Tab
-rofi.kb-mode-previous:               Shift+Left,Control+Shift+Tab
-rofi.kb-toggle-case-sensitivity:     grave,dead_grave
-rofi.kb-delete-entry:                Shift+Delete
-rofi.kb-row-left:                    Control+Page_Up
-rofi.kb-row-right:                   Control+Page_Down
-rofi.kb-row-up:                      Up,Control+p,Shift+Tab
-rofi.kb-row-down:                    Down,Control+n
-rofi.kb-row-tab:                     Tab
-rofi.kb-page-prev:                   Page_Up
-rofi.kb-page-next:                   Page_Down
-rofi.kb-row-first:                   Home,KP_Home
-rofi.kb-row-last:                    End,KP_End
-rofi.kb-row-select:                  Control+space
-rofi.kb-cancel:                      Escape,Control+bracketleft
-rofi.kb-custom-1:                    Alt+1
-rofi.kb-custom-2:                    Alt+2
-rofi.kb-custom-3:                    Alt+3
-rofi.kb-custom-4:                    Alt+4
-rofi.kb-custom-5:                    Alt+5
-rofi.kb-custom-6:                    Alt+6
-rofi.kb-custom-7:                    Alt+7
-rofi.kb-custom-8:                    Alt+8
-rofi.kb-custom-9:                    Alt+9
-rofi.kb-custom-10:                   Alt+0
-rofi.kb-custom-11:                   Alt+Shift+1
-rofi.kb-custom-12:                   Alt+Shift+2
-rofi.kb-custom-13:                   Alt+Shift+3
-rofi.kb-custom-14:                   Alt+Shift+4
-rofi.kb-custom-15:                   Alt+Shift+5
-rofi.kb-custom-16:                   Alt+Shift+6
-rofi.kb-custom-18:                   Alt+Shift+8
-rofi.kb-custom-17:                   Alt+Shift+7
-rofi.kb-custom-19:                   Alt+Shift+9
-rofi.kb-screenshot:                  Alt+Shift+S
-rofi.kb-toggle-sort:                 Alt+grave
-
-! Enabled modi
-rofi.modi:                           run,ssh,window
-
-! Window opacity
-rofi.opacity:                        100
-
-! Window width
-rofi.width:                          50
-
-! Number of lines
-rofi.lines:                          15
-
-! Number of columns
-rofi.columns:                        1
-
-! Font to use
-rofi.font:                           FONT 12
-
-! Use extended color scheme
-rofi.color-enabled:                  true
-
-! Color scheme for normal row
-rofi.color-normal:                   argb:99000000, #D0D0D0, argb:99000000, argb:dd444444, #EEE8D5
-rofi.color-urgent:                   #FDF6E3,       #DC322F, #DC322F, #DC322F, #FDF6E3
-rofi.color-active:                   #FDF6E3,       #268BD2, #FDF6E3, #268BD2, #FDF6E3
-
-! Color scheme window
-rofi.color-window:                   argb:99000000,argb:00000000
-
-! Border width
-rofi.bw:                             0
-
-! Location on screen
-rofi.location:                       1
-
-! Padding
-rofi.padding:                        0
-
-! Y-offset relative to location
-rofi.yoffset:                        0
-
-! X-offset relative to location
-rofi.xoffset:                        0
-
-! Always show number of lines
-rofi.fixed-num-lines:                false
-
-! Terminal to use
-rofi.terminal:                       rofi-sensible-terminal
-
-! Ssh client to use
-rofi.ssh-client:                     mossh
-
-! Ssh command to execute
-rofi.ssh-command:                    rofi-ssh -e {ssh-client} {host}
-
-! Run command to execute
-rofi.run-command:                    {cmd}
-
-! Command to get extra run targets
-rofi.run-list-command:
-
-! Run command to execute that runs in shell
-rofi.run-shell-command:              {terminal} -e {cmd}
-
-! Disable history in run/ssh
-rofi.disable-history:                false
-
-! Use levenshtein sorting
-rofi.levenshtein-sort:               true
-
-! Set case-sensitivity
-rofi.case-sensitive:                 false
-
-! Enable sidebar-mode
-rofi.sidebar-mode:                   true
-
-! Set lazy filter limit
-rofi.lazy-filter-limit:              15000
-
-! Row height (in chars)
-rofi.eh:                             1
-
-! Enable auto select mode
-rofi.auto-select:                    false
-
-! Parse hosts file for ssh mode
-rofi.parse-hosts:                    false
-
-! Parse known_hosts file for ssh mode
-rofi.parse-known-hosts:              true
-
-! Set the modi to combine in combi mode
-rofi.combi-modi:                     window,run
-
-! Do a more fuzzy matching
-rofi.fuzzy:                          false
-
-! Use glob matching
-rofi.glob:                           true
-
-! Use regex matching
-rofi.regex:                          true
-
-! Tokenize input string
-rofi.tokenize:                       true
-
-! Monitor id to show on
-rofi.m:                              -1
-
-! Margin between rows
-rofi.line-margin:                    0
-
-! Pre-set filter
-rofi.filter:
-
-! Separator style (none, dash, solid)
-rofi.separator-style:                dash
-
-! Hide scroll-bar
-rofi.hide-scrollbar:                 true
-
-! Show markup
-rofi.markup-rows:                    false
-
-! Fullscreen
-rofi.fullscreen:                     false
-
-! Fake transparency
-rofi.fake-transparency:              false
-
-! DPI
-rofi.dpi:                            -1
-
-! Threads to use for string matching
-rofi.threads:                        1
-
-! Scrollbar width
-rofi.scrollbar-width:                8
-
-! Pidfile location
-rofi.pid:                            /run/user/1000/rofi.pid
+#include "res/rofi"
