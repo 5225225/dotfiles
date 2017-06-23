@@ -109,3 +109,7 @@ set foldmethod=syntax
 set foldnestmax=1
 
 let g:netrw_dirhistmax=0
+
+
+let g:table_mode_corner_corner='+'
+let g:table_mode_header_fillchar='='
