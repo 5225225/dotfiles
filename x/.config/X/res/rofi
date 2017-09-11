@@ -1,7 +1,5 @@
 ! vim: ft=xdefaults
 
-! "Enabled modi" Set from: XResources
-rofi.modi:                           run,ssh,window
 ! "Window width" Set from: XResources
 rofi.width:                          50
 ! "Number of lines" Set from: XResources
@@ -62,10 +60,8 @@ rofi.auto-select:                    false
 rofi.parse-hosts:                    false
 ! "Parse known_hosts file for ssh mode" Set from: XResources
 rofi.parse-known-hosts:              true
-! "Set the modi to combine in combi mode" Set from: XResources
-rofi.combi-modi:                     window,run
 ! "Set the matching algorithm. (normal, regex, glob, fuzzy)" Set from: Default
-! rofi.matching:                       normal
+rofi.matching:                       normal
 ! "Tokenize input string" Set from: XResources
 rofi.tokenize:                       true
 ! "Monitor id to show on" Set from: XResources
@@ -210,3 +206,6 @@ rofi.kb-custom-17:                   Alt+Shift+7
 rofi.kb-custom-18:                   Alt+Shift+8
 ! "Custom Keybinding 19" Set from: XResources
 rofi.kb-custom-19:                   Alt+Shift+9
+
+rofi.modi: run,window,ssh
+
