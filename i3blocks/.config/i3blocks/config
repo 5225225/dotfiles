@@ -64,6 +64,12 @@ command=/home/jack/.config/i3blocks/mail
 instance=school
 color="ab4642"
 
+[mail-mailbox]
+command=/home/jack/.config/i3blocks/mail
+instance=mailbox
+color="ffd204"
+
+
 [mpd]
 markup=pango
 
