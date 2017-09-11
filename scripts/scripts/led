@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ledger --strict --recursive-aliases -X "£" --explicit --check-payees --file ~/.config/ledger/ledger.dat "$@"
