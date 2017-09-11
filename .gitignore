@@ -2,6 +2,7 @@
 
 mutt/.config/mutt/home.rc
 mutt/.config/mutt/school.rc
+mutt/.config/mutt/mailbox.rc
 # Stores full real names, and this won't apply to anyone cloning this.
 # The example.rc provided is the same thing, just sanitised.
 
