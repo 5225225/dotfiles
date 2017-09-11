@@ -26,8 +26,6 @@ exec remind -z -k"$HOME/scripts/remind-notify  %s" ~/.config/remind &
 
 exec unclutter &
 
-exec redshift &
-
 WIDTH="$(xrandr | grep '\*\+' | sed 's:x.*\([0-9]*\):\1:' | tr -d ' ')"
 
 ADJUSTED="$(( (WIDTH-400) / 2 ))"
@@ -50,6 +48,6 @@ export SSH_AUTH_SOCK   # enable gpg-agent for ssh
 xset b off
 xinput set-prop 8 287 -1
 
-exec hsetroot -fill "$HOME/scripts/data/wallpaper.png" &
+exec nitrogen --restore &
 
 exec i3
