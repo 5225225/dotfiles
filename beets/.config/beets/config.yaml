@@ -38,8 +38,11 @@ replace:
     '[\\/]': _
     '^\.': _
     '[\x00-\x1f]': _
+    '[<>:"\?\*\|]': _
+    '\.$': _
     '\s+$': ''
     '^\s+': ''
+    '^-': _
 
 pluginpath:
     ~/.config/beets/plugins
@@ -75,4 +78,4 @@ types:
 paths:
     default: $albumartist/%if{$year,$year - }$album%aunique{}/%if{$track,$track - }$title
     singleton: $albumartist/Singles/$title
-    comp: Various Artists/$album/%if{$track,$track - }$title
+    comp: Various Artists/$album%aunique{}/%if{$track,$track - }$title
