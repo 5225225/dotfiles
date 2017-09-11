@@ -40,7 +40,7 @@ URxvt.background: [70]#000000
     i3bar.font: pango:FONT 12
 #else
     URxvt.font: xft:FONT:size=13
-    i3bar.font: pango:FONT 15
+    i3bar.font: pango:FONT 13
 #endif
 
 
