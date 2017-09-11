@@ -13,3 +13,12 @@
 [submodule "vim/.config/vim/bundle/table-mode"]
 	path = vim/.config/vim/bundle/table-mode
 	url = git@github.com:dhruvasagar/vim-table-mode.git
+[submodule "vim/.config/vim/bundle/vim-pandoc-syntax"]
+	path = vim/.config/vim/bundle/vim-pandoc-syntax
+	url = git@github.com:vim-pandoc/vim-pandoc-syntax.git
+[submodule "vim/.config/vim/bundle/vim-rst-tables"]
+	path = vim/.config/vim/bundle/vim-rst-tables
+	url = git@github.com:nvie/vim-rst-tables.git
+[submodule "vim/.config/vim/bundle/pydoc.vim"]
+	path = vim/.config/vim/bundle/pydoc.vim
+	url = git@github.com:fs111/pydoc.vim.git
