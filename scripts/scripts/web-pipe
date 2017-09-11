@@ -1,0 +1,3 @@
+tmpfilename="$(mktemp --suffix='.html')"
+cat >| "$tmpfilename"
+qutebrowser "$tmpfilename"
