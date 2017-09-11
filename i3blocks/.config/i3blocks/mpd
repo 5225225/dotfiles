@@ -1,21 +1,49 @@
 #!/bin/bash
 
+mpc_artist="$(mpc status -f "%artist%" | head -n1 | htmlescape)"
+mpc_title="$(mpc status -f "%title%" | head -n1 | htmlescape)"
+mpc_album="$(mpc status -f "%album%" | head -n1 | htmlescape)"
 
-status_str_playing='[<span foreground="##a1b56c">%artist%</span>] - [<span foreground="##ac4142">%title%</span>] - [<span foreground="##6a9fb5">%album%</span>]'
-status_str_paused='[<span foreground="##4f5935">%artist%</span>] <span foreground="##666666">-</span> [<span foreground="##542020">%title%</span>] <span foreground="##666666">-</span> [<span foreground="##344e59">%album%</span>]'
+
+playing=true
+
+if mpc playlist | wc -l | grep -x "0" >/dev/null; then
+    # We're not playing anything. Return now.
+    echo ""
+    return
+fi
+
+if [ "$mpc_artist" = "volume: n/a   repeat: off   random: off   single: off   consume: off" ]; then
+    echo ""
+    return
+fi
+
+if mpc status | tail -n3 | grep "\[playing\]" >/dev/null; then
+    playing=true
+else
+    playing=false
+fi
+
+if [ "$playing" = true ]; then
+    c_artist="<span foreground='#a1b56c'>$mpc_artist</span>"
+    c_title="<span foreground='#ac4142'>$mpc_title</span>"
+    c_album="<span foreground='#6a9fb5'>$mpc_album</span>"
+    c_dash="-"
+else
+    c_artist="<span foreground='#4f5935'>$mpc_artist</span>"
+    c_title="<span foreground='#542020'>$mpc_title</span>"
+    c_album="<span foreground='#344e59'>$mpc_album</span>"
+    c_dash="<span foreground='#666666'>-</span>"
+fi
+
+
+status_str="$c_artist $c_dash $c_title $c_dash $c_album"
 
 case $BLOCK_BUTTON in
     1) mpc -q toggle ;;
     3) notify-send "MPD" "$(mpc | head -n1 | htmlescape)" ;;
 esac
 
-if mpc status | tail -n3 | grep "\[playing\]" >/dev/null; then
-    status_str="$status_str_playing"
-else
-    status_str="$status_str_paused"
-fi
 
 
-mpc status -f "$status_str" | head -n1 | sed "s/&/&amp;/g" | grep "span foreground="
-
-true
+echo "$status_str"
