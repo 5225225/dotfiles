@@ -1,0 +1,11 @@
+#!/bin/bash
+
+playlist_file=$(mktemp)
+
+find "$(pwd)" -type f \(  \
+    -name "*.mkv" \
+\) | sort --general-numeric-sort | fzf --reverse -m > "$playlist_file"
+
+mpv --playlist "$playlist_file"
+
+rm "$playlist_file"
