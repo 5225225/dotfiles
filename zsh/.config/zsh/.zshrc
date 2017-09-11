@@ -93,8 +93,6 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[04;38;5;146m'
 
 chpwd() {
-    print -Pn "\e]0;`pwd`\a";
-
     if ( [[ $silentcd != 1 ]] ) {
         timeout 0.1 ls --group-directories-first --color=auto;
     }
@@ -151,7 +149,7 @@ alias ncmpcpp="ncmpcpp --config ~/.config/ncmpcpp/config --bindings ~/.config/nc
 alias startx="startx ~/.config/X/xinitrc"
 alias tmux="tmux -f ~/.config/tmux/tmux.conf"
 alias weechat="weechat -d $XDG_CONFIG_HOME/weechat"
-alias pacman="sudo pacman"
+alias pacman="pacaur"
 alias gs="git status"
 alias cget="curl -C - -L -O --retry 10"
 alias abook="abook -C ~/.config/abook/abookrc --datafile ~/.config/abook/addressbook"
@@ -172,5 +170,3 @@ try_source /usr/share/doc/pkgfile/command-not-found.zsh
 . ~/.config/zsh/plugins/safe-paste.plugin.zsh
 
 eval $(keychain --eval --quiet --agents ssh,gpg id_ed25519 id_rsa nas_id_rsa 8106B50C716333773F02BA1CE29454EE184E7DC8)
-
-print -Pn "\e]0;`pwd`\a"
