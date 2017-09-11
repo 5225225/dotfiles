@@ -137,6 +137,7 @@ while True:
 
     elif artist == "== Playlists ==":
         playlists = getplaylists()
+        playlists = sorted(playlists)
         toplay = dmenu(playlists)
         for item in playlists:
             if toplay == item:
