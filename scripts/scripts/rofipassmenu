@@ -5,11 +5,10 @@ export PASSWORD_STORE_X_SELECTION="primary"
 shopt -s nullglob globstar
 
 enter_user_pass() {
-    sleep 0.1
+    sleep 1
     xdotool type --clearmodifiers "$1"
     xdotool key --clearmodifiers "Tab"
     xdotool type --clearmodifiers "$2"
-    xdotool key --clearmodifiers "Return"
 }
 
 
@@ -24,14 +23,13 @@ password_name=$(printf '%s\n' "${password_files[@]}" | rofi -dmenu -p ": " -fuzz
 password=$(pass show "$password_name" | head -n1)
 username=$(basename "$password_name")
 
-todo=$(printf 'type\nclipboard\nshow' | rofi -dmenu -p ": ")
+todo=$(printf 'type userpass\ntype pass\nshow' | rofi -dmenu -p ": ")
 
 
-if [[ "$todo" = type ]]; then
+if [[ "$todo" = "type userpass" ]]; then
     enter_user_pass "$username" "$password"
-elif [[ "$todo" = clipboard ]]; then
-    pass show -c "$password_name"
-    notify-send "passwordstore" "Added $password_name to clipboard"
+elif [[ "$todo" = "type pass" ]]; then
+    xdotool type --clearmodifiers "$password"
 elif [[ "$todo" = show ]]; then
-    notify-send -t 25000 "passwordstore" "Password: \"$password\""
+    notify-send -t 2500000 "passwordstore" "Password: \"$password\""
 fi
