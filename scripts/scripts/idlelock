@@ -39,9 +39,13 @@ if [[ $idletime -gt $IDLELOCK_TIME ]] || [[ "$forcelock" == "true" ]] ; then
 
         notify-send "DUNST_COMMAND_PAUSE"
         /bin/i3lock \
-            --image ~/scripts/data/lockscreen.png \
+            --color=202020 \
+            -p win \
+            --ignore-empty-password \
             --show-failed-attempts \
             --nofork &
+        sleep 5
+        xset dpms force off
         echo $! > /tmp/${DISPLAY}_idlelock_pid
         wait $!
         rm /tmp/${DISPLAY}_idlelock_pid
