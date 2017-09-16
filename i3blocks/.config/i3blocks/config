@@ -31,43 +31,43 @@ interval=1
 
 [network]
 interval=repeat
-color="ab4642"
+color=#ab4642
 
 [pubip]
 interval=60
 
 [memory]
-color="ab4642"
+color=#ab4642
 
 [swap]
-color="ab4642"
+color=#ab4642
 
 [load]
-color="ab4642"
+color=#ab4642
 
 [pgrep]
 instance=backup.sh
-color="7cafc2"
+color=#7cafc2
 
 [updates]
 interval=3600
-color="a1b56c"
+color=#a1b56c
 
 [mail-home]
 command=/home/jack/.config/i3blocks/mail
 instance=home
-color="7cafc2"
+color=#7cafc2
 
 
 [mail-school]
 command=/home/jack/.config/i3blocks/mail
 instance=school
-color="ab4642"
+color=#ab4642
 
 [mail-mailbox]
 command=/home/jack/.config/i3blocks/mail
 instance=mailbox
-color="ffd204"
+color=#ffd204
 
 
 [mpd]
