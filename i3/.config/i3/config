@@ -155,32 +155,6 @@ bar {
 new_window pixel 1
 hide_edge_borders both
 
-#     _            _                                  _       
-#    / \   ___ ___(_) __ _ _ __  _ __ ___   ___ _ __ | |_ ___ 
-#   / _ \ / __/ __| |/ _` | '_ \| '_ ` _ \ / _ \ '_ \| __/ __|
-#  / ___ \\__ \__ \ | (_| | | | | | | | | |  __/ | | | |_\__ \
-# /_/   \_\___/___/_|\__, |_| |_|_| |_| |_|\___|_| |_|\__|___/
-#                    |___/                                    
-
-assign [class="^qutebrowser$"] workspace 1
-assign [title="^Weechat$"] workspace 2
-assign [title="^mutt$"] workspace 3
-assign [title="^Deluge$"] workspace 8
-assign [title="^Mumble"] workspace 8
-assign [title="^Bitcoin Core - Wallet"] workspace 8
-assign [title="^Counter-Strike Source - OpenGL"] workspace 9
-assign [class="^Steam$"] workspace 10
-
-# XXX The above is a hack! Remove when issue https://github.com/i3/i3/issues/2590 is closed.  XXX
-
-for_window [class="^Steam$" title=" - Chat$"] floating enable
-for_window [title="^mutt-mailto$"] floating enable
-for_window [title="^rofi-ssh$"] floating enable
-for_window [title="^feh-qrcode$"] floating enable
-for_window [class = "soffice" title="^Text Import - "] floating enable
-for_window [title="REQUEST_FLOATING_WINDOW"] floating enable
-
-
 #   ____                 
 #  / ___| __ _ _ __  ___ 
 # | |  _ / _` | '_ \/ __|
