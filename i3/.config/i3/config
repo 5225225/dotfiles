@@ -204,3 +204,4 @@ mode "$mode_gaps_outer" {
 }
 
 mouse_warping none
+focus_on_window_activation urgent
