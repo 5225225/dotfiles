@@ -140,13 +140,13 @@ c.colors.webpage.bg # Intentionally left blank.
 c.fonts.monospace = "tamsyn"
 
 
-config.bind("o", "set-cmd-text --space :open", mode="normal", force=True)
-config.bind("O", "set-cmd-text :open {url:pretty}", mode="normal", force=True)
+config.bind("o", "set-cmd-text --space :open", mode="normal")
+config.bind("O", "set-cmd-text :open {url:pretty}", mode="normal")
 
-config.bind("t", "set-cmd-text --space :open -t", mode="normal", force=True)
-config.bind("T", "set-cmd-text :open -t {url:pretty}", mode="normal", force=True)
+config.bind("t", "set-cmd-text --space :open -t", mode="normal")
+config.bind("T", "set-cmd-text :open -t {url:pretty}", mode="normal")
 
-config.bind("b", "set-cmd-text --space :buffer", mode="normal", force=True)
+config.bind("b", "set-cmd-text --space :buffer", mode="normal")
 
 config.bind(",m", "hint links spawn mpv {hint-url}", mode="normal")
 config.bind(",M", "spawn mpv {url}", mode="normal")
