@@ -29,11 +29,8 @@ c.tabs.show = "never"
 c.hints.mode = "number"
 c.hints.auto_follow_timeout = 1500
 
-c.completion.web_history_max_items = 0
-
 c.input.partial_timeout = 0
 c.messages.timeout = 5000
-
 
 base00 = "#090300"
 base01 = "#3a3432"
