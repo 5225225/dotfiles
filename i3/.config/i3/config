@@ -19,6 +19,7 @@ set_from_resource $colour_red  color1     #ab4642
 #           |___/                             |___/     
 
 bindsym $mod+Return exec ~/scripts/urxvt
+bindsym $mod+Shift+Return exec ~/scripts/tmux-urxvt
 
 bindsym $mod+Shift+q kill
 
@@ -126,6 +127,7 @@ set_from_resource $bar_font i3bar.font pango:Misc Ohsnap 15
 set $trans_bg #000000B0
 
 bar {
+    output HDMI-0
     status_command i3blocks
     Modifier Mod4
     position top
@@ -143,6 +145,26 @@ bar {
         inactive_workspace $trans_bg $trans_bg $colour_grey
         urgent_workspace $trans_bg $trans_bg $colour_red
     }
+}
+
+bar {
+    output VGA-1-1
+    position top
+
+    font $bar_font
+
+    i3bar_command i3bar -t
+
+    colors {
+        background $trans_bg
+        statusline $foreground
+
+        focused_workspace $trans_bg $trans_bg $foreground
+        active_workspace $trans_bg $trans_bg $foreground
+        inactive_workspace $trans_bg $trans_bg $colour_grey
+        urgent_workspace $trans_bg $trans_bg $colour_red
+    }
+
 }
 
 #  _____ _                    _             
