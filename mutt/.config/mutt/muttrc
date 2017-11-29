@@ -87,7 +87,21 @@ set forward_quote
 
 set mailcap_path="~/.config/mutt/mailcap"
 
-set index_format="%4C %Z %{%b %d} %-45.f (%<l?%4l&%4c>) %s"
+#set index_format="%4C %Z %{%b %d} %-60.f (%<l?%4l&%4c>) %s"
+
+set index_format="%2C %Z %{%b %d} %-65.f (%<l?%4l&%4c>) %s"
+set arrow_cursor
+
+color index white default '.*'
+
+color index_author brightred default  '.*'
+color index_collapsed blue default 
+color index_date blue default 
+color index_flags red default  '.*'
+color index_label yellow default 
+color index_number brightblack default 
+color index_size brightblack default 
+color index_subject cyan default  '.*'
 
 auto_view text/html
 
