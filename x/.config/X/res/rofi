@@ -103,7 +103,7 @@ rofi.kb-primary-paste:               Control+Shift+v,Shift+Insert
 ! "Paste clipboard" Set from: XResources
 rofi.kb-secondary-paste:             Control+v,Insert
 ! "Clear input line" Set from: XResources
-rofi.kb-clear-line:                  Control+u
+! rofi.kb-clear-line:                  Control+u
 ! "Beginning of line" Set from: XResources
 rofi.kb-move-front:                  Control+a
 ! "End of line" Set from: XResources

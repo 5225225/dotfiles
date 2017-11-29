@@ -20,18 +20,15 @@ export LANG="en_GB.utf8"
 
 xrdb "$HOME/.config/X/Xresources"
 
-exec setxkbmap gb &
+setxkbmap \
+    -layout gb \
+    -option compose:rctrl \
+    -option ctrl:nocaps \
+    -option terminate:ctrl_alt_bksp &
+
 exec compton &
-exec remind -z -k"$HOME/scripts/remind-notify  %s" ~/.config/remind &
-
 exec unclutter &
-
-WIDTH="$(xrandr | grep '\*\+' | sed 's:x.*\([0-9]*\):\1:' | tr -d ' ')"
-
-ADJUSTED="$(( (WIDTH-400) / 2 ))"
-
-exec dunst -geometry "400x5+$ADJUSTED-120" &
-
+exec dunst &
 exec ~/scripts/idlelock &
 
 
@@ -45,9 +42,10 @@ fi
 export GPG_AGENT_INFO  # the env file does not contain the export statement
 export SSH_AUTH_SOCK   # enable gpg-agent for ssh
 
-xset b off
-xinput set-prop 8 287 -1
+exec xset b off &
+exec xinput set-prop 8 287 -1 &
 
+screen.sh
 exec nitrogen --restore &
 
 exec i3

@@ -83,6 +83,7 @@ export LESSHISTFILE="/dev/null"
 export REPORTTIME=5
 export MAIL="~/mail/INBOX"
 export EDITOR=vim
+export LEDGER_FILE="$HOME/sync/hledger.txt"
 
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;38;5;74m'
@@ -106,13 +107,6 @@ vorbedit() {
 
 try_source() {
     [ -f "$1" ] && source "$1"
-}
-
-adb() {
-    OLDHOME="$HOME"
-    HOME="$OLDHOME/.config/android"
-    /bin/adb $*
-    HOME="$OLDHOME"
 }
 
 priv() {
@@ -168,5 +162,9 @@ try_source /usr/share/doc/pkgfile/command-not-found.zsh
 . =(dircolors ~/.config/zsh/dircolors-database)
 . ~/.config/zsh/.zshenv
 . ~/.config/zsh/plugins/safe-paste.plugin.zsh
+
+zshaddhistory() {
+    export LITERAL_COMMAND="$1"
+}
 
 eval $(keychain --eval --quiet --agents ssh,gpg id_ed25519 id_rsa nas_id_rsa 8106B50C716333773F02BA1CE29454EE184E7DC8)
