@@ -4,6 +4,10 @@ library: ~/media/music/library.blb
 import:
     write: yes
     copy: yes
+    languages: en
+
+match:
+    strong_rec_thresh: 0.01
 
 plugins: 
     acousticbrainz
@@ -74,6 +78,7 @@ convert:
 
 types:
     on_phone: bool
+
 
 paths:
     default: $albumartist/%if{$year,$year - }$album%aunique{}/%if{$track,$track - }$title
