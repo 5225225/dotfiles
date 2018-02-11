@@ -19,3 +19,6 @@
 [submodule "vim/.config/vim/bundle/pydoc.vim"]
 	path = vim/.config/vim/bundle/pydoc.vim
 	url = git@github.com:fs111/pydoc.vim.git
+[submodule "vim/.config/vim/bundle/vim-cute-python"]
+	path = vim/.config/vim/bundle/vim-cute-python
+	url = git@github.com:ehamberg/vim-cute-python.git

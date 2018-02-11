@@ -3,14 +3,15 @@ library: ~/media/music/library.blb
 
 import:
     write: yes
-    copy: yes
+    move: yes
     languages: en
+    timid: no
+    log: ~/media/music/beets-import.log
 
 match:
     strong_rec_thresh: 0.01
 
 plugins: 
-    acousticbrainz
     alternatives
     badfiles
     chroma
@@ -19,19 +20,27 @@ plugins:
     fetchart
     fromfilename
     ftintitle
+    fuzzy
     info
+    inline
     lastgenre
+    mbsync
     missing
     permissions
     replaygain
+    rewrite
     scrub
     types
+    zero
+
+zero:
+    fields: bpm acoustid_fingerprint initial_key month day
 
 alternatives:
     phone:
         directory: ~/media/transcode
         formats: ogg
-        query: "on_phone:True"
+        query: ""
 
 replaygain:
     auto: yes
@@ -47,6 +56,8 @@ replace:
     '\s+$': ''
     '^\s+': ''
     '^-': _
+
+asciify_paths: yes
 
 pluginpath:
     ~/.config/beets/plugins
@@ -64,11 +75,6 @@ ui:
 
 original_date: true
 
-ftintitle:
-    auto: no
-    drop: no
-    format: "(Ft. {0})"
-
 convert:
     never_convert_lossy_files: no
     format: ogg
@@ -79,6 +85,10 @@ convert:
 types:
     on_phone: bool
 
+edit:
+    itemfields: track title artist album year month day
+
+    albumfields: album albumartist year month day
 
 paths:
     default: $albumartist/%if{$year,$year - }$album%aunique{}/%if{$track,$track - }$title

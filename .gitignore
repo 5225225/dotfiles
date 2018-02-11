@@ -11,6 +11,8 @@ scripts/scripts/data/priv/
 qutebrowser/.config/qutebrowser/qsettings/*
 qutebrowser/.config/qutebrowser/bookmarks/*
 qutebrowser/.config/qutebrowser/quickmarks
+qutebrowser/.config/qutebrowser/autoconfig.yml
+
 
 vim/.config/vim/spell/
 
@@ -50,3 +52,9 @@ ncmpcpp/.config/ncmpcpp/error.log
 
 beets/.config/beets/plugins/__pycache__/
 beets/.config/beets/state.pickle
+beets/.config/beets/artists
+beets/.config/beets/index.rst
+
+weechat
+# Tired of having to track this.
+# Might move to a different IRC client to make this not a pain.

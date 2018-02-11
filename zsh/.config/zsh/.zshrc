@@ -83,7 +83,7 @@ export LESSHISTFILE="/dev/null"
 export REPORTTIME=5
 export MAIL="~/mail/INBOX"
 export EDITOR=vim
-export LEDGER_FILE="$HOME/sync/hledger.txt"
+export LEDGER_FILE="$HOME/sync/ledger/hledger.txt"
 
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;38;5;74m'
@@ -143,7 +143,7 @@ alias ncmpcpp="ncmpcpp --config ~/.config/ncmpcpp/config --bindings ~/.config/nc
 alias startx="startx ~/.config/X/xinitrc"
 alias tmux="tmux -f ~/.config/tmux/tmux.conf"
 alias weechat="weechat -d $XDG_CONFIG_HOME/weechat"
-alias pacman="pacaur"
+alias pacman="trizen"
 alias gs="git status"
 alias cget="curl -C - -L -O --retry 10"
 alias abook="abook -C ~/.config/abook/abookrc --datafile ~/.config/abook/addressbook"
