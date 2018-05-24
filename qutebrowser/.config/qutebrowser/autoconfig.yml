@@ -3,4 +3,4 @@
 
 config_version: 1
 global:
-  content.host_blocking.enabled: true
+  completion.delay: 1500

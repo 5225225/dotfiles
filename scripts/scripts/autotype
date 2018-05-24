@@ -1,5 +1,12 @@
 #!/bin/bash
 
-script=$(ls ~/scripts/autotype-scripts | rofi -dmenu -prompt ": ")
+script=$(find  ~/scripts/do-scripts -mindepth 1 | rofi -dmenu -p "")
 
-~/scripts/autotype-scripts/$script
+if [ ! -z "$script" ]; then
+    result="$(~/scripts/do-scripts/"$script")"
+
+    if [ ! -z "$result" ]; then
+        notify-send "Result" "$result"
+    fi
+fi
+

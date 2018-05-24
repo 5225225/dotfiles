@@ -1,29 +1,36 @@
-# Lines configured by zsh-newuser-install
+# vim:foldmethod=marker
+
+# history {{{
 HISTFILE=~/.config/zsh/histfile
 HISTSIZE=9999999
 SAVEHIST=9999999
 
-setopt nomatch notify
+setopt HIST_IGNORE_DUPS
+setopt hist_verify
+setopt SHARE_HISTORY
+# }}}
+
+# misc options {{{
+setopt nomatch
+setopt notify
 setopt RM_STAR_WAIT
 setopt completealiases
-setopt HIST_IGNORE_DUPS
-setopt SHARE_HISTORY
 setopt INTERACTIVE_COMMENTS
-setopt hist_verify
 
-
-
-unsetopt autocd beep extendedglob
-
-autoload -U colors
-colors
+unsetopt autocd
+unsetopt beep
+unsetopt extendedglob
 
 bindkey -v
 
 bindkey "^R" history-incremental-search-backward
 bindkey "^S" history-incremental-search-forward
 
-# The following lines were added by compinstall
+autoload -U colors
+colors
+# }}}
+
+# {{{ completion
 
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _ignored _match _correct _approximate _prefix
@@ -51,8 +58,9 @@ zstyle :compinstall filename '~/.config/zsh/.zshrc'
 
 autoload -Uz compinit
 compinit
-# End of lines added by compinstall
+# }}}
 
+# Adding to $PATH and fpath {{{
 fpath=(~/.config/zsh/completions $fpath)
 
 export PATH=$PATH:~/scripts
@@ -60,10 +68,12 @@ export PATH=$PATH:~/scripts/bin
 export PATH=$PATH:/usr/bin/core_perl
 export PATH=$PATH:~/.gem/ruby/2.2.0/bin
 export PATH=$PATH:~/.local/bin
+export PATH=$PATH:~/.cargo/bin
+# }}}
 
+# prompt {{{
 
 . ~/.config/zsh/git-prompt.sh
-
 setopt PROMPT_SUBST
 
 export GIT_PS1_SHOWDIRTYSTATE="yes"
@@ -75,8 +85,9 @@ export PROMPT='
 %6F%n%7F@%1F%m%7F %{%F{yellow}%}%~%f %(?..%{%F{red}%}[%?]%f) $(__git_ps1 "[%s]")
 %{%F{blue}%}#%f '
 
-export XDG_CONFIG_HOME="$HOME/.config"
+# }}}
 
+# envars and xdg settings {{{
 export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
 export VIMDOTDIR="$XDG_CONFIG_HOME/vim"
 export LESSHISTFILE="/dev/null"
@@ -85,6 +96,7 @@ export MAIL="~/mail/INBOX"
 export EDITOR=vim
 export LEDGER_FILE="$HOME/sync/ledger/hledger.txt"
 
+# less colours {{{
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;38;5;74m'
 export LESS_TERMCAP_me=$'\E[0m'
@@ -92,79 +104,110 @@ export LESS_TERMCAP_se=$'\E[0m'
 export LESS_TERMCAP_so=$'\E[38;5;246m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[04;38;5;146m'
+# }}}
+# }}}
 
-chpwd() {
-    if ( [[ $silentcd != 1 ]] ) {
-        timeout 0.1 ls --group-directories-first --color=auto;
-    }
-
-    silentcd=0
-}
-
-vorbedit() {
-    vorbiscomment -l $1 | vipe | vorbiscomment -w $1
+# utility functions {{{
+defined() {
+    which $1 2>&1 >/dev/null
 }
 
 try_source() {
     [ -f "$1" ] && source "$1"
 }
 
+# }}}
+
+# hooks {{{
+chpwd() {
+    ls
+}
+# }}}
+
+# command enhancements {{{
+# Translations to better versions, as well as setting default options.
+
+if (defined exa) {
+    ls() {
+        exa --group-directories-first --git --extended $@
+    }
+} else {
+    ls() {
+        command ls --group-directories-first --color=auto $@
+    }
+}
+
+df() {
+    if (defined dfc) {
+        dfc -t -devtmpfs,tmpfs,autofs -T -d -q type -W -w 2>/dev/null $@
+    } else {
+        df -h $@
+    }
+}
+
+if (defined du) {
+    alias "du"="du -ch"
+}
+
+if (defined grep) {
+    alias grep="grep --color=auto"
+}
+
+if (defined msmtp) {
+    alias msmtp="msmtp -C ~/.config/msmtp/config"
+}
+
+if (defined trizen) {
+    alias pacman="trizen"
+}
+
+if (defined ncmpcpp) {
+    alias ncmpcpp="ncmpcpp --config ~/.config/ncmpcpp/config --bindings ~/.config/ncmpcpp/bindings"
+}
+
+defined mutt && alias mutt="mutt -F ~/.config/mutt/muttrc"
+defined startx && alias startx="startx ~/.config/X/xinitrc"
+defined tmux && alias tmux="tmux -f ~/.config/tmux/tmux.conf"
+defined weechat && alias weechat="weechat -d $XDG_CONFIG_HOME/weechat"
+defined abook && alias abook="abook -C ~/.config/abook/abookrc --datafile ~/.config/abook/addressbook"
+
+# }}}
+
+# utility functions {{{
+# Functions that may depend on shell commands, but are not shadowing one
+
 priv() {
     RPROMPT="[priv] $RPROMPT"
     export HISTFILE="/dev/null"
 }
 
-scratch() {
-    mkdir -p ~/dl/scratch
-    tmpdir="$(mktemp -d -p ~/dl/scratch)"
-    echo "You are now in a scratch directory"
-    echo "This directory will be removed when this shell exits."
-    (
-        export RPROMPT="[scratch] $RPROMPT"
-        cd $tmpdir
-        /usr/bin/zsh
-        rm -rfI $tmpdir
-    )
+defined curl && alias headers="curl --dump-header /dev/stdout --output /dev/null --silent"
+
+if (defined git) {
+    alias gs="git status"
 }
 
-alias headers="curl --dump-header /dev/stdout --output /dev/null --silent"
-alias pubip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias rcal='remind -w120,3,0 -cum -b1 ~/.config/remind | sed "s:\($(date +%d)\) :\x1b[7m\1\x1b[m :"'
-alias rem='remind -q ~/.config/remind'
+defined curl && alias cget="curl -C - -L -O --retry 10"
 
-alias ag="ag -A 3 -B 3"
-alias df="dfc -t -devtmpfs,tmpfs,autofs -T -d -q type -W -w 2>/dev/null"
-alias du="du -ch"
-alias grep="grep --color=auto"
-alias ls="ls --group-directories-first --color=auto"
-alias msmtp="msmtp -C ~/.config/msmtp/config"
-alias mutt="mutt -F ~/.config/mutt/muttrc"
-alias ncmpcpp="ncmpcpp --config ~/.config/ncmpcpp/config --bindings ~/.config/ncmpcpp/bindings"
-alias startx="startx ~/.config/X/xinitrc"
-alias tmux="tmux -f ~/.config/tmux/tmux.conf"
-alias weechat="weechat -d $XDG_CONFIG_HOME/weechat"
-alias pacman="trizen"
-alias gs="git status"
-alias cget="curl -C - -L -O --retry 10"
-alias abook="abook -C ~/.config/abook/abookrc --datafile ~/.config/abook/addressbook"
+defined todo.sh && alias t="todo.sh"
+
+# }}}
 
 zmodload zsh/terminfo
+export TERM=rxvt-unicode-256color
 
-
+# syntax highlighting {{{
 try_source /usr/share/zsh/plugins/zsh-syntax-highlighting\
 /zsh-syntax-highlighting.zsh
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main pattern brackets root)
-ZSH_HIGHLIGHT_PATTERNS+=("sudo*" "bg=red")
+ZSH_HIGHLIGHT_PATTERNS+=("sudo" "bg=red")
+
+# }}}
 
 try_source /usr/share/doc/pkgfile/command-not-found.zsh
 
-. =(dircolors ~/.config/zsh/dircolors-database)
-. ~/.config/zsh/.zshenv
 . ~/.config/zsh/plugins/safe-paste.plugin.zsh
-
-zshaddhistory() {
-    export LITERAL_COMMAND="$1"
-}
+. ~/.config/zsh/.zshenv
 
 eval $(keychain --eval --quiet --agents ssh,gpg id_ed25519 id_rsa nas_id_rsa 8106B50C716333773F02BA1CE29454EE184E7DC8)

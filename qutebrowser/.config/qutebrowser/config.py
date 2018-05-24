@@ -153,3 +153,5 @@ config.bind(",M", "spawn mpv {url}", mode="normal")
 
 config.bind(",gr", "set-cmd-text :open https://www.reddit.com/r/", mode="normal")
 config.bind(",gu", "set-cmd-text :open https://www.reddit.com/user/", mode="normal")
+
+config.bind("<Ctrl+i>", "open-editor", mode="insert")

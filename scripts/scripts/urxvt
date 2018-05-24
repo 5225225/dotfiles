@@ -2,4 +2,6 @@
 
 session_name="_$(uuidgen)-$(hostname)" 
 
-urxvt -cd "`xcwd`" -e tmux new -s "$session_name" || urxvt -e tmux new -s "$session_name"
+cwd="$(xcwd)"
+
+urxvt -e tmux new -c "$cwd" -s "$session_name" || urxvt -e tmux new -s "$session_name"
