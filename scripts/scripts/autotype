@@ -1,9 +1,9 @@
 #!/bin/bash
 
-script=$(find  ~/scripts/do-scripts -mindepth 1 | rofi -dmenu -p "")
+script=$(find ~/scripts/do-scripts -mindepth 1 | rofi -dmenu -p "")
 
 if [ ! -z "$script" ]; then
-    result="$(~/scripts/do-scripts/"$script")"
+    result="$("$script")"
 
     if [ ! -z "$result" ]; then
         notify-send "Result" "$result"

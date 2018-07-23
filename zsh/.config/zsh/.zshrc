@@ -157,8 +157,8 @@ if (defined msmtp) {
     alias msmtp="msmtp -C ~/.config/msmtp/config"
 }
 
-if (defined trizen) {
-    alias pacman="trizen"
+if (defined yay) {
+    alias pacman="yay"
 }
 
 if (defined ncmpcpp) {

@@ -14,8 +14,8 @@ match:
 plugins: 
     alternatives
     badfiles
-    chroma
     convert
+    duplicates
     edit
     fetchart
     fromfilename
@@ -40,7 +40,7 @@ alternatives:
     phone:
         directory: ~/media/transcode
         formats: ogg
-        query: ""
+        query: "onplayer:true"
 
 replaygain:
     auto: yes
@@ -79,8 +79,10 @@ convert:
     never_convert_lossy_files: no
     format: ogg
     dest: ~/media/transcode
-    threads: 8
+    threads: 5
     quiet: true
+    formats:
+        ogg: ffmpeg -i $source -y -vn -acodec libvorbis -aq 2 $dest
 
 types:
     on_phone: bool
