@@ -141,7 +141,7 @@ df() {
     if (defined dfc) {
         dfc -t -devtmpfs,tmpfs,autofs -T -d -q type -W -w 2>/dev/null $@
     } else {
-        df -h $@
+        command df -h $@
     }
 }
 
@@ -210,4 +210,6 @@ try_source /usr/share/doc/pkgfile/command-not-found.zsh
 . ~/.config/zsh/plugins/safe-paste.plugin.zsh
 . ~/.config/zsh/.zshenv
 
-eval $(keychain --eval --quiet --agents ssh,gpg id_ed25519 id_rsa nas_id_rsa 8106B50C716333773F02BA1CE29454EE184E7DC8)
+defined keychain && eval $(keychain --eval --quiet --agents ssh,gpg id_ed25519 id_rsa nas_id_rsa 8106B50C716333773F02BA1CE29454EE184E7DC8)
+
+return 0

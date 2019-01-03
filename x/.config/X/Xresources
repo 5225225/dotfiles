@@ -10,8 +10,6 @@ github.com/5225225/dotfiles
 
 */
 
-#define FONT tamsyn
-
 /*
   ____      _                      
  / ___|___ | | ___  _   _ _ __ ___ 
@@ -35,8 +33,7 @@ github.com/5225225/dotfiles
 URxvt.depth: 32
 URxvt.background: [85]#000000
 
-URxvt.font: xft:FONT:size=11
-i3bar.font: pango:FONT 11
+URxvt.font: xft:Misc Tamsyn:size=12
 
 
 URxvt.scrollBar: false

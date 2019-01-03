@@ -7,7 +7,7 @@ rofi.lines:                          15
 ! "Number of columns" Set from: XResources
 rofi.columns:                        1
 ! "Font to use" Set from: XResources
-rofi.font:                           tamsyn 12
+rofi.font:                           misc tamsyn 12
 ! "Color scheme for normal row" Set from: XResources
 rofi.color-normal:                   argb:99000000, #D0D0D0, argb:99000000, argb:dd444444, #EEE8D5
 ! "Color scheme for urgent row" Set from: XResources
