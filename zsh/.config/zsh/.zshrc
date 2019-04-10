@@ -14,7 +14,7 @@ setopt SHARE_HISTORY
 setopt nomatch
 setopt notify
 setopt RM_STAR_WAIT
-setopt completealiases
+setopt complete_aliases
 setopt INTERACTIVE_COMMENTS
 
 unsetopt autocd
@@ -95,7 +95,8 @@ export REPORTTIME=5
 export MAIL="~/mail/INBOX"
 export EDITOR=vim
 export LEDGER_FILE="$HOME/sync/ledger/hledger.txt"
-
+export PASSWORD_STORE_DIR="$HOME/media/syncthing/sync/password-store"
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
 # less colours {{{
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;38;5;74m'
@@ -153,10 +154,6 @@ if (defined grep) {
     alias grep="grep --color=auto"
 }
 
-if (defined msmtp) {
-    alias msmtp="msmtp -C ~/.config/msmtp/config"
-}
-
 if (defined yay) {
     alias pacman="yay"
 }
@@ -191,6 +188,17 @@ defined curl && alias cget="curl -C - -L -O --retry 10"
 
 defined todo.sh && alias t="todo.sh"
 
+if (defined cargo) {
+    alias cr="cargo run --"
+    alias crr="cargo run --release --"
+}
+
+if (defined systemctl) {
+    function userctl() {
+        systemctl --user $@
+    }
+}
+
 # }}}
 
 zmodload zsh/terminfo
@@ -210,6 +218,6 @@ try_source /usr/share/doc/pkgfile/command-not-found.zsh
 . ~/.config/zsh/plugins/safe-paste.plugin.zsh
 . ~/.config/zsh/.zshenv
 
-defined keychain && eval $(keychain --eval --quiet --agents ssh,gpg id_ed25519 id_rsa nas_id_rsa 8106B50C716333773F02BA1CE29454EE184E7DC8)
+defined keychain && eval $(keychain --eval --quiet --agents ssh,gpg id_rsa 8106B50C716333773F02BA1CE29454EE184E7DC8)
 
 return 0

@@ -50,6 +50,7 @@ bindsym $mod+space focus mode_toggle
 
 bindsym $mod+a focus parent
 
+bindsym $mod+grave workspace back_and_forth
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
 bindsym $mod+3 workspace number 3
@@ -61,6 +62,7 @@ bindsym $mod+8 workspace number 8
 bindsym $mod+9 workspace number 9
 bindsym $mod+0 workspace number 10
 
+bindsym $mod+Shift+grave move container to workspace back_and_forth
 bindsym $mod+Shift+1 move container to workspace number 1
 bindsym $mod+Shift+2 move container to workspace number 2
 bindsym $mod+Shift+3 move container to workspace number 3
@@ -72,6 +74,8 @@ bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
 
+workspace_auto_back_and_forth yes
+
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
@@ -80,7 +84,7 @@ bindsym $mod+Shift+bracketleft exec --no-startup-id mpc prev
 bindsym $mod+Shift+bracketright exec --no-startup-id mpc next
 bindsym $mod+Shift+minus exec --no-startup-id mpc volume -10
 bindsym $mod+Shift+plus exec --no-startup-id mpc volume +10
-bindsym $mod+Shift+semicolon exec touch "/tmp/${DISPLAY}_lockmachine"
+bindsym $mod+Shift+semicolon exec --no-startup-id ~/scripts/runner
 
 bindsym $mod+p exec rofipassmenu
 bindsym $mod+apostrophe exec autotype

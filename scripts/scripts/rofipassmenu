@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 export PASSWORD_STORE_X_SELECTION="primary"
+export PASSWORD_STORE_DIR="$HOME/media/syncthing/sync/password-store"
 
 shopt -s nullglob globstar
 

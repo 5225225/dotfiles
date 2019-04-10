@@ -1,0 +1,12 @@
+#!/bin/bash
+
+script=$(find ~/scripts/runner-scripts -mindepth 1 | rofi -dmenu -p "")
+
+if [ ! -z "$script" ]; then
+    result="$("$script" 2>&1)"
+
+    if [ ! -z "$result" ]; then
+        notify-send "Result" "$result"
+    fi
+fi
+

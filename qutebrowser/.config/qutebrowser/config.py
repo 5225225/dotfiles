@@ -6,7 +6,6 @@ c.url.start_pages = [c.url.default_page]
 c.editor.command = ["urxvt", "-e", "vim", "{}"]
 
 c.scrolling.smooth = True
-c.scrolling.bar = False
 c.downloads.remove_finished = 15000
 c.downloads.location.prompt = False
 c.statusbar.padding = {

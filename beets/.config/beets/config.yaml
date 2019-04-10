@@ -27,7 +27,6 @@ plugins:
     mbsync
     missing
     permissions
-    replaygain
     rewrite
     scrub
     types
@@ -38,9 +37,9 @@ zero:
 
 alternatives:
     phone:
-        directory: ~/media/transcode
+        directory: ~/media/syncthing/Music
         formats: ogg
-        query: "onplayer:true"
+        query: "^skiptranscode:true"
 
 replaygain:
     auto: yes
