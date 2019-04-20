@@ -218,6 +218,11 @@ try_source /usr/share/doc/pkgfile/command-not-found.zsh
 . ~/.config/zsh/plugins/safe-paste.plugin.zsh
 . ~/.config/zsh/.zshenv
 
+if (defined termux-info) {
+    # for termux ssh agent
+    export GIT_SSH_COMMAND="ssha"
+}
+
 defined keychain && eval $(keychain --eval --quiet --agents ssh,gpg id_rsa 8106B50C716333773F02BA1CE29454EE184E7DC8)
 
 return 0
