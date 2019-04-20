@@ -138,7 +138,6 @@ c.colors.tabs.selected.odd.fg = FG_COLOR
 c.colors.webpage.bg # Intentionally left blank.
 c.fonts.monospace = "tamsyn"
 
-
 config.bind("o", "set-cmd-text --space :open", mode="normal")
 config.bind("O", "set-cmd-text :open {url:pretty}", mode="normal")
 

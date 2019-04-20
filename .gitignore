@@ -58,3 +58,5 @@ beets/.config/beets/index.rst
 weechat
 # Tired of having to track this.
 # Might move to a different IRC client to make this not a pain.
+
+git/.config/git/config-private
