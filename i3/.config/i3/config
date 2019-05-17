@@ -61,6 +61,18 @@ bindsym $mod+7 workspace number 7
 bindsym $mod+8 workspace number 8
 bindsym $mod+9 workspace number 9
 bindsym $mod+0 workspace number 10
+bindsym $mod+F1 workspace number 11
+bindsym $mod+F2 workspace number 12
+bindsym $mod+F3 workspace number 13
+bindsym $mod+F4 workspace number 14
+bindsym $mod+F5 workspace number 15
+bindsym $mod+F6 workspace number 16
+bindsym $mod+F7 workspace number 17
+bindsym $mod+F8 workspace number 18
+bindsym $mod+F9 workspace number 19
+bindsym $mod+F10 workspace number 20
+bindsym $mod+F11 workspace number 21
+bindsym $mod+F12 workspace number 22
 
 bindsym $mod+Shift+grave move container to workspace back_and_forth
 bindsym $mod+Shift+1 move container to workspace number 1
@@ -73,6 +85,18 @@ bindsym $mod+Shift+7 move container to workspace number 7
 bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
+bindsym $mod+Shift+F1 move container to workspace number 11
+bindsym $mod+Shift+F2 move container to workspace number 12
+bindsym $mod+Shift+F3 move container to workspace number 13
+bindsym $mod+Shift+F4 move container to workspace number 14
+bindsym $mod+Shift+F5 move container to workspace number 15
+bindsym $mod+Shift+F6 move container to workspace number 16
+bindsym $mod+Shift+F7 move container to workspace number 17
+bindsym $mod+Shift+F8 move container to workspace number 18
+bindsym $mod+Shift+F9 move container to workspace number 19
+bindsym $mod+Shift+F10 move container to workspace number 20
+bindsym $mod+Shift+F11 move container to workspace number 21
+bindsym $mod+Shift+F12 move container to workspace number 22
 
 workspace_auto_back_and_forth yes
 
