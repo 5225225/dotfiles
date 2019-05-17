@@ -88,6 +88,9 @@ def playindex(x):
 def search(searchstr):
     return subprocess.check_output(["mpc", "search", "any", searchstr]).decode("UTF8").strip().split("\n")
 
+def playingindex():
+    return int(subprocess.check_output(["mpc", "-f", "%position%"]).decode("UTF8").strip().split("\n")[0])
+
 def dmenu(choices, prompt=": ", multi=False, args=[]):
     cmd = DMENU
 
@@ -131,7 +134,8 @@ while True:
     if artist == "== Play ==":
         currplist = getpangoplist()
         if currplist is not None:
-            toplay = dmenu(currplist, args=["-format d", "-markup-rows"])
+            idx = playingindex()
+            toplay = dmenu(currplist, args=["-format d", "-markup-rows", "-selected-row", idx-1])
             playindex(toplay)
         break
 
