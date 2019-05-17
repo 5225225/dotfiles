@@ -22,3 +22,9 @@
 [submodule "vim/.config/vim/bundle/vim-cute-python"]
 	path = vim/.config/vim/bundle/vim-cute-python
 	url = git@github.com:ehamberg/vim-cute-python.git
+[submodule "vim/.config/vim/bundle/rust.vim"]
+	path = vim/.config/vim/bundle/rust.vim
+	url = https://github.com/rust-lang/rust.vim.git
+[submodule "vim/.config/vim/bundle/syntastic"]
+	path = vim/.config/vim/bundle/syntastic
+	url = https://github.com/vim-syntastic/syntastic.git
