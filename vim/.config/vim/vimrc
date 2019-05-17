@@ -112,6 +112,7 @@ set foldnestmax=1
 let g:netrw_dirhistmax=0
 
 let g:rustfmt_autosave = 1
+let g:racer_experimental_completer = 1
 
 let g:table_mode_corner_corner='+'
 let g:table_mode_header_fillchar='='
