@@ -138,6 +138,15 @@ if (defined exa) {
     }
 }
 
+if (defined sudo) {
+    # Expands aliases inside sudo
+    alias sudo="sudo "
+}
+
+if (defined youtube-dl) {
+    alias youtube-dl="noglob youtube-dl $@"
+}
+
 df() {
     if (defined dfc) {
         dfc -t -devtmpfs,tmpfs,autofs -T -d -q type -W -w 2>/dev/null $@
@@ -176,6 +185,10 @@ defined abook && alias abook="abook -C ~/.config/abook/abookrc --datafile ~/.con
 priv() {
     RPROMPT="[priv] $RPROMPT"
     export HISTFILE="/dev/null"
+}
+
+scratch() {
+    cd "$(mktemp -d)"
 }
 
 defined curl && alias headers="curl --dump-header /dev/stdout --output /dev/null --silent"
