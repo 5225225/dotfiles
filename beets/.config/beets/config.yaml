@@ -30,10 +30,6 @@ plugins:
     rewrite
     scrub
     types
-    zero
-
-zero:
-    fields: bpm acoustid_fingerprint initial_key month day
 
 alternatives:
     phone:
