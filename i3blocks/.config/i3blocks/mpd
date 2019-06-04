@@ -37,7 +37,7 @@ else
 fi
 
 
-status_str="$c_artist $c_dash $c_title $c_dash $c_album"
+status_str="$c_artist $c_title $c_album"
 
 case $BLOCK_BUTTON in
     1) mpc -q toggle ;;
