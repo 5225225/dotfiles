@@ -33,9 +33,6 @@ interval=1
 interval=repeat
 color=#ab4642
 
-[pubip]
-interval=60
-
 [memory]
 color=#ab4642
 
