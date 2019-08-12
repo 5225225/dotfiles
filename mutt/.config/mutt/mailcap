@@ -15,6 +15,6 @@ application/msword; pandoc-view %s;
 
 application/vnd.openxmlformats-officedocument.wordprocessingml.document; pandoc-view %s;
 
-application/pdf; zathura %s;
+application/pdf; mupdf %s;
 
 text/html; w3m -I %{charset} -T text/html; copiousoutput;
