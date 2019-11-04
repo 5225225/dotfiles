@@ -30,12 +30,16 @@ plugins:
     rewrite
     scrub
     types
+    embedart
 
 alternatives:
     phone:
-        directory: ~/media/syncthing/Music
-        formats: ogg
+        directory: /home/jess/media/syncthing/Music
+        formats: opus
         query: "^skiptranscode:true"
+
+embedart:
+    auto: no
 
 replaygain:
     auto: yes
@@ -72,11 +76,14 @@ original_date: true
 
 convert:
     never_convert_lossy_files: no
-    format: ogg
-    dest: ~/media/transcode
-    threads: 5
+    format: opus
+    dest: ~/media/syncthing/Music
+    threads: 16
     quiet: true
+    copy_album_art: yes
+    embed: no
     formats:
+        opus: ffmpeg -i $source -y -vn -acodec libopus -ab 64k $dest
         ogg: ffmpeg -i $source -y -vn -acodec libvorbis -aq 2 $dest
 
 types:

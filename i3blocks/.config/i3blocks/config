@@ -46,10 +46,6 @@ color=#ab4642
 instance=backup.sh
 color=#7cafc2
 
-[updates]
-interval=3600
-color=#a1b56c
-
 [mpd]
 markup=pango
 

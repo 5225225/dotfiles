@@ -202,14 +202,24 @@ defined curl && alias cget="curl -C - -L -O --retry 10"
 defined todo.sh && alias t="todo.sh"
 
 if (defined cargo) {
-    alias cr="cargo run --"
-    alias crr="cargo run --release --"
+    alias cr="cargo run"
+    alias crr="cargo run --release"
 }
 
 if (defined systemctl) {
     function userctl() {
         systemctl --user $@
     }
+}
+
+function bandcamp_rip() {
+  scratch
+  elinks --dump --no-numbering https://$1.bandcamp.com/ | 
+  grep -e '.com/album' -e '.com/track' | 
+  sed 's/.*https/https/g' |
+  uniq > links.txt
+  youtube-dl -o $1" - %(playlist)s/%(playlist_index)s. %(title)s.%(ext)s" -a links.txt
+  rm links.txt
 }
 
 # }}}
@@ -237,6 +247,6 @@ if (defined termux-info) {
     export USER="jess"
 }
 
-defined keychain && eval $(keychain --eval --quiet --agents ssh,gpg id_rsa 8106B50C716333773F02BA1CE29454EE184E7DC8)
+defined keychain && eval $(keychain --eval --quiet --agents ssh)
 
 return 0
