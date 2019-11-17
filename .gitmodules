@@ -31,3 +31,9 @@
 [submodule "vim/.config/vim/bundle/vim-racer"]
 	path = vim/.config/vim/bundle/vim-racer
 	url = https://github.com/racer-rust/vim-racer.git
+[submodule "zsh/.config/zsh/plugins/zsh-syntax-highlighting"]
+	path = zsh/.config/zsh/plugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting
+[submodule "zsh/.config/zsh/plugins/zsh-autosuggestions"]
+	path = zsh/.config/zsh/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions.git
