@@ -243,6 +243,9 @@ try_source /usr/share/doc/pkgfile/command-not-found.zsh
 . ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 . ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+ZSH_AUTOSUGGEST_STRATEGY=(completion)
+ZSH_AUTOSUGGEST_USE_ASYNC="trans rights" # i was told it could be set to anything
+
 if (defined termux-info) {
     # for termux ssh agent
     export GIT_SSH_COMMAND="ssha"
