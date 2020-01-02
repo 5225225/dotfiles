@@ -73,17 +73,28 @@ export PATH=$PATH:~/.cargo/bin
 
 # prompt {{{
 
-. ~/.config/zsh/git-prompt.sh
-setopt PROMPT_SUBST
+. ~/.config/zsh/plugins/git-prompt.zsh/git-prompt.zsh
 
-export GIT_PS1_SHOWDIRTYSTATE="yes"
-export GIT_PS1_SHOWSTASHSTATE="yes"
-export GIT_PS1_SHOWUNTRACKEDFILES="yes"
-export GIT_PS1_SHOWCOLORHINTS="yes"
+ZSH_THEME_GIT_PROMPT_PREFIX="["
+ZSH_THEME_GIT_PROMPT_SUFFIX="] "
+ZSH_THEME_GIT_PROMPT_SEPARATOR="|"
+ZSH_THEME_GIT_PROMPT_DETACHED="%{$fg_bold[cyan]%}:"
+ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg_bold[magenta]%}"
+ZSH_THEME_GIT_PROMPT_BEHIND="↓"
+ZSH_THEME_GIT_PROMPT_AHEAD="↑"
+ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[red]%}✖"
+ZSH_THEME_GIT_PROMPT_STAGED="%{$fg[green]%}●"
+ZSH_THEME_GIT_PROMPT_UNSTAGED="%{$fg[red]%}✚"
+ZSH_THEME_GIT_PROMPT_UNTRACKED="…"
+ZSH_THEME_GIT_PROMPT_STASHED="%{$fg[blue]%}⚑"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}✔"
+
+ZSH_GIT_PROMPT_SHOW_STASH=1
 
 export PROMPT='
-%6F%n%7F@%1F%m%7F %{%F{yellow}%}%~%f %(?..%{%F{red}%}[%?]%f) $(__git_ps1 "[%s]")
+%6F%n%7F@%1F%m%7F %{%F{yellow}%}%~%f %(?..%{%F{red}%}[%?]%f)$(gitprompt)
 %{%F{blue}%}#%f '
+
 
 # }}}
 
