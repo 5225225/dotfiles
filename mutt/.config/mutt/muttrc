@@ -15,7 +15,7 @@ bind editor <space> noop
 
 
 set spoolfile = "+INBOX"
-unset record
+set record = "=Sent"
 set delete
 unset confirmappend
 set quit=ask-no
