@@ -75,7 +75,7 @@ export PATH=$PATH:~/.cargo/bin
 
 . ~/.config/zsh/plugins/git-prompt.zsh/git-prompt.zsh
 
-ZSH_THEME_GIT_PROMPT_PREFIX="["
+ZSH_THEME_GIT_PROMPT_PREFIX=" ["
 ZSH_THEME_GIT_PROMPT_SUFFIX="] "
 ZSH_THEME_GIT_PROMPT_SEPARATOR="|"
 ZSH_THEME_GIT_PROMPT_DETACHED="%{$fg_bold[cyan]%}:"
@@ -92,7 +92,7 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}✔"
 ZSH_GIT_PROMPT_SHOW_STASH=1
 
 export PROMPT='
-%6F%n%7F@%1F%m%7F %{%F{yellow}%}%~%f %(?..%{%F{red}%}[%?]%f)$(gitprompt)
+%6F%n%7F@%1F%m%7F %{%F{yellow}%}%~%f$(gitprompt)%(?..%{%F{red}%}[%?]%f)
 %{%F{blue}%}#%f '
 
 

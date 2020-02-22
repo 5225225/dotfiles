@@ -21,6 +21,9 @@ set_from_resource $colour_red  color1     #ab4642
 bindsym $mod+Return exec ~/scripts/urxvt
 
 bindsym $mod+Shift+q kill
+bindsym $mod+Shift+n exec ~/scripts/qn
+
+for_window [title="quicknote-editor-floating"] floating enable
 
 bindsym $mod+d exec rofi -show run
 

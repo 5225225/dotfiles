@@ -114,6 +114,9 @@ let g:netrw_dirhistmax=0
 let g:rustfmt_autosave = 0
 let g:racer_experimental_completer = 1
 
+au FileType rust nmap gd <Plug>(rust-def)
+au FileType rust nmap gD <Plug>(rust-doc)
+
 let g:table_mode_corner_corner='+'
 let g:table_mode_header_fillchar='='
 

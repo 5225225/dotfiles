@@ -2,9 +2,6 @@
 
 ROFI_OPTS="--sorting-method fzf -fuzzy"
 
-
-set -x
-
 get_curr_workspace_num() {
     i3-msg -t get_workspaces | jq '.[] | select (.focused==true).num'
 }

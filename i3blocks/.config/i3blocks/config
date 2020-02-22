@@ -48,6 +48,7 @@ color=#7cafc2
 
 [mpd]
 markup=pango
+interval=-2
 
 [battery]
 

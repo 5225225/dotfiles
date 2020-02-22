@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mpc idle >/dev/null 2>/dev/null
+
 mpc_artist="$(mpc status -f "%artist%" | head -n1 | htmlescape)"
 mpc_title="$(mpc status -f "%title%" | head -n1 | htmlescape)"
 mpc_album="$(mpc status -f "%album%" | head -n1 | htmlescape)"
@@ -28,12 +30,10 @@ if [ "$playing" = true ]; then
     c_artist="<span foreground='#a1b56c'>$mpc_artist</span>"
     c_title="<span foreground='#ac4142'>$mpc_title</span>"
     c_album="<span foreground='#6a9fb5'>$mpc_album</span>"
-    c_dash="-"
 else
     c_artist="<span foreground='#4f5935'>$mpc_artist</span>"
     c_title="<span foreground='#542020'>$mpc_title</span>"
     c_album="<span foreground='#344e59'>$mpc_album</span>"
-    c_dash="<span foreground='#666666'>-</span>"
 fi
 
 
