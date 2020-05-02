@@ -66,7 +66,7 @@ fpath=(~/.config/zsh/completions $fpath)
 export PATH=$PATH:~/scripts
 export PATH=$PATH:~/scripts/bin
 export PATH=$PATH:/usr/bin/core_perl
-export PATH=$PATH:~/.gem/ruby/2.2.0/bin
+export PATH=$PATH:~/.gem/ruby/2.7.0/bin
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:~/.cargo/bin
 # }}}
@@ -108,6 +108,7 @@ export EDITOR=vim
 export LEDGER_FILE="$HOME/sync/ledger/hledger.txt"
 export PASSWORD_STORE_DIR="$HOME/media/syncthing/sync/password-store"
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
+export GEM_HOME="$HOME/.gems"
 # less colours {{{
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;38;5;74m'
@@ -211,6 +212,12 @@ if (defined git) {
 defined curl && alias cget="curl -C - -L -O --retry 10"
 
 defined todo.sh && alias t="todo.sh"
+
+if (defined todo) {
+    function todo() {
+        command todo -ct $@
+    }
+}
 
 if (defined cargo) {
     alias cr="cargo run"

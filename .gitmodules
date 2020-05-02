@@ -40,3 +40,6 @@
 [submodule "zsh/.config/zsh/plugins/git-prompt.zsh"]
 	path = zsh/.config/zsh/plugins/git-prompt.zsh
 	url = https://github.com/woefe/git-prompt.zsh.git
+[submodule "vim/.config/vim/bundle/vim-pandoc"]
+	path = vim/.config/vim/bundle/vim-pandoc
+	url = git@github.com:vim-pandoc/vim-pandoc.git

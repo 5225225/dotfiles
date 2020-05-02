@@ -91,7 +91,7 @@ def search(searchstr):
 def playingindex():
     return int(subprocess.check_output(["mpc", "-f", "%position%"]).decode("UTF8").strip().split("\n")[0])
 
-def dmenu(choices, prompt=": ", multi=False, args=[]):
+def dmenu(choices=[], prompt="", multi=False, args=[]):
     cmd = DMENU
 
     cmd += " -p '{}'".format(prompt)
@@ -152,7 +152,9 @@ while True:
         subprocess.call(["mpc", "clear"])
 
     elif artist == "== Search ==":
-        songs = dmenu(search(""), multi=True)
+        search_query = dmenu()
+
+        songs = dmenu(search(search_query), multi=True)
         print(songs)
         insertsongs(songs)
         mpc_play()
