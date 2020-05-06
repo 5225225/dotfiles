@@ -99,8 +99,6 @@ export PROMPT='
 # }}}
 
 # envars and xdg settings {{{
-export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
-export VIMDOTDIR="$XDG_CONFIG_HOME/vim"
 export LESSHISTFILE="/dev/null"
 export REPORTTIME=5
 export MAIL="~/mail/INBOX"
@@ -157,6 +155,14 @@ if (defined sudo) {
 
 if (defined youtube-dl) {
     alias youtube-dl="noglob youtube-dl $@"
+}
+
+if (defined vim) {
+    vim() {
+        VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC' \
+        VIMDOTDIR="$XDG_CONFIG_HOME/vim" \
+        command vim $@
+    }
 }
 
 df() {
