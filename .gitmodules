@@ -43,3 +43,30 @@
 [submodule "vim/.config/vim/bundle/vim-pandoc"]
 	path = vim/.config/vim/bundle/vim-pandoc
 	url = git@github.com:vim-pandoc/vim-pandoc.git
+[submodule "nvim/.config/nvim/pack/packages/start/i3config.vim"]
+	path = nvim/.config/nvim/pack/packages/start/i3config.vim
+	url = https://github.com/mboughaba/i3config.vim.git
+[submodule "nvim/.config/nvim/pack/packages/start/rust.vim"]
+	path = nvim/.config/nvim/pack/packages/start/rust.vim
+	url = https://github.com/rust-lang/rust.vim.git
+[submodule "nvim/.config/nvim/pack/packages/start/vim-pandoc"]
+	path = nvim/.config/nvim/pack/packages/start/vim-pandoc
+	url = https://github.com/vim-pandoc/vim-pandoc.git
+[submodule "nvim/.config/nvim/pack/packages/start/vim-pandoc-syntax"]
+	path = nvim/.config/nvim/pack/packages/start/vim-pandoc-syntax
+	url = https://github.com/vim-pandoc/vim-pandoc-syntax.git
+[submodule "nvim/.config/nvim/pack/packages/start/syntastic"]
+	path = nvim/.config/nvim/pack/packages/start/syntastic
+	url = https://github.com/vim-syntastic/syntastic.git
+[submodule "nvim/.config/nvim/pack/packages/start/vim-sensible"]
+	path = nvim/.config/nvim/pack/packages/start/vim-sensible
+	url = https://github.com/tpope/vim-sensible.git
+[submodule "nvim/.config/nvim/pack/packages/start/vim-sleuth"]
+	path = nvim/.config/nvim/pack/packages/start/vim-sleuth
+	url = https://github.com/tpope/vim-sleuth.git
+[submodule "nvim/.config/nvim/pack/packages/start/vim-markdown-folding"]
+	path = nvim/.config/nvim/pack/packages/start/vim-markdown-folding
+	url = https://github.com/masukomi/vim-markdown-folding.git
+[submodule "nvim/.config/nvim/pack/packages/start/coc.nvim"]
+	path = nvim/.config/nvim/pack/packages/start/coc.nvim
+	url = https://github.com/neoclide/coc.nvim.git

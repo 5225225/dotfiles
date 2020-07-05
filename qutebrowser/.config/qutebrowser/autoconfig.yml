@@ -6,5 +6,5 @@
 
 config_version: 2
 settings:
-  window.title_format:
-    global: '{current_url}'
+  content.mouse_lock:
+    https://trickshotlabs.itch.io: true

@@ -51,3 +51,4 @@ markup=pango
 interval=-2
 
 [time]
+markup=pango

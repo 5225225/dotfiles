@@ -3,3 +3,8 @@
 
 [include]
     path = ".config/git/config-private"
+[core]
+	quotepath = false
+	commitGraph = true
+[gc]
+	writeCommitGraph = true

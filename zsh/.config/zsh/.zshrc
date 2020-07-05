@@ -102,7 +102,6 @@ export PROMPT='
 export LESSHISTFILE="/dev/null"
 export REPORTTIME=5
 export MAIL="~/mail/INBOX"
-export EDITOR=vim
 export LEDGER_FILE="$HOME/sync/ledger/hledger.txt"
 export PASSWORD_STORE_DIR="$HOME/media/syncthing/sync/password-store"
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
@@ -148,6 +147,22 @@ if (defined exa) {
     }
 }
 
+if (defined nvim) {
+    export EDITOR=nvim
+
+    vim() {
+        command nvim $@
+    }
+} elif (defined vim) {
+    export EDITOR=vim
+
+    vim() {
+        VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC' \
+        VIMDOTDIR="$XDG_CONFIG_HOME/vim" \
+        command vim $@
+    }
+}
+
 if (defined sudo) {
     # Expands aliases inside sudo
     alias sudo="sudo "
@@ -155,14 +170,6 @@ if (defined sudo) {
 
 if (defined youtube-dl) {
     alias youtube-dl="noglob youtube-dl $@"
-}
-
-if (defined vim) {
-    vim() {
-        VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC' \
-        VIMDOTDIR="$XDG_CONFIG_HOME/vim" \
-        command vim $@
-    }
 }
 
 df() {
@@ -206,7 +213,7 @@ priv() {
 }
 
 scratch() {
-    cd "$(mktemp -d)"
+    cd "$(mktemp --tmpdir -d scratchXXXXXXXXX)"
 }
 
 defined curl && alias headers="curl --dump-header /dev/stdout --output /dev/null --silent"
