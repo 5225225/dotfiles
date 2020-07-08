@@ -51,3 +51,6 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+
+let g:vimwiki_list = [{'path': '~/sync/docs/wiki/src/', 'path_html': '~/sync/docs/wiki/html/'}]
+let g:vimwiki_global_ext = 0
