@@ -2,7 +2,9 @@
 
 case $BLOCK_BUTTON in
 3)
-    notify-send "time" "$(date '+%Y-%m-%d %H:%M:%S  %Z (%:::z)')"
+    notify-send "time" "$(date '+%Y-%m-%d %H:%M:%S  %Z (%:::z)')\n\
+$(TZ=Universal date '+%Y-%m-%d %H:%M:%S  %Z (%:::z)')\n\
+$(cal)"
 ;;
 esac
 date "+%a %d %b %Y %H:%M"

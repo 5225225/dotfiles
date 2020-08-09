@@ -10,6 +10,7 @@ top_commands = [
 "== Playlists ==",
 "== Clear ==",
 "== Search ==",
+"== Love ==",
 ]
 
 def getartists():
@@ -89,7 +90,10 @@ def search(searchstr):
     return subprocess.check_output(["mpc", "search", "any", searchstr]).decode("UTF8").strip().split("\n")
 
 def playingindex():
-    return int(subprocess.check_output(["mpc", "-f", "%position%"]).decode("UTF8").strip().split("\n")[0])
+    try:
+        return int(subprocess.check_output(["mpc", "-f", "%position%"]).decode("UTF8").strip().split("\n")[0])
+    except ValueError:
+        return 0
 
 def dmenu(choices=[], prompt="", multi=False, args=[]):
     cmd = DMENU
@@ -131,6 +135,7 @@ while True:
 
     artist = dmenu(top_commands + getartists())
 
+
     if artist == "== Play ==":
         currplist = getpangoplist()
         if currplist is not None:
@@ -158,6 +163,10 @@ while True:
         print(songs)
         insertsongs(songs)
         mpc_play()
+
+    elif artist == "== Love ==":
+        subprocess.call(["mpc", "sendmessage", "mpdscribble", "love"])
+
     elif artist == "":
         sys.exit(0)
 

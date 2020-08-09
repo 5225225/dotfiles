@@ -22,7 +22,7 @@ bindsym $mod+Return exec ~/scripts/urxvt
 
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+n exec ~/scripts/qn
-bindsym $mod+Shift+m exec ~/scripts/togglenotif
+bindsym $mod+Shift+m exec ~/scripts/mpvclipboard
 bindsym $mod+Shift+s exec ~/scripts/screenshot-edit
 
 for_window [title="quicknote-editor-floating"] floating enable

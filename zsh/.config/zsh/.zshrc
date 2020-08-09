@@ -233,8 +233,8 @@ if (defined todo) {
 }
 
 if (defined cargo) {
-    alias cr="cargo run"
-    alias crr="cargo run --release"
+    alias cr="cargo run -q"
+    alias crr="cargo run --release -q"
 }
 
 if (defined systemctl) {

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd ~/scripts/data/notes || exit
+cd ~/sync/writings/notes || exit
 
 case "$1" in
 
@@ -25,7 +25,7 @@ case "$1" in
     "ls")
         if [ "$(ls | wc -l)" -gt 0 ]; then
             if ppipe -h 2>/dev/null; then
-                stat --printf="%n\t%s\t%Z\n" * |\
+                stat --printf="%n\t%s\t%Z\n" ./* |\
                     ppipe -j "|" "[L[0]], H(L[1]), Ago(L[2])"|\
                     column -t -s "|" -o "    "
             else

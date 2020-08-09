@@ -73,3 +73,9 @@
 [submodule "nvim/.config/nvim/pack/packages/start/vimwiki"]
 	path = nvim/.config/nvim/pack/packages/start/vimwiki
 	url = https://github.com/vimwiki/vimwiki.git
+[submodule "nvim/.config/nvim/pack/packages/start/omnisharp-vim"]
+	path = nvim/.config/nvim/pack/packages/start/omnisharp-vim
+	url = https://github.com/OmniSharp/omnisharp-vim.git
+[submodule "mpv/.config/mpv/scripts/mpv_sponsorblock"]
+	path = mpv/.config/mpv/scripts/mpv_sponsorblock
+	url = https://github.com/po5/mpv_sponsorblock.git
