@@ -21,6 +21,9 @@ unsetopt autocd
 unsetopt beep
 unsetopt extendedglob
 
+setopt noclobber
+setopt correct
+
 bindkey -v
 
 bindkey "^R" history-incremental-search-backward
