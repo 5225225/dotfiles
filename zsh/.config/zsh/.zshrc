@@ -151,7 +151,7 @@ if (defined exa) {
 }
 
 if (defined vim) {
-    export EDITOR=vim
+    export EDITOR=vimeditor
 
     vim() {
         VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC' \
