@@ -64,18 +64,15 @@
 [submodule "nvim/.config/nvim/pack/packages/start/vim-sleuth"]
 	path = nvim/.config/nvim/pack/packages/start/vim-sleuth
 	url = https://github.com/tpope/vim-sleuth.git
-[submodule "nvim/.config/nvim/pack/packages/start/vim-markdown-folding"]
-	path = nvim/.config/nvim/pack/packages/start/vim-markdown-folding
-	url = https://github.com/masukomi/vim-markdown-folding.git
 [submodule "nvim/.config/nvim/pack/packages/start/coc.nvim"]
 	path = nvim/.config/nvim/pack/packages/start/coc.nvim
 	url = https://github.com/neoclide/coc.nvim.git
-[submodule "nvim/.config/nvim/pack/packages/start/vimwiki"]
-	path = nvim/.config/nvim/pack/packages/start/vimwiki
-	url = https://github.com/vimwiki/vimwiki.git
 [submodule "nvim/.config/nvim/pack/packages/start/omnisharp-vim"]
 	path = nvim/.config/nvim/pack/packages/start/omnisharp-vim
 	url = https://github.com/OmniSharp/omnisharp-vim.git
 [submodule "mpv/.config/mpv/scripts/mpv_sponsorblock"]
 	path = mpv/.config/mpv/scripts/mpv_sponsorblock
 	url = https://github.com/po5/mpv_sponsorblock.git
+[submodule "nvim/.config/nvim/pack/packages/start/--force"]
+	path = nvim/.config/nvim/pack/packages/start/--force
+	url = https://github.com/vim-pandoc/vim-pandoc

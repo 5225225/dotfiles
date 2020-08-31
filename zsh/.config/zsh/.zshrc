@@ -150,13 +150,7 @@ if (defined exa) {
     }
 }
 
-if (defined nvim) {
-    export EDITOR=nvim
-
-    vim() {
-        command nvim $@
-    }
-} elif (defined vim) {
+if (defined vim) {
     export EDITOR=vim
 
     vim() {
