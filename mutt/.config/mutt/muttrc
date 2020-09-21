@@ -63,7 +63,7 @@ set mail_check = 10
 
 bind editor <Tab> complete-query
 
-set editor="vim +"
+set editor="scripts_vim_ +"
 
 set edit_headers = yes
 

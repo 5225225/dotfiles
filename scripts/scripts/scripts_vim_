@@ -1,0 +1,3 @@
+#!/bin/sh
+
+VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC' VIMDOTDIR="$XDG_CONFIG_HOME/vim" command vim $@

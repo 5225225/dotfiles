@@ -158,7 +158,7 @@ bindsym $mod+c mode "builtin"
 set $trans_bg #000000B0
 
 bar {
-    font xft:Misc Tamsyn 12
+#    font xft:Misc Tamsyn 12
 
     status_command i3blocks
     Modifier Mod4
