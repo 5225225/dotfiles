@@ -109,6 +109,7 @@ export LEDGER_FILE="$HOME/sync/ledger/hledger.txt"
 export PASSWORD_STORE_DIR="$HOME/media/syncthing/sync/password-store"
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export GEM_HOME="$HOME/.gems"
+export CARGO_TARGET_DIR="$HOME/.cache/cargo/target"
 # less colours {{{
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;38;5;74m'
