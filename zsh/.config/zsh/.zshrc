@@ -104,7 +104,7 @@ export PROMPT='
 # envars and xdg settings {{{
 export LESSHISTFILE="/dev/null"
 export REPORTTIME=5
-export MAIL="~/mail/INBOX"
+export MAIL="$HOME/mail/mailbox/INBOX"
 export LEDGER_FILE="$HOME/sync/ledger/hledger.txt"
 export PASSWORD_STORE_DIR="$HOME/media/syncthing/sync/password-store"
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
@@ -233,6 +233,14 @@ if (defined todo) {
 if (defined cargo) {
     alias cr="cargo run -q"
     alias crr="cargo run --release -q"
+
+    function cdo() {
+        inject='<script>switchTheme(currentTheme, mainTheme, "ayu", false)</script>'
+        tempfile="$(mktemp)"
+
+        echo "$inject" >> $tempfile
+        RUSTDOCFLAGS="--html-in-header $tempfile" cargo doc -Zrustdoc-map --open
+    }
 }
 
 if (defined systemctl) {
