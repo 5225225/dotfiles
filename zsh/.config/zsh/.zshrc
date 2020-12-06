@@ -290,5 +290,3 @@ if (defined termux-info) {
 }
 
 defined keychain && eval $(keychain --eval --quiet --agents ssh)
-
-return 0

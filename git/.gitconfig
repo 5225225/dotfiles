@@ -8,3 +8,5 @@
 	commitGraph = true
 [gc]
 	writeCommitGraph = true
+[credential]
+	helper = store
