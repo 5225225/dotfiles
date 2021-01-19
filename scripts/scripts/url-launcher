@@ -14,5 +14,5 @@ if echo "$supported" | grep .; then
     mpv --fullscreen "$1"
 else
     notify-send "url-launcher" "Opening with qute"
-    qutebrowser "$1"
+    firefox "$1"
 fi

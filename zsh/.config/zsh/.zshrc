@@ -105,7 +105,7 @@ export PROMPT='
 export LESSHISTFILE="/dev/null"
 export REPORTTIME=5
 export MAIL="$HOME/mail/mailbox/INBOX"
-export LEDGER_FILE="$HOME/sync/ledger/hledger.txt"
+export LEDGER_FILE="$HOME/sync/ledger/ledger.journal"
 export PASSWORD_STORE_DIR="$HOME/media/syncthing/sync/password-store"
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export GEM_HOME="$HOME/.gems"
@@ -215,6 +215,12 @@ scratch() {
 }
 
 defined curl && alias headers="curl --dump-header /dev/stdout --output /dev/null --silent"
+
+if (defined youtube-dl) {
+    function yt() {
+        command mpv ytdl://ytsearch:"$@"
+    }
+}
 
 if (defined git) {
     alias gs="git status"

@@ -24,7 +24,7 @@ local options = {
     local_database = true,
 
     -- Update database on first run, does nothing if local_database is false
-    auto_update = true,
+    auto_update = false,
 
     -- User ID used to submit sponsored segments, leave blank for random
     user_id = "",
