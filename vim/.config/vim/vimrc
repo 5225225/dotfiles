@@ -114,6 +114,11 @@ let g:netrw_dirhistmax=0
 let g:rustfmt_autosave = 0
 let g:racer_experimental_completer = 1
 
+let g:rust_cargo_check_all_features = 1
+let g:rust_cargo_check_examples = 1
+let g:rust_cargo_check_tests = 1
+let g:rust_cargo_check_benches = 1
+
 au FileType rust nmap gd <Plug>(rust-def)
 au FileType rust nmap gD <Plug>(rust-doc)
 
