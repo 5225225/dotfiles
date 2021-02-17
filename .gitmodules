@@ -85,3 +85,6 @@
 [submodule "vim/.config/vim/bundle/kotlin-vim"]
 	path = vim/.config/vim/bundle/kotlin-vim
 	url = https://github.com/udalov/kotlin-vim.git
+[submodule "vim/.config/vim/bundle/vim-toml"]
+	path = vim/.config/vim/bundle/vim-toml
+	url = https://github.com/cespare/vim-toml
