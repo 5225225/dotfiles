@@ -83,13 +83,13 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="] "
 ZSH_THEME_GIT_PROMPT_SEPARATOR="|"
 ZSH_THEME_GIT_PROMPT_DETACHED="%{$fg_bold[cyan]%}:"
 ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg_bold[magenta]%}"
-ZSH_THEME_GIT_PROMPT_BEHIND="↓"
-ZSH_THEME_GIT_PROMPT_AHEAD="↑"
-ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[red]%}✖"
-ZSH_THEME_GIT_PROMPT_STAGED="%{$fg[green]%}●"
-ZSH_THEME_GIT_PROMPT_UNSTAGED="%{$fg[red]%}✚"
-ZSH_THEME_GIT_PROMPT_UNTRACKED="…"
-ZSH_THEME_GIT_PROMPT_STASHED="%{$fg[blue]%}⚑"
+ZSH_THEME_GIT_PROMPT_BEHIND="v"
+ZSH_THEME_GIT_PROMPT_AHEAD="^"
+ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[red]%}x"
+ZSH_THEME_GIT_PROMPT_STAGED="%{$fg[green]%}o"
+ZSH_THEME_GIT_PROMPT_UNSTAGED="%{$fg[red]%}+"
+ZSH_THEME_GIT_PROMPT_UNTRACKED="."
+ZSH_THEME_GIT_PROMPT_STASHED="%{$fg[blue]%}&"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}✔"
 
 ZSH_GIT_PROMPT_SHOW_STASH=1
@@ -241,11 +241,7 @@ if (defined cargo) {
     alias crr="cargo run --release -q"
 
     function cdo() {
-        inject='<script>switchTheme(currentTheme, mainTheme, "ayu", false)</script>'
-        tempfile="$(mktemp)"
-
-        echo "$inject" >> $tempfile
-        RUSTDOCFLAGS="--html-in-header $tempfile" cargo doc -Zrustdoc-map --open
+        RUSTDOCFLAGS="--default-theme ayu" cargo doc -Zrustdoc-map --open $@
     }
 }
 
