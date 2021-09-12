@@ -91,3 +91,9 @@
 [submodule "vim/.config/vim/bundle/--force"]
 	path = vim/.config/vim/bundle/--force
 	url = https://github.com/udalov/kotlin-vim
+[submodule "vim/.config/vim/bundle/webapi-vim"]
+	path = vim/.config/vim/bundle/webapi-vim
+	url = https://github.com/mattn/webapi-vim
+[submodule "mpv/.config/mpv/scripts/mpv_slicing"]
+	path = mpv/.config/mpv/scripts/mpv_slicing
+	url = https://github.com/Kagami/mpv_slicing
