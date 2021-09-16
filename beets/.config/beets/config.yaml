@@ -34,9 +34,9 @@ plugins:
 
 alternatives:
     phone:
-        directory: /home/jess/media/opus_music
+        directory: /home/jess/media/syncthing/Music
         formats: opus
-        query: "^skiptranscode:true"
+        query: "on_phone:true"
 
 embedart:
     auto: no
