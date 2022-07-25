@@ -23,8 +23,8 @@ plugins:
     fuzzy
     info
     inline
-    lastgenre
     mbsync
+    replaygain
     missing
     permissions
     rewrite
@@ -81,7 +81,7 @@ convert:
     threads: 16
     quiet: true
     copy_album_art: yes
-    embed: no
+    embed: yes
     formats:
         opus: ffmpeg -i $source -y -vn -acodec libopus -ab 64k $dest
         ogg: ffmpeg -i $source -y -vn -acodec libvorbis -aq 2 $dest

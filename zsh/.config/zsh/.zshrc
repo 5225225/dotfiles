@@ -110,6 +110,7 @@ export PASSWORD_STORE_DIR="$HOME/media/syncthing/sync/password-store"
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export GEM_HOME="$HOME/.gems"
 export CARGO_TARGET_DIR="$HOME/.cache/cargo/target"
+export RUST_SRC_REPO="$HOME/src/rust"
 # less colours {{{
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;38;5;74m'
@@ -291,4 +292,4 @@ if (defined termux-info) {
     export USER="jess"
 }
 
-defined keychain && eval $(keychain --eval --quiet --agents ssh)
+CARGO_UNSTABLE_SPARSE_REGISTRY=true

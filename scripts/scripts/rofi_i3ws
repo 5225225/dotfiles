@@ -1,7 +1,5 @@
 #!/bin/bash
 
-ROFI_OPTS="--sorting-method fzf -fuzzy"
-
 get_curr_workspace_num() {
     i3-msg -t get_workspaces | jq '.[] | select (.focused==true).num'
 }
@@ -25,7 +23,7 @@ get_menu() {
     get_workspaces
 }
 
-selection="$(get_menu | rofi -dmenu -p '>' $ROFI_OPTS -selected-row 2)"
+selection="$(get_menu | rofi -dmenu -p '>' -selected-row 2)"
 
 case $selection in
 
@@ -40,7 +38,7 @@ case $selection in
     # Double quoted because the i3 json lexer wants quotes, and the shell wants them.
     ;;
 "= MOVE =")
-    selection="$(get_workspaces | rofi -dmenu -p '>' $ROFI_OPTS)"
+    selection="$(get_workspaces | rofi -dmenu -p '>')"
     i3-msg -t command move container to workspace \"$selection"\""
     ;;
 *)

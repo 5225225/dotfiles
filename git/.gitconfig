@@ -12,3 +12,5 @@
 	helper = store
 [init]
 	defaultBranch = main
+[merge]
+	conflictstyle = diff3

@@ -46,4 +46,14 @@ esac
 
 
 
+xon_mpc_artist="$(mpc status -f "%artist%" | head -n1 | sed 's/;/;/g' | sed 's/\^/^^/g')"
+xon_mpc_title="$(mpc status -f "%title%" | head -n1 | sed 's/;/;/g' | sed 's/\^/^^/g')"
+xon_mpc_album="$(mpc status -f "%album%" | head -n1 | sed 's/;/;/g' | sed 's/\^/^^/g')"
+
+if [ "$playing" = true ]; then
+echo "say /me ^8np^7 ^x6b6$xon_mpc_artist ^xa44${xon_mpc_title:0:60} ^x345$xon_mpc_album" | head -n1 > "$HOME/.local/share/xonotic/.xonotic/data/np.cfg"
+else
+echo "" > "$HOME/.local/share/xonotic/.xonotic/data/np.cfg"
+fi
+
 echo "$status_str"
