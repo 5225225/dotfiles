@@ -2,17 +2,4 @@
 
 url="$(echo "$1" | htmlescape)"
 notify-send "url-launcher" "Opening URL $url"
-
-supported="$(youtube-dl --list-extractors "$1" |\
-             grep -B1 "$1" |\
-             grep -v -- "^(--|  )" |\
-             grep -v "$1" |\
-             grep -v "generic")"
-
-if echo "$supported" | grep .; then
-    notify-send "url-launcher" "Opening with mpv"
-    mpv --fullscreen "$1"
-else
-    notify-send "url-launcher" "Opening with qute"
-    firefox "$1"
-fi
+firefox "$1"
