@@ -1,6 +1,6 @@
 #!/bin/bash
 
-readonly INTERVAL=30
+readonly INTERVAL=5
 
 echo "${BLOCK_INSTANCE:=eth0}" >/dev/null
 

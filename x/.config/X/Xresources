@@ -50,6 +50,4 @@ URxvt.keysym.M-Escape: perl:keyboard-select:activate
 
 
 URxvt.iso14755: False
-
-
-#include "res/rofi"
+URxvt.cursorBlink: False

@@ -11,7 +11,7 @@
 [credential]
 	helper = store
 [init]
-	defaultBranch = main
+	defaultbranch = main
 [merge]
 	conflictstyle = diff3
 [filter "lfs"]

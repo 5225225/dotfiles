@@ -294,3 +294,6 @@ if (defined termux-info) {
 }
 
 CARGO_UNSTABLE_SPARSE_REGISTRY=true
+
+# opam configuration
+[[ ! -r /home/jess/.opam/opam-init/init.zsh ]] || source /home/jess/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
