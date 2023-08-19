@@ -31,6 +31,8 @@ plugins:
     scrub
     types
     embedart
+    lyrics
+
 
 alternatives:
     phone:
@@ -78,7 +80,7 @@ convert:
     never_convert_lossy_files: no
     format: opus
     dest: ~/media/syncthing/Music
-    threads: 16
+    threads: 1
     quiet: true
     copy_album_art: yes
     embed: yes
