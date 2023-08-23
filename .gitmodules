@@ -1,24 +1,24 @@
 [submodule "vim/.config/vim/bundle/vim-characterize"]
 	path = vim/.config/vim/bundle/vim-characterize
-	url = git@github.com:tpope/vim-characterize.git
+	url = https://github.com/tpope/vim-characterize.git
 [submodule "vim/.config/vim/bundle/vim-ledger"]
 	path = vim/.config/vim/bundle/vim-ledger
-	url = https://www.github.com/ledger/vim-ledger
+	url = https://github.com/ledger/vim-ledger
 [submodule "vim/.config/vim/bundle/todo.txt-vim"]
 	path = vim/.config/vim/bundle/todo.txt-vim
-	url = git@github.com:freitass/todo.txt-vim.git
+	url = https://github.com/freitass/todo.txt-vim.git
 [submodule "vim/.config/vim/bundle/table-mode"]
 	path = vim/.config/vim/bundle/table-mode
-	url = git@github.com:dhruvasagar/vim-table-mode.git
+	url = https://github.com/dhruvasagar/vim-table-mode.git
 [submodule "vim/.config/vim/bundle/vim-pandoc-syntax"]
 	path = vim/.config/vim/bundle/vim-pandoc-syntax
-	url = git@github.com:vim-pandoc/vim-pandoc-syntax.git
+	url = https://github.com/vim-pandoc/vim-pandoc-syntax.git
 [submodule "vim/.config/vim/bundle/pydoc.vim"]
 	path = vim/.config/vim/bundle/pydoc.vim
-	url = git@github.com:fs111/pydoc.vim.git
+	url = https://github.com/fs111/pydoc.vim.git
 [submodule "vim/.config/vim/bundle/vim-cute-python"]
 	path = vim/.config/vim/bundle/vim-cute-python
-	url = git@github.com:ehamberg/vim-cute-python.git
+	url = https://github.com/ehamberg/vim-cute-python.git
 [submodule "vim/.config/vim/bundle/rust.vim"]
 	path = vim/.config/vim/bundle/rust.vim
 	url = https://github.com/rust-lang/rust.vim.git
@@ -28,18 +28,12 @@
 [submodule "vim/.config/vim/bundle/vim-racer"]
 	path = vim/.config/vim/bundle/vim-racer
 	url = https://github.com/racer-rust/vim-racer.git
-[submodule "zsh/.config/zsh/plugins/zsh-syntax-highlighting"]
-	path = zsh/.config/zsh/plugins/zsh-syntax-highlighting
-	url = https://github.com/zsh-users/zsh-syntax-highlighting
 [submodule "zsh/.config/zsh/plugins/zsh-autosuggestions"]
 	path = zsh/.config/zsh/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
-[submodule "zsh/.config/zsh/plugins/git-prompt.zsh"]
-	path = zsh/.config/zsh/plugins/git-prompt.zsh
-	url = https://github.com/woefe/git-prompt.zsh.git
 [submodule "vim/.config/vim/bundle/vim-pandoc"]
 	path = vim/.config/vim/bundle/vim-pandoc
-	url = git@github.com:vim-pandoc/vim-pandoc.git
+	url = https://github.com/vim-pandoc/vim-pandoc.git
 [submodule "mpv/.config/mpv/scripts/mpv_sponsorblock"]
 	path = mpv/.config/mpv/scripts/mpv_sponsorblock
 	url = https://github.com/po5/mpv_sponsorblock.git
