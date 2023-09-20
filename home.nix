@@ -179,8 +179,17 @@
     defaultEditor = true;
     plugins = [ 
       pkgs.vimPlugins.rust-vim
-      pkgs.vimPlugins.base16-vim
+      pkgs.vimPlugins.papercolor-theme
       pkgs.vimPlugins.vim-wayland-clipboard
+      (pkgs.vimUtils.buildVimPlugin {
+        name = "vim-transparent";
+        src = pkgs.fetchFromGitHub {
+          owner = "tribela";
+          repo = "vim-transparent";
+          rev = "a0182216f5f26cdedb2e35356b38a47d0ed96e28";
+          sha256 = "sha256-kTzplJl+FYvy6Vy0fivijsLraGaObkrB7UgdJ7ahBsk=";
+        };
+      })
     ];
     extraConfig = ''
       set nobackup
@@ -196,9 +205,16 @@
 
       set number
 
-      colorscheme base16-default-dark
+      let g:PaperColor_Theme_Options = {
+      \   'theme': {
+      \     'default': {
+      \       'transparent_background': 1
+      \     }
+      \   }
+      \ } 
 
       set background=dark
+      colorscheme PaperColor
 
       filetype plugin on
       syntax on
@@ -253,12 +269,6 @@
       let &t_SI = "\<esc>[6 q"
       let &t_SR = "\<esc>[4 q"
       let &t_EI = "\<esc>[2 q"
-
-      hi Normal guibg=NONE ctermbg=NONE
-      hi StatusLine guibg=NONE ctermbg=NONE
-      hi LineNr guibg=NONE ctermbg=NONE
-      hi SpellBad guibg=NONE ctermbg=NONE
-      hi Folded guibg=NONE ctermbg=NONE ctermfg=green
     '';
   };
 
