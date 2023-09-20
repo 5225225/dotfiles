@@ -7,6 +7,8 @@ let
     style = "Regular";
     size = 12.0;
   };
+  trans_bg = "#000000B0";
+  trans_bg_focused = "#333333B0";
 in
 {
   wayland.windowManager.sway = {
@@ -35,14 +37,14 @@ in
         trayPadding = 2;
         extraConfig = "icon_theme \"Adwaita\"";
         colors = {
-          background = "#000000D0";
+          background = trans_bg;
           statusline = "#ffffff";
           separator = "#666666";
-          focusedWorkspace = { background= "#4c7899D0"; border = "#285577"; text =  "#ffffff"; };
-          activeWorkspace = { background= "#333333D0"; border = "#5f676a"; text =  "#ffffff"; };
-          inactiveWorkspace = { background= "#333333D0"; border = "#222222"; text =  "#888888"; };
-          urgentWorkspace = { background= "#2f343aD0"; border = "#900000"; text =  "#ffffff"; };
-          bindingMode = { background= "#2f343aD0"; border = "#900000"; text =  "#ffffff"; };
+          focusedWorkspace = { background = trans_bg_focused; border = trans_bg_focused; text =  "#ffffff"; };
+          activeWorkspace = { background = trans_bg; border = trans_bg; text =  "#ffffff"; };
+          inactiveWorkspace = { background = trans_bg; border = trans_bg; text =  "#888888"; };
+          urgentWorkspace = { background = trans_bg; border = trans_bg; text =  "#ab4642"; };
+          bindingMode = { background = trans_bg; border = trans_bg; text =  "#ab4642"; };
         };
       }];
       window = {
