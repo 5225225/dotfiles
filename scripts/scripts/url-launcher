@@ -1,5 +1,0 @@
-#!/bin/bash
-
-url="$(echo "$1" | htmlescape)"
-notify-send "url-launcher" "Opening URL $url"
-firefox "$1"

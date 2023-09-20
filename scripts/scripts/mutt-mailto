@@ -1,5 +1,0 @@
-#!/usr/bin/sh
-
-notify-send "opening mailto link" "$1"
-
-urxvt -geometry 150x60 -bg "[90]#000000" -title mutt-mailto -e mutt -F ~/.config/mutt/muttrc "$1"

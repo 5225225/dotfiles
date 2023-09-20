@@ -1,8 +1,0 @@
-#!/bin/zsh
-loadavg="$(</proc/loadavg cut -d " " -f 1)"
-
-if (( loadavg > 4 )); then
-    echo $loadavg
-else
-    echo ""
-fi

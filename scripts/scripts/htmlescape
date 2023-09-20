@@ -1,7 +1,0 @@
-#!/usr/bin/python
-
-import sys
-import html
-
-sys.stdout.write(html.escape(sys.stdin.read()))
-

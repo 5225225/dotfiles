@@ -1,5 +1,0 @@
-#!/bin/sh
-
-tmux ls -F "#{session_name}###{pane_current_command}###{session_attached}" |\
-    awk -F# '$2=="zsh" && $3==0 && substr($1, 1, 1) == "_" {print $1}' |\
-    xargs -I{} tmux kill-session -t {}

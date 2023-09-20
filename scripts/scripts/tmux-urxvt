@@ -1,7 +1,0 @@
-#!/bin/sh
-
-session_name="$(tmux ls | rofi -dmenu -p ':' | cut -d ':' -f 1)"
-
-if [ -n "$session_name" ]; then
-    urxvt -e tmux new -A -t "$session_name"
-fi

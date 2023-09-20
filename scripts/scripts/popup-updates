@@ -1,5 +1,0 @@
-#!/bin/bash
-
-checkupdates | sed "s:->:»:" > /tmp/checkupdates
-
-notify-send "UPDATES" "$(head -n20 /tmp/checkupdates | column -ts '»' -o '»')"

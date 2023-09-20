@@ -1,5 +1,0 @@
-#!/bin/bash
-
-mv "$1" /tmp/file.ogg
-
-ffmpeg -i /tmp/file.ogg -vcodec copy -acodec copy -vn "$1"

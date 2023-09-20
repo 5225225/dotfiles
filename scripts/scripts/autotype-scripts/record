@@ -1,9 +1,0 @@
-#!/bin/bash
-xdotool key Escape
-xdotool type "\`"
-xdotool key Home 
-xdotool key shift+End
-xdotool key BackSpace
-xdotool type "record autodemo-$(date -Isecond | tr : _)"
-xdotool key Enter
-xdotook key Escape

@@ -1,5 +1,0 @@
-#!/bin/bash
-
-rm /tmp/output.pdf
-pandoc -o /tmp/output.pdf "$1"
-zathura /tmp/output.pdf

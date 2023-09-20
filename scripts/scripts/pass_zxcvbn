@@ -1,2 +1,0 @@
-#!/bin/bash
-zxcvbn "$(cat $1 | gpg --decrypt 2>/dev/null | head -n1)" n "$1"

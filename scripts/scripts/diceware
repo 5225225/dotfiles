@@ -1,2 +1,0 @@
-#!/bin/sh
-shuf -r -n "${1:-6}" --random-source /dev/urandom ~/scripts/data/diceware8k.txt | tr \\n " " ; echo ""

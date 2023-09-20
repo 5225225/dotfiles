@@ -1,3 +1,0 @@
-#!/bin/bash
-
-mpv "$(xsel)" || mpv "$(xsel -b)" || notify-send "failed to open url"

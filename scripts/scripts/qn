@@ -1,5 +1,0 @@
-#!/bin/bash
-exec urxvt -title "quicknote-editor-floating" \
-           -bg "[97]#000000" \
-           -g 120x48 \
-           -e scripts_vim_ + ~/sync/documents/quicknote.md

@@ -1,5 +1,8 @@
-I'm using GNU stow to manage this. If you want to use my dotfiles directly,
-type `gnu stow <program name>`. Stow will complain if it would be overwriting
-any existing files, so there is little risk of damage.
+`stow` is kill
 
-Open to suggestions if anyone knows of a better way to manage them.
+we home-manager now :3
+
+also this now belongs in ~/.config/home-manager instead of dotfiles, but I don't think anything
+here *assumes* the location of this config. It shouldn't.
+
+meow :3c

@@ -1,2 +1,0 @@
-#!/bin/sh
-__GLVND_DISALLOW_PATCHING=1 steam
