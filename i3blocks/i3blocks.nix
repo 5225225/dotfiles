@@ -1,8 +1,8 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 let
   time = pkgs.writeShellApplication {
     name = "time";
-    runtimeInputs = [pkgs.libnotify];
+    runtimeInputs = [ pkgs.libnotify ];
     text = ''
       case $BLOCK_BUTTON in
       3)
@@ -14,8 +14,7 @@ let
       date "+%a %d %b %Y %H:%M"
     '';
   };
-in
-{
+in {
   home.file.".config/i3blocks/config".text = ''
     interval = 1
 

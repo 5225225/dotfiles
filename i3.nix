@@ -1,8 +1,6 @@
 { lib, pkgs, ... }:
-let  
-  mod = "Mod1";
-in
-{
+let mod = "Mod1";
+in {
   xsession.windowManager.i3 = {
     enable = true;
     config = {
@@ -14,10 +12,10 @@ in
         "${mod}+Shift+minus" = "exec --no-startup-id mpc volume -10";
         "${mod}+Shift+plus" = "exec --no-startup-id mpc volume +10";
 
-        
         "${mod}+Return" = "exec i3-sensible-terminal -cd $(xcwd)";
         "${mod}+d" = "exec rofi -show run";
-        "${mod}+c" = "exec rofi -show calc -modi calc -no-show-match -no-sort -hint-result \"\" -no-history";
+        "${mod}+c" = ''
+          exec rofi -show calc -modi calc -no-show-match -no-sort -hint-result "" -no-history'';
 
         "${mod}+h" = "focus left";
         "${mod}+j" = "focus down";
@@ -42,7 +40,7 @@ in
         titlebar = false;
       };
       fonts = {
-        names = ["Terminus"];
+        names = [ "Terminus" ];
         style = "";
         size = 12;
       };

@@ -10,7 +10,7 @@
     ./foot.nix
     ./scripts/wcwd.nix
     ./i3blocks/i3blocks.nix
-#    ./i3.nix
+    #    ./i3.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -47,6 +47,7 @@
     mpc-cli
     mpdscribble
     ncdu
+    nixfmt
     python3
     rofi-calc
     tamzen
@@ -177,7 +178,7 @@
   programs.vim = {
     enable = true;
     defaultEditor = true;
-    plugins = [ 
+    plugins = [
       pkgs.vimPlugins.rust-vim
       pkgs.vimPlugins.papercolor-theme
       pkgs.vimPlugins.vim-wayland-clipboard

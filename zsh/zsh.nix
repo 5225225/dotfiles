@@ -1,5 +1,4 @@
-{ pkgs, config, ...}:
-{
+{ pkgs, config, ... }: {
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
@@ -16,14 +15,15 @@
       size = 999999999;
     };
     localVariables = {
-      ZSH_AUTOSUGGEST_STRATEGY = ["completion"];
-      ZSH_AUTOSUGGEST_USE_ASYNC="trans rights"; # i was told it could be set to anything
-      ZSH_HIGHLIGHT_HIGHLIGHTERS=["main" "pattern" "brackets" "root"];
+      ZSH_AUTOSUGGEST_STRATEGY = [ "completion" ];
+      ZSH_AUTOSUGGEST_USE_ASYNC =
+        "trans rights"; # i was told it could be set to anything
+      ZSH_HIGHLIGHT_HIGHLIGHTERS = [ "main" "pattern" "brackets" "root" ];
     };
     envExtra = ''
       setopt no_global_rcs
     '';
-    initExtraFirst = ''. ${./zshrc}'';
+    initExtraFirst = ". ${./zshrc}";
     plugins = [{
       # will source zsh-autosuggestions.plugin.zsh
       name = "git-prompt.zsh";

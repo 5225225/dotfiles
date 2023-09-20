@@ -1,16 +1,14 @@
 { pkgs, ... }: {
   programs.beets = {
     enable = true;
-    package = (
-      pkgs.beets.override { 
-        pluginOverrides = {
-          alternatives = {
-            enable = true;
-            propagatedBuildInputs = [pkgs.beetsPackages.alternatives];
-          };
+    package = (pkgs.beets.override {
+      pluginOverrides = {
+        alternatives = {
+          enable = true;
+          propagatedBuildInputs = [ pkgs.beetsPackages.alternatives ];
         };
-      }
-    );
+      };
+    });
     settings = {
       directory = "~/media/music";
       library = "~/media/music/library.blb";
@@ -60,31 +58,32 @@
       ui.color = true;
       ui.colors = {
 
-        text_success= "green";
-        text_warning= "yellow";
-        text_error= "red";
-        text_highlight= "red";
-        text_highlight_minor= "lightgray";
-        action_default= "turquoise";
-        action= "blue";
+        text_success = "green";
+        text_warning = "yellow";
+        text_error = "red";
+        text_highlight = "red";
+        text_highlight_minor = "lightgray";
+        action_default = "turquoise";
+        action = "blue";
       };
       original_date = true;
       convert = {
-        never_convert_lossy_files=false;
-        format= "opus";
-        dest= "~/media/syncthing/music";
-        threads= "1";
-        quiet= true;
-        copy_album_art= true;
-        embed= true;
+        never_convert_lossy_files = false;
+        format = "opus";
+        dest = "~/media/syncthing/music";
+        threads = "1";
+        quiet = true;
+        copy_album_art = true;
+        embed = true;
         formats = {
-            opus= "ffmpeg -i $source -y -vn -acodec libopus -ab 64k $dest";
-            ogg= "ffmpeg -i $source -y -vn -acodec libvorbis -aq 2 $dest";
-          };
+          opus = "ffmpeg -i $source -y -vn -acodec libopus -ab 64k $dest";
+          ogg = "ffmpeg -i $source -y -vn -acodec libvorbis -aq 2 $dest";
+        };
       };
       types.on_phone = "bool";
-      edit.itemfields = ["track" "title" "artist" "album" "year" "month" "day"];
-      edit.albumfields = ["album" "albumartist" "year" "month" "day"];
+      edit.itemfields =
+        [ "track" "title" "artist" "album" "year" "month" "day" ];
+      edit.albumfields = [ "album" "albumartist" "year" "month" "day" ];
       paths = {
 
         default =
