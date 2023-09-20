@@ -1,9 +1,1 @@
-export PATH=$PATH:~/scripts
-[[ -z $XDG_CONFIG_HOME ]] && export XDG_CONFIG_HOME="$HOME/.config"
-[[ -z $XDG_CACHE_HOME ]] && export XDG_CACHE_HOME="$HOME/.cache"
-export MPLAYER_HOME=$XDG_CONFIG_HOME/mplayer
-export GIMP2_DIRECTORY="$HOME/.config/gimp"
-export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc"
-export XAUTHORITY="$HOME/.config/X/xauthority"
-export LANG=en_GB.utf8
-export GNUPGHOME="~/.config/gpg"
+/nix/store/3x42q3ci58zdwfj8k77l7qzfs7kbhinh-home-manager-files/.config/zsh/.zshenv

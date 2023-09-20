@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 mail_count="$(find ~/mail/"$BLOCK_INSTANCE"/INBOX/new -type f | wc -l)"
 

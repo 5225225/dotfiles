@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 totalswap="$(grep SwapTotal < /proc/meminfo | sed -r 's:SwapTotal\: +([0-9]+) .*:\1:')"
 freeswap="$(grep SwapFree < /proc/meminfo | sed -r 's:SwapFree\: +([0-9]+) .*:\1:')"

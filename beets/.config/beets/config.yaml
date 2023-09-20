@@ -36,7 +36,7 @@ plugins:
 
 alternatives:
     phone:
-        directory: /home/jess/media/syncthing/Music
+        directory: /home/jess/media/syncthing/music
         formats: opus
         query: "on_phone:true"
 

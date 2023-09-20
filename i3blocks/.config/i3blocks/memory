@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 totalmem="$(grep MemTotal < /proc/meminfo | sed -r 's:MemTotal\: +([0-9]+) .*:\1:')"
 freemem="$(grep MemAvailable < /proc/meminfo | sed -r 's:MemAvailable\: +([0-9]+) .*:\1:')"

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 count="$(pgrep -x "$BLOCK_INSTANCE" | wc -l)"
 
 if [[ count -gt 0 ]]; then

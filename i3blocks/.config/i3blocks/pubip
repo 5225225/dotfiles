@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 pubip="$(dig +short myip.opendns.com @resolver1.opendns.com)"
 censored_pubip="$(echo $pubip | cut -d . -f 3-)"

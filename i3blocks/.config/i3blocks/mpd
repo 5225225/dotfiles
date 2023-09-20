@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 mpc idle >/dev/null 2>/dev/null
 

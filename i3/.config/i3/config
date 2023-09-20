@@ -1,5 +1,3 @@
-# vim:filetype=i3
-
 set $mod Mod1
 
 font pango:Terminus 12
