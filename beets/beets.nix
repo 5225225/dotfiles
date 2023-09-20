@@ -1,6 +1,16 @@
 { pkgs, ... }: {
   programs.beets = {
     enable = true;
+    package = (
+      pkgs.beets.override { 
+        pluginOverrides = {
+          alternatives = {
+            enable = true;
+            propagatedBuildInputs = [pkgs.beetsPackages.alternatives];
+          };
+        };
+      }
+    );
     settings = {
       directory = "~/media/music";
       library = "~/media/music/library.blb";
@@ -13,7 +23,7 @@
       };
       match.strong_rec_thresh = 1.0e-2;
       plugins = [
-        # "alternatives"
+        "alternatives"
         "badfiles"
         "convert"
         "duplicates"
