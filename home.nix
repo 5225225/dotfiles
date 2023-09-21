@@ -182,15 +182,6 @@
       pkgs.vimPlugins.rust-vim
       pkgs.vimPlugins.papercolor-theme
       pkgs.vimPlugins.vim-wayland-clipboard
-      (pkgs.vimUtils.buildVimPlugin {
-        name = "vim-transparent";
-        src = pkgs.fetchFromGitHub {
-          owner = "tribela";
-          repo = "vim-transparent";
-          rev = "a0182216f5f26cdedb2e35356b38a47d0ed96e28";
-          sha256 = "sha256-kTzplJl+FYvy6Vy0fivijsLraGaObkrB7UgdJ7ahBsk=";
-        };
-      })
     ];
     extraConfig = ''
       set nobackup
@@ -272,8 +263,6 @@
       let &t_EI = "\<esc>[2 q"
     '';
   };
-
-  services.picom = { enable = true; };
 
   fonts.fontconfig.enable = true;
 
