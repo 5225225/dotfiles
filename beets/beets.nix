@@ -1,14 +1,14 @@
 { pkgs, ... }: {
   programs.beets = {
     enable = true;
-    package = (pkgs.beets.override {
+    package = pkgs.beets.override {
       pluginOverrides = {
         alternatives = {
           enable = true;
           propagatedBuildInputs = [ pkgs.beetsPackages.alternatives ];
         };
       };
-    });
+    };
     settings = {
       directory = "~/media/music";
       library = "~/media/music/library.blb";
