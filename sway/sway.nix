@@ -67,6 +67,7 @@ in {
         smartBorders = "on";
         smartGaps = true;
         inner = 5;
+        outer = -5;
       };
       keybindings = lib.mkOptionDefault {
         "${mod}+d" = "exec ${rofi-package}/bin/rofi -show run";
