@@ -48,6 +48,7 @@
     mpdscribble
     ncdu
     nixfmt
+    prismlauncher
     python3
     rofi-calc
     tamzen
