@@ -176,13 +176,23 @@
     plugins = [ pkgs.rofi-calc ];
   };
 
-  programs.vim = {
+  programs.neovim = {
     enable = true;
     defaultEditor = true;
+    vimAlias = true;
     plugins = [
       pkgs.vimPlugins.rust-vim
       pkgs.vimPlugins.papercolor-theme
       pkgs.vimPlugins.vim-wayland-clipboard
+      (pkgs.vimUtils.buildVimPlugin {
+        name = "base16-vim";
+        src = pkgs.fetchFromGitHub {
+          owner = "tinted-theming";
+          repo = "base16-vim";
+          rev = "52e627d25c12fe621c661c2e030c1421ab42f1b0";
+          sha256 = "sha256-cOMt/ML80UZH/1K4qasIQmgeloi5QO78yxnyQ2nlZsc=";
+        };
+      })
     ];
     extraConfig = ''
       set nobackup
@@ -206,8 +216,9 @@
       \   }
       \ } 
 
+      let base16_background_transparent=1
       set background=dark
-      colorscheme PaperColor
+      colorscheme base16-default-dark
 
       filetype plugin on
       syntax on
