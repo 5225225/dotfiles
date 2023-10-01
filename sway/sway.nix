@@ -90,7 +90,7 @@ in {
         "${mod}+Return" = ''exec ${pkgs.foot}/bin/foot -D "$(wcwd)"'';
 
         "Print" =
-          "exec ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - - | ${pkgs.wl-clipboard}/bin/wl-copy";
+          "exec ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - - | ${pkgs.wl-clipboard}/bin/wl-copy --type image/png";
 
         "${mod}+0" = "workspace number 10";
         "${mod}+Shift+0" = "move container to workspace number 10";

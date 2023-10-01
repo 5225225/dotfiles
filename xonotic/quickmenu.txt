@@ -1,0 +1,19 @@
+"Connect"
+    "Relaxed Running" "connect 88.198.227.103:26000"
+    "Hardcore Parkour" "connect 88.198.227.103:26020"
+    "Respect The Grind" "connect 88.198.227.103:26045"
+"Connect"
+
+"settings"
+    "Cap FPS" "toggle cl_maxfps 200 400"
+    "Ambient"
+        "+10" "rpn /r_ambient r_ambient 10 + = ; infobar 0.5 r_ambient:$r_ambient ; defer 0 \"quickmenu \\\"\\\" Ambient\""
+        "-10" "rpn /r_ambient r_ambient 10 - = ; infobar 0.5 r_ambient:$r_ambient ; defer 0 \"quickmenu \\\"\\\" Ambient\""
+    "Ambient"
+"settings"
+
+"vcall"
+    "extendmatchtime" "vcall extendmatchtime"
+"vcall"
+
+"private chat with:" "commandmode tell \"%s\"" ALLPLAYERS_BUT_ME

@@ -13,7 +13,6 @@ setopt RM_STAR_WAIT
 setopt complete_aliases
 setopt INTERACTIVE_COMMENTS
 
-unsetopt autocd
 unsetopt beep
 unsetopt extendedglob
 
@@ -24,9 +23,6 @@ bindkey -v
 
 bindkey "^R" history-incremental-search-backward
 bindkey "^S" history-incremental-search-forward
-
-autoload -U colors
-colors
 # }}}
 
 # {{{ completion
@@ -59,41 +55,11 @@ autoload -Uz compinit
 compinit -d ~/.local/cache/zsh/zcompdump
 # }}}
 
-# Adding to $PATH and fpath {{{
-fpath=(~/.config/zsh/completions $fpath)
-
-export PATH=$PATH:~/scripts
-export PATH=$PATH:~/scripts/bin
-export PATH=$PATH:/usr/bin/core_perl
-export PATH=$PATH:~/.gem/ruby/2.7.0/bin
-export PATH=$PATH:~/.local/bin
-export PATH=$PATH:~/.cargo/bin
-# }}}
-
 # prompt {{{
-
-. ~/.config/zsh/plugins/git-prompt.zsh/git-prompt.zsh
-
-ZSH_THEME_GIT_PROMPT_PREFIX=" ["
-ZSH_THEME_GIT_PROMPT_SUFFIX="] "
-ZSH_THEME_GIT_PROMPT_SEPARATOR="|"
-ZSH_THEME_GIT_PROMPT_DETACHED="%{$fg_bold[cyan]%}:"
-ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg_bold[magenta]%}"
-ZSH_THEME_GIT_PROMPT_BEHIND="v"
-ZSH_THEME_GIT_PROMPT_AHEAD="^"
-ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[red]%}x"
-ZSH_THEME_GIT_PROMPT_STAGED="%{$fg[green]%}o"
-ZSH_THEME_GIT_PROMPT_UNSTAGED="%{$fg[red]%}+"
-ZSH_THEME_GIT_PROMPT_UNTRACKED="."
-ZSH_THEME_GIT_PROMPT_STASHED="%{$fg[blue]%}&"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}✔"
-
-ZSH_GIT_PROMPT_SHOW_STASH=1
 
 export PROMPT='
 %6F%n%7F@%1F%m%7F %{%F{yellow}%}%~%f$(gitprompt)%(?..%{%F{red}%}[%?]%f)
 %{%F{blue}%}#%f '
-
 
 # }}}
 
@@ -239,7 +205,3 @@ function bandcamp_rip() {
 # }}}
 
 zmodload zsh/terminfo
-export TERM=rxvt-unicode-256color
-
-# opam configuration
-[[ ! -r /home/jess/.opam/opam-init/init.zsh ]] || source /home/jess/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null

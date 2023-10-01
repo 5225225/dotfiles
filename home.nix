@@ -10,6 +10,7 @@
     ./foot.nix
     ./scripts/wcwd.nix
     ./i3blocks/i3blocks.nix
+    ./xonotic/xonotic.nix
     #    ./i3.nix
   ];
 
@@ -40,6 +41,7 @@
     ghidra
     gimp
     htop
+    imhex
     libnotify
     libqalculate
     maim
@@ -50,7 +52,6 @@
     nixfmt
     prismlauncher
     python3
-    rofi-calc
     tamzen
     terminus_font
     thunderbird
@@ -173,17 +174,18 @@
     enable = true;
     font = "Tamzen 14";
     theme = data/rofi/theme.rasi;
-    plugins = [ pkgs.rofi-calc ];
+    plugins = [ pkgs.rofi-calc pkgs.rofi-emoji ];
   };
 
   programs.neovim = {
     enable = true;
     defaultEditor = true;
     vimAlias = true;
-    plugins = [
-      pkgs.vimPlugins.rust-vim
-      pkgs.vimPlugins.papercolor-theme
-      pkgs.vimPlugins.vim-wayland-clipboard
+    plugins = with pkgs.vimPlugins; [
+      rust-vim
+      papercolor-theme
+      vim-wayland-clipboard
+      vim-nix
       (pkgs.vimUtils.buildVimPlugin {
         name = "base16-vim";
         src = pkgs.fetchFromGitHub {
