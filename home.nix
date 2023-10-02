@@ -51,16 +51,15 @@
     ncdu
     nixfmt
     prismlauncher
+    pv
     python3
     tamzen
     terminus_font
     thunderbird
+    tor-browser-bundle-bin
     unzip
     whois
     wl-clipboard
-    xclip
-    xcwd
-    xsel
     zola
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
