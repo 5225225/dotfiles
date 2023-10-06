@@ -14,6 +14,12 @@
     #    ./i3.nix
   ];
 
+  home.sessionVariables = {
+    LESSHISTFILE = "/dev/null";
+    CARGO_HOME = "${config.xdg.dataHome}/cargo/";
+    DOTNET_CLI_TELEMETRY_OPTOUT = "1";
+  };
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "jess";
@@ -61,6 +67,17 @@
     whois
     wl-clipboard
     zola
+
+    git
+    rxvt-unicode
+    stow
+    firefox
+    ripgrep
+    telegram-desktop
+    pavucontrol
+    keepassxc
+    man-pages
+    man-pages-posix
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -217,9 +234,10 @@
       \   }
       \ } 
 
+      set termguicolors
       let base16_background_transparent=1
       set background=dark
-      colorscheme base16-default-dark
+      colorscheme base16-tube
 
       filetype plugin on
       syntax on

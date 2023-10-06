@@ -64,15 +64,8 @@ export PROMPT='
 # }}}
 
 # envars and xdg settings {{{
-export LESSHISTFILE="/dev/null"
 export REPORTTIME=5
-export MAIL="$HOME/mail/mailbox/INBOX"
-export LEDGER_FILE="$HOME/sync/ledger/ledger.journal"
-export PASSWORD_STORE_DIR="$HOME/media/syncthing/sync/password-store"
-export DOTNET_CLI_TELEMETRY_OPTOUT=1
-export GEM_HOME="$HOME/.gems"
 export CARGO_TARGET_DIR="$HOME/.cache/cargo/target"
-export RUST_SRC_REPO="$HOME/src/rust"
 export BROWSER="firefox"
 # less colours {{{
 export LESS_TERMCAP_mb=$'\E[01;31m'
