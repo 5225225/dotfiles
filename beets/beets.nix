@@ -1,12 +1,14 @@
 { pkgs, ... }: {
   programs.beets = {
     enable = true;
-    package = pkgs.beets.override {
+    package = pkgs.beets-unstable.override {
       pluginOverrides = {
         alternatives = {
           enable = true;
           propagatedBuildInputs = [ pkgs.beetsPackages.alternatives ];
         };
+        # We need to include the existing pluginOverrides here
+        limit = { builtin = true; };
       };
     };
     settings = {
@@ -26,21 +28,22 @@
         "convert"
         "duplicates"
         "edit"
+        "embedart"
         "fetchart"
         "fromfilename"
         "ftintitle"
         "fuzzy"
         "info"
         "inline"
+        "limit"
+        "lyrics"
         "mbsync"
-        "replaygain"
         "missing"
         "permissions"
+        "replaygain"
         "rewrite"
         "scrub"
         "types"
-        "embedart"
-        "lyrics"
       ];
       alternatives.phone = {
 

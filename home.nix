@@ -44,22 +44,34 @@
     exa
     fd
     file
+    firefox
     ghidra
     gimp
+    git
     htop
     imhex
+    keepassxc
     libnotify
     libqalculate
     maim
+    man-pages
+    man-pages-posix
     mindustry
     mpc-cli
     mpdscribble
     ncdu
     nixfmt
+    pavucontrol
     prismlauncher
     pv
     python3
+    ripgrep
+    rxvt-unicode
+    sgtpuzzles
+    shattered-pixel-dungeon
+    stow
     tamzen
+    telegram-desktop
     terminus_font
     thunderbird
     tor-browser-bundle-bin
@@ -67,17 +79,6 @@
     whois
     wl-clipboard
     zola
-
-    git
-    rxvt-unicode
-    stow
-    firefox
-    ripgrep
-    telegram-desktop
-    pavucontrol
-    keepassxc
-    man-pages
-    man-pages-posix
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
