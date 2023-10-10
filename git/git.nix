@@ -33,8 +33,6 @@ in { pkgs, ... }: {
       };
       tag.gpgsign = true;
     };
-    aliases = {
-      inherit lg lg1 lg2 lg3 lg1s lg2s lg3s;
-    };
+    aliases = { inherit lg lg1 lg2 lg3 lg1s lg2s lg3s; };
   };
 }

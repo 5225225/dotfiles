@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nix-colors, ... }:
 
 {
   imports = [
@@ -11,8 +11,10 @@
     ./scripts/wcwd.nix
     ./i3blocks/i3blocks.nix
     ./xonotic/xonotic.nix
-    #    ./i3.nix
+    nix-colors.homeManagerModules.default
   ];
+
+  colorScheme = nix-colors.colorSchemes.tube;
 
   home.sessionVariables = {
     LESSHISTFILE = "/dev/null";
@@ -311,6 +313,12 @@
     backgroundColor = "#000000D0";
     borderRadius = 5;
     borderSize = 0;
+  };
+
+  gtk = {
+    enable = true;
+    theme.package = pkgs.nordic;
+    theme.name = "Nordic";
   };
 
   # Let Home Manager install and manage itself.
