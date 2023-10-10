@@ -47,6 +47,7 @@
     fd
     file
     firefox
+    freerdp
     ghidra
     gimp
     git
