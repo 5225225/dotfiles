@@ -1,4 +1,4 @@
-{ config, pkgs, nix-colors, ... }:
+{ config, pkgs, nix-colors, lib, ... }:
 
 {
   imports = [
@@ -11,6 +11,7 @@
     ./scripts/wcwd.nix
     ./i3blocks/i3blocks.nix
     ./xonotic/xonotic.nix
+    ./mpv.nix
     nix-colors.homeManagerModules.default
   ];
 
@@ -324,4 +325,8 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "mpv-youtube-quality"
+  ];
 }
