@@ -120,6 +120,7 @@ in {
         "${mod}+Shift+f10" = "move container to workspace number 20";
         "${mod}+Shift+f11" = "move container to workspace number 21";
         "${mod}+Shift+f12" = "move container to workspace number 22";
+        "${mod}+Shift+m" = "exec mpv-open-clipboard";
       };
     };
   };

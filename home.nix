@@ -9,6 +9,7 @@
     ./direnv.nix
     ./foot.nix
     ./scripts/wcwd.nix
+    ./scripts/mpv-open-clipboard.nix
     ./i3blocks/i3blocks.nix
     ./xonotic/xonotic.nix
     ./mpv.nix

@@ -2,7 +2,6 @@
   programs.mpv = {
     enable = true;
     scripts = with pkgs.mpvScripts; [
-      autocrop
       autodeint
       youtube-quality
       sponsorblock
