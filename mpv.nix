@@ -12,12 +12,13 @@
       demuxer-readahead-secs = 1200;
       ytdl-format = "bestvideo[height<=1080]+bestaudio/best[height<=1080]/best";
       volume = 30;
-      profile = "opengl-hq";
+      profile = "high-quality";
       scale = "ewa_lanczossharp";
       cscale = "ewa_lanczossharp";
       sub-ass-override = false;
       sub-blur = 0.3;
       sub-color = 0.95;
+      sub-back-color = "0.0/0.8";
       sub-border-color = "0.05/0.05/0.03";
       sub-border-size = 2.2;
       sub-bold = true;
