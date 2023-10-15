@@ -21,7 +21,12 @@ in { pkgs, ... }: {
       credential.helper = "store";
       init.defaultbranch = "main";
       merge.conflictstyle = "diff3";
-      gpg.format = "ssh";
+      gpg = {
+        format = "ssh";
+        ssh = {
+          allowedSignersFile = "${./allowed_signers}";
+        };
+      };
       user = {
         signingkey = "/home/jess/.ssh/id_ed25519.pub";
         email = "5225225@mailbox.org";
