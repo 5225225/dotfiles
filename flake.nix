@@ -9,9 +9,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-colors.url = "github:misterio77/nix-colors";
+    base16-vim = {
+      url = "github:tinted-theming/base16-vim";
+      flake = false;
+    };
   };
 
-  outputs = { nixpkgs, home-manager, nix-colors, ... }:
+  outputs = { nixpkgs, home-manager, nix-colors, base16-vim, ... }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -25,7 +29,7 @@
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
-        extraSpecialArgs = { inherit nix-colors; };
+        extraSpecialArgs = { inherit nix-colors; inherit base16-vim; };
       };
     };
 }

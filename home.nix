@@ -1,4 +1,4 @@
-{ config, pkgs, nix-colors, lib, ... }:
+{ config, pkgs, nix-colors, lib, base16-vim, ... }:
 
 {
   imports = [
@@ -210,12 +210,7 @@
       vim-nix
       (pkgs.vimUtils.buildVimPlugin {
         name = "base16-vim";
-        src = pkgs.fetchFromGitHub {
-          owner = "tinted-theming";
-          repo = "base16-vim";
-          rev = "52e627d25c12fe621c661c2e030c1421ab42f1b0";
-          sha256 = "sha256-cOMt/ML80UZH/1K4qasIQmgeloi5QO78yxnyQ2nlZsc=";
-        };
+        src = base16-vim;
       })
     ];
     extraConfig = ''

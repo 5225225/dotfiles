@@ -16,6 +16,22 @@
         "type": "github"
       }
     },
+    "base16-vim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1696727080,
+        "narHash": "sha256-K9RieddXTKgMakMFdDTUqvsE1mL6kKHt0b/SUp37tXI=",
+        "owner": "tinted-theming",
+        "repo": "base16-vim",
+        "rev": "5b54dcbb679ea208bd0a2d814fae4787a2764c1f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tinted-theming",
+        "repo": "base16-vim",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -89,6 +105,7 @@
     },
     "root": {
       "inputs": {
+        "base16-vim": "base16-vim",
         "home-manager": "home-manager",
         "nix-colors": "nix-colors",
         "nixpkgs": "nixpkgs"
