@@ -23,9 +23,7 @@ in { pkgs, ... }: {
       merge.conflictstyle = "diff3";
       gpg = {
         format = "ssh";
-        ssh = {
-          allowedSignersFile = "${./allowed_signers}";
-        };
+        ssh = { allowedSignersFile = "${./allowed_signers}"; };
       };
       user = {
         signingkey = "/home/jess/.ssh/id_ed25519.pub";

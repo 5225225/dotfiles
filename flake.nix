@@ -13,9 +13,13 @@
       url = "github:tinted-theming/base16-vim";
       flake = false;
     };
+    git-prompt = {
+      url = "github:woefe/git-prompt.zsh";
+      flake = false;
+    };
   };
 
-  outputs = { nixpkgs, home-manager, nix-colors, base16-vim, ... }:
+  outputs = { nixpkgs, home-manager, nix-colors, base16-vim, git-prompt, ... }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -29,7 +33,11 @@
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
-        extraSpecialArgs = { inherit nix-colors; inherit base16-vim; };
+        extraSpecialArgs = {
+          inherit nix-colors;
+          inherit base16-vim;
+          inherit git-prompt;
+        };
       };
     };
 }

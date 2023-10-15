@@ -1,4 +1,4 @@
-{ pkgs, config, ... }: {
+{ pkgs, config, git-prompt, ... }: {
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
@@ -48,15 +48,8 @@
     autocd = false;
     initExtra = ". ${./zshrc}";
     plugins = [{
-      # will source zsh-autosuggestions.plugin.zsh
       name = "git-prompt";
-      src = pkgs.fetchFromGitHub {
-        owner = "woefe";
-        repo = "git-prompt.zsh";
-        rev = "55f40bdfb287122ea50c1c01ef056ca7dac175e5";
-        sha256 = "sha256-7sBXM7o+qFsk6vMlXWvRp8bhxBuOznoXQ4I+7vkmvgg=";
-      };
+      src = git-prompt;
     }];
   };
-
 }

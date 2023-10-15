@@ -32,6 +32,22 @@
         "type": "github"
       }
     },
+    "git-prompt": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1673207279,
+        "narHash": "sha256-7sBXM7o+qFsk6vMlXWvRp8bhxBuOznoXQ4I+7vkmvgg=",
+        "owner": "woefe",
+        "repo": "git-prompt.zsh",
+        "rev": "55f40bdfb287122ea50c1c01ef056ca7dac175e5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "woefe",
+        "repo": "git-prompt.zsh",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -106,6 +122,7 @@
     "root": {
       "inputs": {
         "base16-vim": "base16-vim",
+        "git-prompt": "git-prompt",
         "home-manager": "home-manager",
         "nix-colors": "nix-colors",
         "nixpkgs": "nixpkgs"
