@@ -5,6 +5,8 @@
       autodeint
       youtube-quality
       sponsorblock
+      uosc
+      thumbfast
     ];
     config = {
       cache = "auto";
@@ -29,4 +31,6 @@
       sub-auto = "fuzzy";
     };
   };
+  home.file."${config.xdg.configHome}/mpv/script-opts/uosc.conf".source =
+    ./uosc.conf;
 }

@@ -12,7 +12,7 @@
     ./scripts/mpv-open-clipboard.nix
     ./i3blocks/i3blocks.nix
     ./xonotic/xonotic.nix
-    ./mpv.nix
+    ./mpv/mpv.nix
     nix-colors.homeManagerModules.default
   ];
 
@@ -328,5 +328,5 @@
   programs.home-manager.enable = true;
 
   nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [ "mpv-youtube-quality" ];
+    builtins.elem (lib.getName pkg) [ "mpv-youtube-quality" "mpv-thumbfast" ];
 }
