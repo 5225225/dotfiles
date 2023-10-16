@@ -8,6 +8,7 @@
       ls = "exa --group-directories-first --git --extended";
       df = "dfc -t -devtmpfs,tmpfs,autofs -T -d -q type -W -w 2>/dev/null";
       du = "du -ch";
+      hm = "home-manager --flake \"$HOME/dotfiles\" --file \"$HOME/dotfiles/home.nix\"";
     };
     history = {
       ignoreDups = true;
