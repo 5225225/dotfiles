@@ -72,6 +72,7 @@
     python3
     ripgrep
     rxvt-unicode
+    schildichat-desktop-wayland
     sgtpuzzles
     shattered-pixel-dungeon
     stow
