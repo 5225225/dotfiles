@@ -14,24 +14,33 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-colors, base16-vim, git-prompt }: {
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    nix-colors,
+    base16-vim,
+    git-prompt,
+  }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      modules = [ 
-      ./configuration.nix
-      home-manager.nixosModules.home-manager
-      {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.users.jess = import ../user/home.nix;
+      modules = [
+        ./configuration.nix
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.jess = import ../user/home.nix;
 
-        home-manager.extraSpecialArgs = {
-          inherit nix-colors;
-          inherit base16-vim;
-          inherit git-prompt;
-        };
-      }
+          home-manager.extraSpecialArgs = {
+            inherit nix-colors;
+            inherit base16-vim;
+            inherit git-prompt;
+          };
+        }
       ];
     };
+
+    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
   };
 }
