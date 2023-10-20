@@ -41,6 +41,7 @@
     };
     envExtra = ''
       setopt no_global_rcs
+      setopt hashexecutablesonly
     '';
     initExtraFirst = ''
       autoload -U colors
