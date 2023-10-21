@@ -14,7 +14,8 @@ let
       date "+%a %d %b %Y %H:%M"
     '';
   };
-in {
+in
+{
   home.file.".config/i3blocks/config".text = ''
     interval = 1
 

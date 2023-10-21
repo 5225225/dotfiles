@@ -1,10 +1,9 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{
-  config,
-  pkgs,
-  ...
+{ config
+, pkgs
+, ...
 }: {
   imports = [
     # Include the results of the hardware scan.
@@ -14,7 +13,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelParams = ["iommu=soft" "rcu_nocbs=0-15"];
+  boot.kernelParams = [ "iommu=soft" "rcu_nocbs=0-15" ];
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -66,12 +65,12 @@
   users.users.jess = {
     isNormalUser = true;
     description = "Jess";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
     # yes, you can crack this
     # no, i don't use it anywhere important, i do not care.
     initialHashedPassword = "$y$j9T$nLW2y6cB.3dWfnd/PXcMT0$7t4FTeq3t3hz1iVlfLtwrZTc.sWYhKqL1Gq.GyDWk5/";
-    packages = with pkgs; [];
+    packages = with pkgs; [ ];
   };
 
   nix.settings.auto-optimise-store = true;
@@ -81,7 +80,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.shells = with pkgs; [zsh];
+  environment.shells = with pkgs; [ zsh ];
 
   environment.systemPackages = with pkgs; [
     gnome.adwaita-icon-theme

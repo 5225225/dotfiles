@@ -9,7 +9,8 @@ let
   };
   trans_bg = "#000000B0";
   trans_bg_focused = "#333333B0";
-in {
+in
+{
   wayland.windowManager.sway = {
     enable = true;
     config = {

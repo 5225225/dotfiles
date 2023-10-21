@@ -9,7 +9,8 @@ let
   lg2 = "${lg2s} --all";
   lg3 = "${lg3s} --all";
   lg = lg1;
-in { pkgs, ... }: {
+in
+{ pkgs, ... }: {
   programs.git = {
     enable = true;
     extraConfig = {
