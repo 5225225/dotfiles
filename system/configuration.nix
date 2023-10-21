@@ -73,7 +73,10 @@
     packages = with pkgs; [ ];
   };
 
-  nix.settings.auto-optimise-store = true;
+  nix.settings = {
+    auto-optimise-store = true;
+    extra-experimental-features = [ "flakes" "nix-command" "ca-derivations" ];
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
