@@ -4,6 +4,7 @@
 setopt HIST_IGNORE_DUPS
 setopt hist_verify
 setopt SHARE_HISTORY
+setopt HIST_IGNORE_SPACE
 # }}}
 
 # misc options {{{
@@ -127,22 +128,10 @@ if (defined youtube-dl) {
 if (defined ncmpcpp) {
     alias ncmpcpp="ncmpcpp --config ~/.config/ncmpcpp/config --bindings ~/.config/ncmpcpp/bindings"
 }
-
-defined mutt && alias mutt="mutt -F ~/.config/mutt/muttrc"
-defined startx && alias startx="startx ~/.config/X/xinitrc"
-defined tmux && alias tmux="tmux -f ~/.config/tmux/tmux.conf"
-defined weechat && alias weechat="weechat -d $XDG_CONFIG_HOME/weechat"
-defined abook && alias abook="abook -C ~/.config/abook/abookrc --datafile ~/.config/abook/addressbook"
-
 # }}}
 
 # utility functions {{{
 # Functions that may depend on shell commands, but are not shadowing one
-
-priv() {
-    RPROMPT="[priv] $RPROMPT"
-    export HISTFILE="/dev/null"
-}
 
 scratch() {
     cd "$(mktemp --tmpdir -d scratchXXXXXXXXX)"
@@ -150,25 +139,11 @@ scratch() {
 
 defined curl && alias headers="curl --dump-header /dev/stdout --output /dev/null --silent"
 
-if (defined youtube-dl) {
-    function yt() {
-        command mpv ytdl://ytsearch:"$@"
-    }
-}
-
 if (defined git) {
     alias gs="git status"
 }
 
 defined curl && alias cget="curl -C - -L -O --retry 10"
-
-defined todo.sh && alias t="todo.sh"
-
-if (defined todo) {
-    function todo() {
-        command todo -ct $@
-    }
-}
 
 if (defined cargo) {
     alias cr="cargo run -q"
@@ -177,22 +152,6 @@ if (defined cargo) {
     function cdo() {
         RUSTDOCFLAGS="--default-theme ayu" cargo doc -Zrustdoc-map --open $@
     }
-}
-
-if (defined systemctl) {
-    function userctl() {
-        systemctl --user $@
-    }
-}
-
-function bandcamp_rip() {
-  scratch
-  elinks --dump --no-numbering https://$1.bandcamp.com/ | 
-  grep -e '.com/album' -e '.com/track' | 
-  sed 's/.*https/https/g' |
-  uniq > links.txt
-  youtube-dl -o $1" - %(playlist)s/%(playlist_index)s. %(title)s.%(ext)s" -a links.txt
-  rm links.txt
 }
 
 # }}}
