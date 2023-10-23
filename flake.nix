@@ -16,6 +16,10 @@
       url = "github:nixos/flake-registry";
       flake = false;
     };
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -26,6 +30,7 @@
     , base16-vim
     , git-prompt
     , flake-registry
+    , nix-index-database
     ,
     }: {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
@@ -41,8 +46,11 @@
             # thanks to
             # https://discourse.nixos.org/t/32003/3
             nix.settings.flake-registry = "${flake-registry}/flake-registry.json";
+
+            programs.command-not-found.enable = false;
           }
           system/configuration.nix
+          nix-index-database.nixosModules.nix-index
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -53,6 +61,7 @@
               inherit nix-colors;
               inherit base16-vim;
               inherit git-prompt;
+              inherit nix-index-database;
             };
           }
         ];

@@ -48,7 +48,9 @@
       colors
     '';
     autocd = false;
-    initExtra = ". ${./zshrc}";
+    initExtra = ''
+      . ${./zshrc}
+    '';
     plugins = [{
       name = "git-prompt";
       src = git-prompt;

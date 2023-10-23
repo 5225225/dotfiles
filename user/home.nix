@@ -1,4 +1,4 @@
-{ config, pkgs, nix-colors, lib, base16-vim, ... }:
+{ config, pkgs, nix-colors, lib, base16-vim, nix-index-database, ... }:
 
 {
   imports = [
@@ -14,6 +14,7 @@
     ./xonotic/xonotic.nix
     ./mpv/mpv.nix
     nix-colors.homeManagerModules.default
+    nix-index-database.hmModules.nix-index
   ];
 
   colorScheme = nix-colors.colorSchemes.tube;

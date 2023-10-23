@@ -91,10 +91,6 @@ try_source() {
 # }}}
 
 # hooks {{{
-command_not_found_handler() {
-    command-not-found "$1"
-}
-
 function autols() {
     exa --group-directories-first --git --extended
 }
