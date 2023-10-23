@@ -3,6 +3,7 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 { config
 , pkgs
+, lib
 , ...
 }: {
   imports = [
@@ -79,7 +80,14 @@
   };
 
   # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [
+      "mpv-youtube-quality"
+      "mpv-thumbfast"
+      "steam"
+      "steam-original"
+      "steam-run"
+    ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
