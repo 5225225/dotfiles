@@ -26,6 +26,7 @@
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
+          { system.configurationRevision = self.rev; }
           system/configuration.nix
           home-manager.nixosModules.home-manager
           {
