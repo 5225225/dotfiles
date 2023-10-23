@@ -18,6 +18,7 @@
       scale = "ewa_lanczossharp";
       cscale = "ewa_lanczossharp";
       save-position-on-quit = true;
+      write-filename-in-watch-later-config = true;
       sub-ass-override = false;
       sub-blur = 0.3;
       sub-color = 0.95;
