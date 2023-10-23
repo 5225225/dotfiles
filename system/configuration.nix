@@ -135,6 +135,8 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
 
+  system.nixos.label = builtins.substring 0 10 config.system.configurationRevision + "-" + config.system.nixos.version;
+
   xdg.portal.enable = true;
 
   xdg.portal.wlr = {
