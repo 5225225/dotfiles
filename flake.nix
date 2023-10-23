@@ -31,7 +31,7 @@
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          { 
+          {
             system.configurationRevision = self.rev;
 
             # pin nixpkgs to system nixpkgs for determinism
