@@ -10,6 +10,7 @@
     ./foot.nix
     ./scripts/wcwd.nix
     ./scripts/mpv-open-clipboard.nix
+    ./scripts/dmenu_mpd/default.nix
     ./i3blocks/i3blocks.nix
     ./xonotic/xonotic.nix
     ./mpv/mpv.nix
