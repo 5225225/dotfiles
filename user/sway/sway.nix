@@ -87,7 +87,7 @@ in
           "exec --no-startup-id ${pkgs.mpc-cli}/bin/mpc volume -10";
         "${mod}+Shift+equal" =
           "exec --no-startup-id ${pkgs.mpc-cli}/bin/mpc volume +10";
-        "${mod}+Shift+numbersign" = "exec --no-startup-id ~/scripts/dmenu_mpd";
+        "${mod}+Shift+numbersign" = "exec --no-startup-id dmenu_mpd";
         "${mod}+Return" = ''exec ${pkgs.foot}/bin/foot -D "$(wcwd)"'';
 
         "Print" =
