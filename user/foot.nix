@@ -7,6 +7,10 @@
         bold-text-in-bright = "palette-based";
         pad = "4x4";
       };
+      key-bindings = {
+        show-urls-launch = "Control+u";
+        show-urls-copy = "Control+Shift+u";
+      };
       colors = {
         alpha = 0.85;
         background = "000000";
