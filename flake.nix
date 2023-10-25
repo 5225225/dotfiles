@@ -41,7 +41,11 @@
 
             # pin nixpkgs to system nixpkgs for determinism
             nix.registry.nixpkgs.flake = nixpkgs; # For flake commands
-            nix.nixPath = [ "nixpkgs=${nixpkgs}" ]; # For legacy commands
+
+            # thanks to
+            # https://discourse.nixos.org/t/24093/8
+            nix.nixPath = [ "/etc/nix/path" ]; # For legacy commands
+            environment.etc."nix/path/nixpkgs".source = nixpkgs;
 
             # thanks to
             # https://discourse.nixos.org/t/32003/3
