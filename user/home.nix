@@ -24,6 +24,8 @@
     LESSHISTFILE = "/dev/null";
     CARGO_HOME = "${config.xdg.dataHome}/cargo/";
     DOTNET_CLI_TELEMETRY_OPTOUT = "1";
+    PYTHONPYCACHEPREFIX="${config.xdg.cacheHome}/python";
+    PYTHONUSERBASE="${config.xdg.dataHome}/python";
   };
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -191,6 +193,7 @@
       media_library_primary_tag = "album_artist";
       tags_separator = " | ";
       main_window_color = "blue";
+      lyrics_directory = "${config.xdg.stateHome}/lyrics";
     };
   };
 
