@@ -74,6 +74,7 @@
     packages = with pkgs; [ ];
   };
 
+  nix.channel.enable = false;
   nix.settings = {
     auto-optimise-store = true;
     extra-experimental-features = [ "flakes" "nix-command" "ca-derivations" ];

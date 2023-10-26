@@ -43,7 +43,7 @@
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          {
+          rec {
             system.configurationRevision = self.rev;
 
             # pin nixpkgs to system nixpkgs for determinism
@@ -51,8 +51,11 @@
 
             # thanks to
             # https://discourse.nixos.org/t/24093/8
-            nix.nixPath = [ "/etc/nix/path" ]; # For legacy commands
-            environment.etc."nix/path/nixpkgs".source = nixpkgs;
+            nix.nixPath = [ "/etc/nix-path" ]; # For legacy commands
+
+            # https://github.com/NixOS/nix/issues/8890#issuecomment-1703988345
+            nix.settings.nix-path = nix.nixPath;
+            environment.etc."nix-path/nixpkgs".source = nixpkgs;
 
             # thanks to
             # https://discourse.nixos.org/t/32003/3
