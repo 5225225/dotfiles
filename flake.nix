@@ -20,6 +20,12 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.darwin.follows = "";
+      inputs.home-manager.follows = "home-manager";
+    };
   };
 
   outputs =
@@ -31,6 +37,7 @@
     , git-prompt
     , flake-registry
     , nix-index-database
+    , agenix
     ,
     }: {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
@@ -52,9 +59,12 @@
             nix.settings.flake-registry = "${flake-registry}/flake-registry.json";
 
             programs.command-not-found.enable = false;
+
+            environment.systemPackages = [ agenix.packages.x86_64-linux.default ];
           }
           system/configuration.nix
           nix-index-database.nixosModules.nix-index
+          agenix.nixosModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
