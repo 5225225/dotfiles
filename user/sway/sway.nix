@@ -9,6 +9,7 @@ let
   };
   trans_bg = "#000000B0";
   trans_bg_focused = "#333333B0";
+  blank_timeout = 60 * 10; # 10 minutes
 in
 {
   wayland.windowManager.sway = {
@@ -125,5 +126,20 @@ in
         "XF86Calculator" = "exec mpv-open-clipboard";
       };
     };
+  };
+
+  services.swayidle = {
+    enable = true;
+    timeouts = [
+      { 
+        timeout = blank_timeout;
+        command = "${pkgs.sway}/bin/swaymsg \"output * power off\"";
+        resumeCommand = "${pkgs.sway}/bin/swaymsg \"output * power on\"";
+      }
+      { 
+        timeout = blank_timeout;
+        command = "${pkgs.mpc-cli}/bin/mpc pause";
+      }
+    ];
   };
 }
