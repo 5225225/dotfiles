@@ -14,6 +14,21 @@ in
 {
   wayland.windowManager.sway = {
     enable = true;
+    extraConfig = ''
+      assign [app_id="firefox"] workspace number 1
+      assign [app_id="thunderbird"] workspace number 11
+      assign [app_id="org.telegram.desktop"] workspace number 12
+      assign [app_id="SchildiChat"] workspace number 13
+      assign [instance="steamwebhelper"] workspace number 14
+
+      exec firefox
+      exec thunderbird
+      exec telegram-desktop
+      exec schildichat-desktop
+      exec steam
+
+      workspace 1
+    '';
     config = {
       fonts = font;
       input = { "*" = { xkb_layout = "gb"; }; };
