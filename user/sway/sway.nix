@@ -146,12 +146,12 @@ in
   services.swayidle = {
     enable = true;
     timeouts = [
-      { 
+      {
         timeout = blank_timeout;
         command = "${pkgs.sway}/bin/swaymsg \"output * power off\"";
         resumeCommand = "${pkgs.sway}/bin/swaymsg \"output * power on\"";
       }
-      { 
+      {
         timeout = blank_timeout;
         command = "${pkgs.mpc-cli}/bin/mpc pause";
       }
