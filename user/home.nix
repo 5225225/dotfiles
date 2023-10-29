@@ -11,6 +11,7 @@
     ./scripts/wcwd.nix
     ./scripts/mpv-open-clipboard.nix
     ./scripts/dmenu_mpd/default.nix
+    ./scripts/rofi_swayws/rofi_swayws.nix
     ./i3blocks/i3blocks.nix
     ./xonotic/xonotic.nix
     ./mpv/mpv.nix
