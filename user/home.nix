@@ -80,6 +80,7 @@
     schildichat-desktop-wayland
     sgtpuzzles
     shattered-pixel-dungeon
+    soulseekqt
     stow
     tamzen
     telegram-desktop

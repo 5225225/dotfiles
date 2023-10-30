@@ -89,6 +89,7 @@
       "steam"
       "steam-original"
       "steam-run"
+      "soulseekqt"
     ];
 
   nixpkgs.config.permittedInsecurePackages = [
