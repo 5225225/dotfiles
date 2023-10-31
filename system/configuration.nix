@@ -79,6 +79,8 @@
   nix.settings = {
     auto-optimise-store = true;
     extra-experimental-features = [ "flakes" "nix-command" "ca-derivations" ];
+    max-jobs = 1;
+    cores = 6;
   };
 
   # Allow unfree packages
