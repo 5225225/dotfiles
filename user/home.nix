@@ -15,6 +15,7 @@
     ./i3blocks/i3blocks.nix
     ./xonotic/xonotic.nix
     ./mpv/mpv.nix
+    ./hledger
     nix-colors.homeManagerModules.default
     nix-index-database.hmModules.nix-index
   ];
