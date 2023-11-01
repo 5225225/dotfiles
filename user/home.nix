@@ -214,7 +214,6 @@
     vimAlias = true;
     plugins = with pkgs.vimPlugins; [
       rust-vim
-      papercolor-theme
       vim-wayland-clipboard
       vim-nix
       (pkgs.vimUtils.buildVimPlugin {
@@ -235,14 +234,6 @@
       set smarttab
 
       set number
-
-      let g:PaperColor_Theme_Options = {
-      \   'theme': {
-      \     'default': {
-      \       'transparent_background': 1
-      \     }
-      \   }
-      \ } 
 
       set termguicolors
       let base16_background_transparent=1
@@ -284,20 +275,6 @@
       set foldnestmax=1
 
       let g:netrw_dirhistmax=0
-
-      let g:rustfmt_autosave = 0
-      let g:racer_experimental_completer = 1
-
-      let g:rust_cargo_check_all_features = 1
-      let g:rust_cargo_check_examples = 1
-      let g:rust_cargo_check_tests = 1
-      let g:rust_cargo_check_benches = 1
-
-      let g:table_mode_corner='|'
-
-      let g:pandoc#syntax#conceal#use=0
-      let g:pandoc#syntax#codeblocks#embeds#langs = [
-          \ ]
 
       let &t_SI = "\<esc>[6 q"
       let &t_SR = "\<esc>[4 q"
