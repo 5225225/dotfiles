@@ -216,6 +216,7 @@
       rust-vim
       vim-wayland-clipboard
       vim-nix
+      vim-ledger
       (pkgs.vimUtils.buildVimPlugin {
         name = "base16-vim";
         src = base16-vim;
