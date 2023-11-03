@@ -1,9 +1,9 @@
-{ pkgs, config, ... }: {
+{ nixpkgs-unstable, config, ... }: {
   programs.mpv = {
     enable = true;
-    scripts = with pkgs.mpvScripts; [
+    scripts = with nixpkgs-unstable.legacyPackages.x86_64-linux.mpvScripts; [
       autodeint
-      youtube-quality
+      quality-menu
       sponsorblock
       uosc
       thumbfast
