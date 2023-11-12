@@ -1,4 +1,4 @@
-{ config, pkgs, nix-colors, lib, base16-vim, nix-index-database, ... }:
+{ config, pkgs, nix-colors, lib, base16-vim, nix-index-database, nixpkgs-unstable, ... }:
 
 {
   imports = [
@@ -84,7 +84,7 @@
     soulseekqt
     stow
     tamzen
-    telegram-desktop
+    nixpkgs-unstable.legacyPackages.x86_64-linux.telegram-desktop
     terminus_font
     thunderbird
     tor-browser-bundle-bin
