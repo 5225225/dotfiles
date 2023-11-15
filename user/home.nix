@@ -150,6 +150,8 @@
           type  "pulse"
           name  "My Pulse Output"
         }
+
+        replaygain "auto"
       '';
     };
   };
