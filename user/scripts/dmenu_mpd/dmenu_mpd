@@ -86,8 +86,8 @@ def getpangoplist():
 def playindex(x):
     subprocess.call(["mpc", "play", str(x)])
 
-def search(searchstr):
-    return subprocess.check_output(["mpc", "search", "any", searchstr]).decode("UTF8").strip().split("\n")
+def search():
+    return subprocess.check_output(["mpc", "listall"]).decode("UTF8").strip().split("\n")
 
 def playingindex():
     try:
@@ -95,8 +95,10 @@ def playingindex():
     except ValueError:
         return 0
 
-def dmenu(choices=[], prompt="", multi=False, args=[]):
+def dmenu(choices=[], prompt="", multi=False, args=None):
     cmd = DMENU
+    if args is None:
+        args = []
 
     cmd += " -p '{}'".format(prompt)
 
@@ -157,9 +159,7 @@ while True:
         subprocess.call(["mpc", "clear"])
 
     elif artist == "== Search ==":
-        search_query = dmenu()
-
-        songs = dmenu(search(search_query), multi=True)
+        songs = dmenu(search(), multi=True)
         print(songs)
         insertsongs(songs)
         mpc_play()
