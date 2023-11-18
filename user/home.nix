@@ -16,6 +16,7 @@
     ./xonotic/xonotic.nix
     ./mpv/mpv.nix
     ./hledger
+    ./obs
     nix-colors.homeManagerModules.default
     nix-index-database.hmModules.nix-index
   ];
