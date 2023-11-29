@@ -109,7 +109,7 @@
     #  wget
   ];
 
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk
     tamsyn
@@ -153,6 +153,7 @@
   system.nixos.label = builtins.substring 0 10 config.system.configurationRevision + "-" + config.system.nixos.version;
 
   xdg.portal.enable = true;
+  xdg.portal.config.common.default = "wlr";
 
   xdg.portal.wlr = {
     enable = true;

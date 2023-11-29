@@ -2,7 +2,7 @@
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
-    enableSyntaxHighlighting = true;
+    syntaxHighlighting.enable = true;
     dotDir = ".config/zsh";
     shellAliases = {
       ls = "exa --group-directories-first --git --extended";

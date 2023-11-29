@@ -1,7 +1,7 @@
-{ nixpkgs-unstable, config, ... }: {
+{ pkgs, config, ... }: {
   programs.mpv = {
     enable = true;
-    scripts = with nixpkgs-unstable.legacyPackages.x86_64-linux.mpvScripts; [
+    scripts = with pkgs.mpvScripts; [
       autodeint
       quality-menu
       sponsorblock

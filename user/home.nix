@@ -1,4 +1,4 @@
-{ config, pkgs, nix-colors, lib, base16-vim, nix-index-database, nixpkgs-unstable, ... }:
+{ config, pkgs, nix-colors, lib, base16-vim, nix-index-database, ... }:
 
 {
   imports = [
@@ -52,7 +52,7 @@
     binwalk
     blender
     dfc
-    exa
+    eza
     fd
     file
     firefox
@@ -80,12 +80,12 @@
     ripgrep
     rxvt-unicode
     schildichat-desktop-wayland
-    sgtpuzzles
+    sgt-puzzles
     shattered-pixel-dungeon
     soulseekqt
     stow
     tamzen
-    nixpkgs-unstable.legacyPackages.x86_64-linux.telegram-desktop
+    telegram-desktop
     terminus_font
     thunderbird
     tor-browser-bundle-bin
