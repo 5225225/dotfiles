@@ -3,13 +3,12 @@
     enable = true;
     settings = {
       main = {
-        font = "Tamzen:size=14";
+        font = "Tamzen:size=12";
         bold-text-in-bright = "palette-based";
         pad = "4x4";
       };
       key-bindings = {
         show-urls-launch = "Control+u";
-        show-urls-copy = "Control+Shift+u";
       };
       colors = {
         alpha = 0.85;
