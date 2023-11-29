@@ -1,16 +1,7 @@
 { pkgs, ... }: {
   programs.beets = {
     enable = true;
-    package = pkgs.beets-unstable.override {
-      pluginOverrides = {
-        alternatives = {
-          enable = true;
-          propagatedBuildInputs = [ pkgs.beetsPackages.alternatives ];
-        };
-        # We need to include the existing pluginOverrides here
-        limit = { builtin = true; };
-      };
-    };
+    package = pkgs.beets-unstable;
     settings = {
       directory = "~/media/music";
       library = "~/media/music/library.blb";
@@ -23,7 +14,6 @@
       };
       match.strong_rec_thresh = 1.0e-2;
       plugins = [
-        "alternatives"
         "badfiles"
         "convert"
         "duplicates"
@@ -45,12 +35,6 @@
         "scrub"
         "types"
       ];
-      alternatives.phone = {
-
-        directory = "/home/jess/media/syncthing/music";
-        formats = "opus";
-        query = "on_phone:true";
-      };
       embedart.auto = false;
       replaygain = {
         auto = true;
@@ -73,14 +57,12 @@
       convert = {
         never_convert_lossy_files = false;
         format = "opus";
-        dest = "~/media/syncthing/music";
-        threads = "1";
-        quiet = true;
+        dest = "/home/jess/media/syncthing/music";
         copy_album_art = true;
+        album_art_maxwidth = 750;
         embed = true;
         formats = {
           opus = "ffmpeg -i $source -y -vn -acodec libopus -ab 64k $dest";
-          ogg = "ffmpeg -i $source -y -vn -acodec libvorbis -aq 2 $dest";
         };
       };
       types.on_phone = "bool";
