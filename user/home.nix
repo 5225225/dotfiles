@@ -52,6 +52,7 @@
     binwalk
     blender
     dfc
+    element-desktop-wayland
     eza
     fd
     file
