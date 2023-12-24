@@ -80,7 +80,6 @@
     python3
     ripgrep
     rxvt-unicode
-    schildichat-desktop-wayland
     sgt-puzzles
     shattered-pixel-dungeon
     soulseekqt
