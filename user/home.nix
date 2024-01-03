@@ -63,6 +63,7 @@
     git
     htop
     imhex
+    jq
     keepassxc
     libnotify
     libqalculate
@@ -83,6 +84,7 @@
     sgt-puzzles
     shattered-pixel-dungeon
     soulseekqt
+    starsector
     stow
     tamzen
     telegram-desktop
@@ -93,6 +95,7 @@
     whois
     wl-clipboard
     xdg-utils
+    yt-dlp
     zola
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.

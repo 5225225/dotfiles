@@ -90,10 +90,10 @@
       "steam-original"
       "steam-run"
       "soulseekqt"
+      "starsector"
     ];
 
   nixpkgs.config.permittedInsecurePackages = [
-    "electron-24.8.6" # needed by schildichat
   ];
 
   # List packages installed in system profile. To search, run:
