@@ -51,7 +51,6 @@
     atool
     binwalk
     blender
-    chromium
     dfc
     element-desktop-wayland
     eza
