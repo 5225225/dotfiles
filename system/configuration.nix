@@ -91,6 +91,7 @@
       "steam-run"
       "soulseekqt"
       "starsector"
+      "unrar"
     ];
 
   nixpkgs.config.permittedInsecurePackages = [

@@ -51,10 +51,12 @@
     atool
     binwalk
     blender
+    chromium
     dfc
     element-desktop-wayland
     eza
     fd
+    ffmpeg
     file
     firefox
     freerdp
@@ -91,6 +93,7 @@
     terminus_font
     thunderbird
     tor-browser-bundle-bin
+    unrar
     unzip
     whois
     wl-clipboard
