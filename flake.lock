@@ -110,6 +110,22 @@
         "type": "github"
       }
     },
+    "idris2-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1693927785,
+        "narHash": "sha256-guEmds98XEBKuJVdB+rQB01G+RmnQaG+RTjM6smccAI=",
+        "owner": "ShinKage",
+        "repo": "idris2-nvim",
+        "rev": "8bff02984a33264437e70fd9fff4359679d910da",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ShinKage",
+        "repo": "idris2-nvim",
+        "type": "github"
+      }
+    },
     "nix-colors": {
       "inputs": {
         "base16-schemes": "base16-schemes",
@@ -187,6 +203,7 @@
         "flake-registry": "flake-registry",
         "git-prompt": "git-prompt",
         "home-manager": "home-manager",
+        "idris2-nvim": "idris2-nvim",
         "nix-colors": "nix-colors",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs"

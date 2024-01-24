@@ -1,4 +1,4 @@
-{ config, pkgs, nix-colors, lib, base16-vim, nix-index-database, ... }:
+{ config, pkgs, nix-colors, lib, base16-vim, nix-index-database, idris2-nvim, ... }:
 
 {
   imports = [
@@ -226,11 +226,20 @@
       vim-wayland-clipboard
       vim-nix
       vim-ledger
+      nvim-lspconfig
+      nui-nvim
       (pkgs.vimUtils.buildVimPlugin {
         name = "base16-vim";
         src = base16-vim;
       })
+      (pkgs.vimUtils.buildVimPlugin {
+        name = "idris2-nvim";
+        src = idris2-nvim;
+      })
     ];
+    extraLuaConfig = ''
+      require('idris2').setup({})
+    '';
     extraConfig = ''
       set nobackup
       set noswapfile

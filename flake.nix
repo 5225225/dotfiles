@@ -26,6 +26,10 @@
       inputs.darwin.follows = "";
       inputs.home-manager.follows = "home-manager";
     };
+    idris2-nvim = {
+      url = "github:ShinKage/idris2-nvim";
+      flake = false;
+    };
   };
 
   outputs =
@@ -38,6 +42,7 @@
     , flake-registry
     , nix-index-database
     , agenix
+    , idris2-nvim
     ,
     }: {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
@@ -79,6 +84,7 @@
               inherit base16-vim;
               inherit git-prompt;
               inherit nix-index-database;
+              inherit idris2-nvim;
             };
           }
         ];
