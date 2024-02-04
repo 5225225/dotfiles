@@ -4,7 +4,7 @@
     package = pkgs.beets-unstable;
     settings = {
       directory = "~/media/music";
-      library = "~/media/music/library.blb";
+      library = "~/media/.beets_library.blb";
       import = {
         write = true;
         copy = true;
