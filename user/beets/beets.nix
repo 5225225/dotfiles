@@ -27,6 +27,7 @@
         "inline"
         "limit"
         "lyrics"
+        "mbsubmit"
         "mbsync"
         "missing"
         "permissions"
