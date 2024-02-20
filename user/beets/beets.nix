@@ -10,7 +10,6 @@
         copy = true;
         languages = "en";
         timid = false;
-        log = "~/media/music/beets-import.log";
       };
       match.strong_rec_thresh = 1.0e-2;
       plugins = [
