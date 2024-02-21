@@ -41,6 +41,7 @@
         backend = "gstreamer";
         overwrite = true;
       };
+      badfiles.check_on_import = true;
       badfiles.commands = {
         ogg = "${pkgs.opusTools}/bin/opusinfo -q";
         opus = "${pkgs.opusTools}/bin/opusinfo -q";
