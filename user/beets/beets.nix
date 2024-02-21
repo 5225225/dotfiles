@@ -24,6 +24,7 @@
         "fuzzy"
         "info"
         "inline"
+        "lastimport"
         "limit"
         "lyrics"
         "mbsubmit"
@@ -35,6 +36,7 @@
         "scrub"
         "types"
       ];
+      lastfm.user = "lfm5225225";
       embedart.auto = false;
       replaygain = {
         auto = true;
