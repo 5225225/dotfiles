@@ -72,24 +72,6 @@
           opus = "ffmpeg -i $source -y -vn -acodec libopus -ab 64k $dest";
         };
       };
-      rewrite = {
-        "albumartist Cavetown \\+ Simi" = "Cavetown";
-        "albumartist Cavetown \\+ chloe moriondo" = "Cavetown";
-
-        "albumartist Chumbawamba / A State of Mind" = "Chumbawamba";
-        "albumartist Chumbawamba / Passion Killers" = "Chumbawamba";
-        "albumartist Chumbawamba meets DiY" = "Chumbawamba";
-
-        "albumartist Darius \\+ Rotteen" = "Darius";
-        "albumartist Halley Hard Sound Unit 𓃚 𝕮𝖆𝖒𝖇𝖎𝖚𝖒, 𝕏𝕪𝕝𝕖𝕞, 🙴 𝓗𝓮𝓪𝓻𝓽𝔀𝓸𝓸𝓭" = "Halley Hard Sound Unit";
-        "albumartist Hideaki Kobayashi & Daisuke Nomura" = "Hideaki Kobayashi";
-
-        "albumartist Imagine Dragons featuring Kendrick Lamar" = "Imagine Dragons";
-        "albumartist In Love With a Ghost feat\\. Snail’s House" = "In Love With a Ghost";
-        "albumartist Jackal Queenston & NegaRen" = "Jackal Queenston";
-        "albumartist JPEGMAFIA & Freaky" = "JPEGMAFIA";
-        "albumartist Laura Les / 99jakes / Black Dresses" = "Laura Les";
-      };
       types.on_phone = "bool";
       edit.itemfields =
         [ "track" "title" "artist" "album" "year" "month" "day" ];
