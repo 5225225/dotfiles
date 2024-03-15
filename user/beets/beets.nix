@@ -5,6 +5,7 @@
     settings = {
       directory = "~/media/music";
       library = "~/media/.beets_library.blb";
+      artist_credit = true;
       import = {
         write = true;
         copy = true;
