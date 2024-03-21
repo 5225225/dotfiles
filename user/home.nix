@@ -51,6 +51,7 @@
     atool
     binwalk
     blender
+    chromium
     dfc
     element-desktop-wayland
     eza
@@ -58,6 +59,7 @@
     ffmpeg
     file
     firefox
+    flac
     freerdp
     ghidra
     gimp
@@ -72,6 +74,7 @@
     man-pages
     man-pages-posix
     mindustry
+    moreutils
     mpc-cli
     mpdscribble
     ncdu
