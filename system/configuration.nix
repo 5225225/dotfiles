@@ -18,6 +18,10 @@
   boot.kernelParams = [ "iommu=soft" "rcu_nocbs=0-15" ];
 
   networking.hostName = "nixos"; # Define your hostname.
+
+  networking.firewall = {
+    allowedTCPPorts = [ 51712 51713 ]; # soulseek
+  };
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
