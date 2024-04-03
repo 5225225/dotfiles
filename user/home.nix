@@ -2,21 +2,22 @@
 
 {
   imports = [
-    ./zsh/zsh.nix
     ./beets/beets.nix
-    ./git/git.nix
-    ./sway/sway.nix
     ./direnv.nix
     ./foot.nix
-    ./scripts/wcwd.nix
-    ./scripts/mpv-open-clipboard.nix
-    ./scripts/dmenu_mpd/default.nix
-    ./scripts/rofi_swayws/rofi_swayws.nix
-    ./i3blocks/i3blocks.nix
-    ./xonotic/xonotic.nix
-    ./mpv/mpv.nix
+    ./git/git.nix
     ./hledger
+    ./i3blocks/i3blocks.nix
+    ./listenbrainz-mpd.nix
+    ./mpv/mpv.nix
     ./obs
+    ./scripts/dmenu_mpd/default.nix
+    ./scripts/mpv-open-clipboard.nix
+    ./scripts/rofi_swayws/rofi_swayws.nix
+    ./scripts/wcwd.nix
+    ./sway/sway.nix
+    ./xonotic/xonotic.nix
+    ./zsh/zsh.nix
     nix-colors.homeManagerModules.default
     nix-index-database.hmModules.nix-index
   ];
