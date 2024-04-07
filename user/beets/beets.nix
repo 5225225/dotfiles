@@ -66,8 +66,8 @@
         format = "opus";
         dest = "/home/jess/media/syncthing/music";
         copy_album_art = true;
-        album_art_maxwidth = 750;
-        embed = true;
+        album_art_maxwidth = 1000;
+        embed = false;
         formats = {
           opus = "ffmpeg -i $source -y -vn -acodec libopus -ab 64k $dest";
         };
