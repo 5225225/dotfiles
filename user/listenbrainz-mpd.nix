@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       submission = {
-        token_file = "${config.xdg.configHome}/listenbrainz-mpd/token";
+        token_file = config.age.secrets.listenbrainz-mpd-token.path;
       };
     };
   };

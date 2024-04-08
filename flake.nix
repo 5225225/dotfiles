@@ -85,6 +85,7 @@
               inherit git-prompt;
               inherit nix-index-database;
               inherit idris2-nvim;
+              inherit agenix;
             };
           }
         ];

@@ -1,4 +1,4 @@
-{ config, pkgs, nix-colors, lib, base16-vim, nix-index-database, idris2-nvim, ... }:
+{ config, pkgs, nix-colors, lib, base16-vim, nix-index-database, idris2-nvim, agenix, ... }:
 
 {
   imports = [
@@ -18,8 +18,10 @@
     ./sway/sway.nix
     ./xonotic/xonotic.nix
     ./zsh/zsh.nix
+    ./agenix.nix
     nix-colors.homeManagerModules.default
     nix-index-database.hmModules.nix-index
+    agenix.homeManagerModules.age
   ];
 
   colorScheme = nix-colors.colorSchemes.tube;
