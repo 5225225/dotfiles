@@ -23,5 +23,10 @@
     compression = "auto,zstd,22";
     startAt = []; # TODO: make this start automatically 
     # (but no point doing that now, i want to monitor it for now)
+    extraCreateArgs = [
+      "--one-file-system"
+      "--exclude-caches"
+      "--stats"
+    ];
   };
 }
