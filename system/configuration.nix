@@ -8,8 +8,10 @@
 }: {
   imports = [
     ./earlyoom.nix
+    ./borgbackup.nix
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./agenix.nix
   ];
 
   # Bootloader.
