@@ -21,8 +21,7 @@
       BORG_RSH = "ssh -i ${config.age.secrets.borg-ssh-key.path}";
     };
     compression = "auto,zstd,22";
-    startAt = []; # TODO: make this start automatically 
-    # (but no point doing that now, i want to monitor it for now)
+    startAt = ["3:00"];
     extraCreateArgs = "--one-file-system --exclude-caches --stats";
   };
 }
