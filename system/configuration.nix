@@ -173,8 +173,8 @@
   # Be sure to LD_PRELOAD it :)
   nixpkgs.overlays = [
     (final: prev: {
-      steam = prev.steam.override ({ extraLibraries ? pkgs': [], ... }: {
-        extraLibraries = pkgs': (extraLibraries pkgs') ++ ( [
+      steam = prev.steam.override ({ extraLibraries ? pkgs': [ ], ... }: {
+        extraLibraries = pkgs': (extraLibraries pkgs') ++ ([
           pkgs'.gperftools
         ]);
       });

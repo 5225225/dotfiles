@@ -1,4 +1,4 @@
-{ config, ...}:
+{ config, ... }:
 {
   services.borgbackup.jobs.root = {
     paths = "/";
@@ -21,7 +21,7 @@
       BORG_RSH = "ssh -i ${config.age.secrets.borg-ssh-key.path}";
     };
     compression = "auto,zstd,22";
-    startAt = ["3:00"];
+    startAt = [ "3:00" ];
     extraCreateArgs = "--one-file-system --exclude-caches --stats";
   };
 }
