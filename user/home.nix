@@ -151,6 +151,7 @@
 
         max_output_buffer_size "32768"
         max_command_list_size "8192"
+        auto_update "yes"
       '';
     };
   };
