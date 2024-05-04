@@ -19,6 +19,7 @@
     ./xonotic/xonotic.nix
     ./zsh/zsh.nix
     ./agenix.nix
+    ./waybar
     nix-colors.homeManagerModules.default
     nix-index-database.hmModules.nix-index
     agenix.homeManagerModules.age
