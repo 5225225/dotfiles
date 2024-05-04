@@ -33,48 +33,7 @@ in
       fonts = font;
       input = { "*" = { xkb_layout = "gb"; }; };
       output = { "*" = { bg = "${../data/wallpaper.png} fill"; }; };
-      bars = [{
-        fonts = font;
-        mode = "dock";
-        hiddenState = "hide";
-        position = "bottom";
-        statusCommand = "${pkgs.i3status}/bin/i3status";
-        workspaceButtons = true;
-        workspaceNumbers = true;
-        trayOutput = "*";
-        trayPadding = 2;
-        extraConfig = ''icon_theme "Adwaita"'';
-        colors = {
-          background = trans_bg;
-          statusline = "#ffffff";
-          separator = "#666666";
-          focusedWorkspace = {
-            background = trans_bg_focused;
-            border = trans_bg_focused;
-            text = "#ffffff";
-          };
-          activeWorkspace = {
-            background = trans_bg;
-            border = trans_bg;
-            text = "#ffffff";
-          };
-          inactiveWorkspace = {
-            background = trans_bg;
-            border = trans_bg;
-            text = "#888888";
-          };
-          urgentWorkspace = {
-            background = trans_bg;
-            border = trans_bg;
-            text = "#ab4642";
-          };
-          bindingMode = {
-            background = trans_bg;
-            border = trans_bg;
-            text = "#ab4642";
-          };
-        };
-      }];
+      bars = [];
       window = {
         titlebar = false;
         hideEdgeBorders = "both";
