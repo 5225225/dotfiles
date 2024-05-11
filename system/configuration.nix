@@ -86,6 +86,8 @@
     auto-optimise-store = true;
     extra-experimental-features = [ "flakes" "nix-command" "ca-derivations" ];
   };
+  nix.daemonCPUSchedPolicy = "idle";
+  nix.daemonIOSchedClass = "idle";
 
   # Allow unfree packages
   nixpkgs.config.allowUnfreePredicate = pkg:
