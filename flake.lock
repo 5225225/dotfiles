@@ -206,7 +206,8 @@
         "idris2-nvim": "idris2-nvim",
         "nix-colors": "nix-colors",
         "nix-index-database": "nix-index-database",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "vim-capnp": "vim-capnp"
       }
     },
     "systems": {
@@ -221,6 +222,22 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "vim-capnp": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1552585600,
+        "narHash": "sha256-6tAI62lOtUusdVq1Gu8rLBuwxmFJ6NrioK0F7Fbs3Ao=",
+        "owner": "cstrahan",
+        "repo": "vim-capnp",
+        "rev": "954202e2c6c1cb9185082de8ddb7f2823a9d1206",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cstrahan",
+        "repo": "vim-capnp",
         "type": "github"
       }
     }

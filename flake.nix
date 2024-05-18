@@ -12,6 +12,10 @@
       url = "github:woefe/git-prompt.zsh";
       flake = false;
     };
+    vim-capnp = {
+      url = "github:cstrahan/vim-capnp";
+      flake = false;
+    };
     flake-registry = {
       url = "github:nixos/flake-registry";
       flake = false;
@@ -39,6 +43,7 @@
     , nix-colors
     , base16-vim
     , git-prompt
+    , vim-capnp
     , flake-registry
     , nix-index-database
     , agenix
@@ -83,6 +88,7 @@
               inherit nix-colors;
               inherit base16-vim;
               inherit git-prompt;
+              inherit vim-capnp;
               inherit nix-index-database;
               inherit idris2-nvim;
               inherit agenix;

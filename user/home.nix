@@ -1,4 +1,4 @@
-{ config, pkgs, nix-colors, lib, base16-vim, nix-index-database, idris2-nvim, agenix, ... }:
+{ config, pkgs, nix-colors, lib, base16-vim, nix-index-database, idris2-nvim, agenix, vim-capnp, ... }:
 
 {
   imports = [
@@ -223,6 +223,10 @@
       vim-ledger
       nvim-lspconfig
       nui-nvim
+      (pkgs.vimUtils.buildVimPlugin {
+        name = "vim-capnp";
+        src = vim-capnp;
+      })
       (pkgs.vimUtils.buildVimPlugin {
         name = "base16-vim";
         src = base16-vim;
