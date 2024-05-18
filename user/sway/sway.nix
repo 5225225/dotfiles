@@ -33,7 +33,7 @@ in
       fonts = font;
       input = { "*" = { xkb_layout = "gb"; }; };
       output = { "*" = { bg = "${../data/wallpaper.png} fill"; }; };
-      bars = [];
+      bars = [ ];
       window = {
         titlebar = false;
         hideEdgeBorders = "both";
