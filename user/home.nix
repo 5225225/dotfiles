@@ -89,7 +89,6 @@
     pv
     python3
     ripgrep
-    rxvt-unicode
     sgt-puzzles
     shattered-pixel-dungeon
     starsector
