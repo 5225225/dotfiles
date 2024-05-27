@@ -2,6 +2,7 @@
     "Relaxed Running" "connect 88.198.227.103:26000"
     "Hardcore Parkour" "connect 88.198.227.103:26020"
     "Respect The Grind" "connect 88.198.227.103:26045"
+    "Hardcore Parkour 2" "connect 88.198.227.103:26050"
 "Connect"
 
 "settings"
