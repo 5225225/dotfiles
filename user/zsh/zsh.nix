@@ -1,7 +1,7 @@
 { pkgs, config, git-prompt, ... }: {
   programs.zsh = {
     enable = true;
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     dotDir = ".config/zsh";
     shellAliases = {

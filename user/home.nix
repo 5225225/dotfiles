@@ -83,7 +83,6 @@
     mpdscribble
     ncdu
     nicotine-plus
-    nixfmt
     pavucontrol
     prismlauncher
     pv
