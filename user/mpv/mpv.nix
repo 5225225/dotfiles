@@ -3,10 +3,11 @@
     enable = true;
     scripts = with pkgs.mpvScripts; [
       autodeint
+      memo
       quality-menu
       sponsorblock
-      uosc
       thumbfast
+      uosc
     ];
     config = {
       cache = "auto";
