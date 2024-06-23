@@ -1,9 +1,18 @@
 #!/usr/bin/env bash
+set -e
 
-OLD=$(git rev-parse $1)
-NEW=$(git rev-parse $2)
+OLD=$(git rev-parse "$1")
+NEW=$(git rev-parse "$2")
 
-nix build "git+file:///home/jess/dotfiles?rev=$OLD#nixosConfigurations.nixos.config.system.build.toplevel" --out-link old --quiet
-nix build "git+file:///home/jess/dotfiles?rev=$NEW#nixosConfigurations.nixos.config.system.build.toplevel" --out-link new --quiet
+OUT_DIR=$(mktemp -d)
+OLD_LINK="$OUT_DIR/old"
+NEW_LINK="$OUT_DIR/new"
 
-nix store diff-closures ./old ./new && rm old new
+trap 'rm --force $OLD_LINK $NEW_LINK && rmdir $OUT_DIR' EXIT
+
+toplevel="nixosConfigurations.nixos.config.system.build.toplevel"
+
+nix build "./?rev=$OLD#$toplevel" --out-link "$OLD_LINK" --quiet
+nix build "./?rev=$NEW#$toplevel" --out-link "$NEW_LINK" --quiet
+
+nix store diff-closures "$OLD_LINK" "$NEW_LINK"
