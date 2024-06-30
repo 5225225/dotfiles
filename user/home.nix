@@ -221,6 +221,7 @@
       vim-ledger
       nvim-lspconfig
       nui-nvim
+      vim-glsl
       (pkgs.vimUtils.buildVimPlugin {
         name = "vim-capnp";
         src = vim-capnp;
