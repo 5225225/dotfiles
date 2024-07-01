@@ -70,6 +70,7 @@
     git
     htop
     imhex
+    imv
     jq
     keepassxc
     libnotify
