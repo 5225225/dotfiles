@@ -20,6 +20,7 @@
     ./zsh/zsh.nix
     ./agenix.nix
     ./waybar
+    ./rofi
     nix-colors.homeManagerModules.default
     nix-index-database.hmModules.nix-index
     agenix.homeManagerModules.age
@@ -201,14 +202,6 @@
       main_window_color = "blue";
       lyrics_directory = "${config.xdg.stateHome}/lyrics";
     };
-  };
-
-  programs.rofi = {
-    package = pkgs.rofi-wayland;
-    enable = true;
-    font = "Tamzen 14";
-    theme = data/rofi/theme.rasi;
-    plugins = [ pkgs.rofi-calc pkgs.rofi-emoji ];
   };
 
   programs.neovim = {
