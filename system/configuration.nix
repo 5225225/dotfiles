@@ -13,6 +13,7 @@
     ./hardware-configuration.nix
     ./agenix.nix
     ./virtualbox.nix
+    ./syncthing.nix
   ];
 
   # Bootloader.
@@ -50,13 +51,6 @@
     LC_PAPER = "en_GB.UTF-8";
     LC_TELEPHONE = "en_GB.UTF-8";
     LC_TIME = "en_GB.UTF-8";
-  };
-
-  services.syncthing = {
-    enable = true;
-    user = "jess";
-    dataDir = "/home/jess/media/syncthing";
-    configDir = "/home/jess/.config/syncthing";
   };
 
   programs.zsh.enable = true;
