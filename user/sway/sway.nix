@@ -63,7 +63,7 @@ in
         "${mod}+Shift+equal" =
           "exec --no-startup-id ${pkgs.mpc-cli}/bin/mpc volume +10";
         "${mod}+Shift+numbersign" = "exec --no-startup-id dmenu_mpd";
-        "${mod}+Return" = ''exec ${pkgs.foot}/bin/foot -D "$(wcwd)"'';
+        "${mod}+Return" = ''exec ${pkgs.foot}/bin/footclient -D "$(wcwd)"'';
 
         "Print" =
           "exec ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - - | ${pkgs.wl-clipboard}/bin/wl-copy --type image/png";
