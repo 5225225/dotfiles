@@ -7,11 +7,11 @@
 , ...
 }: {
   imports = [
-    ./earlyoom.nix
-    ./borgbackup.nix
-    # Include the results of the hardware scan.
-    ./hardware-configuration.nix
     ./agenix.nix
+    ./borgbackup.nix
+    ./dnscrypt.nix
+    ./earlyoom.nix
+    ./hardware-configuration.nix
     ./syncthing.nix
   ];
 
@@ -33,6 +33,8 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.networkmanager.dns = "none";
+  networking.nameservers = [ "127.0.0.1" ];
 
   # Set your time zone.
   time.timeZone = "Europe/London";
