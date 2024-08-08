@@ -2,8 +2,10 @@
 
 {
   imports = [
+    ./agenix.nix
     ./beets/beets.nix
     ./direnv.nix
+    ./firefox
     ./foot.nix
     ./git/git.nix
     ./hledger
@@ -11,16 +13,15 @@
     ./listenbrainz-mpd.nix
     ./mpv/mpv.nix
     ./obs
+    ./rofi
     ./scripts/dmenu_mpd/default.nix
     ./scripts/mpv-open-clipboard.nix
     ./scripts/rofi_swayws/rofi_swayws.nix
     ./scripts/wcwd.nix
     ./sway/sway.nix
+    ./waybar
     ./xonotic/xonotic.nix
     ./zsh/zsh.nix
-    ./agenix.nix
-    ./waybar
-    ./rofi
     nix-colors.homeManagerModules.default
     nix-index-database.hmModules.nix-index
     agenix.homeManagerModules.age
@@ -63,7 +64,6 @@
     fd
     ffmpeg
     file
-    firefox
     flac
     freerdp
     ghidra

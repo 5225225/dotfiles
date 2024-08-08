@@ -1,0 +1,11 @@
+#main-window #TabsToolbar {
+  visibility: initial;
+}
+
+#main-window #TabsToolbar {
+  visibility: collapse !important;
+}
+
+#main-window #tabbrowser-tabs {
+  z-index: 0 !important;
+}
