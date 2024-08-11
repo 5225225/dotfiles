@@ -62,7 +62,7 @@
     element-desktop-wayland
     eza
     fd
-    ffmpeg
+    ffmpeg-full
     file
     flac
     freerdp
@@ -70,12 +70,14 @@
     gimp
     git
     htop
+    imagemagick
     imhex
     imv
     jq
     keepassxc
     libnotify
     libqalculate
+    libreoffice-fresh
     maim
     man-pages
     man-pages-posix
@@ -85,7 +87,9 @@
     mpdscribble
     ncdu
     nicotine-plus
+    openrct2
     pavucontrol
+    pngcrush
     prismlauncher
     pv
     python3
@@ -105,6 +109,7 @@
     wl-clipboard
     xdg-utils
     yt-dlp
+    zip
     zola
   ];
 
