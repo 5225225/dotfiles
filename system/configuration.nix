@@ -165,17 +165,4 @@
   xdg.portal.wlr = {
     enable = true;
   };
-
-  # Provide an unfucked libtcmalloc_minimal for TF2
-  # https://github.com/ValveSoftware/Source-1-Games/issues/5043#issuecomment-1822019817
-  # Be sure to LD_PRELOAD it :)
-  nixpkgs.overlays = [
-    (final: prev: {
-      steam = prev.steam.override ({ extraLibraries ? pkgs': [ ], ... }: {
-        extraLibraries = pkgs': (extraLibraries pkgs') ++ ([
-          pkgs'.gperftools
-        ]);
-      });
-    })
-  ];
 }
