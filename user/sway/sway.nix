@@ -20,6 +20,7 @@ in
       assign [app_id="org.telegram.desktop"] workspace number 12
       assign [app_id="Element"] workspace number 13
       assign [instance="steamwebhelper"] workspace number 14
+      for_window [app_id="quicknote-editor-floating"] floating enable
 
       exec firefox
       exec thunderbird
@@ -64,6 +65,7 @@ in
           "exec --no-startup-id ${pkgs.mpc-cli}/bin/mpc volume +10";
         "${mod}+Shift+numbersign" = "exec --no-startup-id dmenu_mpd";
         "${mod}+Return" = ''exec ${pkgs.foot}/bin/footclient -D "$(wcwd)"'';
+        "${mod}+Shift+n" = "exec quicknote";
 
         "Print" =
           "exec ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - - | ${pkgs.wl-clipboard}/bin/wl-copy --type image/png";

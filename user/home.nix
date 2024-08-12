@@ -18,6 +18,7 @@
     ./scripts/mpv-open-clipboard.nix
     ./scripts/rofi_swayws/rofi_swayws.nix
     ./scripts/wcwd.nix
+    ./scripts/quicknote.nix
     ./sway/sway.nix
     ./waybar
     ./xonotic/xonotic.nix
