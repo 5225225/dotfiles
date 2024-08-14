@@ -16,25 +16,31 @@
   ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelParams = [ "iommu=soft" "rcu_nocbs=0-15" ];
-
-  networking.hostName = "nixos"; # Define your hostname.
-
-  networking.firewall = {
-    allowedTCPPorts = [ 51712 51713 ]; # soulseek
+  boot = {
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+    kernelParams = [ "iommu=soft" "rcu_nocbs=0-15" ];
   };
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  networking = {
+    hostName = "nixos"; # Define your hostname.
 
-  # Enable networking
-  networking.networkmanager.enable = true;
-  networking.networkmanager.dns = "none";
-  networking.nameservers = [ "127.0.0.1" ];
+    firewall = {
+      allowedTCPPorts = [ 51712 51713 ]; # soulseek
+    };
+    # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
+    # Configure network proxy if necessary
+    # networking.proxy.default = "http://user:password@proxy:port/";
+    # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+
+    # Enable networking
+    networkmanager.enable = true;
+    networkmanager.dns = "none";
+    nameservers = [ "127.0.0.1" ];
+  };
+
+
 
   # Set your time zone.
   time.timeZone = "Europe/London";
@@ -54,12 +60,10 @@
     LC_TIME = "en_GB.UTF-8";
   };
 
-  programs.zsh.enable = true;
-
-  programs.dconf.enable = true;
-
-  programs.steam = {
-    enable = true;
+  programs = {
+    zsh.enable = true;
+    dconf.enable = true;
+    steam.enable = true;
   };
 
   # Configure console keymap
@@ -77,13 +81,16 @@
     packages = with pkgs; [ ];
   };
 
-  nix.channel.enable = false;
-  nix.settings = {
-    auto-optimise-store = true;
-    extra-experimental-features = [ "flakes" "nix-command" "ca-derivations" ];
+  nix = {
+    channel.enable = false;
+
+    settings = {
+      auto-optimise-store = true;
+      extra-experimental-features = [ "flakes" "nix-command" "ca-derivations" ];
+    };
+    daemonCPUSchedPolicy = "idle";
+    daemonIOSchedClass = "idle";
   };
-  nix.daemonCPUSchedPolicy = "idle";
-  nix.daemonIOSchedClass = "idle";
 
   # Allow unfree packages
   nixpkgs.config.allowUnfreePredicate = pkg:
@@ -159,10 +166,12 @@
 
   system.nixos.label = builtins.substring 0 10 config.system.configurationRevision + "-" + config.system.nixos.version;
 
-  xdg.portal.enable = true;
-  xdg.portal.config.common.default = "wlr";
-
-  xdg.portal.wlr = {
+  xdg.portal = {
     enable = true;
+    config.common.default = "wlr";
+
+    wlr = {
+      enable = true;
+    };
   };
 }

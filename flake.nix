@@ -26,9 +26,11 @@
     };
     agenix = {
       url = "github:ryantm/agenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.darwin.follows = "";
-      inputs.home-manager.follows = "home-manager";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        darwin.follows = "";
+        home-manager.follows = "home-manager";
+      };
     };
     idris2-nvim = {
       url = "github:ShinKage/idris2-nvim";
@@ -80,9 +82,11 @@
           agenix.nixosModules.default
           home-manager.nixosModules.home-manager
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.jess = import user/home.nix;
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.jess = import user/home.nix;
+            };
 
             home-manager.extraSpecialArgs = {
               inherit nix-colors;

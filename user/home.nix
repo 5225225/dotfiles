@@ -30,18 +30,20 @@
 
   colorScheme = nix-colors.colorSchemes.tube;
 
-  home.sessionVariables = {
-    LESSHISTFILE = "/dev/null";
-    CARGO_HOME = "${config.xdg.dataHome}/cargo/";
-    DOTNET_CLI_TELEMETRY_OPTOUT = "1";
-    PYTHONPYCACHEPREFIX = "${config.xdg.cacheHome}/python";
-    PYTHONUSERBASE = "${config.xdg.dataHome}/python";
-  };
+  home = {
+    sessionVariables = {
+      LESSHISTFILE = "/dev/null";
+      CARGO_HOME = "${config.xdg.dataHome}/cargo/";
+      DOTNET_CLI_TELEMETRY_OPTOUT = "1";
+      PYTHONPYCACHEPREFIX = "${config.xdg.cacheHome}/python";
+      PYTHONUSERBASE = "${config.xdg.dataHome}/python";
+    };
 
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
-  home.username = "jess";
-  home.homeDirectory = "/home/jess";
+    # Home Manager needs a bit of information about you and the paths it should
+    # manage.
+    username = "jess";
+    homeDirectory = "/home/jess";
+  };
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -163,140 +165,142 @@
     };
   };
 
-  programs.ncmpcpp = {
-    enable = true;
-    bindings = [
-      {
-        key = "l";
-        command = "next_column";
-      }
-      {
-        key = "h";
-        command = "previous_column";
-      }
-      {
-        key = "j";
-        command = "scroll_down";
-      }
-      {
-        key = "k";
-        command = "scroll_up";
-      }
-      {
-        key = "l";
-        command = "show_lyrics";
-      }
-    ];
+  programs = {
+    ncmpcpp = {
+      enable = true;
+      bindings = [
+        {
+          key = "l";
+          command = "next_column";
+        }
+        {
+          key = "h";
+          command = "previous_column";
+        }
+        {
+          key = "j";
+          command = "scroll_down";
+        }
+        {
+          key = "k";
+          command = "scroll_up";
+        }
+        {
+          key = "l";
+          command = "show_lyrics";
+        }
+      ];
 
-    settings = {
-      song_list_format = "{%a - }{%t}|{$8%f$9}$R{$3(%l)$9}";
-      song_status_format = ''{{%a{ "%b"{ (%y)}} - }{%t}}|{%f}'';
-      song_library_format = "{%n - }{%t}|{%f}";
-      current_item_prefix = "$(cyan)$r";
-      current_item_suffix = "$/r$(end)";
-      current_item_inactive_column_prefix = "$b";
-      current_item_inactive_column_suffix = "$/b$(end)";
-      song_columns_list_format =
-        "(20)[green]{a} (50)[red]{t|f:Title} (20)[cyan]{b} (7f)[magenta]{l}";
-      playlist_show_remaining_time = "yes";
-      playlist_separate_albums = "yes";
-      show_duplicate_tags = "no";
-      progressbar_look = "-* ";
-      user_interface = "alternative";
-      media_library_primary_tag = "album_artist";
-      tags_separator = " | ";
-      main_window_color = "blue";
-      lyrics_directory = "${config.xdg.stateHome}/lyrics";
+      settings = {
+        song_list_format = "{%a - }{%t}|{$8%f$9}$R{$3(%l)$9}";
+        song_status_format = ''{{%a{ "%b"{ (%y)}} - }{%t}}|{%f}'';
+        song_library_format = "{%n - }{%t}|{%f}";
+        current_item_prefix = "$(cyan)$r";
+        current_item_suffix = "$/r$(end)";
+        current_item_inactive_column_prefix = "$b";
+        current_item_inactive_column_suffix = "$/b$(end)";
+        song_columns_list_format =
+          "(20)[green]{a} (50)[red]{t|f:Title} (20)[cyan]{b} (7f)[magenta]{l}";
+        playlist_show_remaining_time = "yes";
+        playlist_separate_albums = "yes";
+        show_duplicate_tags = "no";
+        progressbar_look = "-* ";
+        user_interface = "alternative";
+        media_library_primary_tag = "album_artist";
+        tags_separator = " | ";
+        main_window_color = "blue";
+        lyrics_directory = "${config.xdg.stateHome}/lyrics";
+      };
     };
-  };
 
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    vimAlias = true;
-    plugins = with pkgs.vimPlugins; [
-      rust-vim
-      vim-wayland-clipboard
-      vim-nix
-      vim-ledger
-      nvim-lspconfig
-      nui-nvim
-      vim-glsl
-      (pkgs.vimUtils.buildVimPlugin {
-        name = "vim-capnp";
-        src = vim-capnp;
-      })
-      (pkgs.vimUtils.buildVimPlugin {
-        name = "base16-vim";
-        src = base16-vim;
-      })
-      (pkgs.vimUtils.buildVimPlugin {
-        name = "idris2-nvim";
-        src = idris2-nvim;
-      })
-    ];
-    extraLuaConfig = ''
-      require('idris2').setup({})
-    '';
-    extraConfig = ''
-      set nobackup
-      set noswapfile
-      filetype plugin indent off
-      set mouse=
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+      vimAlias = true;
+      plugins = with pkgs.vimPlugins; [
+        rust-vim
+        vim-wayland-clipboard
+        vim-nix
+        vim-ledger
+        nvim-lspconfig
+        nui-nvim
+        vim-glsl
+        (pkgs.vimUtils.buildVimPlugin {
+          name = "vim-capnp";
+          src = vim-capnp;
+        })
+        (pkgs.vimUtils.buildVimPlugin {
+          name = "base16-vim";
+          src = base16-vim;
+        })
+        (pkgs.vimUtils.buildVimPlugin {
+          name = "idris2-nvim";
+          src = idris2-nvim;
+        })
+      ];
+      extraLuaConfig = ''
+        require('idris2').setup({})
+      '';
+      extraConfig = ''
+        set nobackup
+        set noswapfile
+        filetype plugin indent off
+        set mouse=
 
-      set expandtab
-      set shiftwidth=4
-      set softtabstop=4
-      set autoindent
-      set smarttab
+        set expandtab
+        set shiftwidth=4
+        set softtabstop=4
+        set autoindent
+        set smarttab
 
-      set number
+        set number
 
-      set termguicolors
-      let base16_background_transparent=1
-      set background=dark
-      colorscheme base16-tube
+        set termguicolors
+        let base16_background_transparent=1
+        set background=dark
+        colorscheme base16-tube
 
-      filetype plugin on
-      syntax on
+        filetype plugin on
+        syntax on
 
-      set tw=99
+        set tw=99
 
-      set modeline
-      set modelines=5
+        set modeline
+        set modelines=5
 
-      set backspace=indent,eol,start
+        set backspace=indent,eol,start
 
-      set incsearch
-      set autoread
+        set incsearch
+        set autoread
 
-      set laststatus=2
+        set laststatus=2
 
-      set smartcase
+        set smartcase
 
-      set spell
-      set wrapscan
+        set spell
+        set wrapscan
 
-      set clipboard^=unnamed
+        set clipboard^=unnamed
 
-      set ttimeout
-      set ttimeoutlen=50
+        set ttimeout
+        set ttimeoutlen=50
 
-      set ruler
-      set showcmd
-      set wildmenu
+        set ruler
+        set showcmd
+        set wildmenu
 
-      set gdefault
+        set gdefault
 
-      set foldmethod=syntax
-      set foldnestmax=1
+        set foldmethod=syntax
+        set foldnestmax=1
 
-      let g:netrw_dirhistmax=0
+        let g:netrw_dirhistmax=0
 
-      let &t_SI = "\<esc>[6 q"
-      let &t_SR = "\<esc>[4 q"
-      let &t_EI = "\<esc>[2 q"
-    '';
+        let &t_SI = "\<esc>[6 q"
+        let &t_SR = "\<esc>[4 q"
+        let &t_EI = "\<esc>[2 q"
+      '';
+    };
   };
 
   fonts.fontconfig.enable = true;
