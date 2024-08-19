@@ -62,17 +62,20 @@
     blender
     chromium
     dfc
+    dogdns
     element-desktop-wayland
     eza
     fd
     ffmpeg-full
     file
     flac
+    fossil
     freerdp
     ghidra
     gimp
     git
     htop
+    hyperfine
     imagemagick
     imhex
     imv
@@ -108,6 +111,8 @@
     tor-browser-bundle-bin
     unrar
     unzip
+    vdrift
+    wget
     whois
     wl-clipboard
     xdg-utils
