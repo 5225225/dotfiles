@@ -102,6 +102,7 @@
     ripgrep
     sgt-puzzles
     shattered-pixel-dungeon
+    signal-desktop
     starsector
     stow
     tamzen
