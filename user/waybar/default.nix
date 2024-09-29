@@ -59,19 +59,17 @@
         modules-left = [ "sway/workspaces" "sway/mode" ];
         modules-right = [ "mpd" "cpu" "memory" "clock" "tray" ];
         mpd = {
-          format = "<span
-    foreground='#a1b56c'>{artist}</span> <span foreground='#ac4142'>{title}</span> <span
-    foreground='#6a9fb5'>{album}</span>";
+          format = "<span foreground='#a1b56c'>{artist}</span> <span foreground='#ac4142'>{title}</span> <span foreground='#6a9fb5'>{album}</span>";
           format-disconnected = "";
-          format-paused = "<span
-    foreground='#4f5935'>{artist}</span> <span foreground='#542020'>{title}</span> <span
-    foreground='#344e59'>{album}</span>";
+          format-paused = "<span foreground='#4f5935'>{artist}</span> <span foreground='#542020'>{title}</span> <span foreground='#344e59'>{album}</span>";
           format-stopped = "";
           interval = 5;
-          tooltip-format = "MPD
-    (connected)";
+          tooltip-format = "MPD (connected)";
           tooltip-format-disconnected = "MPD (disconnected)";
           unknown-tag = "N/A";
+          artist-len = 50;
+          album-len = 50;
+          title-len = 50;
         };
         position = "bottom";
         spacing = 4;
