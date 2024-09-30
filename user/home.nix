@@ -62,6 +62,7 @@
     blender
     chromium
     dfc
+    dino
     dogdns
     element-desktop-wayland
     eza
