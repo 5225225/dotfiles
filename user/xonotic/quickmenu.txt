@@ -8,12 +8,12 @@
 "settings"
     "Cap FPS" "toggle cl_maxfps 200 400"
     "Ambient"
-        "+10" "rpn /r_ambient r_ambient 10 + = ; infobar 0.5 r_ambient:$r_ambient ; defer 0 \"quickmenu \\\"\\\" Ambient\""
-        "-10" "rpn /r_ambient r_ambient 10 - = ; infobar 0.5 r_ambient:$r_ambient ; defer 0 \"quickmenu \\\"\\\" Ambient\""
+        "+5" "rpn /r_ambient r_ambient 5 + = ; infobar 0.5 r_ambient:$r_ambient" KEEP_OPEN
+        "-5" "rpn /r_ambient r_ambient 5 - = ; infobar 0.5 r_ambient:$r_ambient" KEEP_OPEN
     "Ambient"
     "Name"
-        "trans happy" "name ^x0bf5^xf892^xfff2^xeee▮^xddd▮^xccc▮^xbbb▮^xaaa:^x999h^x888a^x777p^x666p^x555y^x444"
-        "enby"        "name ^xff35^xfff2^x95d2^x444▮^x333▮^x222▮^x111▮^8:happy"
+        "trans" "name ^x0bf5^xf892^xfff2^xeee▮^xddd▮^xccc▮^xbbb▮^xaaa:^x999h^x888a^x777p^x666p^x555y^x444 [^x324i^x97bt^8/^x5a5i^x274t^x242s^8]"
+        "enby"        "name ^xff35^xfff2^x95d2^x444▮^x333▮^x222▮^x111▮^8:happy [^x324i^x97bt^8/^x5a5i^x274t^x242s^8]"
     "Name"
 "settings"
 
