@@ -58,6 +58,7 @@
   # environment.
   home.packages = with pkgs; [
     atool
+    audacity
     binwalk
     blender
     chromium
