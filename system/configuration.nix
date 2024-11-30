@@ -95,12 +95,8 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
-      "mpv-youtube-quality"
-      "mpv-thumbfast"
       "steam"
-      "steam-original"
-      "steam-run"
-      "soulseekqt"
+      "steam-unwrapped"
       "starsector"
       "unrar"
     ];
@@ -113,7 +109,7 @@
   environment.shells = with pkgs; [ zsh ];
 
   environment.systemPackages = with pkgs; [
-    gnome.adwaita-icon-theme
+    adwaita-icon-theme
     vimHugeX
     man-pages
     man-pages-posix
@@ -123,7 +119,7 @@
 
   fonts.packages = with pkgs; [
     noto-fonts
-    noto-fonts-cjk
+    noto-fonts-cjk-sans
     noto-fonts-extra
     noto-fonts-color-emoji
     tamsyn
