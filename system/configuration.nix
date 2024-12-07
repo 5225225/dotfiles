@@ -123,6 +123,7 @@
     noto-fonts-extra
     noto-fonts-color-emoji
     tamsyn
+    ocr-a
   ];
 
   security.rtkit.enable = true;
