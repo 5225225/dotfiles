@@ -63,6 +63,7 @@
     blender
     chromium
     dfc
+    diffoscope
     dino
     dogdns
     element-desktop-wayland
@@ -86,6 +87,8 @@
     libnotify
     libqalculate
     libreoffice-fresh
+    libwebp
+    links2
     maim
     man-pages
     man-pages-posix
@@ -105,8 +108,10 @@
     sgt-puzzles
     shattered-pixel-dungeon
     signal-desktop
+    sqlite
     starsector
     stow
+    stress
     tamzen
     telegram-desktop
     terminus_font
