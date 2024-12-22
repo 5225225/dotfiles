@@ -269,7 +269,7 @@
         set number
 
         set termguicolors
-        let base16_background_transparent=1
+        let tinted_background_transparent=1
         set background=dark
         colorscheme base16-tube
 
