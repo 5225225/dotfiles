@@ -66,7 +66,7 @@
     diffoscope
     dino
     dogdns
-    element-desktop-wayland
+    element-desktop
     eza
     fd
     ffmpeg-full
