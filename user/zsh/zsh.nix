@@ -3,11 +3,11 @@
     enable = true;
     autosuggestion = {
       enable = true;
-      strategy = ["completion"];
+      strategy = [ "completion" ];
     };
     syntaxHighlighting = {
       enable = true;
-      highlighters = ["main" "pattern" "brackets" "root"];
+      highlighters = [ "main" "pattern" "brackets" "root" ];
     };
     dotDir = ".config/zsh";
     shellAliases = {
