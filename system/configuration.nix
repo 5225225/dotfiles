@@ -20,6 +20,7 @@
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
     kernelParams = [ "iommu=soft" "rcu_nocbs=0-15" ];
+    initrd.systemd.enable = true;
   };
 
   networking = {
