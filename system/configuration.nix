@@ -9,7 +9,6 @@
   imports = [
     ./agenix.nix
     ./borgbackup.nix
-    ./dnscrypt.nix
     ./earlyoom.nix
     ./hardware-configuration.nix
     ./syncthing.nix
@@ -38,8 +37,22 @@
 
     # Enable networking
     networkmanager.enable = true;
-    networkmanager.dns = "none";
-    nameservers = [ "127.0.0.1" ];
+    networkmanager.dns = "systemd-resolved";
+  };
+
+  networking.nameservers = [
+    "1.1.1.1"
+    "1.0.0.1"
+  ];
+
+  services.resolved = {
+    enable = true;
+    dnssec = "true";
+    fallbackDns = [
+      "1.1.1.1"
+      "1.0.0.1"
+    ];
+    dnsovertls = "true";
   };
 
 
