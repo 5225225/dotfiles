@@ -18,6 +18,7 @@
   # Bootloader.
   boot = {
     loader.systemd-boot.enable = true;
+    loader.systemd-boot.netbootxyz.enable = true;
     loader.efi.canTouchEfiVariables = true;
     kernelParams = [ "iommu=soft" "rcu_nocbs=0-15" ];
     initrd.systemd.enable = true;
