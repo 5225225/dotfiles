@@ -189,4 +189,6 @@
       enable = true;
     };
   };
+
+  environment.etc."nixos/flake.nix".source = "/home/jess/dotfiles/flake.nix";
 }
