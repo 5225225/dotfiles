@@ -30,6 +30,8 @@
 
   colorScheme = nix-colors.colorSchemes.tube;
 
+  xdg.enable = true;
+
   home = {
     sessionVariables = {
       LESSHISTFILE = "/dev/null";
