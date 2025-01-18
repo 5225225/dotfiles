@@ -102,6 +102,7 @@
     settings = {
       auto-optimise-store = true;
       extra-experimental-features = [ "flakes" "nix-command" "ca-derivations" ];
+      use-xdg-base-directories = true;
     };
     daemonCPUSchedPolicy = "idle";
     daemonIOSchedClass = "idle";

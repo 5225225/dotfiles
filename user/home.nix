@@ -39,6 +39,11 @@
       DOTNET_CLI_TELEMETRY_OPTOUT = "1";
       PYTHONPYCACHEPREFIX = "${config.xdg.cacheHome}/python";
       PYTHONUSERBASE = "${config.xdg.dataHome}/python";
+      GRADLE_USER_HOME = "${config.xdg.dataHome}/gradle";
+      GNUPGHOME="${config.xdg.dataHome}/gnupg";
+      KANI_HOME="${config.xdg.dataHome}/kani";
+      MINETEST_USER_PATH="${config.xdg.dataHome}/minetest";
+      RUSTUP_HOME="${config.xdg.dataHome}/rustup";
     };
 
     # Home Manager needs a bit of information about you and the paths it should
@@ -46,6 +51,9 @@
     username = "jess";
     homeDirectory = "/home/jess";
   };
+
+  programs.bash.historyFile = "${config.xdg.stateHome}/bash/history";
+
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -337,6 +345,7 @@
 
   gtk = {
     enable = true;
+    gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
     theme.package = pkgs.nordic;
     theme.name = "Nordic";
   };
