@@ -10,7 +10,6 @@
     ./foot.nix
     ./git/git.nix
     ./hledger
-    ./i3blocks/i3blocks.nix
     ./listenbrainz-mpd.nix
     ./mpv/mpv.nix
     ./obs
