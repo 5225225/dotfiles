@@ -6,6 +6,7 @@
     ./beets/beets.nix
     ./direnv.nix
     ./firefox
+    ./fish
     ./foot.nix
     ./git/git.nix
     ./hledger
@@ -16,9 +17,9 @@
     ./rofi
     ./scripts/dmenu_mpd/default.nix
     ./scripts/mpv-open-clipboard.nix
+    ./scripts/quicknote.nix
     ./scripts/rofi_swayws/rofi_swayws.nix
     ./scripts/wcwd.nix
-    ./scripts/quicknote.nix
     ./sway/sway.nix
     ./waybar
     ./xonotic/xonotic.nix
