@@ -1,4 +1,6 @@
-{
+{ config, ...}:
+let p = config.colorScheme.palette;
+in {
   programs.foot = {
     enable = true;
     server.enable = true;
@@ -14,30 +16,30 @@
       colors = {
         alpha = 0.85;
         background = "000000";
-        foreground = "d9d8d8";
-        regular0 = "231f20";
-        bright0 = "737171";
+        foreground = "${p.base05}";
+        regular0 = "${p.base00}";
+        bright0 = "${p.base03}";
 
-        regular1 = "ee2e24";
-        bright1 = "ee2e24";
+        regular1 = "${p.base08}";
+        bright1 = "${p.base08}";
 
-        regular2 = "00853e";
-        bright2 = "00853e";
+        regular2 = "${p.base0B}";
+        bright2 = "${p.base0B}";
 
-        regular3 = "ffd204";
-        bright3 = "ffd204";
+        regular3 = "${p.base0A}";
+        bright3 = "${p.base0A}";
 
-        regular4 = "009ddc";
-        bright4 = "009ddc";
+        regular4 = "${p.base0D}";
+        bright4 = "${p.base0D}";
 
-        regular5 = "98005d";
-        bright5 = "98005d";
+        regular5 = "${p.base0E}";
+        bright5 = "${p.base0E}";
 
-        regular6 = "85cebc";
-        bright6 = "85cebc";
+        regular6 = "${p.base0C}";
+        bright6 = "${p.base0C}";
 
-        regular7 = "d9d8d8";
-        bright7 = "ffffff";
+        regular7 = "${p.base05}";
+        bright7 = "${p.base07}";
       };
     };
   };
