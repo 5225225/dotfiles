@@ -7,8 +7,6 @@ let
     style = "Regular";
     size = 12.0;
   };
-  trans_bg = "#000000B0";
-  trans_bg_focused = "#333333B0";
   blank_timeout = 60 * 10; # 10 minutes
 in
 {
