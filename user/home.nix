@@ -40,10 +40,10 @@
       PYTHONPYCACHEPREFIX = "${config.xdg.cacheHome}/python";
       PYTHONUSERBASE = "${config.xdg.dataHome}/python";
       GRADLE_USER_HOME = "${config.xdg.dataHome}/gradle";
-      GNUPGHOME="${config.xdg.dataHome}/gnupg";
-      KANI_HOME="${config.xdg.dataHome}/kani";
-      MINETEST_USER_PATH="${config.xdg.dataHome}/minetest";
-      RUSTUP_HOME="${config.xdg.dataHome}/rustup";
+      GNUPGHOME = "${config.xdg.dataHome}/gnupg";
+      KANI_HOME = "${config.xdg.dataHome}/kani";
+      MINETEST_USER_PATH = "${config.xdg.dataHome}/minetest";
+      RUSTUP_HOME = "${config.xdg.dataHome}/rustup";
     };
 
     # Home Manager needs a bit of information about you and the paths it should
