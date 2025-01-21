@@ -348,8 +348,8 @@
     gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
     theme.package = pkgs.nordic;
     theme.name = "Nordic";
-    cursorTheme.package = pkgs.nordic;
-    cursorTheme.name = "Nordic-cursors";
+    cursorTheme.package = pkgs.adwaita-icon-theme;
+    cursorTheme.name = "Adwaita";
   };
 
   systemd.user.startServices = "sd-switch";
