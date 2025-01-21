@@ -356,4 +356,9 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  manual = {
+    html.enable = true;
+    manpages.enable = true;
+  };
 }
