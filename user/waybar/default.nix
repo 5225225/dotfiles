@@ -1,4 +1,6 @@
-{
+{ config, ...}:
+let p = config.colorScheme.palette;
+in {
   programs.waybar = {
     enable = true;
     style = ./style.css;
@@ -28,7 +30,7 @@
         };
         cpu = {
           format = "";
-          format-high = "<span color='#ab4642'>{usage}% CPU</span>";
+          format-high = "<span color='#${p.base08}'>{usage}% CPU</span>";
           states = {
             high = 75;
           };
@@ -50,7 +52,7 @@
         memory =
           {
             format = "";
-            format-visible = "<span color='#ab4642'>{percentage}% MEM</span>";
+            format-visible = "<span color='#${p.base08}'>{percentage}% MEM</span>";
             states = {
               visible = 75;
             };
@@ -59,9 +61,10 @@
         modules-left = [ "sway/workspaces" "sway/mode" ];
         modules-right = [ "mpd" "cpu" "memory" "clock" "tray" ];
         mpd = {
-          format = "<span foreground='#a1b56c'>{artist}</span> <span foreground='#ac4142'>{title}</span> <span foreground='#6a9fb5'>{album}</span>";
+          format = "<span foreground='#${p.base0B}'>{artist}</span> <span foreground='#${p.base08}'>{title}</span> <span foreground='#${p.base0D}'>{album}</span>";
+          format-paused = "<span foreground='#${p.base0B}70'>{artist}</span> <span foreground='#${p.base08}70'>{title}</span> <span foreground='#${p.base0D}70'>{album}</span>";
+
           format-disconnected = "";
-          format-paused = "<span foreground='#4f5935'>{artist}</span> <span foreground='#542020'>{title}</span> <span foreground='#344e59'>{album}</span>";
           format-stopped = "";
           interval = 5;
           tooltip-format = "MPD (connected)";
