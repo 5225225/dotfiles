@@ -1,4 +1,4 @@
-{ config, ...}:
+{ config, ... }:
 let p = config.colorScheme.palette;
 in {
   programs.waybar = {
