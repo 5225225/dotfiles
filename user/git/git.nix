@@ -10,7 +10,7 @@ let
   lg3 = "${lg3s} --all";
   lg = lg1;
 in
-{ pkgs, ... }: {
+{ config, pkgs, ... }: {
   programs.git = {
     enable = true;
     extraConfig = {
@@ -27,7 +27,7 @@ in
         ssh = { allowedSignersFile = "${./allowed_signers}"; };
       };
       user = {
-        signingkey = "/home/jess/.ssh/id_ed25519.pub";
+        signingkey = "${config.home.homeDirectory}/.ssh/id_ed25519.pub";
         email = "5225225@mailbox.org";
         name = "5225225";
       };

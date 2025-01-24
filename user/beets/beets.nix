@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ config, pkgs, ... }: {
   programs.beets = {
     enable = true;
     package = pkgs.beets-unstable;
@@ -64,7 +64,7 @@
       convert = {
         never_convert_lossy_files = false;
         format = "opus";
-        dest = "/home/jess/media/syncthing/music";
+        dest = "${config.home.homeDirectory}/media/syncthing/music";
         copy_album_art = true;
         album_art_maxwidth = 1000;
         embed = false;
