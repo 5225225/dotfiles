@@ -74,6 +74,7 @@
   };
 
   programs = {
+    fish.enable = true;
     dconf.enable = true;
     steam.enable = true;
   };
