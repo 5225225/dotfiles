@@ -31,6 +31,23 @@
 
   xdg.enable = true;
 
+  xdg.mimeApps = {
+    enable = true;
+    associations.added = {
+      "x-scheme-handler/tg" = ["org.telegram.desktop.desktop" "userapp-Telegram Desktop-5YQVL2.desktop"];
+      "x-scheme-handler/tonsite" = "org.telegram.desktop.desktop";
+    };
+    defaultApplications = {
+      "x-scheme-handler/tg" = "userapp-Telegram Desktop-5YQVL2.desktop";
+      "x-scheme-handler/https" = "firefox.desktop";
+      "x-scheme-handler/http" = "firefox.desktop";
+      "application/pdf" = "firefox.desktop";
+      "text/html" = "firefox.desktop";
+      "x-scheme-handler/discord-378612438200877056" = "discord-378612438200877056.desktop";
+      "x-scheme-handler/tonsite" = "org.telegram.desktop.desktop";
+    };
+  };
+
   home = {
     sessionVariables = {
       LESSHISTFILE = "/dev/null";
