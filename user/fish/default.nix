@@ -34,6 +34,9 @@
       crr = "cargo run --release --quiet";
       gs = "git status";
     };
+    shellInit = ''
+      set --global fish_greeting
+    '';
   };
 
   programs.bash.enable = true;
