@@ -34,7 +34,7 @@
   xdg.mimeApps = {
     enable = true;
     associations.added = {
-      "x-scheme-handler/tg" = ["org.telegram.desktop.desktop" "userapp-Telegram Desktop-5YQVL2.desktop"];
+      "x-scheme-handler/tg" = [ "org.telegram.desktop.desktop" "userapp-Telegram Desktop-5YQVL2.desktop" ];
       "x-scheme-handler/tonsite" = "org.telegram.desktop.desktop";
     };
     defaultApplications = {

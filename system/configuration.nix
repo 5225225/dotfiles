@@ -126,7 +126,7 @@
   # In *theory* home-manager should help with this.. but it doesn't!
   # see https://github.com/nix-community/home-manager/issues/5119
   # and https://discourse.nixos.org/t/fish-shell-and-manual-page-completion-nixos-home-manager/15661/4
-  environment.pathsToLink = ["/share/fish"];
+  environment.pathsToLink = [ "/share/fish" ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
