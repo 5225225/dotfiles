@@ -111,7 +111,7 @@
 
       nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
         pkgs = import phone-nixpkgs { system = "aarch64-linux"; };
-        modules = [ ./nix-on-droid.nix ];
+        modules = [ ./phone/nix-on-droid.nix ];
       };
 
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
