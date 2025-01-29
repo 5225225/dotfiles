@@ -36,6 +36,13 @@
       url = "github:ShinKage/idris2-nvim";
       flake = false;
     };
+
+    phone-nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+
+    nix-on-droid = {
+      url = "github:nix-community/nix-on-droid/release-24.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -50,7 +57,8 @@
     , nix-index-database
     , agenix
     , idris2-nvim
-    ,
+    , phone-nixpkgs
+    , nix-on-droid
     }: {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -99,6 +107,11 @@
             };
           }
         ];
+      };
+
+      nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
+        pkgs = import phone-nixpkgs { system = "aarch64-linux"; };
+        modules = [ ./nix-on-droid.nix ];
       };
 
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
