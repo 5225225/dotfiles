@@ -10,6 +10,7 @@ set -g __fish_git_prompt_char_upstream_ahead "^"
 set -g __fish_git_prompt_char_upstream_behind "v"
 set -g __fish_git_prompt_char_stashstate '$'
 set -g __fish_git_prompt_char_stagedstate '+'
+set -g __fish_git_prompt_char_untrackedfiles '.'
 
 set -g __fish_git_prompt_color_branch --bold magenta
 set -g __fish_git_prompt_color_cleanstate --bold green
