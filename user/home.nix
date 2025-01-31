@@ -47,6 +47,7 @@
       "x-scheme-handler/http" = "firefox.desktop";
       "application/pdf" = "firefox.desktop";
       "text/html" = "firefox.desktop";
+      "text/xhtml" = "firefox.desktop";
       "x-scheme-handler/discord-378612438200877056" = "discord-378612438200877056.desktop";
       "x-scheme-handler/tonsite" = "org.telegram.desktop.desktop";
     };
