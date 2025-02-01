@@ -49,7 +49,7 @@
       inputs.nixpkgs.follows = "phone-nixpkgs";
       inputs.home-manager.follows = "phone-home-manager";
     };
-    
+
     phone-home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "phone-nixpkgs";

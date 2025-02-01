@@ -39,8 +39,8 @@
   nix.extraOptions = ''
     experimental-features = nix-command flakes
   '';
-  
-  home-manager.useGlobalPkgs = true;  
+
+  home-manager.useGlobalPkgs = true;
   home-manager.config = ./home.nix;
 
   # Set your time zone
