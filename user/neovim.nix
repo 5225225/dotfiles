@@ -3,11 +3,11 @@ let
   vp = pkgs.vimPlugins;
 in
 {
-  programs.neovim = {
+  programs.nixvim = {
     enable = true;
     defaultEditor = true;
     vimAlias = true;
-    plugins = [
+    extraPlugins = [
       vp.rust-vim
       vp.vim-wayland-clipboard
       vp.vim-nix
@@ -28,10 +28,10 @@ in
         src = idris2-nvim;
       })
     ];
-    extraLuaConfig = ''
+    extraConfigLua = ''
       require('idris2').setup({})
     '';
-    extraConfig = ''
+    extraConfigVim = ''
       set nobackup
       set noswapfile
       filetype plugin indent off

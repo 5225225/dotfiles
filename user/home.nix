@@ -1,5 +1,4 @@
-{ config, pkgs, nix-colors, lib, base16-vim, nix-index-database, idris2-nvim, agenix, vim-capnp, ... }:
-
+{ config, pkgs, nix-colors, lib, base16-vim, nix-index-database, idris2-nvim, agenix, vim-capnp, nixvim, ... }:
 {
   imports = [
     ./agenix.nix
@@ -29,6 +28,7 @@
     nix-colors.homeManagerModules.default
     nix-index-database.hmModules.nix-index
     agenix.homeManagerModules.age
+    nixvim.homeManagerModules.nixvim
   ];
 
   colorScheme = nix-colors.colorSchemes.tube;

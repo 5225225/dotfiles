@@ -36,6 +36,11 @@
       url = "github:ShinKage/idris2-nvim";
       flake = false;
     };
+    nixvim = {
+      url = "github:nix-community/nixvim/nixos-24.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
 
     phone-nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
 
@@ -66,6 +71,7 @@
     , phone-nixpkgs
     , nix-on-droid
     , phone-home-manager
+    , nixvim
     }: {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -96,6 +102,7 @@
               inherit nix-index-database;
               inherit idris2-nvim;
               inherit agenix;
+              inherit nixvim;
             };
           }
         ];
