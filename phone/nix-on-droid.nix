@@ -7,6 +7,7 @@
     vim # or some other editor, e.g. nano or neovim
 
     git
+    openssh
 
     # Some common stuff that people expect to have
     procps
@@ -38,6 +39,9 @@
   nix.extraOptions = ''
     experimental-features = nix-command flakes
   '';
+  
+  home-manager.useGlobalPkgs = true;  
+  home-manager.config = ./home.nix;
 
   # Set your time zone
   #time.timeZone = "Europe/Berlin";
