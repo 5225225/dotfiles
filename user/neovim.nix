@@ -9,6 +9,10 @@ in
     vimAlias = true;
     impureRtp = false;
     wrapRc = true;
+    performance = {
+      byteCompileLua.enable = true;
+      combinePlugins.enable = true;
+    };
     extraPlugins = [
       vp.rust-vim
       vp.vim-wayland-clipboard
