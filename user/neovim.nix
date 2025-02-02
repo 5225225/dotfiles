@@ -7,6 +7,8 @@ in
     enable = true;
     defaultEditor = true;
     vimAlias = true;
+    impureRtp = false;
+    wrapRc = true;
     extraPlugins = [
       vp.rust-vim
       vp.vim-wayland-clipboard
