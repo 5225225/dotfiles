@@ -91,7 +91,7 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.jess = import user/home.nix;
+              users.fivie = import user/home.nix;
             };
 
             home-manager.extraSpecialArgs = {

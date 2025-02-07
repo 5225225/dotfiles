@@ -1,9 +1,9 @@
 {
   services.syncthing = {
     enable = true;
-    user = "jess";
-    dataDir = "/home/jess/media/syncthing";
-    configDir = "/home/jess/.config/syncthing";
+    user = "fivie";
+    dataDir = "/home/fivie/media/syncthing";
+    configDir = "/home/fivie/.config/syncthing";
   };
 
   # https://docs.syncthing.net/users/firewall.html

@@ -69,8 +69,8 @@
 
     # Home Manager needs a bit of information about you and the paths it should
     # manage.
-    username = "jess";
-    homeDirectory = "/home/jess";
+    username = "fivie";
+    homeDirectory = "/home/fivie";
   };
 
   programs.bash.historyFile = "${config.xdg.stateHome}/bash/history";

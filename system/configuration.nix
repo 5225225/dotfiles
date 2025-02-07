@@ -83,9 +83,9 @@
   console.keyMap = "uk";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.jess = {
+  users.users.fivie = {
     isNormalUser = true;
-    description = "Jess";
+    description = "fivie";
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.bash;
     # yes, you can crack this
@@ -195,5 +195,6 @@
     };
   };
 
-  environment.etc."nixos/flake.nix".source = "/home/jess/dotfiles/flake.nix";
+  # TODO: re-enable this (it's not needed, just to remove the need for --flake .)
+  # environment.etc."nixos/flake.nix".source = "/home/jess/dotfiles/flake.nix";
 }
