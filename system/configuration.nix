@@ -92,6 +92,7 @@
     # no, i don't use it anywhere important, i do not care.
     initialHashedPassword = "$y$j9T$nLW2y6cB.3dWfnd/PXcMT0$7t4FTeq3t3hz1iVlfLtwrZTc.sWYhKqL1Gq.GyDWk5/";
     packages = with pkgs; [ ];
+    uid = 1000;
   };
 
   nix = {
