@@ -195,6 +195,5 @@
     };
   };
 
-  # TODO: re-enable this (it's not needed, just to remove the need for --flake .)
-  # environment.etc."nixos/flake.nix".source = "/home/jess/dotfiles/flake.nix";
+  environment.etc."nixos/flake.nix".source = "/home/fivie/dotfiles/flake.nix";
 }
