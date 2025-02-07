@@ -140,6 +140,7 @@
     shattered-pixel-dungeon
     signal-desktop
     sqlite
+    srb2kart
     starsector
     stow
     stress
