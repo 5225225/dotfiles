@@ -1,5 +1,4 @@
-{ config, ... }:
-{
+{config, ...}: {
   programs.ncmpcpp = {
     enable = true;
     bindings = [
@@ -33,8 +32,7 @@
       current_item_suffix = "$/r$(end)";
       current_item_inactive_column_prefix = "$b";
       current_item_inactive_column_suffix = "$/b$(end)";
-      song_columns_list_format =
-        "(20)[green]{a} (50)[red]{t|f:Title} (20)[blue]{b} (7f)[magenta]{l}";
+      song_columns_list_format = "(20)[green]{a} (50)[red]{t|f:Title} (20)[blue]{b} (7f)[magenta]{l}";
       playlist_show_remaining_time = "yes";
       playlist_separate_albums = "yes";
       show_duplicate_tags = "no";

@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   home.packages = [
     (pkgs.python3Packages.buildPythonApplication {
       pname = "dmenu_mpd";

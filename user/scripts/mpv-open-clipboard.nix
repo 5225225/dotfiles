@@ -1,7 +1,11 @@
-{ pkgs, config, ... }: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   home.packages = [
     (pkgs.writeShellApplication {
-      runtimeInputs = [ pkgs.wl-clipboard ];
+      runtimeInputs = [pkgs.wl-clipboard];
       name = "mpv-open-clipboard";
       text = ''
         url="$(wl-paste --primary)"

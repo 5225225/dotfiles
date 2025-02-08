@@ -56,63 +56,65 @@
     };
   };
 
-  outputs =
-    { self
-    , nixpkgs
-    , home-manager
-    , nix-colors
-    , base16-vim
-    , git-prompt
-    , vim-capnp
-    , flake-registry
-    , nix-index-database
-    , agenix
-    , idris2-nvim
-    , phone-nixpkgs
-    , nix-on-droid
-    , phone-home-manager
-    , nixvim
-    }: {
-      nixosConfigurations.iridium = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          rec {
-            system.configurationRevision = self.rev;
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    nix-colors,
+    base16-vim,
+    git-prompt,
+    vim-capnp,
+    flake-registry,
+    nix-index-database,
+    agenix,
+    idris2-nvim,
+    phone-nixpkgs,
+    nix-on-droid,
+    phone-home-manager,
+    nixvim,
+  }: {
+    nixosConfigurations.iridium = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        rec {
+          system.configurationRevision = self.rev;
 
-            programs.command-not-found.enable = false;
+          programs.command-not-found.enable = false;
 
-            environment.systemPackages = [ agenix.packages.x86_64-linux.default ];
-          }
-          system/configuration.nix
-          nix-index-database.nixosModules.nix-index
-          agenix.nixosModules.default
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.fivie = import user/home.nix;
-            };
+          environment.systemPackages = [agenix.packages.x86_64-linux.default];
+        }
+        system/configuration.nix
+        nix-index-database.nixosModules.nix-index
+        agenix.nixosModules.default
+        home-manager.nixosModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.fivie = import user/home.nix;
+          };
 
-            home-manager.extraSpecialArgs = {
-              inherit nix-colors;
-              inherit base16-vim;
-              inherit git-prompt;
-              inherit vim-capnp;
-              inherit nix-index-database;
-              inherit idris2-nvim;
-              inherit agenix;
-              inherit nixvim;
-            };
-          }
-        ];
-      };
-
-      nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
-        pkgs = import phone-nixpkgs { system = "aarch64-linux"; };
-        modules = [ ./phone/nix-on-droid.nix ];
-      };
-
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
+          home-manager.extraSpecialArgs = {
+            inherit nix-colors;
+            inherit base16-vim;
+            inherit git-prompt;
+            inherit vim-capnp;
+            inherit nix-index-database;
+            inherit idris2-nvim;
+            inherit agenix;
+            inherit nixvim;
+          };
+        }
+      ];
     };
+
+    nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
+      pkgs = import phone-nixpkgs {system = "aarch64-linux";};
+      modules = [./phone/nix-on-droid.nix];
+    };
+
+    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.writeShellScriptBin "formatter" ''
+      ${nixpkgs.legacyPackages.x86_64-linux.alejandra}/bin/alejandra --quiet "''${@-.}"
+    '';
+  };
 }

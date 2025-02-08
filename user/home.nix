@@ -1,5 +1,16 @@
-{ config, pkgs, nix-colors, lib, base16-vim, nix-index-database, idris2-nvim, agenix, vim-capnp, nixvim, ... }:
 {
+  config,
+  pkgs,
+  nix-colors,
+  lib,
+  base16-vim,
+  nix-index-database,
+  idris2-nvim,
+  agenix,
+  vim-capnp,
+  nixvim,
+  ...
+}: {
   imports = [
     ./agenix.nix
     ./beets/beets.nix
@@ -38,7 +49,7 @@
   xdg.mimeApps = {
     enable = true;
     associations.added = {
-      "x-scheme-handler/tg" = [ "org.telegram.desktop.desktop" "userapp-Telegram Desktop-5YQVL2.desktop" ];
+      "x-scheme-handler/tg" = ["org.telegram.desktop.desktop" "userapp-Telegram Desktop-5YQVL2.desktop"];
       "x-scheme-handler/tonsite" = "org.telegram.desktop.desktop";
     };
     defaultApplications = {
@@ -74,7 +85,6 @@
   };
 
   programs.bash.historyFile = "${config.xdg.stateHome}/bash/history";
-
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release

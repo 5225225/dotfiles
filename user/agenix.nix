@@ -1,4 +1,4 @@
-{ config, ... }: {
+{config, ...}: {
   age.secrets.listenbrainz-mpd-token = {
     file = ../secrets/listenbrainz-mpd-token.age;
     # home-manager agenix would emit

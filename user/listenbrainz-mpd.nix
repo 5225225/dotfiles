@@ -1,4 +1,8 @@
-{ pkgs, config, ... }: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   services.listenbrainz-mpd = {
     enable = true;
     settings = {

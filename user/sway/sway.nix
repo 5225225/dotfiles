@@ -1,15 +1,18 @@
-{ pkgs, config, lib, ... }:
-let
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}: let
   mod = config.wayland.windowManager.sway.config.modifier;
   rofi-package = config.programs.rofi.finalPackage;
   font = {
-    names = [ "Tamzen" ];
+    names = ["Tamzen"];
     style = "Regular";
     size = 12.0;
   };
   blank_timeout = 60 * 10; # 10 minutes
-in
-{
+in {
   wayland.windowManager.sway = {
     enable = true;
     extraConfig = ''
@@ -35,9 +38,9 @@ in
     '';
     config = {
       fonts = font;
-      input = { "*" = { xkb_layout = "gb"; }; };
-      output = { "*" = { bg = "${../data/wallpaper.png} fill"; }; };
-      bars = [ ];
+      input = {"*" = {xkb_layout = "gb";};};
+      output = {"*" = {bg = "${../data/wallpaper.png} fill";};};
+      bars = [];
       window = {
         titlebar = false;
         hideEdgeBorders = "both";
@@ -56,22 +59,16 @@ in
 
         "${mod}+grave" = "workspace back_and_forth";
 
-        "${mod}+Shift+p" =
-          "exec --no-startup-id ${pkgs.mpc-cli}/bin/mpc toggle";
-        "${mod}+Shift+bracketleft" =
-          "exec --no-startup-id ${pkgs.mpc-cli}/bin/mpc prev";
-        "${mod}+Shift+bracketright" =
-          "exec --no-startup-id ${pkgs.mpc-cli}/bin/mpc next";
-        "${mod}+Shift+minus" =
-          "exec --no-startup-id ${pkgs.mpc-cli}/bin/mpc volume -10";
-        "${mod}+Shift+equal" =
-          "exec --no-startup-id ${pkgs.mpc-cli}/bin/mpc volume +10";
+        "${mod}+Shift+p" = "exec --no-startup-id ${pkgs.mpc-cli}/bin/mpc toggle";
+        "${mod}+Shift+bracketleft" = "exec --no-startup-id ${pkgs.mpc-cli}/bin/mpc prev";
+        "${mod}+Shift+bracketright" = "exec --no-startup-id ${pkgs.mpc-cli}/bin/mpc next";
+        "${mod}+Shift+minus" = "exec --no-startup-id ${pkgs.mpc-cli}/bin/mpc volume -10";
+        "${mod}+Shift+equal" = "exec --no-startup-id ${pkgs.mpc-cli}/bin/mpc volume +10";
         "${mod}+Shift+numbersign" = "exec --no-startup-id dmenu_mpd";
         "${mod}+Return" = ''exec foot -D "$(wcwd)"'';
         "${mod}+Shift+n" = "exec quicknote";
 
-        "Print" =
-          "exec ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - - | ${pkgs.wl-clipboard}/bin/wl-copy --type image/png";
+        "Print" = "exec ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - - | ${pkgs.wl-clipboard}/bin/wl-copy --type image/png";
 
         "${mod}+0" = "workspace number 10";
         "${mod}+Shift+0" = "move container to workspace number 10";

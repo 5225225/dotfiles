@@ -1,9 +1,15 @@
-{ pkgs, config, ... }:
 {
+  pkgs,
+  config,
+  ...
+}: {
   programs.fish = {
     enable = true;
     plugins = [
-      { name = "async-prompt"; src = pkgs.fishPlugins.async-prompt.src; }
+      {
+        name = "async-prompt";
+        src = pkgs.fishPlugins.async-prompt.src;
+      }
     ];
     functions = {
       "fish_prompt" = {

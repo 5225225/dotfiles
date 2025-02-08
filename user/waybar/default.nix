@@ -1,5 +1,5 @@
-{ config, ... }:
-let p = config.colorScheme.palette;
+{config, ...}: let
+  p = config.colorScheme.palette;
 in {
   programs.waybar = {
     enable = true;
@@ -24,8 +24,7 @@ in {
             weeks-pos = "right";
           };
           format = "{:%a %d %b %Y %H:%M}";
-          format-alt =
-            "{:%Y-%m-%d}";
+          format-alt = "{:%Y-%m-%d}";
           tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
         };
         cpu = {
@@ -39,27 +38,30 @@ in {
         height = 25;
         idle_inhibitor = {
           format = "{icon}";
-          format-icons =
-            { activated = ""; deactivated = ""; };
+          format-icons = {
+            activated = "";
+            deactivated = "";
+          };
         };
         keyboard-state = {
           capslock = true;
-          format =
-            "{name} {icon}";
-          format-icons = { locked = ""; unlocked = ""; };
+          format = "{name} {icon}";
+          format-icons = {
+            locked = "";
+            unlocked = "";
+          };
           numlock = true;
         };
-        memory =
-          {
-            format = "";
-            format-visible = "<span color='#${p.base08}'>{percentage}% MEM</span>";
-            states = {
-              visible = 75;
-            };
+        memory = {
+          format = "";
+          format-visible = "<span color='#${p.base08}'>{percentage}% MEM</span>";
+          states = {
+            visible = 75;
           };
-        modules-center = [ ];
-        modules-left = [ "sway/workspaces" "sway/mode" ];
-        modules-right = [ "mpd" "cpu" "memory" "clock" "tray" ];
+        };
+        modules-center = [];
+        modules-left = ["sway/workspaces" "sway/mode"];
+        modules-right = ["mpd" "cpu" "memory" "clock" "tray"];
         mpd = {
           format = "<span foreground='#${p.base0B}'>{artist}</span> <span foreground='#${p.base08}'>{title}</span> <span foreground='#${p.base0D}'>{album}</span>";
           format-paused = "<span foreground='#${p.base0B}70'>{artist}</span> <span foreground='#${p.base08}70'>{title}</span> <span foreground='#${p.base0D}70'>{album}</span>";
@@ -79,7 +81,7 @@ in {
         "sway/mode" = {
           format = "<span style=\"italic\">{}</span>";
         };
-        tray = { spacing = 10; };
+        tray = {spacing = 10;};
       };
     };
   };

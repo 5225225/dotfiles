@@ -1,10 +1,11 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{ config
-, pkgs
-, lib
-, ...
+{
+  config,
+  pkgs,
+  lib,
+  ...
 }: {
   imports = [
     ./agenix.nix
@@ -19,7 +20,7 @@
     loader.systemd-boot.enable = true;
     loader.systemd-boot.netbootxyz.enable = true;
     loader.efi.canTouchEfiVariables = true;
-    kernelParams = [ "iommu=soft" "rcu_nocbs=0-15" ];
+    kernelParams = ["iommu=soft" "rcu_nocbs=0-15"];
     initrd.systemd.enable = true;
   };
 
@@ -27,7 +28,7 @@
     hostName = "iridium";
 
     firewall = {
-      allowedTCPPorts = [ 51712 51713 ]; # soulseek
+      allowedTCPPorts = [51712 51713]; # soulseek
     };
     # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -86,12 +87,12 @@
   users.users.fivie = {
     isNormalUser = true;
     description = "fivie";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     shell = pkgs.bash;
     # yes, you can crack this
     # no, i don't use it anywhere important, i do not care.
     initialHashedPassword = "$y$j9T$nLW2y6cB.3dWfnd/PXcMT0$7t4FTeq3t3hz1iVlfLtwrZTc.sWYhKqL1Gq.GyDWk5/";
-    packages = with pkgs; [ ];
+    packages = with pkgs; [];
     uid = 1000;
   };
 
@@ -100,7 +101,7 @@
 
     settings = {
       auto-optimise-store = true;
-      extra-experimental-features = [ "flakes" "nix-command" "ca-derivations" ];
+      extra-experimental-features = ["flakes" "nix-command" "ca-derivations"];
       use-xdg-base-directories = true;
     };
     daemonCPUSchedPolicy = "idle";
@@ -121,13 +122,13 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.shells = with pkgs; [ zsh ];
+  environment.shells = with pkgs; [zsh];
 
   # This is to work around incomplete completions for fish
   # In *theory* home-manager should help with this.. but it doesn't!
   # see https://github.com/nix-community/home-manager/issues/5119
   # and https://discourse.nixos.org/t/fish-shell-and-manual-page-completion-nixos-home-manager/15661/4
-  environment.pathsToLink = [ "/share/fish" ];
+  environment.pathsToLink = ["/share/fish"];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 

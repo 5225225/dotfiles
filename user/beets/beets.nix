@@ -1,4 +1,8 @@
-{ config, pkgs, ... }: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   programs.beets = {
     enable = true;
     package = pkgs.beets-unstable;
@@ -51,7 +55,6 @@
       asciify_paths = true;
       ui.color = true;
       ui.colors = {
-
         text_success = "green";
         text_warning = "yellow";
         text_error = "red";
@@ -73,13 +76,10 @@
         };
       };
       types.on_phone = "bool";
-      edit.itemfields =
-        [ "track" "title" "artist" "album" "year" "month" "day" ];
-      edit.albumfields = [ "album" "albumartist" "year" "month" "day" ];
+      edit.itemfields = ["track" "title" "artist" "album" "year" "month" "day"];
+      edit.albumfields = ["album" "albumartist" "year" "month" "day"];
       paths = {
-
-        default =
-          "$albumartist/%if{$year,$year - }$album%aunique{}/%if{$track,$track - }$title";
+        default = "$albumartist/%if{$year,$year - }$album%aunique{}/%if{$track,$track - }$title";
         singleton = "$albumartist/Singles/$title";
         comp = "Various Artists/$album%aunique{}/%if{$track,$track - }$title";
       };

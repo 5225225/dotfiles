@@ -1,8 +1,12 @@
-{ pkgs, vim-capnp, base16-vim, idris2-nvim, ... }:
-let
-  vp = pkgs.vimPlugins;
-in
 {
+  pkgs,
+  vim-capnp,
+  base16-vim,
+  idris2-nvim,
+  ...
+}: let
+  vp = pkgs.vimPlugins;
+in {
   programs.nixvim = {
     enable = true;
     defaultEditor = true;

@@ -1,7 +1,11 @@
-{ pkgs, config, ... }: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   home.packages = [
     (pkgs.writeShellApplication {
-      runtimeInputs = [ ];
+      runtimeInputs = [];
       name = "quicknote";
       text = ''
         foot --app-id=quicknote-editor-floating \
