@@ -24,7 +24,7 @@
   };
 
   networking = {
-    hostName = "nixos"; # Define your hostname.
+    hostName = "iridium";
 
     firewall = {
       allowedTCPPorts = [ 51712 51713 ]; # soulseek

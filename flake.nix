@@ -73,7 +73,7 @@
     , phone-home-manager
     , nixvim
     }: {
-      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.iridium = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           rec {
