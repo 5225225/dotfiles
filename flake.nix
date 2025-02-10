@@ -5,11 +5,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nix-colors.url = "github:misterio77/nix-colors";
     base16-vim = {
-      url = "github:tinted-theming/base16-vim";
-      flake = false;
-    };
-    git-prompt = {
-      url = "github:woefe/git-prompt.zsh";
+      url = "github:tinted-theming/tinted-vim";
       flake = false;
     };
     vim-capnp = {
@@ -62,7 +58,6 @@
     home-manager,
     nix-colors,
     base16-vim,
-    git-prompt,
     vim-capnp,
     flake-registry,
     nix-index-database,
@@ -97,7 +92,6 @@
           home-manager.extraSpecialArgs = {
             inherit nix-colors;
             inherit base16-vim;
-            inherit git-prompt;
             inherit vim-capnp;
             inherit nix-index-database;
             inherit idris2-nvim;
