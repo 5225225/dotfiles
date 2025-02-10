@@ -10,7 +10,7 @@ NEW_LINK="$OUT_DIR/new"
 
 trap 'rm --force $OLD_LINK $NEW_LINK && rmdir $OUT_DIR' EXIT
 
-toplevel="nixosConfigurations.nixos.config.system.build.toplevel"
+toplevel="nixosConfigurations.iridium.config.system.build.toplevel"
 
 nix build "./?rev=$OLD#$toplevel" --out-link "$OLD_LINK" --quiet
 nix build "./?rev=$NEW#$toplevel" --out-link "$NEW_LINK" --quiet
