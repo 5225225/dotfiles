@@ -217,4 +217,6 @@
     html.enable = true;
     manpages.enable = true;
   };
+
+  services.udiskie.enable = true;
 }
