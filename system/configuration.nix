@@ -49,6 +49,13 @@
   services.resolved = {
     enable = true;
     dnssec = "true";
+
+    # This is needed to not use local DNS anyways.
+    # See https://wiki.archlinux.org/title/Systemd-resolved#Manually
+    # > Without the Domains=~. option in resolved.conf(5), systemd-resolved might use the per-link
+    # > DNS servers, if any of them set Domains=~. in the per-link configuration.
+    domains = ["~."];
+
     fallbackDns = [
       "1.1.1.1"
       "1.0.0.1"
