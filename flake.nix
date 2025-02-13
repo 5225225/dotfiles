@@ -1,7 +1,7 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
-    home-manager.url = "github:nix-community/home-manager/release-24.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nix-colors.url = "github:misterio77/nix-colors";
     base16-vim = {
@@ -24,12 +24,8 @@
         home-manager.follows = "home-manager";
       };
     };
-    idris2-nvim = {
-      url = "github:ShinKage/idris2-nvim";
-      flake = false;
-    };
     nixvim = {
-      url = "github:nix-community/nixvim/nixos-24.11";
+      url = "github:nix-community/nixvim/main";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
@@ -48,7 +44,6 @@
     vim-capnp,
     nix-index-database,
     agenix,
-    idris2-nvim,
     nixvim,
     lix-module,
   }: {
@@ -77,7 +72,6 @@
             inherit base16-vim;
             inherit vim-capnp;
             inherit nix-index-database;
-            inherit idris2-nvim;
             inherit agenix;
             inherit nixvim;
           };

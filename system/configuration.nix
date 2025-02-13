@@ -26,6 +26,8 @@
     initrd.systemd.enable = true;
   };
 
+  systemd.enableStrictShellChecks = true;
+
   networking = {
     hostName = "iridium";
 

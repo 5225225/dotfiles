@@ -2,7 +2,6 @@
   pkgs,
   vim-capnp,
   base16-vim,
-  idris2-nvim,
   ...
 }: let
   vp = pkgs.vimPlugins;
@@ -41,14 +40,7 @@ in {
         name = "base16-vim";
         src = base16-vim;
       })
-      (pkgs.vimUtils.buildVimPlugin {
-        name = "idris2-nvim";
-        src = idris2-nvim;
-      })
     ];
-    extraConfigLua = ''
-      require('idris2').setup({})
-    '';
     extraConfigVim = ''
       set mouse=
 
