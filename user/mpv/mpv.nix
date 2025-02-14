@@ -5,13 +5,15 @@
 }: {
   programs.mpv = {
     enable = true;
-    scripts = with pkgs.mpvScripts; [
-      autodeint
-      memo
-      quality-menu
-      sponsorblock
-      thumbfast
-      uosc
+    scripts = let
+      s = pkgs.mpvScripts;
+    in [
+      s.autodeint
+      s.memo
+      s.quality-menu
+      s.sponsorblock
+      s.thumbfast
+      s.uosc
     ];
     config = {
       cache = "auto";

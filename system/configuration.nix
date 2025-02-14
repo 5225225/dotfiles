@@ -101,7 +101,7 @@
     # yes, you can crack this
     # no, i don't use it anywhere important, i do not care.
     initialHashedPassword = "$y$j9T$nLW2y6cB.3dWfnd/PXcMT0$7t4FTeq3t3hz1iVlfLtwrZTc.sWYhKqL1Gq.GyDWk5/";
-    packages = with pkgs; [];
+    packages = [];
     uid = 1000;
   };
 
@@ -131,7 +131,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.shells = with pkgs; [zsh];
+  environment.shells = [pkgs.zsh];
 
   # This is to work around incomplete completions for fish
   # In *theory* home-manager should help with this.. but it doesn't!
@@ -141,22 +141,20 @@
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  environment.systemPackages = with pkgs; [
-    adwaita-icon-theme
-    vimHugeX
-    man-pages
-    man-pages-posix
-    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    #  wget
+  environment.systemPackages = [
+    pkgs.adwaita-icon-theme
+    pkgs.vimHugeX
+    pkgs.man-pages
+    pkgs.man-pages-posix
   ];
 
-  fonts.packages = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk-sans
-    noto-fonts-extra
-    noto-fonts-color-emoji
-    tamsyn
-    ocr-a
+  fonts.packages = [
+    pkgs.noto-fonts
+    pkgs.noto-fonts-cjk-sans
+    pkgs.noto-fonts-extra
+    pkgs.noto-fonts-color-emoji
+    pkgs.tamsyn
+    pkgs.ocr-a
   ];
 
   security.rtkit.enable = true;
