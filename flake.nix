@@ -12,10 +12,6 @@
       url = "github:cstrahan/vim-capnp";
       flake = false;
     };
-    flake-registry = {
-      url = "github:nixos/flake-registry";
-      flake = false;
-    };
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -37,19 +33,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
-
-    phone-nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
-
-    nix-on-droid = {
-      url = "github:nix-community/nix-on-droid/release-24.05";
-      inputs.nixpkgs.follows = "phone-nixpkgs";
-      inputs.home-manager.follows = "phone-home-manager";
-    };
-
-    phone-home-manager = {
-      url = "github:nix-community/home-manager/release-24.05";
-      inputs.nixpkgs.follows = "phone-nixpkgs";
-    };
   };
 
   outputs = {
@@ -59,23 +42,17 @@
     nix-colors,
     base16-vim,
     vim-capnp,
-    flake-registry,
     nix-index-database,
     agenix,
     idris2-nvim,
-    phone-nixpkgs,
-    nix-on-droid,
-    phone-home-manager,
     nixvim,
   }: {
     nixosConfigurations.iridium = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        rec {
+        {
           system.configurationRevision = self.rev;
-
           programs.command-not-found.enable = false;
-
           environment.systemPackages = [agenix.packages.x86_64-linux.default];
         }
         system/configuration.nix
@@ -100,11 +77,6 @@
           };
         }
       ];
-    };
-
-    nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
-      pkgs = import phone-nixpkgs {system = "aarch64-linux";};
-      modules = [./phone/nix-on-droid.nix];
     };
 
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.writeShellScriptBin "formatter" ''

@@ -7,11 +7,7 @@ let
   lg3 = "${lg3s} --all";
   lg = lg1;
 in
-  {
-    config,
-    pkgs,
-    ...
-  }: {
+  {config, ...}: {
     programs.git = {
       enable = true;
       extraConfig = {

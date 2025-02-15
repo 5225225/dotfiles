@@ -2,12 +2,8 @@
   config,
   pkgs,
   nix-colors,
-  lib,
-  base16-vim,
   nix-index-database,
-  idris2-nvim,
   agenix,
-  vim-capnp,
   nixvim,
   ...
 }: {

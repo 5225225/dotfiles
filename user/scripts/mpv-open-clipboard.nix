@@ -1,8 +1,4 @@
-{
-  pkgs,
-  config,
-  ...
-}: {
+{pkgs, ...}: {
   home.packages = [
     (pkgs.writeShellApplication {
       runtimeInputs = [pkgs.wl-clipboard];
