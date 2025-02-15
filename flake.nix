@@ -33,6 +33,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -46,6 +50,7 @@
     agenix,
     idris2-nvim,
     nixvim,
+    lix-module,
   }: {
     nixosConfigurations.iridium = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -58,6 +63,7 @@
         system/configuration.nix
         nix-index-database.nixosModules.nix-index
         agenix.nixosModules.default
+        lix-module.nixosModules.default
         home-manager.nixosModules.home-manager
         {
           home-manager = {
