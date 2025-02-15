@@ -17,6 +17,14 @@ in {
       byteCompileLua.enable = true;
       combinePlugins.enable = true;
     };
+    plugins = {
+      lsp = {
+        enable = true;
+        servers = {
+          nixd.enable = true;
+        };
+      };
+    };
     extraPlugins = [
       vp.rust-vim
       vp.vim-wayland-clipboard
