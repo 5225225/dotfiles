@@ -14,8 +14,8 @@ get_opts() {
 }
 
 get_workspaces() {
-    swaymsg -t get_workspaces |\
-    jq -r ".[].name"
+    swaymsg -t get_workspaces |
+        jq -r ".[].name"
 }
 
 get_menu() {
@@ -43,4 +43,5 @@ case $selection in
     ;;
 *)
     swaymsg workspace "$selection"
+    ;;
 esac

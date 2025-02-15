@@ -81,6 +81,20 @@
 
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.writeShellScriptBin "formatter" ''
       ${nixpkgs.legacyPackages.x86_64-linux.alejandra}/bin/alejandra --quiet "''${@-.}"
+      ${nixpkgs.legacyPackages.x86_64-linux.shfmt}/bin/shfmt --write --indent 4 --space-redirects .
     '';
+
+    checks.x86_64-linux.check =
+      nixpkgs.legacyPackages.x86_64-linux.runCommandLocal "check" {
+        src = ./.;
+        nativeBuildInputs = [
+          nixpkgs.legacyPackages.x86_64-linux.shfmt
+          nixpkgs.legacyPackages.x86_64-linux.alejandra
+        ];
+      } ''
+        shfmt --diff --indent 4 --space-redirects "$src"
+        alejandra --check "$src"
+        touch $out;
+      '';
   };
 }
