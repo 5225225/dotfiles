@@ -4,8 +4,8 @@
     musicDirectory = "${config.home.homeDirectory}/media/music";
     extraConfig = ''
       audio_output {
-        type  "pulse"
-        name  "My Pulse Output"
+        type  "pipewire"
+        name  "Pipewire Sound Server"
       }
 
       replaygain "auto"
