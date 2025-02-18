@@ -56,7 +56,7 @@
       system = "x86_64-linux";
       modules = [
         {
-          system.configurationRevision = self.rev;
+          system.configurationRevision = self.rev or "dirty";
           programs.command-not-found.enable = false;
           environment.systemPackages = [agenix.packages.x86_64-linux.default];
         }
@@ -93,13 +93,18 @@
     checks.x86_64-linux.check =
       nixpkgs.legacyPackages.x86_64-linux.runCommandLocal "check" {
         src = ./.;
-        nativeBuildInputs = [
-          nixpkgs.legacyPackages.x86_64-linux.shfmt
-          nixpkgs.legacyPackages.x86_64-linux.alejandra
+        nativeBuildInputs = let
+          p = nixpkgs.legacyPackages.x86_64-linux;
+        in [
+          p.shfmt
+          p.alejandra
+          p.deadnix
         ];
       } ''
         shfmt --diff --indent 4 --space-redirects "$src"
-        alejandra --check "$src"
+        alejandra --quiet --check "$src" || (echo "Alejandra formatting failed" ; exit 1)
+        deadnix --fail "$src"
+
         touch $out;
       '';
   };
