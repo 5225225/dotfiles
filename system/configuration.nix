@@ -66,6 +66,11 @@
       dnsovertls = "true";
     };
 
+    getty = {
+      autologinUser = "fivie";
+      autologinOnce = true;
+    };
+
     udisks2.enable = true;
   };
 
