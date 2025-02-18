@@ -203,5 +203,7 @@
     };
   };
 
+  nix.gc.automatic = true;
+
   environment.etc."nixos/flake.nix".source = "/home/fivie/dotfiles/flake.nix";
 }
