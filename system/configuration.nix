@@ -17,9 +17,11 @@
 
   # Bootloader.
   boot = {
-    loader.systemd-boot.enable = true;
-    loader.systemd-boot.netbootxyz.enable = true;
-    loader.efi.canTouchEfiVariables = true;
+    loader = {
+      systemd-boot.enable = true;
+      systemd-boot.netbootxyz.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
     kernelParams = ["iommu=soft" "rcu_nocbs=0-15"];
     initrd.systemd.enable = true;
   };
@@ -46,24 +48,26 @@
     "1.0.0.1"
   ];
 
-  services.resolved = {
-    enable = true;
-    dnssec = "true";
+  services = {
+    resolved = {
+      enable = true;
+      dnssec = "true";
 
-    # This is needed to not use local DNS anyways.
-    # See https://wiki.archlinux.org/title/Systemd-resolved#Manually
-    # > Without the Domains=~. option in resolved.conf(5), systemd-resolved might use the per-link
-    # > DNS servers, if any of them set Domains=~. in the per-link configuration.
-    domains = ["~."];
+      # This is needed to not use local DNS anyways.
+      # See https://wiki.archlinux.org/title/Systemd-resolved#Manually
+      # > Without the Domains=~. option in resolved.conf(5), systemd-resolved might use the per-link
+      # > DNS servers, if any of them set Domains=~. in the per-link configuration.
+      domains = ["~."];
 
-    fallbackDns = [
-      "1.1.1.1"
-      "1.0.0.1"
-    ];
-    dnsovertls = "true";
+      fallbackDns = [
+        "1.1.1.1"
+        "1.0.0.1"
+      ];
+      dnsovertls = "true";
+    };
+
+    udisks2.enable = true;
   };
-
-  services.udisks2.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/London";
@@ -129,24 +133,26 @@
   nixpkgs.config.permittedInsecurePackages = [
   ];
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.shells = [pkgs.zsh];
+  environment = {
+    # List packages installed in system profile. To search, run:
+    # $ nix search wget
+    shells = [pkgs.zsh];
 
-  # This is to work around incomplete completions for fish
-  # In *theory* home-manager should help with this.. but it doesn't!
-  # see https://github.com/nix-community/home-manager/issues/5119
-  # and https://discourse.nixos.org/t/fish-shell-and-manual-page-completion-nixos-home-manager/15661/4
-  environment.pathsToLink = ["/share/fish"];
+    # This is to work around incomplete completions for fish
+    # In *theory* home-manager should help with this.. but it doesn't!
+    # see https://github.com/nix-community/home-manager/issues/5119
+    # and https://discourse.nixos.org/t/fish-shell-and-manual-page-completion-nixos-home-manager/15661/4
+    pathsToLink = ["/share/fish"];
 
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+    sessionVariables.NIXOS_OZONE_WL = "1";
 
-  environment.systemPackages = [
-    pkgs.adwaita-icon-theme
-    pkgs.vimHugeX
-    pkgs.man-pages
-    pkgs.man-pages-posix
-  ];
+    systemPackages = [
+      pkgs.adwaita-icon-theme
+      pkgs.vimHugeX
+      pkgs.man-pages
+      pkgs.man-pages-posix
+    ];
+  };
 
   fonts.packages = [
     pkgs.noto-fonts

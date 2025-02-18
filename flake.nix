@@ -99,11 +99,13 @@
           p.shfmt
           p.alejandra
           p.deadnix
+          p.statix
         ];
       } ''
         shfmt --diff --indent 4 --space-redirects "$src"
         alejandra --quiet --check "$src" || (echo "Alejandra formatting failed" ; exit 1)
         deadnix --fail "$src"
+        statix check "$src"
 
         touch $out;
       '';
