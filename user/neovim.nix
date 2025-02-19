@@ -16,6 +16,10 @@ in {
       byteCompileLua.enable = true;
       combinePlugins.enable = true;
     };
+    clipboard = {
+      register = "unnamedplus";
+      providers.wl-copy.enable = true;
+    };
     plugins = {
       lsp = {
         enable = true;
@@ -26,7 +30,6 @@ in {
     };
     extraPlugins = [
       vp.rust-vim
-      vp.vim-wayland-clipboard
       vp.vim-nix
       vp.vim-ledger
       vp.nvim-lspconfig
@@ -41,32 +44,23 @@ in {
         src = base16-vim;
       })
     ];
-    extraConfigVim = ''
-      set mouse=
-
-      set expandtab
-      set shiftwidth=4
-      set softtabstop=4
-
-      set number
-
-      let tinted_background_transparent=1
-      colorscheme base16-tube
-
-      set tw=99
-
-      set smartcase
-
-      set spell
-
-      set clipboard^=unnamed
-
-      set gdefault
-
-      set foldmethod=syntax
-      set foldnestmax=1
-
-      let g:netrw_dirhistmax=0
-    '';
+    opts = {
+      mouse = "";
+      expandtab = true;
+      shiftwidth = 4;
+      softtabstop = 4;
+      number = true;
+      tw = 99;
+      smartcase = true;
+      spell = true;
+      gdefault = true;
+      foldmethod = "syntax";
+      foldnestmax = 1;
+    };
+    globals = {
+      tinted_background_transparent = 1;
+      netrw_dirhistmax = 0;
+    };
+    colorscheme = "base16-tube";
   };
 }
