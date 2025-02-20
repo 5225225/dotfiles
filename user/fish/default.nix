@@ -30,6 +30,12 @@
             cd "$(mktemp --tmpdir -d scratchXXXXXXXXX)"
           '';
         };
+
+        # Stop the vi mode being shown.
+        # https://fishshell.com/docs/current/interactive.html#vi-mode-commands
+        # > When in vi-mode, the fish_mode_prompt function will display a mode indicator to the
+        # > left of the prompt. To disable this feature, override it with an empty function.
+        "fish_mode_prompt".body = "";
       };
       shellAliases = {
         ls = "eza --group-directories-first --git --extended";
@@ -43,6 +49,7 @@
       };
       shellInit = ''
         set --global fish_greeting
+        set --global fish_key_bindings fish_vi_key_bindings
       '';
     };
 

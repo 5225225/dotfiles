@@ -30,4 +30,4 @@ set -l status_color (set_color red)
 set -l statusb_color (set_color $bold_flag red)
 set -l prompt_status (__fish_print_pipestatus " [" "]" "|" "$status_color" "$statusb_color" $last_pipestatus)
                                                                                                                    
-string join '' -- \n (set_color yellow) (prompt_pwd --dir-length=0) (set_color normal) (fish_vcs_prompt " [%s]") "$prompt_status" \n (set_color blue) '# '
+string join '' -- \n (fish_default_mode_prompt) (set_color yellow) (prompt_pwd --dir-length=0) (set_color normal) (fish_vcs_prompt " [%s]") "$prompt_status" \n (set_color blue) '# '
