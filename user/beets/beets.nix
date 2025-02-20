@@ -31,6 +31,7 @@
         "edit"
         "embedart"
         "fetchart"
+        "fish"
         "fromfilename"
         "ftintitle"
         "fuzzy"
@@ -105,5 +106,22 @@
     #  enable = true;
     #  source = ./config.yaml;
     #};
+  };
+
+  xdg.configFile."fish/completions/beet.fish" = {
+    enable = true;
+
+    source =
+      pkgs.runCommandLocal "beetscomp" {
+        config =
+          (pkgs.formats.yaml {}).generate
+          "beets-config"
+          config.programs.beets.settings;
+      } ''
+        # prevent beets from looking in $HOME
+        export BEETSDIR="/tmp"
+
+        ${config.programs.beets.package}/bin/beet -l /tmp/db -c "$config" fish --output "$out"
+      '';
   };
 }
