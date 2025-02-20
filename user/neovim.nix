@@ -27,6 +27,14 @@ in {
           nixd.enable = true;
         };
       };
+      treesitter = {
+        enable = true;
+        folding = true;
+        settings = {
+          highlight.enable = true;
+          indent.enable = true;
+        };
+      };
     };
     extraPlugins = [
       vp.rust-vim
@@ -54,8 +62,7 @@ in {
       smartcase = true;
       spell = true;
       gdefault = true;
-      foldmethod = "syntax";
-      foldnestmax = 1;
+      foldmethod = "expr";
     };
     globals = {
       tinted_background_transparent = 1;
