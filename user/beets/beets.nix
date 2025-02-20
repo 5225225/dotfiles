@@ -5,7 +5,14 @@
 }: {
   programs.beets = {
     enable = true;
-    package = pkgs.beets-unstable;
+    package = pkgs.beets-unstable.override {
+      pluginOverrides = {
+        alternatives = {
+          enable = true;
+          propagatedBuildInputs = [pkgs.beetsPackages.alternatives];
+        };
+      };
+    };
     settings = {
       directory = "~/media/music";
       library = "~/media/.beets_library.blb";
@@ -17,6 +24,7 @@
       };
       match.strong_rec_thresh = 1.0e-2;
       plugins = [
+        "alternatives"
         "badfiles"
         "convert"
         "duplicates"
@@ -42,6 +50,13 @@
       ];
       lastfm.user = "lfm5225225";
       embedart.auto = false;
+      alternatives = {
+        phone = {
+          directory = "${config.home.homeDirectory}/media/syncthing/music";
+          formats = "opus";
+          query = "on_phone:true";
+        };
+      };
       replaygain = {
         auto = true;
         backend = "gstreamer";
