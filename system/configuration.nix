@@ -170,8 +170,13 @@
     pkgs.ocr-a
   ];
 
-  security.rtkit.enable = true;
-  security.polkit.enable = true;
+  security = {
+    rtkit.enable = true;
+    polkit.enable = true;
+
+    # https://github.com/NixOS/nixpkgs/issues/361592#issuecomment-2516342739
+    pam.services.systemd-run0 = {};
+  };
 
   services.pipewire = {
     enable = true;
