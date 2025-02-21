@@ -43,6 +43,7 @@ in {
       vp.nvim-lspconfig
       vp.nui-nvim
       vp.vim-glsl
+      vp.vim-fugitive
       (pkgs.vimUtils.buildVimPlugin {
         name = "vim-capnp";
         src = vim-capnp;
