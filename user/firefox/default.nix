@@ -26,6 +26,8 @@
         Locked = true;
       };
 
+      PostQuantumKeyAgreementEnabled = true;
+
       UserMessaging = {
         ExtensionRecommendations = false;
         FeatureRecommendations = false;
