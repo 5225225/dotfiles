@@ -16,4 +16,7 @@ nix build "./?rev=$OLD#$toplevel" --out-link "$OLD_LINK" --quiet
 nix build "./?rev=$NEW#$toplevel" --out-link "$NEW_LINK" --quiet
 
 nix store diff-closures "$OLD_LINK" "$NEW_LINK"
-nix-diff --skip-already-compared --character-oriented "$OLD_LINK" "$NEW_LINK"
+
+if [ "$3" == "verbose" ]; then
+    nix-diff --skip-already-compared --character-oriented "$OLD_LINK" "$NEW_LINK"
+fi
