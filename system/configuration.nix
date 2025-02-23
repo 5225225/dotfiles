@@ -26,7 +26,8 @@
     initrd.systemd.enable = true;
   };
 
-  systemd.enableStrictShellChecks = true;
+  # TODO: uncomment when https://nixpk.gs/pr-tracker.html?pr=383056 is in nixos-unstable
+  # systemd.enableStrictShellChecks = true;
 
   networking = {
     hostName = "iridium";
