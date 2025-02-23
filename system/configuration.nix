@@ -13,6 +13,7 @@
     ./earlyoom.nix
     ./hardware-configuration.nix
     ./syncthing.nix
+    ./yarr.nix
   ];
 
   # Bootloader.

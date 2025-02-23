@@ -17,7 +17,11 @@
     ./git/git.nix
     ./hledger
     ./listenbrainz-mpd.nix
+    ./mako.nix
+    ./mpd.nix
     ./mpv/mpv.nix
+    ./ncmpcpp.nix
+    ./neovim.nix
     ./obs
     ./rofi
     ./scripts/dmenu_mpd/default.nix
@@ -28,10 +32,6 @@
     ./sway/sway.nix
     ./waybar
     ./xonotic/xonotic.nix
-    ./ncmpcpp.nix
-    ./mako.nix
-    ./mpd.nix
-    ./neovim.nix
     nix-colors.homeManagerModules.default
     nix-index-database.hmModules.nix-index
     agenix.homeManagerModules.age
