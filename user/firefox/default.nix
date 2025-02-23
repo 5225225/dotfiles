@@ -1,8 +1,30 @@
-{
+{firefox-addons, ...}: {
   programs.firefox = {
     enable = true;
     profiles."1a0nke3z.default" = {
       userChrome = builtins.readFile ./userChrome.css;
+      extensions.packages = [
+        firefox-addons.ublock-origin
+        firefox-addons.batchcamp
+        firefox-addons.darkreader
+        firefox-addons.decentraleyes
+        # try replacing this with yarr
+        # firefox-addons.feedbroreader
+        firefox-addons.indie-wiki-buddy
+        firefox-addons.keepassxc-browser
+        firefox-addons.sidebery
+        firefox-addons.sponsorblock
+        firefox-addons.streetpass-for-mastodon
+        firefox-addons.stylus
+        firefox-addons.violentmonkey
+        # firefox-addons.volume-control-for-bandcamp
+        # firefox-addons.wave-evaluation-tool
+        firefox-addons.wayback-machine
+      ];
+
+      settings = {
+        "extensions.autoDisableScopes" = 0;
+      };
     };
     policies = {
       AutofillAddressEnabled = false;

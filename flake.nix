@@ -33,6 +33,10 @@
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -46,6 +50,7 @@
     agenix,
     nixvim,
     lix-module,
+    firefox-addons,
   }: {
     nixosConfigurations.iridium = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -74,6 +79,7 @@
             inherit nix-index-database;
             inherit agenix;
             inherit nixvim;
+            firefox-addons = firefox-addons.packages.x86_64-linux;
           };
         }
       ];

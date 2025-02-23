@@ -135,6 +135,7 @@
     pkgs.mpdscribble
     pkgs.ncdu
     pkgs.nicotine-plus
+    pkgs.nix-diff
     pkgs.openrct2
     pkgs.pavucontrol
     pkgs.pngcrush
