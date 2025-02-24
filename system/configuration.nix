@@ -105,17 +105,21 @@
   # Configure console keymap
   console.keyMap = "uk";
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.fivie = {
-    isNormalUser = true;
-    description = "fivie";
-    extraGroups = ["networkmanager" "wheel"];
-    shell = pkgs.bash;
-    # yes, you can crack this
-    # no, i don't use it anywhere important, i do not care.
-    initialHashedPassword = "$y$j9T$nLW2y6cB.3dWfnd/PXcMT0$7t4FTeq3t3hz1iVlfLtwrZTc.sWYhKqL1Gq.GyDWk5/";
-    packages = [];
-    uid = 1000;
+  users = {
+    mutableUsers = false;
+    users.root.hashedPassword = config.users.users.fivie.hashedPassword;
+    # Define a user account. Don't forget to set a password with ‘passwd’.
+    users.fivie = {
+      isNormalUser = true;
+      description = "5225225";
+      extraGroups = ["networkmanager" "wheel"];
+      shell = pkgs.bash;
+      # yes, you can crack this
+      # no, i don't use it anywhere important, i do not care.
+      hashedPassword = "$y$j9T$nLW2y6cB.3dWfnd/PXcMT0$7t4FTeq3t3hz1iVlfLtwrZTc.sWYhKqL1Gq.GyDWk5/";
+      packages = [];
+      uid = 1000;
+    };
   };
 
   nix = {
