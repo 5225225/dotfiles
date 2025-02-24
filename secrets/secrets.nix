@@ -5,6 +5,7 @@ let
   all = [user-desktop system-desktop];
 in {
   "listenbrainz-mpd-token.age".publicKeys = all;
-  "borg-password.age".publicKeys = [system-desktop];
-  "borg-ssh-key.age".publicKeys = [system-desktop];
+  "borg-password.age".publicKeys = all;
+  "borg-ssh-key.age".publicKeys = all;
+  "fishnet-key.age".publicKeys = all;
 }

@@ -14,6 +14,7 @@
     ./hardware-configuration.nix
     ./syncthing.nix
     ./yarr.nix
+    ./fishnet.nix
   ];
 
   # Bootloader.
