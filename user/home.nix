@@ -126,7 +126,6 @@
     pkgs.libreoffice-fresh
     pkgs.libwebp
     pkgs.links2
-    pkgs.maim
     pkgs.man-pages
     pkgs.man-pages-posix
     pkgs.mindustry
