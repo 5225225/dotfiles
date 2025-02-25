@@ -76,6 +76,8 @@
     };
 
     udisks2.enable = true;
+
+    tailscale.enable = true;
   };
 
   # Set your time zone.
