@@ -19,6 +19,7 @@
     };
 
     environment = {
+      YARR_ADDR = "iridium:7070";
       YARR_DB = "%S/yarr/yarr-db.sqlite";
 
       # TODO: yarr 2.4 unconditionally fails if HOME or XDG_CONFIG_HOME isn't set
