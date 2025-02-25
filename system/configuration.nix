@@ -6,7 +6,8 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+{
   imports = [
     ./agenix.nix
     ./borgbackup.nix
@@ -24,7 +25,10 @@
       systemd-boot.netbootxyz.enable = true;
       efi.canTouchEfiVariables = true;
     };
-    kernelParams = ["iommu=soft" "rcu_nocbs=0-15"];
+    kernelParams = [
+      "iommu=soft"
+      "rcu_nocbs=0-15"
+    ];
     initrd.systemd.enable = true;
   };
 
@@ -34,7 +38,10 @@
     hostName = "iridium";
 
     firewall = {
-      allowedTCPPorts = [51712 51713]; # soulseek
+      allowedTCPPorts = [
+        51712
+        51713
+      ]; # soulseek
     };
     # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -61,7 +68,7 @@
       # See https://wiki.archlinux.org/title/Systemd-resolved#Manually
       # > Without the Domains=~. option in resolved.conf(5), systemd-resolved might use the per-link
       # > DNS servers, if any of them set Domains=~. in the per-link configuration.
-      domains = ["~."];
+      domains = [ "~." ];
 
       fallbackDns = [
         "1.1.1.1"
@@ -114,12 +121,15 @@
     users.fivie = {
       isNormalUser = true;
       description = "5225225";
-      extraGroups = ["networkmanager" "wheel"];
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+      ];
       shell = pkgs.bash;
       # yes, you can crack this
       # no, i don't use it anywhere important, i do not care.
       hashedPassword = "$y$j9T$nLW2y6cB.3dWfnd/PXcMT0$7t4FTeq3t3hz1iVlfLtwrZTc.sWYhKqL1Gq.GyDWk5/";
-      packages = [];
+      packages = [ ];
       uid = 1000;
     };
   };
@@ -129,7 +139,11 @@
 
     settings = {
       auto-optimise-store = true;
-      extra-experimental-features = ["flakes" "nix-command" "ca-derivations"];
+      extra-experimental-features = [
+        "flakes"
+        "nix-command"
+        "ca-derivations"
+      ];
       use-xdg-base-directories = true;
       keep-outputs = true;
       keep-derivations = true;
@@ -139,7 +153,8 @@
   };
 
   # Allow unfree packages
-  nixpkgs.config.allowUnfreePredicate = pkg:
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
     builtins.elem (lib.getName pkg) [
       "steam"
       "steam-unwrapped"
@@ -147,19 +162,18 @@
       "unrar"
     ];
 
-  nixpkgs.config.permittedInsecurePackages = [
-  ];
+  nixpkgs.config.permittedInsecurePackages = [ ];
 
   environment = {
     # List packages installed in system profile. To search, run:
     # $ nix search wget
-    shells = [pkgs.zsh];
+    shells = [ pkgs.zsh ];
 
     # This is to work around incomplete completions for fish
     # In *theory* home-manager should help with this.. but it doesn't!
     # see https://github.com/nix-community/home-manager/issues/5119
     # and https://discourse.nixos.org/t/fish-shell-and-manual-page-completion-nixos-home-manager/15661/4
-    pathsToLink = ["/share/fish"];
+    pathsToLink = [ "/share/fish" ];
 
     sessionVariables.NIXOS_OZONE_WL = "1";
 
@@ -218,7 +232,9 @@
 
   system = {
     stateVersion = "23.05"; # Did you read the comment?
-    nixos.label = "cfg:${builtins.substring 0 10 config.system.configurationRevision}${config.system.nixos.versionSuffix}";
+    nixos.label = "cfg:${
+      builtins.substring 0 10 config.system.configurationRevision
+    }${config.system.nixos.versionSuffix}";
     rebuild.enableNg = true;
   };
 

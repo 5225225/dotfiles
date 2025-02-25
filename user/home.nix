@@ -6,8 +6,10 @@
   agenix,
   nixvim,
   ...
-}: {
+}:
+{
   imports = [
+    # keep-sorted start
     ./agenix.nix
     ./beets/beets.nix
     ./direnv.nix
@@ -32,6 +34,7 @@
     ./sway/sway.nix
     ./waybar
     ./xonotic/xonotic.nix
+    # keep-sorted end
     nix-colors.homeManagerModules.default
     nix-index-database.hmModules.nix-index
     agenix.homeManagerModules.age
@@ -45,7 +48,10 @@
   xdg.mimeApps = {
     enable = true;
     associations.added = {
-      "x-scheme-handler/tg" = ["org.telegram.desktop.desktop" "userapp-Telegram Desktop-5YQVL2.desktop"];
+      "x-scheme-handler/tg" = [
+        "org.telegram.desktop.desktop"
+        "userapp-Telegram Desktop-5YQVL2.desktop"
+      ];
       "x-scheme-handler/tonsite" = "org.telegram.desktop.desktop";
     };
     defaultApplications = {
@@ -94,6 +100,7 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
+    # keep-sorted start
     pkgs.atool
     pkgs.audacity
     pkgs.binwalk
@@ -165,6 +172,7 @@
     pkgs.yt-dlp
     pkgs.zip
     pkgs.zola
+    # keep-sorted end
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

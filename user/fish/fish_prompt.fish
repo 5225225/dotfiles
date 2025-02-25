@@ -1,6 +1,6 @@
 set -l last_pipestatus $pipestatus
 set -lx __fish_last_status $status # Export for __fish_print_pipestatus.
-                                                                                                                   
+
 # Write pipestatus
 # If the status was carried over (if no command is issued or if `set` leaves the status untouched), don't bold it.
 set -l bold_flag --bold

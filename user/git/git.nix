@@ -7,30 +7,43 @@ let
   lg3 = "${lg3s} --all";
   lg = lg1;
 in
-  {config, ...}: {
-    programs.git = {
-      enable = true;
-      aliases = {inherit lg lg1 lg2 lg3 lg1s lg2s lg3s;};
-      signing = {
-        format = "ssh";
-        signByDefault = true;
-        key = "${config.home.homeDirectory}/.ssh/id_ed25519.pub";
-      };
-      userEmail = "5225225@mailbox.org";
-      userName = "5225225";
-      extraConfig = {
-        core = {
-          quotepath = false;
-          commitGraph = true;
-        };
-        gc = {writeCommitGraph = true;};
-        credential.helper = "store";
-        init.defaultbranch = "main";
-        merge.conflictstyle = "diff3";
-        gpg.ssh = {
-          allowedSignersFile = "${./allowed_signers}";
-        };
-        commit.verbose = true;
-      };
+{ config, ... }:
+{
+  programs.git = {
+    enable = true;
+    aliases = {
+      inherit
+        lg
+        lg1
+        lg2
+        lg3
+        lg1s
+        lg2s
+        lg3s
+        ;
     };
-  }
+    signing = {
+      format = "ssh";
+      signByDefault = true;
+      key = "${config.home.homeDirectory}/.ssh/id_ed25519.pub";
+    };
+    userEmail = "5225225@mailbox.org";
+    userName = "5225225";
+    extraConfig = {
+      core = {
+        quotepath = false;
+        commitGraph = true;
+      };
+      gc = {
+        writeCommitGraph = true;
+      };
+      credential.helper = "store";
+      init.defaultbranch = "main";
+      merge.conflictstyle = "diff3";
+      gpg.ssh = {
+        allowedSignersFile = "${./allowed_signers}";
+      };
+      commit.verbose = true;
+    };
+  };
+}

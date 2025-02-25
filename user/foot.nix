@@ -1,6 +1,8 @@
-{config, ...}: let
+{ config, ... }:
+let
   p = config.colorScheme.palette;
-in {
+in
+{
   programs.foot = {
     enable = true;
     settings = {

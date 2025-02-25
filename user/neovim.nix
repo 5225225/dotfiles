@@ -3,9 +3,11 @@
   vim-capnp,
   base16-vim,
   ...
-}: let
+}:
+let
   vp = pkgs.vimPlugins;
-in {
+in
+{
   programs.nixvim = {
     enable = true;
     defaultEditor = true;

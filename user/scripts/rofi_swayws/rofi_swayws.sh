@@ -5,7 +5,7 @@ get_curr_workspace_num() {
 }
 
 rofi_input() {
-    rofi -dmenu < /dev/null
+    rofi -dmenu </dev/null
 }
 
 get_opts() {
@@ -30,9 +30,9 @@ case $selection in
 "= RENAME =")
     ws_num="$(get_curr_workspace_num)"
     if [[ $ws_num -eq "-1" ]]; then
-        newws="$(rofi -dmenu < /dev/null)"
+        newws="$(rofi -dmenu </dev/null)"
     else
-        newws="$(rofi -dmenu -filter "$ws_num: " < /dev/null)"
+        newws="$(rofi -dmenu -filter "$ws_num: " </dev/null)"
     fi
     swaymsg -t command rename workspace to "\"$newws\""
     # Double quoted because the i3 json lexer wants quotes, and the shell wants them.

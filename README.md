@@ -2,8 +2,8 @@
 
 we home-manager now :3
 
-> [!IMPORTANT]
+> \[!IMPORTANT\]
 > meow :3c
 
-> [!TIP]
+> \[!TIP\]
 > squish that cat

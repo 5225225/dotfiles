@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   systemd.services.yarr = {
     unitConfig = {
       Description = "yarr: yet another rss reader";
@@ -26,6 +27,6 @@
       XDG_CONFIG_HOME = "/ignored";
     };
 
-    wantedBy = ["default.target"];
+    wantedBy = [ "default.target" ];
   };
 }

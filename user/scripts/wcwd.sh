@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 # Sway version of xcwd
 
 set -x

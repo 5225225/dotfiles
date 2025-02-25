@@ -1,6 +1,8 @@
-{config, ...}: let
+{ config, ... }:
+let
   p = config.colorScheme.palette;
-in {
+in
+{
   programs.waybar = {
     enable = true;
     style = ./style.css;
@@ -59,9 +61,18 @@ in {
             visible = 75;
           };
         };
-        modules-center = [];
-        modules-left = ["sway/workspaces" "sway/mode"];
-        modules-right = ["mpd" "cpu" "memory" "clock" "tray"];
+        modules-center = [ ];
+        modules-left = [
+          "sway/workspaces"
+          "sway/mode"
+        ];
+        modules-right = [
+          "mpd"
+          "cpu"
+          "memory"
+          "clock"
+          "tray"
+        ];
         mpd = {
           format = "<span foreground='#${p.base0B}'>{artist}</span> <span foreground='#${p.base08}'>{title}</span> <span foreground='#${p.base0D}'>{album}</span>";
           format-paused = "<span foreground='#${p.base0B}70'>{artist}</span> <span foreground='#${p.base08}70'>{title}</span> <span foreground='#${p.base0D}70'>{album}</span>";
@@ -81,7 +92,9 @@ in {
         "sway/mode" = {
           format = "<span style=\"italic\">{}</span>";
         };
-        tray = {spacing = 10;};
+        tray = {
+          spacing = 10;
+        };
       };
     };
   };

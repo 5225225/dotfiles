@@ -1,8 +1,5 @@
+{ pkgs, config, ... }:
 {
-  pkgs,
-  config,
-  ...
-}: {
   systemd.services.fishnet = {
     unitConfig = {
       Description = "fishnet: distributed Stockfish analysis for lichess.org";
@@ -25,6 +22,6 @@
       Restart = "on-failure";
     };
 
-    wantedBy = ["multi-user.target"];
+    wantedBy = [ "multi-user.target" ];
   };
 }

@@ -8,6 +8,9 @@
 
   # https://docs.syncthing.net/users/firewall.html
   # we don't allow webgui through the firewall
-  networking.firewall.allowedTCPPorts = [22000];
-  networking.firewall.allowedUDPPorts = [22000 21027];
+  networking.firewall.allowedTCPPorts = [ 22000 ];
+  networking.firewall.allowedUDPPorts = [
+    22000
+    21027
+  ];
 }

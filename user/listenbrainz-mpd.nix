@@ -1,4 +1,5 @@
-{config, ...}: {
+{ config, ... }:
+{
   services.listenbrainz-mpd = {
     enable = true;
     settings = {

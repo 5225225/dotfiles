@@ -1,4 +1,5 @@
-{firefox-addons, ...}: {
+{ firefox-addons, ... }:
+{
   programs.firefox = {
     enable = true;
     profiles."1a0nke3z.default" = {

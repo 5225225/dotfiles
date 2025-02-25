@@ -1,20 +1,19 @@
+{ pkgs, config, ... }:
 {
-  pkgs,
-  config,
-  ...
-}: {
   programs.mpv = {
     enable = true;
-    scripts = let
-      s = pkgs.mpvScripts;
-    in [
-      s.autodeint
-      s.memo
-      s.quality-menu
-      s.sponsorblock
-      s.thumbfast
-      s.uosc
-    ];
+    scripts =
+      let
+        s = pkgs.mpvScripts;
+      in
+      [
+        s.autodeint
+        s.memo
+        s.quality-menu
+        s.sponsorblock
+        s.thumbfast
+        s.uosc
+      ];
     config = {
       cache = "auto";
       demuxer-max-bytes = "512MiB";
@@ -40,6 +39,5 @@
       sub-auto = "fuzzy";
     };
   };
-  home.file."${config.xdg.configHome}/mpv/script-opts/uosc.conf".source =
-    ./uosc.conf;
+  home.file."${config.xdg.configHome}/mpv/script-opts/uosc.conf".source = ./uosc.conf;
 }

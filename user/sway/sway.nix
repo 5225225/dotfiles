@@ -3,16 +3,18 @@
   config,
   lib,
   ...
-}: let
+}:
+let
   mod = config.wayland.windowManager.sway.config.modifier;
   rofi-package = config.programs.rofi.finalPackage;
   font = {
-    names = ["Tamzen"];
+    names = [ "Tamzen" ];
     style = "Regular";
     size = 12.0;
   };
   blank_timeout = 60 * 10; # 10 minutes
-in {
+in
+{
   wayland.windowManager.sway = {
     enable = true;
     extraConfig = ''
@@ -38,9 +40,17 @@ in {
     '';
     config = {
       fonts = font;
-      input = {"*" = {xkb_layout = "gb";};};
-      output = {"*" = {bg = "${../data/wallpaper.png} fill";};};
-      bars = [];
+      input = {
+        "*" = {
+          xkb_layout = "gb";
+        };
+      };
+      output = {
+        "*" = {
+          bg = "${../data/wallpaper.png} fill";
+        };
+      };
+      bars = [ ];
       window = {
         titlebar = false;
         hideEdgeBorders = "both";
@@ -54,8 +64,8 @@ in {
       };
       keybindings = lib.mkOptionDefault {
         "${mod}+d" = "exec ${rofi-package}/bin/rofi -show run";
-        "${mod}+c" = ''
-          exec ${rofi-package}/bin/rofi -show calc -modi calc -no-show-match -no-sort -hint-result "" -no-history'';
+        "${mod}+c" =
+          ''exec ${rofi-package}/bin/rofi -show calc -modi calc -no-show-match -no-sort -hint-result "" -no-history'';
 
         "${mod}+grave" = "workspace back_and_forth";
 
@@ -68,7 +78,8 @@ in {
         "${mod}+Return" = ''exec foot -D "$(wcwd)"'';
         "${mod}+Shift+n" = "exec quicknote";
 
-        "Print" = "exec ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - - | ${pkgs.wl-clipboard}/bin/wl-copy --type image/png";
+        "Print" =
+          "exec ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - - | ${pkgs.wl-clipboard}/bin/wl-copy --type image/png";
 
         "${mod}+0" = "workspace number 10";
         "${mod}+Shift+0" = "move container to workspace number 10";

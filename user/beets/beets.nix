@@ -1,15 +1,12 @@
+{ config, pkgs, ... }:
 {
-  config,
-  pkgs,
-  ...
-}: {
   programs.beets = {
     enable = true;
     package = pkgs.beets-unstable.override {
       pluginOverrides = {
         alternatives = {
           enable = true;
-          propagatedBuildInputs = [pkgs.beetsPackages.alternatives];
+          propagatedBuildInputs = [ pkgs.beetsPackages.alternatives ];
         };
       };
     };
@@ -92,8 +89,22 @@
         };
       };
       types.on_phone = "bool";
-      edit.itemfields = ["track" "title" "artist" "album" "year" "month" "day"];
-      edit.albumfields = ["album" "albumartist" "year" "month" "day"];
+      edit.itemfields = [
+        "track"
+        "title"
+        "artist"
+        "album"
+        "year"
+        "month"
+        "day"
+      ];
+      edit.albumfields = [
+        "album"
+        "albumartist"
+        "year"
+        "month"
+        "day"
+      ];
       paths = {
         default = "$albumartist/%if{$year,$year - }$album%aunique{}/%if{$track,$track - }$title";
         singleton = "$albumartist/Singles/$title";
@@ -112,16 +123,13 @@
     enable = true;
 
     source =
-      pkgs.runCommandLocal "beetscomp" {
-        config =
-          (pkgs.formats.yaml {}).generate
-          "beets-config"
-          config.programs.beets.settings;
-      } ''
-        # prevent beets from looking in $HOME
-        export BEETSDIR="/tmp"
+      pkgs.runCommandLocal "beetscomp"
+        { config = (pkgs.formats.yaml { }).generate "beets-config" config.programs.beets.settings; }
+        ''
+          # prevent beets from looking in $HOME
+          export BEETSDIR="/tmp"
 
-        ${config.programs.beets.package}/bin/beet -l /tmp/db -c "$config" fish --output "$out"
-      '';
+          ${config.programs.beets.package}/bin/beet -l /tmp/db -c "$config" fish --output "$out"
+        '';
   };
 }
