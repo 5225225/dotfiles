@@ -30,6 +30,9 @@
       "rcu_nocbs=0-15"
     ];
     initrd.systemd.enable = true;
+    tmp = {
+      cleanOnBoot = true;
+    };
   };
 
   systemd.enableStrictShellChecks = true;
