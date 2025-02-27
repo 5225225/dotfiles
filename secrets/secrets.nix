@@ -12,4 +12,5 @@ in
   "borg-password.age".publicKeys = all;
   "borg-ssh-key.age".publicKeys = all;
   "fishnet-key.age".publicKeys = all;
+  "slskd-env.age".publicKeys = all;
 }
