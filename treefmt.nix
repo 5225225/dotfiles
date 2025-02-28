@@ -25,6 +25,10 @@
       settings.tabWidth = 4;
     };
     keep-sorted.enable = true;
+    typos = {
+      enable = true;
+      isolated = true;
+    };
   };
   settings = {
     on-unmatched = "error";
