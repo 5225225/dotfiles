@@ -5,6 +5,8 @@
   config,
   pkgs,
   lib,
+  inputs,
+  self,
   ...
 }:
 {
@@ -17,6 +19,10 @@
     ./yarr.nix
     ./fishnet.nix
     ./slskd.nix
+    inputs.nix-index-database.nixosModules.nix-index
+    inputs.agenix.nixosModules.default
+    inputs.lix-module.nixosModules.default
+    inputs.home-manager.nixosModules.home-manager
   ];
 
   # Bootloader.
@@ -101,6 +107,7 @@
     fish.enable = true;
     dconf.enable = true;
     steam.enable = true;
+    command-not-found.enable = false;
   };
 
   # Configure console keymap
@@ -175,6 +182,7 @@
       pkgs.man-pages
       pkgs.man-pages-posix
       pkgs.git
+      inputs.agenix.packages.x86_64-linux.default
     ];
   };
 
@@ -228,6 +236,7 @@
       builtins.substring 0 10 config.system.configurationRevision
     }${config.system.nixos.versionSuffix}";
     rebuild.enableNg = true;
+    configurationRevision = self.rev or "dirty";
   };
 
   xdg.portal = {
@@ -237,6 +246,24 @@
     wlr = {
       enable = true;
     };
+  };
+
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users.fivie = import ../user/home.nix;
+  };
+
+  home-manager.extraSpecialArgs = {
+    inherit (inputs)
+      nix-colors
+      base16-vim
+      vim-capnp
+      nix-index-database
+      agenix
+      nixvim
+      firefox-addons
+      ;
   };
 
   nix.gc.automatic = true;
