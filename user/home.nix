@@ -25,6 +25,7 @@
     ./ncmpcpp.nix
     ./neovim.nix
     ./obs
+    ./qalc
     ./rofi
     ./scripts/dmenu_mpd/default.nix
     ./scripts/mpv-open-clipboard.nix
@@ -130,7 +131,6 @@
     pkgs.jq
     pkgs.keepassxc
     pkgs.libnotify
-    pkgs.libqalculate
     pkgs.libreoffice-fresh
     pkgs.libwebp
     pkgs.links2
