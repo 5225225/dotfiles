@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixos-unstable-small.url = "github:NixOS/nixpkgs/nixos-unstable-small";
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -49,6 +50,7 @@
     let
       inputs = inputs' // {
         firefox-addons = inputs'.firefox-addons.packages.x86_64-linux;
+        nixos-unstable-small = (import inputs'.nixos-unstable-small) { system = "x86_64-linux"; };
       };
       treefmtEval = inputs.treefmt-nix.lib.evalModule nixpkgs.legacyPackages.x86_64-linux ./treefmt.nix;
     in

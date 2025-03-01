@@ -263,6 +263,7 @@
       agenix
       nixvim
       firefox-addons
+      nixos-unstable-small
       ;
   };
 
