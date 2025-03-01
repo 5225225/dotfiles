@@ -12,7 +12,7 @@
     # keep-sorted start
     ./agenix.nix
     ./beets/beets.nix
-    ./direnv.nix
+    ./direnv
     ./firefox
     ./fish
     ./foot.nix
