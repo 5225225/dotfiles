@@ -100,11 +100,12 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
-    # keep-sorted start
+    # keep-sorted start ignore_prefixes=(
     pkgs.atool
     pkgs.audacity
     pkgs.binwalk
     pkgs.blender
+    (pkgs.buku.override { withServer = true; })
     pkgs.chromium
     pkgs.dfc
     pkgs.diffoscope
