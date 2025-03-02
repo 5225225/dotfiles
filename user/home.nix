@@ -13,11 +13,16 @@
     ./agenix.nix
     ./beets/beets.nix
     ./direnv
+    ./eza.nix
+    ./fd.nix
     ./firefox
     ./fish
     ./foot.nix
     ./git/git.nix
     ./hledger
+    ./htop.nix
+    ./imv.nix
+    ./jq.nix
     ./listenbrainz-mpd.nix
     ./mako.nix
     ./mpd.nix
@@ -26,6 +31,7 @@
     ./neovim.nix
     ./obs
     ./qalc
+    ./ripgrep.nix
     ./rofi
     ./scripts/dmenu_mpd/default.nix
     ./scripts/mpv-open-clipboard.nix
@@ -113,8 +119,6 @@
     pkgs.dino
     pkgs.dogdns
     pkgs.element-desktop
-    pkgs.eza
-    pkgs.fd
     pkgs.ffmpeg-full
     pkgs.file
     pkgs.flac
@@ -122,13 +126,9 @@
     pkgs.freerdp
     pkgs.ghidra
     pkgs.gimp
-    pkgs.git
-    pkgs.htop
     pkgs.hyperfine
     pkgs.imagemagick
     pkgs.imhex
-    pkgs.imv
-    pkgs.jq
     pkgs.keepassxc
     pkgs.libnotify
     pkgs.libreoffice-fresh
@@ -141,7 +141,6 @@
     pkgs.mpc-cli
     pkgs.mpdscribble
     pkgs.ncdu
-    pkgs.nicotine-plus
     pkgs.nix-diff
     pkgs.openrct2
     pkgs.pavucontrol
@@ -149,19 +148,16 @@
     pkgs.prismlauncher
     pkgs.pv
     pkgs.python3
-    pkgs.ripgrep
     pkgs.sgt-puzzles
     pkgs.shattered-pixel-dungeon
     pkgs.signal-desktop
     pkgs.sqlite
     pkgs.srb2kart
     pkgs.starsector
-    pkgs.stow
     pkgs.stress
     pkgs.tamzen
     pkgs.telegram-desktop
     pkgs.terminus_font
-    pkgs.thunderbird
     pkgs.tor-browser-bundle-bin
     pkgs.unrar
     pkgs.unzip
@@ -170,31 +166,10 @@
     pkgs.whois
     pkgs.wl-clipboard
     pkgs.xdg-utils
-    pkgs.yt-dlp
     pkgs.zip
     pkgs.zola
     # keep-sorted end
   ];
-
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
-  home.file = {
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
-
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
-    ".background-image".source = data/wallpaper.png;
-  };
-
-  home.sessionVariables = {
-    # EDITOR = "emacs";
-  };
 
   fonts.fontconfig.enable = true;
 

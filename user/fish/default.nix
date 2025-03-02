@@ -63,7 +63,6 @@
         "fish_mode_prompt".body = "";
       };
       shellAliases = {
-        ls = "eza --group-directories-first --git --extended";
         df = "dfc -t -devtmpfs,tmpfs,autofs -T -d -q type -W -w 2>/dev/null";
         du = "du -ch";
       };
