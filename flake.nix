@@ -15,10 +15,6 @@
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    tinted-vim = {
-      url = "github:tinted-theming/tinted-vim";
-      flake = false;
-    };
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
