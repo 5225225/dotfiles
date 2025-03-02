@@ -258,17 +258,7 @@
   };
 
   home-manager.extraSpecialArgs = {
-    inherit (inputs)
-      base16-vim
-      vim-capnp
-      nix-index-database
-      agenix
-      nixvim
-      firefox-addons
-      nixos-unstable-small
-      base16
-      tt-schemes
-      ;
+    inherit inputs;
 
     scheme = config.scheme;
   };

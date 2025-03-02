@@ -1,8 +1,7 @@
 {
   pkgs,
-  vim-capnp,
-  base16-vim,
   config,
+  inputs,
   ...
 }:
 let
@@ -51,11 +50,11 @@ in
       vp.vim-fugitive
       (pkgs.vimUtils.buildVimPlugin {
         name = "vim-capnp";
-        src = vim-capnp;
+        src = inputs.vim-capnp;
       })
       (pkgs.vimUtils.buildVimPlugin {
         name = "base16-vim";
-        src = base16-vim;
+        src = inputs.base16-vim;
       })
     ];
     opts = {

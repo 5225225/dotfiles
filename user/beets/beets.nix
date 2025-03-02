@@ -1,13 +1,8 @@
-{
-  config,
-  pkgs,
-  nixos-unstable-small,
-  ...
-}:
+{ config, pkgs, ... }:
 {
   programs.beets = {
     enable = true;
-    package = nixos-unstable-small.beets-unstable.override {
+    package = pkgs.beets-unstable.override {
       pluginOverrides = {
         alternatives = {
           enable = true;

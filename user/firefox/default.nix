@@ -1,26 +1,27 @@
-{ firefox-addons, ... }:
+{ inputs, ... }:
+let
+  fa = inputs.firefox-addons;
+in
 {
   programs.firefox = {
     enable = true;
     profiles."1a0nke3z.default" = {
       userChrome = builtins.readFile ./userChrome.css;
       extensions.packages = [
-        firefox-addons.ublock-origin
-        firefox-addons.batchcamp
-        firefox-addons.darkreader
-        firefox-addons.decentraleyes
-        # try replacing this with yarr
-        # firefox-addons.feedbroreader
-        firefox-addons.indie-wiki-buddy
-        firefox-addons.keepassxc-browser
-        firefox-addons.sidebery
-        firefox-addons.sponsorblock
-        firefox-addons.streetpass-for-mastodon
-        firefox-addons.stylus
-        firefox-addons.violentmonkey
-        # firefox-addons.volume-control-for-bandcamp
-        # firefox-addons.wave-evaluation-tool
-        firefox-addons.wayback-machine
+        fa.ublock-origin
+        fa.batchcamp
+        fa.darkreader
+        fa.decentraleyes
+        fa.indie-wiki-buddy
+        fa.keepassxc-browser
+        fa.sidebery
+        fa.sponsorblock
+        fa.streetpass-for-mastodon
+        fa.stylus
+        fa.violentmonkey
+        # fa.volume-control-for-bandcamp
+        # fa.wave-evaluation-tool
+        fa.wayback-machine
       ];
 
       settings = {

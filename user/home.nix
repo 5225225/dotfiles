@@ -1,11 +1,8 @@
 {
   config,
   pkgs,
-  nix-index-database,
-  agenix,
-  nixvim,
-  base16,
   scheme,
+  inputs,
   ...
 }:
 {
@@ -43,10 +40,10 @@
     ./waybar
     ./xonotic/xonotic.nix
     # keep-sorted end
-    nix-index-database.hmModules.nix-index
-    agenix.homeManagerModules.age
-    nixvim.homeManagerModules.nixvim
-    base16.homeManagerModule
+    inputs.nix-index-database.hmModules.nix-index
+    inputs.agenix.homeManagerModules.age
+    inputs.nixvim.homeManagerModules.nixvim
+    inputs.base16.homeManagerModule
   ];
 
   inherit scheme;
