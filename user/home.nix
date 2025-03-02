@@ -39,6 +39,7 @@
     ./sway/sway.nix
     ./waybar
     ./xonotic/xonotic.nix
+    ./yt-dlp.nix
     # keep-sorted end
     inputs.nix-index-database.hmModules.nix-index
     inputs.agenix.homeManagerModules.age
