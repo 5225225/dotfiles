@@ -1,9 +1,4 @@
-{
-  pkgs,
-  config,
-  inputs,
-  ...
-}:
+{ pkgs, ... }:
 let
   vp = pkgs.vimPlugins;
 in
@@ -39,19 +34,26 @@ in
         };
       };
       rainbow-delimiters.enable = true;
+      fugitive.enable = true;
+      nui.enable = true;
+      ledger.enable = true;
+      nix.enable = true;
+      transparent = {
+        enable = true;
+        settings.extra_groups = [
+          "Folded"
+          "DiffAdd"
+          "DiffDelete"
+          "DiffText"
+        ];
+      };
     };
-    extraPlugins = [
-      vp.rust-vim
-      vp.vim-nix
-      vp.vim-ledger
-      vp.nvim-lspconfig
-      vp.nui-nvim
-      vp.vim-fugitive
-      (pkgs.vimUtils.buildVimPlugin {
-        name = "tinted-vim";
-        src = inputs.tinted-vim;
-      })
-    ];
+    colorschemes.base16 = {
+      enable = true;
+      colorscheme = "tube";
+      setUpBar = true;
+    };
+    extraPlugins = [ vp.nvim-lspconfig ];
     opts = {
       mouse = "";
       expandtab = true;
@@ -65,9 +67,10 @@ in
       foldmethod = "expr";
     };
     globals = {
-      tinted_background_transparent = 1;
       netrw_dirhistmax = 0;
+
+      # for transparent plugin
+      transparent_enabled = true;
     };
-    colorscheme = "base16-${config.scheme.slug}";
   };
 }
