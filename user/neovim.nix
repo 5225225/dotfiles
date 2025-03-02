@@ -46,15 +46,10 @@ in
       vp.vim-ledger
       vp.nvim-lspconfig
       vp.nui-nvim
-      vp.vim-glsl
       vp.vim-fugitive
       (pkgs.vimUtils.buildVimPlugin {
-        name = "vim-capnp";
-        src = inputs.vim-capnp;
-      })
-      (pkgs.vimUtils.buildVimPlugin {
-        name = "base16-vim";
-        src = inputs.base16-vim;
+        name = "tinted-vim";
+        src = inputs.tinted-vim;
       })
     ];
     opts = {

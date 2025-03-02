@@ -43,22 +43,6 @@
         "type": "github"
       }
     },
-    "base16-vim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1740359818,
-        "narHash": "sha256-Tbjclt9SnCMj+9Szk9M+xWZ6gbo14ylVT+YBvuzFadg=",
-        "owner": "tinted-theming",
-        "repo": "tinted-vim",
-        "rev": "4dcc9a77d7aa19c063f0df00865ef60b7e99c8bd",
-        "type": "github"
-      },
-      "original": {
-        "owner": "tinted-theming",
-        "repo": "tinted-vim",
-        "type": "github"
-      }
-    },
     "firefox-addons": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -355,16 +339,15 @@
       "inputs": {
         "agenix": "agenix",
         "base16": "base16",
-        "base16-vim": "base16-vim",
         "firefox-addons": "firefox-addons",
         "home-manager": "home-manager",
         "lix-module": "lix-module",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
+        "tinted-vim": "tinted-vim",
         "treefmt-nix": "treefmt-nix",
-        "tt-schemes": "tt-schemes",
-        "vim-capnp": "vim-capnp"
+        "tt-schemes": "tt-schemes"
       }
     },
     "systems": {
@@ -412,6 +395,22 @@
         "type": "github"
       }
     },
+    "tinted-vim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1740359818,
+        "narHash": "sha256-Tbjclt9SnCMj+9Szk9M+xWZ6gbo14ylVT+YBvuzFadg=",
+        "owner": "tinted-theming",
+        "repo": "tinted-vim",
+        "rev": "4dcc9a77d7aa19c063f0df00865ef60b7e99c8bd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tinted-theming",
+        "repo": "tinted-vim",
+        "type": "github"
+      }
+    },
     "treefmt-nix": {
       "inputs": {
         "nixpkgs": [
@@ -445,22 +444,6 @@
       "original": {
         "owner": "tinted-theming",
         "repo": "schemes",
-        "type": "github"
-      }
-    },
-    "vim-capnp": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1552585600,
-        "narHash": "sha256-6tAI62lOtUusdVq1Gu8rLBuwxmFJ6NrioK0F7Fbs3Ao=",
-        "owner": "cstrahan",
-        "repo": "vim-capnp",
-        "rev": "954202e2c6c1cb9185082de8ddb7f2823a9d1206",
-        "type": "github"
-      },
-      "original": {
-        "owner": "cstrahan",
-        "repo": "vim-capnp",
         "type": "github"
       }
     }
