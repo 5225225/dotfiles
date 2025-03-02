@@ -1,6 +1,6 @@
 { config, ... }:
 let
-  p = config.colorScheme.palette;
+  p = config.scheme;
 in
 {
   programs.foot = {
@@ -17,27 +17,28 @@ in
       colors = {
         alpha = 0.85;
         background = "000000";
-        foreground = "${p.base05}";
+        foreground = "${p.base07}";
+
         regular0 = "${p.base00}";
-        bright0 = "${p.base03}";
+        bright0 = "${p.base04}";
 
-        regular1 = "${p.base08}";
-        bright1 = "${p.base08}";
+        regular1 = "${p.red}";
+        bright1 = "${p.bright-red}";
 
-        regular2 = "${p.base0B}";
-        bright2 = "${p.base0B}";
+        regular2 = "${p.green}";
+        bright2 = "${p.bright-green}";
 
-        regular3 = "${p.base0A}";
-        bright3 = "${p.base0A}";
+        regular3 = "${p.yellow}";
+        bright3 = "${p.yellow}";
 
-        regular4 = "${p.base0D}";
-        bright4 = "${p.base0D}";
+        regular4 = "${p.blue}";
+        bright4 = "${p.bright-blue}";
 
-        regular5 = "${p.base0E}";
-        bright5 = "${p.base0E}";
+        regular5 = "${p.magenta}";
+        bright5 = "${p.bright-magenta}";
 
-        regular6 = "${p.base0C}";
-        bright6 = "${p.base0C}";
+        regular6 = "${p.cyan}";
+        bright6 = "${p.bright-cyan}";
 
         regular7 = "${p.base05}";
         bright7 = "${p.base07}";

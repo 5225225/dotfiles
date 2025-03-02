@@ -1,6 +1,6 @@
 { config, ... }:
 let
-  p = config.colorScheme.palette;
+  p = config.scheme;
 in
 {
   programs.waybar = {
@@ -10,6 +10,23 @@ in
 
     settings = {
       mainBar = {
+        height = 25;
+        position = "bottom";
+        spacing = 4;
+
+        modules-left = [
+          "sway/workspaces"
+          "sway/mode"
+        ];
+        modules-center = [ ];
+        modules-right = [
+          "mpd"
+          "cpu"
+          "memory"
+          "clock"
+          "tray"
+        ];
+
         clock = {
           calendar = {
             format = {
@@ -31,51 +48,22 @@ in
         };
         cpu = {
           format = "";
-          format-high = "<span color='#${p.base08}'>{usage}% CPU</span>";
+          format-high = "<span color='#${p.red}'>{usage}% CPU</span>";
           states = {
             high = 75;
           };
           tooltip = false;
         };
-        height = 25;
-        idle_inhibitor = {
-          format = "{icon}";
-          format-icons = {
-            activated = "";
-            deactivated = "";
-          };
-        };
-        keyboard-state = {
-          capslock = true;
-          format = "{name} {icon}";
-          format-icons = {
-            locked = "";
-            unlocked = "";
-          };
-          numlock = true;
-        };
         memory = {
           format = "";
-          format-visible = "<span color='#${p.base08}'>{percentage}% MEM</span>";
+          format-visible = "<span color='#${p.red}'>{percentage}% MEM</span>";
           states = {
             visible = 75;
           };
         };
-        modules-center = [ ];
-        modules-left = [
-          "sway/workspaces"
-          "sway/mode"
-        ];
-        modules-right = [
-          "mpd"
-          "cpu"
-          "memory"
-          "clock"
-          "tray"
-        ];
         mpd = {
-          format = "<span foreground='#${p.base0B}'>{artist}</span> <span foreground='#${p.base08}'>{title}</span> <span foreground='#${p.base0D}'>{album}</span>";
-          format-paused = "<span foreground='#${p.base0B}70'>{artist}</span> <span foreground='#${p.base08}70'>{title}</span> <span foreground='#${p.base0D}70'>{album}</span>";
+          format = "<span foreground='#${p.green}'>{artist}</span> <span foreground='#${p.red}'>{title}</span> <span foreground='#${p.blue}'>{album}</span>";
+          format-paused = "<span foreground='#${p.green}70'>{artist}</span> <span foreground='#${p.red}70'>{title}</span> <span foreground='#${p.blue}70'>{album}</span>";
 
           format-disconnected = "";
           format-stopped = "";
@@ -87,8 +75,6 @@ in
           album-len = 50;
           title-len = 50;
         };
-        position = "bottom";
-        spacing = 4;
         "sway/mode" = {
           format = "<span style=\"italic\">{}</span>";
         };

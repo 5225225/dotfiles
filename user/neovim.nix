@@ -2,6 +2,7 @@
   pkgs,
   vim-capnp,
   base16-vim,
+  config,
   ...
 }:
 let
@@ -73,6 +74,6 @@ in
       tinted_background_transparent = 1;
       netrw_dirhistmax = 0;
     };
-    colorscheme = "base16-tube";
+    colorscheme = "base16-${config.scheme.slug}";
   };
 }

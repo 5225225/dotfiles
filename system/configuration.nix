@@ -23,7 +23,10 @@
     inputs.agenix.nixosModules.default
     inputs.lix-module.nixosModules.default
     inputs.home-manager.nixosModules.home-manager
+    inputs.base16.nixosModule
   ];
+
+  scheme = "${inputs.tt-schemes}/base16/tube.yaml";
 
   # Bootloader.
   boot = {
@@ -256,7 +259,6 @@
 
   home-manager.extraSpecialArgs = {
     inherit (inputs)
-      nix-colors
       base16-vim
       vim-capnp
       nix-index-database
@@ -264,7 +266,11 @@
       nixvim
       firefox-addons
       nixos-unstable-small
+      base16
+      tt-schemes
       ;
+
+    scheme = config.scheme;
   };
 
   nix.gc.automatic = true;

@@ -1,10 +1,11 @@
 {
   config,
   pkgs,
-  nix-colors,
   nix-index-database,
   agenix,
   nixvim,
+  base16,
+  scheme,
   ...
 }:
 {
@@ -42,13 +43,13 @@
     ./waybar
     ./xonotic/xonotic.nix
     # keep-sorted end
-    nix-colors.homeManagerModules.default
     nix-index-database.hmModules.nix-index
     agenix.homeManagerModules.age
     nixvim.homeManagerModules.nixvim
+    base16.homeManagerModule
   ];
 
-  colorScheme = nix-colors.colorSchemes.tube;
+  inherit scheme;
 
   xdg.enable = true;
 
