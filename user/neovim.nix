@@ -14,6 +14,7 @@ in
     vimAlias = true;
     impureRtp = false;
     wrapRc = true;
+    nixpkgs.useGlobalPackages = true;
     performance = {
       byteCompileLua.enable = true;
       combinePlugins.enable = true;
@@ -37,6 +38,7 @@ in
           indent.enable = true;
         };
       };
+      rainbow-delimiters.enable = true;
     };
     extraPlugins = [
       vp.rust-vim
