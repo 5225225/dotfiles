@@ -1,4 +1,9 @@
-{ config, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
   p = config.scheme;
 in
@@ -30,21 +35,20 @@ in
         clock = {
           calendar = {
             format = {
-              days = "<span color='#ecc6d9'><b>{}</b></span>";
-              months = "<span color='#ffead3'><b>{}</b></span>";
-              today = "<span
-    color='#ff6699'><b><u>{}</u></b></span>";
-              weekdays = "<span color='#ffcc66'><b>{}</b></span>";
-              weeks = "<span color='#99ffdd'><b>W{}</b></span>";
+              days = "<span color='#${p.cyan}'>{}</span>";
+              today = "<span color='#${p.green}'><b>{}</b></span>";
+              weekdays = "<span color='#${p.yellow}'>{}</span>";
             };
-            mode = "year";
-            mode-mon-col = 3;
+            mode = "month";
             on-scroll = 1;
-            weeks-pos = "right";
+          };
+          actions = {
+            on-scroll-up = "shift_down";
+            on-scroll-down = "shift_up";
           };
           format = "{:%a %d %b %Y %H:%M}";
           format-alt = "{:%Y-%m-%d}";
-          tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+          tooltip-format = "<big>{calendar}</big>";
         };
         cpu = {
           format = "";
@@ -68,12 +72,12 @@ in
           format-disconnected = "";
           format-stopped = "";
           interval = 5;
-          tooltip-format = "MPD (connected)";
-          tooltip-format-disconnected = "MPD (disconnected)";
+          tooltip = false;
           unknown-tag = "N/A";
           artist-len = 50;
           album-len = 50;
           title-len = 50;
+          on-click = "${lib.getExe pkgs.mpc} toggle";
         };
         "sway/mode" = {
           format = "<span style=\"italic\">{}</span>";
