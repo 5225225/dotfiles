@@ -19,6 +19,7 @@
     ./git/git.nix
     ./hledger
     ./htop.nix
+    ./hyfetch.nix
     ./imv.nix
     ./jq.nix
     ./listenbrainz-mpd.nix
