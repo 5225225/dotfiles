@@ -24,5 +24,16 @@
     compression = "auto,zstd,22";
     startAt = [ "3:00" ];
     extraCreateArgs = "--one-file-system --exclude-caches --stats";
+
+    # this is a full system backup on a live system, files WILL change
+    failOnWarnings = false;
+
+    prune.keep = {
+      within = "1w";
+      daily = 7;
+      weekly = 4;
+      monthly = 12;
+      yearly = -1;
+    };
   };
 }
