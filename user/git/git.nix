@@ -29,6 +29,12 @@ in
     };
     userEmail = "5225225@mailbox.org";
     userName = "5225225";
+    delta = {
+      enable = true;
+      options = {
+        line-numbers = true;
+      };
+    };
     extraConfig = {
       core = {
         quotepath = false;
