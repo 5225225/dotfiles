@@ -69,6 +69,9 @@
         cr = "cargo run --quiet";
         crr = "cargo run --release --quiet";
         gs = "git status";
+        nrt = "run0 nixos-rebuild test";
+        nrs = "run0 nixos-rebuild switch";
+        nrb = "nixos-rebuild build";
       };
       shellInit = ''
         set --global fish_greeting
