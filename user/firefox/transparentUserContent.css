@@ -2,14 +2,14 @@
 * with thanks to Rea :3
 * :3
 */
-@-moz-document url("about:newtab"), url("about:home"), url("about:blank") {
+@-moz-document url-prefix("about:") {
     .wordmark {
         display: none !important;
     }
     html,
     body {
-        --newtab-background-color: rgba(0, 0, 0, 0.85) !important;
-        --newtab-background-color-secondary: rgba(64, 64, 64, 0.9) !important;
+        --newtab-background-color: transparent !important;
+        --newtab-background-color-secondary: rgba(64, 64, 64, 0.2) !important;
     }
 }
 

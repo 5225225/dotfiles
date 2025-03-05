@@ -13,22 +13,19 @@ html > * > *,
     background: transparent !important;
 }
 
-.titlebar-color,
-.browser-toolbar,
-findbar {
+html#main-window {
     background: rgba(0, 0, 0, 0.85) !important;
 }
 
-.tab-line {
-    background: none !important;
+browser {
+    background: transparent !important;
 }
 
-.tab-background[selected="true"] {
-    background: #5294e2 !important;
-    border-radius: 6px;
-    border: none !important;
+window {
+    background: transparent !important;
 }
 
 :root {
     --tabpanel-background-color: transparent !important;
+    --sidebar-background-color: transparent !important;
 }
