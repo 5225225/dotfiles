@@ -2,7 +2,7 @@
 * with thanks to Rea :3
 * :3
 */
-@-moz-document url("about:newtab"), url("about:home") {
+@-moz-document url("about:newtab"), url("about:home"), url("about:blank") {
     .wordmark {
         display: none !important;
     }
