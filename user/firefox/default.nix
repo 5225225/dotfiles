@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ lib, inputs, ... }:
 let
   fa = inputs.firefox-addons;
 in
@@ -6,7 +6,12 @@ in
   programs.firefox = {
     enable = true;
     profiles."1a0nke3z.default" = {
-      userChrome = builtins.readFile ./userChrome.css;
+      # TODO: move this to concatMapStrings
+      userChrome = lib.strings.concatStrings [
+        (builtins.readFile ./userChrome.css)
+        (builtins.readFile ./transparentUserChrome.css)
+      ];
+      userContent = lib.strings.concatStrings [ (builtins.readFile ./transparentUserContent.css) ];
       extensions.packages = [
         fa.ublock-origin
         fa.batchcamp
@@ -26,6 +31,8 @@ in
 
       settings = {
         "extensions.autoDisableScopes" = 0;
+        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+        "browser.tabs.allow_transparent_browser" = true;
       };
     };
     policies = {
