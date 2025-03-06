@@ -29,6 +29,7 @@
     ./ncmpcpp.nix
     ./neovim.nix
     ./obs
+    ./patch.nix
     ./qalc
     ./ripgrep.nix
     ./rofi
