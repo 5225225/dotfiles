@@ -75,22 +75,20 @@ in
       };
 
       "3rdparty".Extensions = {
-        "uBlock0@raymondhill.net".adminSettings = {
+        "uBlock0@raymondhill.net" = {
           toOverwrite = {
             filters = [
-              ''
-                ! https://jarv.is/notes/cloudflare-dns-archive-is-blocked/
-                archive.is
+              # https://jarv.is/notes/cloudflare-dns-archive-is-blocked/
+              "archive.is"
 
-                ! spamming github
-                codecrafters.io
+              # spamming github
+              "codecrafters.io"
 
-                ! no.
-                news.ycombinator.com
+              # no.
+              "news.ycombinator.com"
 
-                ! 2024-01-02 https://lastfm-iceberg.dawdle.space
-                @@||ws.audioscrobbler.com^
-              ''
+              # 2024-01-02 https://lastfm-iceberg.dawdle.space
+              "@@||ws.audioscrobbler.com^"
             ];
             filterLists = [
               "user-filters"
