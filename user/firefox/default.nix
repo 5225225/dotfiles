@@ -33,8 +33,13 @@ in
         "extensions.autoDisableScopes" = 0;
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
         "browser.tabs.allow_transparent_browser" = true;
+        "security.OCSP.enabled" = 0;
+        "font.name.sans-serif.x-western" = "Noto Sans";
+        "browser.urlbar.suggest.searches" = false;
+        "browser.search.suggest.enabled" = false;
       };
     };
+
     policies = {
       AutofillAddressEnabled = false;
       AutofillCreditCardEnabled = false;
@@ -42,6 +47,7 @@ in
       DisablePocket = true;
       DisableSetDesktopBackground = true;
       DisableTelemetry = true;
+      HttpsOnlyMode = "force_enabled";
       DNSOverHTTPS = {
         # Use system DNS instead, it *is* encrypted.
         Enabled = false;
@@ -66,6 +72,59 @@ in
         SkipOnboarding = true;
         MoreFromMozilla = false;
         Locked = true;
+      };
+
+      "3rdparty".Extensions = {
+        "uBlock0@raymondhill.net".adminSettings = {
+          toOverwrite = {
+            filters = [
+              ''
+                ! https://jarv.is/notes/cloudflare-dns-archive-is-blocked/
+                archive.is
+
+                ! spamming github
+                codecrafters.io
+
+                ! no.
+                news.ycombinator.com
+
+                ! 2024-01-02 https://lastfm-iceberg.dawdle.space
+                @@||ws.audioscrobbler.com^
+              ''
+            ];
+            filterLists = [
+              "user-filters"
+              "ublock-filters"
+              "ublock-badware"
+              "ublock-privacy"
+              "ublock-quick-fixes"
+              "ublock-unbreak"
+              "easylist"
+              "adguard-generic"
+              "easyprivacy"
+              "adguard-spyware"
+              "adguard-spyware-url"
+              "block-lan"
+              "urlhaus-1"
+              "curben-phishing"
+              "plowe-0"
+              "dpollock-0"
+              "fanboy-cookiemonster"
+              "ublock-cookies-easylist"
+              "fanboy-social"
+              "fanboy-thirdparty_social"
+              "easylist-chat"
+              "easylist-newsletters"
+              "easylist-notifications"
+              "easylist-annoyances"
+              "adguard-mobile-app-banners"
+              "adguard-other-annoyances"
+              "adguard-popup-overlays"
+              "adguard-widgets"
+              "ublock-annoyances"
+            ];
+          };
+        };
       };
     };
   };
