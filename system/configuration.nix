@@ -11,19 +11,21 @@
 }:
 {
   imports = [
+    #keep-sorted start
     ./agenix.nix
     ./borgbackup.nix
     ./earlyoom.nix
+    ./fishnet.nix
     ./hardware-configuration.nix
+    ./slskd.nix
     ./syncthing.nix
     ./yarr.nix
-    ./fishnet.nix
-    ./slskd.nix
-    inputs.nix-index-database.nixosModules.nix-index
     inputs.agenix.nixosModules.default
-    inputs.lix-module.nixosModules.default
-    inputs.home-manager.nixosModules.home-manager
     inputs.base16.nixosModule
+    inputs.home-manager.nixosModules.home-manager
+    inputs.lix-module.nixosModules.default
+    inputs.nix-index-database.nixosModules.nix-index
+    #keep-sorted end
   ];
 
   scheme = "${inputs.tt-schemes}/base16/tube.yaml";

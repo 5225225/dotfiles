@@ -42,11 +42,11 @@
     ./waybar
     ./xonotic/xonotic.nix
     ./yt-dlp.nix
-    # keep-sorted end
-    inputs.nix-index-database.hmModules.nix-index
     inputs.agenix.homeManagerModules.age
-    inputs.nixvim.homeManagerModules.nixvim
     inputs.base16.homeManagerModule
+    inputs.nix-index-database.hmModules.nix-index
+    inputs.nixvim.homeManagerModules.nixvim
+    # keep-sorted end
   ];
 
   inherit scheme;
