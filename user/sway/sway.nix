@@ -23,17 +23,14 @@ in
       assign [app_id="org.telegram.desktop"] workspace number 12
       assign [app_id="Element"] workspace number 13
       assign [instance="steamwebhelper"] workspace number 14
-      assign [app_id="org.nicotine_plus.Nicotine"] workspace number 15
-      assign [app_id="signal"] workspace number 16
+      assign [app_id="signal"] workspace number 15
 
       for_window [app_id="quicknote-editor-floating"] floating enable
 
       exec firefox
       exec thunderbird
       exec telegram-desktop
-      exec element-desktop
       exec steam
-      exec nicotine
       exec signal-desktop
 
       exec keepassxc
