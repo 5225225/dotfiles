@@ -21,20 +21,18 @@ in
           target: patch:
           let
             absTarget = "${config.home.homeDirectory}/${target}";
+            generated = settingsFormat.generate "patch.json" patch;
           in
-          "run ${lib.getExe pkgs.jd-diff-patch} -f merge -p ${settingsFormat.generate "patch.json" patch} ${absTarget} | ${lib.getExe' pkgs.moreutils "sponge"} ${absTarget}"
-        ) cfg
-      )
-    );
-
-    home.activation.jsonpatch-files-check = lib.hm.dag.entryBefore [ "writeBoundary" ] (
-      lib.concatStringsSep "\n" (
-        lib.mapAttrsToList (
-          target: patch:
-          let
-            absTarget = "${config.home.homeDirectory}/${target}";
-          in
-          "run --quiet ${lib.getExe pkgs.jd-diff-patch} -f merge -p ${settingsFormat.generate "patch.json" patch} ${absTarget}"
+          ''
+            if [[ -f "${absTarget}" ]]
+            then
+              tmpfile=$(mktemp)
+              run ${lib.getExe pkgs.jd-diff-patch} -f merge -p "${generated}" -o "$tmpfile" "${absTarget}"
+              mv "$tmpfile" "${absTarget}"
+            else
+              cp --no-preserve=all --update=none "${generated}" "${absTarget}"
+            fi
+          ''
         ) cfg
       )
     );
