@@ -127,9 +127,9 @@ in
     };
   };
 
-  patch.json-merge.".mozilla/firefox/1a0nke3z.default/browser-extension-data/wayback_machine@mozilla.org/storage.js" =
-    {
-      agreement = true;
-      private_mode_setting = true;
-    };
+  #patch.json-merge.".mozilla/firefox/1a0nke3z.default/browser-extension-data/wayback_machine@mozilla.org/storage.js" =
+  #  {
+  #    agreement = true;
+  #    private_mode_setting = true;
+  #  };
 }
