@@ -86,6 +86,10 @@ in
           tables = false;
         };
       };
+
+      # NOTE: see https://github.com/okuuva/auto-save.nvim?tab=readme-ov-file#condition
+      # to disable autosave for specific types.
+      auto-save.enable = true;
     };
     colorschemes.base16 = {
       enable = true;
