@@ -39,6 +39,7 @@
     ./scripts/rofi_swayws/rofi_swayws.nix
     ./scripts/wcwd.nix
     ./sway/sway.nix
+    ./thunderbird.nix
     ./waybar
     ./xonotic/xonotic.nix
     ./yt-dlp.nix
