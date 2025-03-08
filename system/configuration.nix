@@ -151,9 +151,13 @@
       use-xdg-base-directories = true;
       keep-outputs = true;
       keep-derivations = true;
+      flake-registry = "";
     };
+
     daemonCPUSchedPolicy = "idle";
     daemonIOSchedClass = "idle";
+
+    gc.automatic = true;
   };
 
   # Allow unfree packages
@@ -264,8 +268,6 @@
 
     scheme = config.scheme;
   };
-
-  nix.gc.automatic = true;
 
   environment.etc."nixos/flake.nix".source = "/home/fivie/dotfiles/flake.nix";
 }
