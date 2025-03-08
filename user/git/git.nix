@@ -11,6 +11,7 @@ in
 {
   programs.git = {
     enable = true;
+    lfs.enable = true;
     aliases = {
       inherit
         lg
