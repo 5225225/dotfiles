@@ -8,6 +8,10 @@
           enable = true;
           propagatedBuildInputs = [ pkgs.beetsPackages.alternatives ];
         };
+        copyartifacts = {
+          enable = true;
+          propagatedBuildInputs = [ pkgs.beetsPackages.copyartifacts ];
+        };
       };
     };
     settings = {
@@ -19,7 +23,7 @@
         languages = "en";
         timid = false;
       };
-      match.strong_rec_thresh = 1.0e-2;
+      match.strong_rec_thresh = 0.01;
       plugins = [
         "alternatives"
         "badfiles"
@@ -27,6 +31,7 @@
         "duplicates"
         "edit"
         "embedart"
+        "copyartifacts"
         "fetchart"
         "fish"
         "fromfilename"
