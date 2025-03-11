@@ -25,13 +25,14 @@
       };
       match.strong_rec_thresh = 0.01;
       plugins = [
+        #keep-sorted start
         "alternatives"
         "badfiles"
         "convert"
+        "copyartifacts"
         "duplicates"
         "edit"
         "embedart"
-        "copyartifacts"
         "fetchart"
         "fish"
         "fromfilename"
@@ -50,6 +51,8 @@
         "rewrite"
         "scrub"
         "types"
+        "mbcollection"
+        #keep-sorted end
       ];
       lastfm.user = "lfm5225225";
       embedart.auto = false;
@@ -80,6 +83,16 @@
         text_highlight_minor = "lightgray";
         action_default = "turquoise";
         action = "blue";
+      };
+      musicbrainz = {
+        user = "5225225";
+        # lol not putting that in my config
+        # have to put it in here to satisfy the tests tho
+        pass = "";
+      };
+      mbcollection = {
+        collection = "1b914f64-c83e-4369-91d6-cfbc912e551f";
+        remove = true;
       };
       original_date = true;
       convert = {
