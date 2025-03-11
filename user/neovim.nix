@@ -7,6 +7,8 @@ in
     enable = true;
     defaultEditor = true;
     vimAlias = true;
+    viAlias = true;
+    vimdiffAlias = true;
     impureRtp = false;
     wrapRc = true;
     nixpkgs.useGlobalPackages = true;
