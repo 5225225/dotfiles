@@ -43,6 +43,7 @@
         "lastimport"
         "limit"
         "lyrics"
+        "mbcollection"
         "mbsubmit"
         "mbsync"
         "missing"
@@ -51,7 +52,6 @@
         "rewrite"
         "scrub"
         "types"
-        "mbcollection"
         #keep-sorted end
       ];
       lastfm.user = "lfm5225225";
