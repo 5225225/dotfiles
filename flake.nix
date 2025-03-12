@@ -55,17 +55,24 @@
         firefox-addons = inputs'.firefox-addons.packages.x86_64-linux;
         # nixos-unstable-small = (import inputs'.nixos-unstable-small) { system = "x86_64-linux"; };
       };
+
       treefmtEval = inputs.treefmt-nix.lib.evalModule nixpkgs.legacyPackages.x86_64-linux ./treefmt.nix;
+
       collectFlakeInputs =
         input:
         [ input ] ++ builtins.concatMap collectFlakeInputs (builtins.attrValues (input.inputs or { }));
+
+      extraDeps = builtins.concatMap collectFlakeInputs (builtins.attrValues inputs') ++ [
+        self.formatter.x86_64-linux
+        self.checks.x86_64-linux.check
+      ];
     in
     {
       nixosConfigurations.iridium = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           system/configuration.nix
-          { system.extraDependencies = builtins.concatMap collectFlakeInputs (builtins.attrValues inputs'); }
+          { system.extraDependencies = extraDeps; }
         ];
         specialArgs = {
           inherit inputs;
