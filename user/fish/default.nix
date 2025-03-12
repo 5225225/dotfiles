@@ -23,9 +23,19 @@
         };
         "scratch" = {
           description = "Makes a temporary directory and moves into it";
-          body = ''
-            cd "$(mktemp --tmpdir -d scratchXXXXXXXXX)"
-          '';
+          body =
+            #fish
+            ''
+              set date (date "+%F_%H-%M")
+              if set -q argv[1]
+                cd (mktemp --directory --tmpdir $argv[1]_{$date}_XXXX || return 1)
+                nix flake init --template ~/dotfiles#templates.$argv[1]
+                nix flake update 2>/dev/null
+                direnv allow
+              else
+                cd (mktemp --directory --tmpdir empty_{$date}_XXXX || return 1)
+              end
+            '';
         };
 
         # used for async prompt

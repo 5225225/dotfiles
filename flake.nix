@@ -80,6 +80,23 @@
         };
       };
 
+      templates = {
+        rust = {
+          path = ./templates/rust;
+          description = "A rust scratch project template";
+          welcomeText = ''
+            🩵🩷🤍🩷🩵\
+            🩵🩷🤍🩷🩵\
+            🩵🩷🤍🩷🩵
+
+            💛💛💛💛\
+            🤍🤍🤍🤍\
+            💜💜💜💜\
+            🖤🖤🖤🖤
+          '';
+        };
+      };
+
       formatter.x86_64-linux = treefmtEval.config.build.wrapper;
       checks.x86_64-linux.check = treefmtEval.config.build.check self;
     };
