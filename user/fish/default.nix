@@ -82,6 +82,8 @@
         nrt = "run0 nixos-rebuild test";
         nrs = "run0 nixos-rebuild switch";
         nrb = "nixos-rebuild build";
+        nrr = "nixos-rebuild repl";
+        nr = "nix run .#";
       };
       shellInit = ''
         set --global fish_greeting
@@ -98,5 +100,10 @@
     bash.initExtra = ''
       [[ -x "${config.programs.fish.package}/bin/fish" ]] && exec ${config.programs.fish.package}/bin/fish
     '';
+  };
+
+  xdg.configFile."fish/fish_variables" = {
+    source = config.lib.file.mkOutOfStoreSymlink "/tmp/fish-variables-file";
+    force = true;
   };
 }
