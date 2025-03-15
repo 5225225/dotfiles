@@ -66,6 +66,8 @@
         self.formatter.x86_64-linux
         self.checks.x86_64-linux.check
       ];
+
+      np = nixpkgs.legacyPackages.x86_64-linux;
     in
     {
       nixosConfigurations.iridium = nixpkgs.lib.nixosSystem {
@@ -100,13 +102,36 @@
       formatter.x86_64-linux = treefmtEval.config.build.wrapper;
       checks.x86_64-linux.check = treefmtEval.config.build.check self;
 
-      packages.x86_64-linux.update = nixpkgs.legacyPackages.x86_64-linux.writeShellApplication {
+      packages.x86_64-linux.update = np.writeShellApplication {
         name = "update-system";
         inheritPath = false;
-        runtimeInputs = [ self.packages.x86_64-linux.diff ];
+        runtimeInputs = [
+          self.packages.x86_64-linux.diff
+          np.nix-output-monitor
+          np.coreutils
+          np.lix
+          np.git
+        ];
         text = ''
-          nix flake update --commit-lock-file
-          diff-system HEAD^ HEAD
+          toplevel="nixosConfigurations.iridium.config.system.build.toplevel"
+          OUT_DIR=$(mktemp -d)
+          OUT_LINK="$OUT_DIR/build"
+
+          if ! (git diff --exit-code >/dev/null 2>&1 && git diff --staged --exit-code >/dev/null 2>&1);
+          then
+            echo "Refusing to update with a dirty repo";
+            exit 1;
+          fi
+
+          nix flake update
+          if nix build "./#$toplevel" --out-link "$OUT_LINK" --log-format internal-json -v |& nom --json;
+          then
+            git restore flake.lock
+            nix flake update --commit-lock-file
+            diff-system HEAD^ HEAD
+          else
+            git restore flake.lock
+          fi
         '';
       };
 
