@@ -151,7 +151,7 @@
           inheritPath = false;
           text = ''
             old_rev="''${1-HEAD~1}"
-            new_rev="''${1-HEAD}"
+            new_rev="''${2-HEAD}"
 
             old_hash=$(git rev-parse "$old_rev")
             new_hash=$(git rev-parse "$new_rev")
