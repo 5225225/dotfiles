@@ -99,5 +99,54 @@
 
       formatter.x86_64-linux = treefmtEval.config.build.wrapper;
       checks.x86_64-linux.check = treefmtEval.config.build.check self;
+
+      packages.x86_64-linux.update = nixpkgs.legacyPackages.x86_64-linux.writeShellApplication {
+        name = "update-system";
+        inheritPath = false;
+        runtimeInputs = [ self.packages.x86_64-linux.diff ];
+        text = ''
+          nix flake update --commit-lock-file
+          diff-system HEAD^ HEAD
+        '';
+      };
+
+      packages.x86_64-linux.diff =
+        let
+          np = nixpkgs.legacyPackages.x86_64-linux;
+        in
+        np.writeShellApplication {
+          name = "diff-system";
+          runtimeInputs = [
+            np.git
+            np.coreutils
+            np.lix
+            np.nix-output-monitor
+            np.nix-diff
+          ];
+          inheritPath = false;
+          text = ''
+            old_rev="''${1-HEAD~1}"
+            new_rev="''${1-HEAD}"
+
+            old_hash=$(git rev-parse "$old_rev")
+            new_hash=$(git rev-parse "$new_rev")
+
+            echo "$old_rev ($old_hash) -> "
+            echo "$new_rev ($new_hash)"
+
+            OUT_DIR=$(mktemp -d)
+            OUT_LINK="$OUT_DIR/build"
+
+            toplevel="nixosConfigurations.iridium.config.system.build.toplevel"
+
+            nix build "./?rev=$old_hash#$toplevel" "./?rev=$new_hash#$toplevel" --out-link "$OUT_LINK" --log-format internal-json -v |& nom --json
+
+            nix store diff-closures "$OUT_LINK" "$OUT_LINK-1"
+
+            if [ "''${3:-normal}" == "verbose" ]; then
+                nix-diff --skip-already-compared --character-oriented "$OUT_LINK" "$OUT_LINK-1"
+            fi
+          '';
+        };
     };
 }
