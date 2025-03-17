@@ -141,8 +141,9 @@
   nix = {
     channel.enable = false;
 
+    optimise.automatic = true;
+
     settings = {
-      auto-optimise-store = true;
       extra-experimental-features = [
         "flakes"
         "nix-command"
