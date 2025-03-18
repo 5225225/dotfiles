@@ -193,6 +193,7 @@
       pkgs.man-pages-posix
       pkgs.git
       inputs.agenix.packages.x86_64-linux.default
+      inputs.ripnixsearch.packages.x86_64-linux.default
     ];
   };
 

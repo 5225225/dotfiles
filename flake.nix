@@ -46,6 +46,10 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    ripnixsearch = {
+      url = "git+https://codeberg.org/5225225/ripnixsearch";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
