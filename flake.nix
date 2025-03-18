@@ -72,6 +72,17 @@
       ];
 
       np = nixpkgs.legacyPackages.x86_64-linux;
+
+      welcomeText = ''
+        🩵🩷🤍🩷🩵\
+        🩵🩷🤍🩷🩵\
+        🩵🩷🤍🩷🩵
+
+        💛💛💛💛\
+        🤍🤍🤍🤍\
+        💜💜💜💜\
+        🖤🖤🖤🖤
+      '';
     in
     {
       nixosConfigurations.iridium = nixpkgs.lib.nixosSystem {
@@ -90,16 +101,12 @@
         rust = {
           path = ./templates/rust;
           description = "A rust scratch project template";
-          welcomeText = ''
-            🩵🩷🤍🩷🩵\
-            🩵🩷🤍🩷🩵\
-            🩵🩷🤍🩷🩵
-
-            💛💛💛💛\
-            🤍🤍🤍🤍\
-            💜💜💜💜\
-            🖤🖤🖤🖤
-          '';
+          inherit welcomeText;
+        };
+        rustproject = {
+          path = ./templates/rustproject;
+          description = "A template based of crane's quickstart";
+          inherit welcomeText;
         };
       };
 
