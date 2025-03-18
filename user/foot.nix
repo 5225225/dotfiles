@@ -1,6 +1,21 @@
-{ config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 let
   p = config.scheme;
+  handleOutput = lib.getExe (
+    pkgs.writeShellApplication {
+      name = "pipe-command-output-handler";
+      text = ''
+        f=$(mktemp --tmpdir "last-command-output.XXXXXX.txt")
+        cat - > "$f"
+        foot nvim -n "$f"
+      '';
+    }
+  );
 in
 {
   programs.foot = {
@@ -13,6 +28,10 @@ in
       };
       key-bindings = {
         show-urls-launch = "Control+u";
+        pipe-command-output = ''[${handleOutput}] Control+i'';
+      };
+      scrollback = {
+        lines = 100000;
       };
       colors = {
         alpha = 0.85;
