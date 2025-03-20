@@ -1,4 +1,9 @@
-{ lib, inputs, ... }:
+{
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 let
   fa = inputs.firefox-addons;
 in
@@ -13,7 +18,8 @@ in
       ];
       userContent = lib.strings.concatStrings [ (builtins.readFile ./transparentUserContent.css) ];
       extensions.packages = [
-        fa.ublock-origin
+        # keep-sorted start
+        fa.bandcamp-player-volume-control
         fa.batchcamp
         fa.darkreader
         fa.decentraleyes
@@ -23,10 +29,10 @@ in
         fa.sponsorblock
         fa.streetpass-for-mastodon
         fa.stylus
+        fa.ublock-origin
         fa.violentmonkey
-        # fa.volume-control-for-bandcamp
-        # fa.wave-evaluation-tool
         fa.wayback-machine
+        # keep-sorted end
       ];
 
       settings = {
@@ -37,6 +43,58 @@ in
         "font.name.sans-serif.x-western" = "Noto Sans";
         "browser.urlbar.suggest.searches" = false;
         "browser.search.suggest.enabled" = false;
+      };
+
+      search = {
+        default = "ddg-with-settings";
+        privateDefault = "ddg-with-settings";
+        force = true;
+        engines = {
+          ddg-with-settings = {
+            icon = pkgs.fetchurl {
+              url = "https://duckduckgo.com/favicon.ico";
+              hash = "sha256-2ZT4BrHkIltQvlq2gbLOz4RcwhahmkMth4zqPLgVuv0=";
+            };
+            name = "DDG";
+            urls = [
+              {
+                template = "https://duckduckgo.com";
+                params =
+                  let
+                    mkParam = name: value: {
+                      inherit name;
+                      inherit value;
+                    };
+                  in
+                  [
+                    (mkParam "q" "{searchTerms}")
+                    (mkParam "kl" "uk-en")
+                    (mkParam "kp" "-2")
+                    (mkParam "kav" "1")
+                    (mkParam "k1" "-1")
+                    (mkParam "kaj" "m")
+                    (mkParam "kat" "-1")
+                    (mkParam "kv" "-1")
+                    (mkParam "kax" "-1")
+                    (mkParam "kaq" "-1")
+                    (mkParam "kak" "-1")
+                    (mkParam "kap" "-1")
+                    (mkParam "kao" "-1")
+                    (mkParam "kau" "-1")
+                    (mkParam "kpsp" "-1")
+                    (mkParam "kbg" "-1")
+                    (mkParam "kbe" "0")
+                  ];
+              }
+            ];
+          };
+
+          bing.metaData.hidden = true;
+          google.metaData.hidden = true;
+          ddg.metaData.hidden = true;
+          ebay-uk.metaData.hidden = true;
+          wikipedia.metaData.hidden = true;
+        };
       };
     };
 
