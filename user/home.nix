@@ -110,12 +110,20 @@
   # environment.
   home.packages = [
     # keep-sorted start ignore_prefixes=(
+    pkgs.asciinema
+    pkgs.asciinema-agg
     pkgs.atool
     pkgs.audacity
+    pkgs.bacon
+    pkgs.bat
     pkgs.binwalk
     pkgs.blender
+    pkgs.bottom
+    pkgs.brotli
     (pkgs.buku.override { withServer = true; })
     pkgs.chromium
+    pkgs.darkhttpd
+    pkgs.dejsonlz4
     pkgs.dfc
     pkgs.diffoscope
     pkgs.dino
@@ -144,6 +152,8 @@
     pkgs.mpdscribble
     pkgs.ncdu
     pkgs.nix-diff
+    pkgs.nix-output-monitor
+    pkgs.nixfmt-rfc-style
     pkgs.openrct2
     pkgs.pavucontrol
     pkgs.pngcrush
@@ -152,6 +162,7 @@
     pkgs.python3
     pkgs.sgt-puzzles
     pkgs.shattered-pixel-dungeon
+    pkgs.shellcheck
     pkgs.signal-desktop
     pkgs.sqlite
     pkgs.srb2kart
@@ -163,6 +174,7 @@
     pkgs.tor-browser-bundle-bin
     pkgs.unrar
     pkgs.unzip
+    pkgs.validator-nu
     pkgs.vdrift
     pkgs.wget
     pkgs.whois
