@@ -60,7 +60,7 @@ in
         };
         memory = {
           format = "";
-          format-visible = "<span color='#${p.red}'>{percentage}% MEM</span>";
+          format-visible = "<span color='#${p.red}'>{percentage}/{swapPercentage}% MEM</span>";
           states = {
             visible = 75;
           };
