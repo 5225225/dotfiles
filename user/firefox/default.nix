@@ -132,6 +132,18 @@ in
         Locked = true;
       };
 
+      Preferences =
+        let
+          mkLockedPref = value: {
+            Value = value;
+            Status = "locked";
+          };
+        in
+        {
+          # fuck the fuck off
+          "browser.ml.chat.enabled" = (mkLockedPref false);
+        };
+
       "3rdparty".Extensions = {
         "uBlock0@raymondhill.net" = {
           toOverwrite = {
