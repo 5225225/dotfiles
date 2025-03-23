@@ -3,13 +3,16 @@
   services.freshrss = {
     enable = true;
     authType = "none";
-    baseUrl = "http://127.0.0.1";
+    baseUrl = "https://iridium.tailb3553.ts.net";
+    webserver = "caddy";
   };
 
-  services.nginx.virtualHosts.${config.services.freshrss.virtualHost}.listen = [
-    {
-      addr = "127.0.0.1";
-      port = 80;
-    }
-  ];
+  services.caddy.virtualHosts.${config.services.freshrss.virtualHost} = {
+    hostName = "iridium.tailb3553.ts.net";
+    listenAddresses = [ "0.0.0.0" ];
+  };
+
+  services.tailscale.permitCertUid = config.services.caddy.user;
+
+  networking.firewall.trustedInterfaces = [ "tailscale0" ];
 }
