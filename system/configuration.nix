@@ -20,7 +20,6 @@
     ./hardware-configuration.nix
     ./slskd.nix
     ./syncthing.nix
-    ./yarr.nix
     inputs.agenix.nixosModules.default
     inputs.base16.nixosModule
     inputs.home-manager.nixosModules.home-manager
