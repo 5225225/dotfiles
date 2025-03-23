@@ -1,10 +1,15 @@
-{ config, ... }:
+{ pkgs, config, ... }:
 {
   services.freshrss = {
     enable = true;
     authType = "none";
     baseUrl = "https://iridium.tailb3553.ts.net";
     webserver = "caddy";
+    extensions =
+      let
+        ext = pkgs.freshrss-extensions;
+      in
+      [ ext.auto-ttl ];
   };
 
   services.caddy.virtualHosts.${config.services.freshrss.virtualHost} = {
