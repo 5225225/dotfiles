@@ -42,7 +42,6 @@
         "inline"
         "lastimport"
         "limit"
-        "lyrics"
         "mbcollection"
         "mbsubmit"
         "mbsync"
