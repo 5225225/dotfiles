@@ -1,6 +1,6 @@
 { pkgs, config, ... }:
 let
-  piccache = pkgs.writeTextDir "p/piccache.php" ./piccache.php;
+  piccache = pkgs.writeTextDir "p/piccache.php" (builtins.readFile ./piccache.php);
   p = pkgs.symlinkJoin {
     name = "freshrss-final";
     paths = [
