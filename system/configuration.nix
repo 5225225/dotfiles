@@ -34,7 +34,7 @@ in
     ./borgbackup.nix
     ./earlyoom.nix
     ./fishnet.nix
-    ./freshrss.nix
+    ./freshrss
     ./hardware-configuration.nix
     ./slskd.nix
     ./syncthing.nix
