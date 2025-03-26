@@ -9,6 +9,24 @@
   self,
   ...
 }:
+
+let
+  # credit to
+  # https://codeberg.org/novenary/nicks/src/commit/76e3f9e0c62237a88a9ec77088a3d48c8f582dea/common/users/default.nix#L4-L12
+  shimName = "bashim";
+  bashShim =
+    pkgs.runCommand shimName
+      {
+        passthru = {
+          shellPath = "/bin/${shimName}";
+        };
+      }
+      ''
+        mkdir -p "$out/bin"
+        ln -s "${pkgs.bashInteractive}/bin/bash" "$out/bin/${shimName}"
+      '';
+in
+
 {
   imports = [
     #keep-sorted start
@@ -129,7 +147,7 @@
         "networkmanager"
         "wheel"
       ];
-      shell = pkgs.bash;
+      shell = bashShim;
       # yes, you can crack this
       # no, i don't use it anywhere important, i do not care.
       hashedPassword = "$y$j9T$nLW2y6cB.3dWfnd/PXcMT0$7t4FTeq3t3hz1iVlfLtwrZTc.sWYhKqL1Gq.GyDWk5/";

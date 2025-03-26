@@ -97,8 +97,11 @@
     };
 
     bash.enable = true;
-    bash.initExtra = ''
-      [[ -x "${config.programs.fish.package}/bin/fish" ]] && exec ${config.programs.fish.package}/bin/fish
+    bash.bashrcExtra = ''
+      # The login shell should drop into fish in interactive mode
+      if [[ $- == *i* && "''${BASH##*/}" == "bashim" && -z "$BASH_EXECUTION_STRING" ]]; then
+        exec -a "$0" "${config.programs.fish.package}/bin/fish"
+      fi
     '';
   };
 
