@@ -10,7 +10,6 @@
       "/home/fivie/.local/share/TelegramDesktop"
       "/home/fivie/.local/share/Steam/steamapps/common"
       "/home/fivie/.cache"
-      "/home/jess" # TODO: remove once symlink is deleted
     ];
     doInit = false;
     repo = "okortyx0@okortyx0.repo.borgbase.com:repo";
