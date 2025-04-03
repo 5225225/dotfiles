@@ -1,5 +1,5 @@
 <?php
-define("CACHE_PLACE_PATH", sys_get_temp_dir());
+define("CACHE_PLACE_PATH", "/var/lib/freshrss");
 # Don't particularly care about auth here, this is behind TS anyways.
 define("ACCESS_TOKEN", "your_access_token");
 # Also possible:
