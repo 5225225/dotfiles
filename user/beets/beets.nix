@@ -72,7 +72,6 @@
         ogg = "${pkgs.opusTools}/bin/opusinfo -q";
         opus = "${pkgs.opusTools}/bin/opusinfo -q";
       };
-      asciify_paths = true;
       ui.color = true;
       ui.colors = {
         text_success = "green";
