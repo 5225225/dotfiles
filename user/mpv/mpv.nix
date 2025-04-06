@@ -15,16 +15,18 @@
         s.uosc
       ];
     config = {
-      cache = "auto";
-      demuxer-max-bytes = "512MiB";
-      demuxer-readahead-secs = 1200;
+      cache-on-disk = true;
+      demuxer-max-bytes = "2GiB";
+
       ytdl-format = "bestvideo[height<=1080]+bestaudio/best[height<=1080]/best";
       volume = 30;
+
+      vo = "gpu-next";
       profile = "high-quality";
-      scale = "ewa_lanczossharp";
-      cscale = "ewa_lanczossharp";
+
       save-position-on-quit = true;
       write-filename-in-watch-later-config = true;
+
       sub-ass-override = false;
       sub-blur = 0.3;
       sub-color = 0.95;
@@ -36,8 +38,8 @@
       sub-margin-x = 30;
       sub-margin-y = 36;
       sub-font-size = 43;
-      sub-auto = "fuzzy";
     };
   };
+
   home.file."${config.xdg.configHome}/mpv/script-opts/uosc.conf".source = ./uosc.conf;
 }
