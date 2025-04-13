@@ -3,13 +3,18 @@
   services.borgbackup.jobs.root = {
     paths = "/";
     exclude = [
+      #keep-sorted start
+      "/home/fivie/.cache"
+      "/home/fivie/.config/Element/Cache/"
+      "/home/fivie/.local/share/Steam/logs/"
+      "/home/fivie/.local/share/Steam/steamapps/common"
+      "/home/fivie/.local/share/TelegramDesktop"
+      "/home/fivie/Downloads"
       "/nix"
       "/tmp"
       "/usr"
-      "/home/fivie/Downloads"
-      "/home/fivie/.local/share/TelegramDesktop"
-      "/home/fivie/.local/share/Steam/steamapps/common"
-      "/home/fivie/.cache"
+      "/var/log/journal/"
+      #keep-sorted end
     ];
     doInit = false;
     repo = "okortyx0@okortyx0.repo.borgbase.com:repo";
