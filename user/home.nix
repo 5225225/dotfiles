@@ -163,7 +163,7 @@
     pkgs.sgt-puzzles
     pkgs.shattered-pixel-dungeon
     pkgs.shellcheck
-    pkgs.signal-desktop
+    pkgs.signal-desktop-bin
     pkgs.sqlite
     pkgs.srb2kart
     pkgs.starsector
