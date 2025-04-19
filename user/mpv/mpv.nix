@@ -7,7 +7,7 @@
         s = pkgs.mpvScripts;
       in
       [
-        s.autodeint
+        s.builtins.autodeint
         s.memo
         s.quality-menu
         s.sponsorblock

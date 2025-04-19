@@ -179,17 +179,19 @@ in
     gc.automatic = true;
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfreePredicate =
-    pkg:
-    builtins.elem (lib.getName pkg) [
-      "steam"
-      "steam-unwrapped"
-      "starsector"
-      "unrar"
-    ];
+  nixpkgs.config = {
+    # Allow unfree packages
+    allowUnfreePredicate =
+      pkg:
+      builtins.elem (lib.getName pkg) [
+        "steam"
+        "steam-unwrapped"
+        "starsector"
+        "unrar"
+      ];
 
-  nixpkgs.config.permittedInsecurePackages = [ ];
+    allowAliases = false;
+  };
 
   environment = {
     # List packages installed in system profile. To search, run:
@@ -206,7 +208,7 @@ in
 
     systemPackages = [
       pkgs.adwaita-icon-theme
-      pkgs.vimHugeX
+      pkgs.vim-full
       pkgs.man-pages
       pkgs.man-pages-posix
       pkgs.git
@@ -220,7 +222,6 @@ in
   fonts.packages = [
     pkgs.noto-fonts
     pkgs.noto-fonts-cjk-sans
-    pkgs.noto-fonts-extra
     pkgs.noto-fonts-color-emoji
     pkgs.tamsyn
     pkgs.ocr-a

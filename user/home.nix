@@ -148,7 +148,7 @@
     pkgs.man-pages-posix
     pkgs.mindustry
     pkgs.moreutils
-    pkgs.mpc-cli
+    pkgs.mpc
     pkgs.mpdscribble
     pkgs.ncdu
     pkgs.nix-diff
@@ -171,7 +171,7 @@
     pkgs.tamzen
     pkgs.telegram-desktop
     pkgs.terminus_font
-    pkgs.tor-browser-bundle-bin
+    pkgs.tor-browser
     pkgs.unrar
     pkgs.unzip
     pkgs.validator-nu

@@ -66,11 +66,11 @@ in
 
         "${mod}+grave" = "workspace back_and_forth";
 
-        "${mod}+Shift+p" = "exec --no-startup-id ${pkgs.mpc-cli}/bin/mpc toggle";
-        "${mod}+Shift+bracketleft" = "exec --no-startup-id ${pkgs.mpc-cli}/bin/mpc prev";
-        "${mod}+Shift+bracketright" = "exec --no-startup-id ${pkgs.mpc-cli}/bin/mpc next";
-        "${mod}+Shift+minus" = "exec --no-startup-id ${pkgs.mpc-cli}/bin/mpc volume -10";
-        "${mod}+Shift+equal" = "exec --no-startup-id ${pkgs.mpc-cli}/bin/mpc volume +10";
+        "${mod}+Shift+p" = "exec --no-startup-id ${lib.getExe pkgs.mpc} toggle";
+        "${mod}+Shift+bracketleft" = "exec --no-startup-id ${lib.getExe pkgs.mpc} prev";
+        "${mod}+Shift+bracketright" = "exec --no-startup-id ${lib.getExe pkgs.mpc} next";
+        "${mod}+Shift+minus" = "exec --no-startup-id ${lib.getExe pkgs.mpc} volume -10";
+        "${mod}+Shift+equal" = "exec --no-startup-id ${lib.getExe pkgs.mpc} volume +10";
         "${mod}+Shift+numbersign" = "exec --no-startup-id dmenu_mpd";
         "${mod}+Return" = ''exec foot -D "$(wcwd)"'';
         "${mod}+Shift+n" = "exec quicknote";
@@ -124,7 +124,7 @@ in
       }
       {
         timeout = blank_timeout;
-        command = "${pkgs.mpc-cli}/bin/mpc pause";
+        command = "${pkgs.mpc}/bin/mpc pause";
       }
     ];
   };
