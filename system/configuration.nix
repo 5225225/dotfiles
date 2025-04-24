@@ -196,7 +196,7 @@ in
   environment = {
     # List packages installed in system profile. To search, run:
     # $ nix search wget
-    shells = [ pkgs.zsh ];
+    shells = [ ];
 
     # This is to work around incomplete completions for fish
     # In *theory* home-manager should help with this.. but it doesn't!
@@ -243,8 +243,7 @@ in
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
+    jack.enable = true;
   };
 
   # Some programs need SUID wrappers, can be configured further or are
