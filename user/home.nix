@@ -135,7 +135,7 @@
     pkgs.fossil
     pkgs.freerdp
     pkgs.ghidra
-    pkgs.gimp
+    pkgs.gimp3-with-plugins
     pkgs.hyperfine
     pkgs.imagemagick
     pkgs.imhex
