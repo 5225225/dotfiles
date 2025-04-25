@@ -123,6 +123,7 @@
     (pkgs.buku.override { withServer = true; })
     pkgs.chromium
     pkgs.darkhttpd
+    pkgs.darktable
     pkgs.dejsonlz4
     pkgs.dfc
     pkgs.diffoscope
