@@ -156,6 +156,7 @@
     pkgs.nix-output-monitor
     pkgs.nixfmt-rfc-style
     pkgs.openrct2
+    pkgs.pandoc
     pkgs.pavucontrol
     pkgs.pngcrush
     pkgs.prismlauncher
