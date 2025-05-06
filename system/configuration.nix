@@ -30,6 +30,7 @@ in
 {
   imports = [
     #keep-sorted start
+    ./adb.nix
     ./agenix.nix
     ./borgbackup.nix
     ./earlyoom.nix
