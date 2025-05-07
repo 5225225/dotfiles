@@ -118,6 +118,7 @@
         inheritPath = false;
         runtimeInputs = [
           self.packages.x86_64-linux.diff
+          self.packages.x86_64-linux.diff-relnotes
           np.nix-output-monitor
           np.coreutils
           np.lix
@@ -140,11 +141,44 @@
             git restore flake.lock
             nix flake update --commit-lock-file
             diff-system HEAD^ HEAD
+            diff-relnotes HEAD^ HEAD
           else
             git restore flake.lock
           fi
         '';
       };
+
+      packages.x86_64-linux.diff-relnotes =
+        let
+          np = nixpkgs.legacyPackages.x86_64-linux;
+        in
+        np.writeShellApplication {
+          name = "diff-relnotes";
+          runtimeInputs = [
+            np.git
+            np.delta
+            np.lix
+            np.jq
+          ];
+          inheritPath = false;
+          text = ''
+            old_rev="''${1-HEAD~1}"
+            new_rev="''${2-HEAD}"
+
+            old_hash=$(git rev-parse "$old_rev")
+            new_hash=$(git rev-parse "$new_rev")
+
+            old_src="$(nix flake metadata --inputs-from "./?rev=$old_hash" nixpkgs --json | jq -r .path)"
+            new_src="$(nix flake metadata --inputs-from "./?rev=$new_hash" nixpkgs --json | jq -r .path)"
+
+            relnotes_path="/nixos/doc/manual/release-notes/"
+
+            old_relnotes="$old_src$relnotes_path"
+            new_relnotes="$new_src$relnotes_path"
+
+            delta --paging never "$old_relnotes" "$new_relnotes"
+          '';
+        };
 
       packages.x86_64-linux.diff =
         let
