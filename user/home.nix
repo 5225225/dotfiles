@@ -25,6 +25,7 @@
     ./listenbrainz-mpd.nix
     ./mako.nix
     ./mpd.nix
+    ./mpdscribble.nix
     ./mpv/mpv.nix
     ./ncmpcpp.nix
     ./neovim.nix

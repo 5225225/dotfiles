@@ -13,4 +13,5 @@ in
   "borg-ssh-key.age".publicKeys = all;
   "fishnet-key.age".publicKeys = all;
   "slskd-env.age".publicKeys = all;
+  "lastfm.age".publicKeys = all;
 }

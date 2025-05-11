@@ -7,4 +7,9 @@
     # which listenbrainz-mpd doesn't like. manually specify a reasonable path here.
     path = "${config.xdg.configHome}/listenbrainz-mpd/token";
   };
+  age.secrets.lastfm = {
+    file = ../secrets/lastfm.age;
+    # TODO: move these somewhere more reasonable
+    path = "${config.xdg.configHome}/lastfm-token";
+  };
 }
