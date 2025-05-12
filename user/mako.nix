@@ -9,10 +9,10 @@
       width = 500;
       anchor = "bottom-center";
       margin = "10";
-      defaultTimeout = 5000;
-      backgroundColor = "#000000D0";
-      borderRadius = 5;
-      borderSize = 0;
+      default-timeout = 5000;
+      background-color = "#000000D0";
+      border-radius = 5;
+      border-size = 0;
     };
   };
 }
