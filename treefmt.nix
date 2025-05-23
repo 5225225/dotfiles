@@ -21,7 +21,8 @@
     black.enable = true;
     fish_indent.enable = true;
     prettier = {
-      enable = true;
+      # TODO: currently doesn't work
+      enable = false;
       settings.tabWidth = 4;
     };
     keep-sorted.enable = true;
