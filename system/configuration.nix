@@ -166,12 +166,10 @@ in
       extra-experimental-features = [
         "flakes"
         "nix-command"
-        "ca-derivations"
       ];
       use-xdg-base-directories = true;
       keep-outputs = true;
       keep-derivations = true;
-      flake-registry = "";
     };
 
     daemonCPUSchedPolicy = "idle";
