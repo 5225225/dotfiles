@@ -122,6 +122,7 @@
     pkgs.bottom
     pkgs.brotli
     (pkgs.buku.override { withServer = true; })
+    pkgs.celeste64
     pkgs.chromium
     pkgs.darkhttpd
     pkgs.darktable

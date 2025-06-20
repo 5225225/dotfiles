@@ -183,9 +183,10 @@ in
     allowUnfreePredicate =
       pkg:
       builtins.elem (lib.getName pkg) [
+        "celeste64"
+        "starsector"
         "steam"
         "steam-unwrapped"
-        "starsector"
         "unrar"
       ];
 
