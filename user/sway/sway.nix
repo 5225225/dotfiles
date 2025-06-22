@@ -29,7 +29,7 @@ in
 
       exec firefox
       exec thunderbird
-      exec telegram-desktop
+      exec Telegram
       exec steam
       exec signal-desktop
 
