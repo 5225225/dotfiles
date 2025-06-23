@@ -121,7 +121,8 @@
     pkgs.blender
     pkgs.bottom
     pkgs.brotli
-    (pkgs.buku.override { withServer = true; })
+    # TODO: doesn't build. don't care right now.
+    # (pkgs.buku.override { withServer = true; })
     pkgs.celeste64
     pkgs.chromium
     pkgs.darkhttpd
