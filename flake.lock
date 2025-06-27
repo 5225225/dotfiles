@@ -139,11 +139,11 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1750997002,
-        "narHash": "sha256-7Mgu3xc5YBNapoxCALrZZE0A/CW8Ax3ekIFvaPvXamk=",
+        "lastModified": 1751043686,
+        "narHash": "sha256-kGbUMc4hww2Fe6DdCFy8Qnlspc4dLepa1L9SLh0LORg=",
         "owner": "rycee",
         "repo": "nur-expressions",
-        "rev": "0fd2a513b87bc9e741188d8ebe61120f2d2e1316",
+        "rev": "8c101ae6d55115c7d4f12bffa932f30416dfd070",
         "type": "gitlab"
       },
       "original": {
@@ -311,11 +311,11 @@
     "lix": {
       "flake": false,
       "locked": {
-        "lastModified": 1750867311,
-        "narHash": "sha256-ePRqzLiUc+duqBj5fdsEKqdir3pIySIv/aqotBP7fbg=",
-        "rev": "34696c65a241a2a16bcb1c97946e179ead6e41ea",
+        "lastModified": 1751057608,
+        "narHash": "sha256-m2VBWeEFBUHdn5LfD2HmWvaoM0f5QSPV8XD7VpE+Of8=",
+        "rev": "ac80a11300eb60006b7de90fb10ad6789e5beeed",
         "type": "tarball",
-        "url": "https://git.lix.systems/api/v1/repos/lix-project/lix/archive/34696c65a241a2a16bcb1c97946e179ead6e41ea.tar.gz?rev=34696c65a241a2a16bcb1c97946e179ead6e41ea"
+        "url": "https://git.lix.systems/api/v1/repos/lix-project/lix/archive/ac80a11300eb60006b7de90fb10ad6789e5beeed.tar.gz?rev=ac80a11300eb60006b7de90fb10ad6789e5beeed"
       },
       "original": {
         "type": "tarball",
@@ -391,11 +391,11 @@
         "systems": "systems_4"
       },
       "locked": {
-        "lastModified": 1751018463,
-        "narHash": "sha256-WJub9XhzGVkS4Ismz6jFRAl2vQJvSciemfhhkV13eVw=",
+        "lastModified": 1751053139,
+        "narHash": "sha256-FMcWdec8fAXs7kiOQBsD+vA/RzjqoDz3zoYgPDQpZlA=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "a473ef658a8611cfbb48bb9bd7d0f2eed2fe038a",
+        "rev": "c39f5f39c32e0a8fe91bff1cda847de7a0269411",
         "type": "github"
       },
       "original": {
