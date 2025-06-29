@@ -143,6 +143,7 @@
     pkgs.hyperfine
     pkgs.imagemagick
     pkgs.imhex
+    pkgs.itch
     pkgs.keepassxc
     pkgs.libnotify
     pkgs.libreoffice-fresh
