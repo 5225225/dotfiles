@@ -77,6 +77,7 @@
       ];
 
       np = nixpkgs.legacyPackages.x86_64-linux;
+      lix = inputs.lix-module.pkgs.x86_64-linux.lix;
 
       welcomeText = ''
         🩵🩷🤍🩷🩵\
@@ -126,7 +127,7 @@
           self.packages.x86_64-linux.diff-relnotes
           np.nix-output-monitor
           np.coreutils
-          np.lix
+          lix
           np.git
         ];
         text = ''
@@ -162,7 +163,7 @@
           runtimeInputs = [
             np.git
             np.delta
-            np.lix
+            lix
             np.jq
           ];
           inheritPath = false;
@@ -194,7 +195,7 @@
           runtimeInputs = [
             np.git
             np.coreutils
-            np.lix
+            lix
             np.nix-output-monitor
             np.nix-diff
           ];
