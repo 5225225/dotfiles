@@ -107,6 +107,8 @@ in
     udisks2.enable = true;
 
     tailscale.enable = true;
+
+    fwupd.enable = true;
   };
 
   # Set your time zone.
