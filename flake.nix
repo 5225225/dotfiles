@@ -58,12 +58,27 @@
   };
 
   outputs =
-    { self, nixpkgs, ... }@inputs':
+    { self, ... }@inputs':
     let
       inputs = inputs' // {
         firefox-addons = inputs'.firefox-addons.packages.x86_64-linux;
         # nixos-unstable-small = (import inputs'.nixos-unstable-small) { system = "x86_64-linux"; };
       };
+
+      nixpkgs' = (import inputs.nixpkgs { system = "x86_64-linux"; }).applyPatches {
+        name = "nixpkgs-unstable-patched";
+        src = inputs.nixpkgs;
+        patches = [ 
+          (
+            builtins.fetchurl { 
+              url = "https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull/424658.patch"; 
+              sha256 = "sha256-5v/0f0h2IlVj7T/h3ezZavjk5ypsPCbbliH4oWvh4C8="; 
+            }
+          )
+        ];
+      };
+
+      nixpkgs = import nixpkgs' { system = "x86_64-linux"; };
 
       treefmtEval = inputs.treefmt-nix.lib.evalModule nixpkgs.legacyPackages.x86_64-linux ./treefmt.nix;
 
