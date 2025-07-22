@@ -46,7 +46,7 @@
     ./yt-dlp.nix
     inputs.agenix.homeManagerModules.age
     inputs.base16.homeManagerModule
-    inputs.nix-index-database.hmModules.nix-index
+    inputs.nix-index-database.homeModules.nix-index
     inputs.nixvim.homeManagerModules.nixvim
     # keep-sorted end
   ];
@@ -126,7 +126,8 @@
     pkgs.celeste64
     pkgs.chromium
     pkgs.darkhttpd
-    pkgs.darktable
+    # TODO: doesn't build, see https://github.com/NixOS/nixpkgs/issues/425306
+    # pkgs.darktable
     pkgs.dejsonlz4
     pkgs.dfc
     pkgs.diffoscope
@@ -158,7 +159,6 @@
     pkgs.ncdu
     pkgs.nix-diff
     pkgs.nix-output-monitor
-    pkgs.nixfmt-rfc-style
     pkgs.openrct2
     pkgs.openttd
     pkgs.pandoc

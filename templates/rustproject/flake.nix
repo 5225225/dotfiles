@@ -53,14 +53,13 @@
           inherit src;
           strictDeps = true;
 
-          buildInputs =
-            [
-              # Add additional build inputs here
-            ]
-            ++ lib.optionals pkgs.stdenv.isDarwin [
-              # Additional darwin specific inputs can be set here
-              pkgs.libiconv
-            ];
+          buildInputs = [
+            # Add additional build inputs here
+          ]
+          ++ lib.optionals pkgs.stdenv.isDarwin [
+            # Additional darwin specific inputs can be set here
+            pkgs.libiconv
+          ];
 
           # Additional environment variables can be set directly
           # MY_CUSTOM_VAR = "some value";
@@ -125,13 +124,12 @@
           formatting = treefmtEval.config.build.check self;
         };
 
-        packages =
-          {
-            default = my-crate;
-          }
-          // lib.optionalAttrs (!pkgs.stdenv.isDarwin) {
-            my-crate-llvm-coverage = craneLibLLvmTools.cargoLlvmCov (commonArgs // { inherit cargoArtifacts; });
-          };
+        packages = {
+          default = my-crate;
+        }
+        // lib.optionalAttrs (!pkgs.stdenv.isDarwin) {
+          my-crate-llvm-coverage = craneLibLLvmTools.cargoLlvmCov (commonArgs // { inherit cargoArtifacts; });
+        };
 
         formatter = treefmtEval.config.build.wrapper;
 
