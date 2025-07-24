@@ -126,8 +126,7 @@
     pkgs.celeste64
     pkgs.chromium
     pkgs.darkhttpd
-    # TODO: doesn't build, see https://github.com/NixOS/nixpkgs/issues/425306
-    # pkgs.darktable
+    pkgs.darktable
     pkgs.dejsonlz4
     pkgs.dfc
     pkgs.diffoscope
